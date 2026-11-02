@@ -37,7 +37,6 @@ const LOCAL_ONLY = new Set([
   'kimya-kocum-page',
   'kimya-kocum-ders-gorunum',
   'kimya-kocum-sync',
-  'kimya-kocum-ogretmen',
   'kimya-kocum-ogretmen-sinif',
 ])
 const SYNC_KEY = 'kimya-kocum-sync' // { uid, hash, at }

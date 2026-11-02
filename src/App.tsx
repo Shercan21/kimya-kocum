@@ -56,7 +56,6 @@ const startPage: Record<StudyPurpose, PageId> = {
 const PAGE_KEY = 'kimya-kocum-page'
 const GOAL_KEY = 'kimya-kocum-goal'
 const VIEW_KEY = 'kimya-kocum-ders-gorunum'
-const TEACHER_KEY = 'kimya-kocum-ogretmen'
 const TEACHER_GRADE_KEY = 'kimya-kocum-ogretmen-sinif'
 const ALL_GRADES = [9, 10, 11, 12] as const
 
@@ -84,22 +83,14 @@ function App() {
     return saved === 'AYT' ? 'AYT' : saved === '12' ? 12 : 'TYT'
   })
 
-  // Öğretmen görünümü: öğretmen hesabıyla giriş yapınca ya da onboarding'de
-  // logoya 5 kez dokununca bütün sınıfların dersleri ve yazılıları açılır.
+  // Öğretmen görünümü: yalnızca öğretmen Google hesabıyla giriş yapınca
+  // bütün sınıfların dersleri ve yazılıları açılır.
   const cloud = useCloud()
-  const [ogretmenYerel, setOgretmenYerel] = useState(() => localStorage.getItem(TEACHER_KEY) === '1')
   const [ogretmenSinif, setOgretmenSinif] = useState<number>(() => {
     const saved = Number(localStorage.getItem(TEACHER_GRADE_KEY))
     return ALL_GRADES.includes(saved as 9) ? saved : 9
   })
-  const teacherAccount = isTeacher(cloud.user)
-  const teacherView = teacherAccount || ogretmenYerel
-
-  function setTeacherLocal(on: boolean) {
-    setOgretmenYerel(on)
-    if (on) localStorage.setItem(TEACHER_KEY, '1')
-    else localStorage.removeItem(TEACHER_KEY)
-  }
+  const teacherView = isTeacher(cloud.user)
 
   function changeTeacherGrade(next: number) {
     setOgretmenSinif(next)
@@ -142,7 +133,6 @@ function App() {
         initial={profile}
         onDone={finishOnboarding}
         onCancel={profile ? () => setEditingProfile(false) : undefined}
-        onTeacherMode={() => setTeacherLocal(true)}
       />
     )
   }
@@ -252,11 +242,6 @@ function App() {
                 <h3 className="card-title">
                   <Icon name="users" />
                   Öğretmen görünümü
-                  {!teacherAccount && (
-                    <button type="button" className="card-link" onClick={() => setTeacherLocal(false)}>
-                      Kapat
-                    </button>
-                  )}
                 </h3>
                 <div className="grade-picker" role="group" aria-label="Sınıf">
                   {ALL_GRADES.map(item => (

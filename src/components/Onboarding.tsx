@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { GoogleMark } from './AccountCard'
-import { googleIleGiris, useCloud } from '../data/cloud'
+import { googleIleGiris, isTeacher, useCloud } from '../data/cloud'
 import Icon from './Icon'
 import {
   purposes,
@@ -14,7 +14,6 @@ type Props = {
   initial: StudentProfile | null
   onDone: (profile: StudentProfile) => void
   onCancel?: () => void
-  onTeacherMode?: () => void
 }
 
 const dayNames = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz']
@@ -22,34 +21,20 @@ const dayLong = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumar
 const minuteOptions = [20, 30, 45, 60, 90]
 const steps = ['Amaç', 'Sınıf', 'Çalışma düzeni', 'Sözleşme']
 
-export default function Onboarding({ initial, onDone, onCancel, onTeacherMode }: Props) {
+export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const [step, setStep] = useState(0)
   const [purpose, setPurpose] = useState<StudyPurpose | null>(initial?.purpose ?? null)
   const [grade, setGrade] = useState<number | null>(initial?.grade ?? null)
-  // Sınıf yalnızca ilk girişte, bir kez seçilir.
-  // Öğretmen modu: logoya 3 saniye içinde 5 kez dokununca kilit açılır (test için).
-  const [teacherMode, setTeacherMode] = useState(false)
-  const [taps, setTaps] = useState<number[]>([])
-  const gradeLocked = !!initial && !teacherMode
-
-  function logoTap(event: { timeStamp: number }) {
-    if (teacherMode) return
-    const now = event.timeStamp
-    const recent = [...taps.filter(t => now - t < 3000), now]
-    if (recent.length >= 5) {
-      setTeacherMode(true)
-      onTeacherMode?.()
-      setTaps([])
-      setStep(1)
-      setError('')
-    } else setTaps(recent)
-  }
   const [confirmGrade, setConfirmGrade] = useState(false)
   const [dailyMinutes, setDailyMinutes] = useState(initial?.dailyMinutes ?? 45)
   const [days, setDays] = useState<number[]>(initial?.days ?? [0, 1, 2, 3, 4])
   const [goal, setGoal] = useState(initial?.goal ?? '')
   const [error, setError] = useState('')
   const cloud = useCloud()
+  // Sınıf yalnızca ilk girişte, bir kez seçilir. Öğretmen hesabıyla giriş
+  // yapılmışsa kilit yoktur (test için istenen sınıf seçilebilir).
+  const teacherMode = isTeacher(cloud.user)
+  const gradeLocked = !!initial && !teacherMode
 
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
@@ -107,7 +92,7 @@ export default function Onboarding({ initial, onDone, onCancel, onTeacherMode }:
     <div className="onboarding">
       <div className="ob-card">
         <div className="ob-top">
-          <span className="brand-mark" onClick={logoTap}><Icon name="flask" /></span>
+          <span className="brand-mark"><Icon name="flask" /></span>
           <div className="ob-steps" aria-label={`Adım ${step + 1} / ${steps.length}`}>
             {steps.map((name, index) => (
               <span
@@ -176,7 +161,7 @@ export default function Onboarding({ initial, onDone, onCancel, onTeacherMode }:
           <>
             <h1>Kaçıncı sınıftasın?</h1>
             {teacherMode ? (
-              <p className="teacher-note">Öğretmen modu açıldı: Derslerim'de bütün sınıfların konuları ve yazılıları açık. Sınıf kilidi de kalktı; test için istediğin sınıfı seçebilirsin.</p>
+              <p className="teacher-note">Öğretmen hesabı: sınıf kilidi yok, test için istediğin sınıfı seçebilirsin.</p>
             ) : gradeLocked ? (
               <p className="muted">Sınıf seçimi ilk girişte yapılır ve değiştirilemez.</p>
             ) : (
