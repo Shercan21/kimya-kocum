@@ -14,6 +14,7 @@ type Props = {
   initial: StudentProfile | null
   onDone: (profile: StudentProfile) => void
   onCancel?: () => void
+  onTeacherMode?: () => void
 }
 
 const dayNames = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz']
@@ -21,7 +22,7 @@ const dayLong = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumar
 const minuteOptions = [20, 30, 45, 60, 90]
 const steps = ['Amaç', 'Sınıf', 'Çalışma düzeni', 'Sözleşme']
 
-export default function Onboarding({ initial, onDone, onCancel }: Props) {
+export default function Onboarding({ initial, onDone, onCancel, onTeacherMode }: Props) {
   const [step, setStep] = useState(0)
   const [purpose, setPurpose] = useState<StudyPurpose | null>(initial?.purpose ?? null)
   const [grade, setGrade] = useState<number | null>(initial?.grade ?? null)
@@ -32,11 +33,12 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const gradeLocked = !!initial && !teacherMode
 
   function logoTap(event: { timeStamp: number }) {
-    if (!initial || teacherMode) return
+    if (teacherMode) return
     const now = event.timeStamp
     const recent = [...taps.filter(t => now - t < 3000), now]
     if (recent.length >= 5) {
       setTeacherMode(true)
+      onTeacherMode?.()
       setTaps([])
       setStep(1)
       setError('')
@@ -174,7 +176,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
           <>
             <h1>Kaçıncı sınıftasın?</h1>
             {teacherMode ? (
-              <p className="teacher-note">Öğretmen modu: sınıf kilidi açık. Test için istediğin sınıfı seç.</p>
+              <p className="teacher-note">Öğretmen modu açıldı: Derslerim'de bütün sınıfların konuları ve yazılıları açık. Sınıf kilidi de kalktı; test için istediğin sınıfı seçebilirsin.</p>
             ) : gradeLocked ? (
               <p className="muted">Sınıf seçimi ilk girişte yapılır ve değiştirilemez.</p>
             ) : (

@@ -33,7 +33,13 @@ const db = getFirestore(app)
 export const TEACHER_EMAIL = 'ercanseyithasan@gmail.com'
 const PREFIX = 'kimya-kocum-'
 // Cihaza özel arayüz tercihleri eşitlenmez.
-const LOCAL_ONLY = new Set(['kimya-kocum-page', 'kimya-kocum-ders-gorunum', 'kimya-kocum-sync'])
+const LOCAL_ONLY = new Set([
+  'kimya-kocum-page',
+  'kimya-kocum-ders-gorunum',
+  'kimya-kocum-sync',
+  'kimya-kocum-ogretmen',
+  'kimya-kocum-ogretmen-sinif',
+])
 const SYNC_KEY = 'kimya-kocum-sync' // { uid, hash, at }
 
 export type CloudState = {

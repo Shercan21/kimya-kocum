@@ -15,7 +15,7 @@ import LearningTracker from './components/LearningTracker'
 import QuestionBankManager from './components/QuestionBankManager'
 import Onboarding from './components/Onboarding'
 import AccountCard from './components/AccountCard'
-import { syncNow } from './data/cloud'
+import { isTeacher, syncNow, useCloud } from './data/cloud'
 import TeacherPanel from './components/TeacherPanel'
 import {
   loadProfile,
@@ -56,6 +56,9 @@ const startPage: Record<StudyPurpose, PageId> = {
 const PAGE_KEY = 'kimya-kocum-page'
 const GOAL_KEY = 'kimya-kocum-goal'
 const VIEW_KEY = 'kimya-kocum-ders-gorunum'
+const TEACHER_KEY = 'kimya-kocum-ogretmen'
+const TEACHER_GRADE_KEY = 'kimya-kocum-ogretmen-sinif'
+const ALL_GRADES = [9, 10, 11, 12] as const
 
 function App() {
   const [page, setPage] = useState<PageId>(() => {
@@ -80,6 +83,29 @@ function App() {
     const saved = localStorage.getItem(VIEW_KEY)
     return saved === 'AYT' ? 'AYT' : saved === '12' ? 12 : 'TYT'
   })
+
+  // Öğretmen görünümü: öğretmen hesabıyla giriş yapınca ya da onboarding'de
+  // logoya 5 kez dokununca bütün sınıfların dersleri ve yazılıları açılır.
+  const cloud = useCloud()
+  const [ogretmenYerel, setOgretmenYerel] = useState(() => localStorage.getItem(TEACHER_KEY) === '1')
+  const [ogretmenSinif, setOgretmenSinif] = useState<number>(() => {
+    const saved = Number(localStorage.getItem(TEACHER_GRADE_KEY))
+    return ALL_GRADES.includes(saved as 9) ? saved : 9
+  })
+  const teacherAccount = isTeacher(cloud.user)
+  const teacherView = teacherAccount || ogretmenYerel
+
+  function setTeacherLocal(on: boolean) {
+    setOgretmenYerel(on)
+    if (on) localStorage.setItem(TEACHER_KEY, '1')
+    else localStorage.removeItem(TEACHER_KEY)
+  }
+
+  function changeTeacherGrade(next: number) {
+    setOgretmenSinif(next)
+    setOpenTopic(null)
+    localStorage.setItem(TEACHER_GRADE_KEY, String(next))
+  }
 
   function changeView(next: Gorunum) {
     setGorunum(next)
@@ -116,6 +142,7 @@ function App() {
         initial={profile}
         onDone={finishOnboarding}
         onCancel={profile ? () => setEditingProfile(false) : undefined}
+        onTeacherMode={() => setTeacherLocal(true)}
       />
     )
   }
@@ -125,11 +152,14 @@ function App() {
   const activeLabel = profilEtiketi(profile)
   const avatar = profile.grade
   const isSenior = profile.grade === 12
-  const viewGrades = !isSenior ? [profile.grade] : gorunum === 12 ? [12] : SINAV_SINIFLARI[gorunum]
+  const viewGrades = teacherView
+    ? [ogretmenSinif]
+    : !isSenior ? [profile.grade] : gorunum === 12 ? [12] : SINAV_SINIFLARI[gorunum]
+  const show12Placeholder = teacherView ? ogretmenSinif === 12 : isSenior && gorunum === 12
   const contentGrades = viewGrades.filter(grade => sinifMufredati(grade))
   // 12. sınıfta okul yazılısı yok; sınav sekmesi yalnızca TYT/AYT testleridir.
   const labelOf = (item: (typeof pages)[number]) =>
-    item.id === 'exams' && isSenior ? 'TYT / AYT testleri' : item.label
+    item.id === 'exams' && isSenior && !teacherView ? 'TYT / AYT testleri' : item.label
 
   return (
     <div className="app">
@@ -164,7 +194,7 @@ function App() {
           <span className="avatar">{avatar}</span>
           <span className="label">
             {isSenior ? '12. sınıf · TYT + AYT' : `${profile.grade}. sınıf`}
-            <small>Amacımı değiştir</small>
+            <small>{teacherView ? 'Öğretmen görünümü' : 'Amacımı değiştir'}</small>
           </span>
         </button>
       </aside>
@@ -217,7 +247,35 @@ function App() {
 
         {page === 'lessons' && !openTopic && (
           <div className="stack">
-            {isSenior && (
+            {teacherView && (
+              <section className="card teacher-view">
+                <h3 className="card-title">
+                  <Icon name="users" />
+                  Öğretmen görünümü
+                  {!teacherAccount && (
+                    <button type="button" className="card-link" onClick={() => setTeacherLocal(false)}>
+                      Kapat
+                    </button>
+                  )}
+                </h3>
+                <div className="grade-picker" role="group" aria-label="Sınıf">
+                  {ALL_GRADES.map(item => (
+                    <button
+                      key={item}
+                      type="button"
+                      className={ogretmenSinif === item ? 'chip is-active' : 'chip'}
+                      onClick={() => changeTeacherGrade(item)}
+                      aria-pressed={ogretmenSinif === item}
+                    >
+                      {item}. sınıf
+                      <small>{item === 12 ? 'hazırlanıyor' : 'tüm konular'}</small>
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {isSenior && !teacherView && (
               <section className="card">
                 <h3 className="card-title">Ne çalışmak istiyorsun?</h3>
                 <div className="grade-picker" role="group" aria-label="TYT, AYT ya da 12. sınıf">
@@ -244,7 +302,7 @@ function App() {
               </section>
             )}
 
-            {!isSenior && (
+            {!isSenior && !teacherView && (
               <h2 className="section-title">{profile.grade}. sınıf kimya</h2>
             )}
 
@@ -261,7 +319,7 @@ function App() {
               </div>
             ))}
 
-            {isSenior && gorunum === 12 && (
+            {show12Placeholder && (
               /* 12. sınıf içeriği hazır olana kadar kendi konularını ekleyebilir. */
               <div className="stack">
                 <p className="program-message">
@@ -274,7 +332,11 @@ function App() {
           </div>
         )}
 
-        {page === 'exams' && <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} />}
+        {page === 'exams' && (
+          teacherView
+            ? <ExamsPage grades={SINAV_SINIFLARI.TYT_AYT} label="Tüm sınıflar" showWritten />
+            : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} />
+        )}
 
         {page === 'program' && (
           <ProgramPage
