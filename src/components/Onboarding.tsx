@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { GoogleMark } from './AccountCard'
-import { googleIleGiris, isTeacher, useCloud } from '../data/cloud'
+import SignInButton from './SignInButton'
+import { PrivacyLink } from './Privacy'
+import { isTeacher, useCloud } from '../data/cloud'
 import Icon from './Icon'
 import {
   purposes,
@@ -120,10 +121,8 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
                 ) : (
                   <>
                     <p className="muted small">Daha önce kullandın mı? Giriş yap, ilerlemen geri gelsin.</p>
-                    <button type="button" className="google-button" onClick={() => googleIleGiris()}>
-                      <GoogleMark />
-                      Google ile giriş yap
-                    </button>
+                    <SignInButton />
+                    <p className="small"><PrivacyLink /></p>
                   </>
                 )}
               </div>

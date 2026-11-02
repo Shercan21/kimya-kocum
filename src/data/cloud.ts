@@ -10,11 +10,13 @@ import {
   onAuthStateChanged,
   signInWithPopup,
   signInWithRedirect,
+  deleteUser,
   signOut,
   type User,
 } from 'firebase/auth'
 import {
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -228,6 +230,30 @@ export async function cikisYap() {
   await syncNow()
   await signOut(auth)
   localStorage.removeItem(SYNC_KEY)
+  setState({ lastSync: null })
+}
+
+// Sunucudaki bütün verileri ve (mümkünse) giriş kaydını siler.
+export async function hesabiSil(cihazdakiniDeSil: boolean) {
+  const user = auth.currentUser
+  if (!user) return
+  window.clearInterval(timer)
+  await deleteDoc(doc(db, 'users', user.uid))
+  try {
+    await deleteUser(user)
+  } catch {
+    // Uzun süre önce giriş yapıldıysa Google yeniden giriş ister; veriler zaten silindi.
+    await signOut(auth)
+  }
+  localStorage.removeItem(SYNC_KEY)
+  if (cihazdakiniDeSil) {
+    const keys: string[] = []
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (key?.startsWith(PREFIX)) keys.push(key)
+    }
+    keys.forEach(key => localStorage.removeItem(key))
+  }
   setState({ lastSync: null })
 }
 

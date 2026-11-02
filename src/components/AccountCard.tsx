@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import Icon from './Icon'
-import { cikisYap, googleIleGiris, isTeacher, syncNow, useCloud } from '../data/cloud'
+import SignInButton from './SignInButton'
+import { PrivacyLink } from './Privacy'
+import { cikisYap, hesabiSil, isTeacher, syncNow, useCloud } from '../data/cloud'
 
 function zaman(iso: string | null) {
   if (!iso) return 'henüz eşitlenmedi'
@@ -12,6 +15,9 @@ function zaman(iso: string | null) {
 
 export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => void }) {
   const cloud = useCloud()
+  const [silme, setSilme] = useState(false)
+  const [cihaz, setCihaz] = useState(false)
+  const [siliniyor, setSiliniyor] = useState(false)
 
   if (!cloud.ready) return null
 
@@ -26,10 +32,8 @@ export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => v
           Google ile giriş yaparsan ilerlemen yedeklenir; telefonunu değiştirsen de kaldığın yerden devam edersin.
         </p>
         {cloud.error && <p className="form-error">{cloud.error}</p>}
-        <button type="button" className="google-button" onClick={() => googleIleGiris()}>
-          <GoogleMark />
-          Google ile giriş yap
-        </button>
+        <SignInButton />
+        <p className="small"><PrivacyLink /></p>
       </section>
     )
   }
@@ -70,6 +74,44 @@ export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => v
           Çıkış yap
         </button>
       </div>
+      <p className="small account-links">
+        <PrivacyLink />
+        {!silme && (
+          <button type="button" className="link-button danger" onClick={() => setSilme(true)}>
+            Hesabımı ve verilerimi sil
+          </button>
+        )}
+      </p>
+      {silme && (
+        <div className="delete-box" role="alert">
+          <b>Hesabın ve sunucudaki bütün verilerin silinecek.</b>
+          <p className="small">Bu işlem geri alınamaz. Öğretmenin de artık gelişimini göremez.</p>
+          <label className="consent">
+            <input type="checkbox" checked={cihaz} onChange={e => setCihaz(e.target.checked)} />
+            <span>Bu cihazdaki ilerlemem de silinsin</span>
+          </label>
+          <div className="row-actions start">
+            <button type="button" className="btn-secondary" onClick={() => setSilme(false)}>Vazgeç</button>
+            <button
+              type="button"
+              className="danger-button"
+              disabled={siliniyor}
+              onClick={async () => {
+                setSiliniyor(true)
+                try {
+                  await hesabiSil(cihaz)
+                  if (cihaz) window.location.reload()
+                } finally {
+                  setSiliniyor(false)
+                  setSilme(false)
+                }
+              }}
+            >
+              {siliniyor ? 'Siliniyor…' : 'Evet, sil'}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
