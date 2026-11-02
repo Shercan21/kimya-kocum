@@ -3,8 +3,7 @@ import './App.css'
 import Icon, { type IconName } from './components/Icon'
 import TodayPage from './components/TodayPage'
 import TopicMap from './components/TopicMap'
-import SmartStudyPlan from './components/SmartStudyPlan'
-import StudyPreferences from './components/StudyPreferences'
+import ProgramPage from './components/ProgramPage'
 import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
 import QuestionBankManager from './components/QuestionBankManager'
@@ -16,13 +15,13 @@ import {
   getTopicProgress,
 } from './data/learningProgress'
 
-type PageId = 'today' | 'lessons' | 'exams' | 'review' | 'progress'
+type PageId = 'today' | 'program' | 'lessons' | 'exams' | 'progress'
 
 const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'today', label: 'Bugün', short: 'Bugün', icon: 'home' },
+  { id: 'program', label: 'Programım', short: 'Program', icon: 'calendar' },
   { id: 'lessons', label: 'Derslerim', short: 'Dersler', icon: 'book' },
   { id: 'exams', label: 'Yazılı ve TYT/AYT', short: 'Sınav', icon: 'file' },
-  { id: 'review', label: 'Akıllı tekrar', short: 'Tekrar', icon: 'repeat' },
   { id: 'progress', label: 'Gelişimim', short: 'Gelişim', icon: 'chart' },
 ]
 
@@ -30,10 +29,10 @@ const grades = [9, 10, 11, 12]
 
 // İlk girişten sonra amaca göre açılacak sayfa.
 const startPage: Record<StudyPurpose, PageId> = {
-  long_term: 'today',
+  long_term: 'program',
   school: 'today',
   written_exam: 'exams',
-  tyt_ayt: 'today',
+  tyt_ayt: 'program',
   topic: 'lessons',
   practice: 'lessons',
   gaps: 'lessons',
@@ -190,9 +189,7 @@ function App() {
 
             {/* Sınıf değişince bileşenler yeni sınıfın verisiyle açılsın. */}
             <div className="stack" key={selectedGrade ?? 'none'}>
-              <StudyPreferences />
               <StudyTopics selectedGrade={selectedGrade} />
-              <SmartStudyPlan selectedGrade={selectedGrade} />
               <LearningTracker selectedGrade={selectedGrade} />
             </div>
           </div>
@@ -210,9 +207,10 @@ function App() {
           </section>
         )}
 
-        {page === 'review' && (
-          <ReviewPage
-            grade={selectedGrade}
+        {page === 'program' && (
+          <ProgramPage
+            profile={profile}
+            onProfileChange={setProfile}
             onOpenLessons={() => changePage('lessons')}
           />
         )}
@@ -277,8 +275,9 @@ function ReviewPage({
       </h3>
       {learned.length === 0 ? (
         <p className="muted">
-          Öğrendiğin konular burada tekrar sırasına girer. Bir konunun mini
-          sınavını geçtiğinde burada görünecek.
+          Öğrendiğin konular burada görünür. Programım sayfasındaki
+          program oluşturucu bunlara 1, 3, 7, 14 ve 30 gün sonra tekrar
+          görevi ekler.
         </p>
       ) : (
         <ul className="task-list">
@@ -293,10 +292,6 @@ function ReviewPage({
           ))}
         </ul>
       )}
-      <p className="muted small">
-        Tekrar zamanlarını performansına göre ayarlayan akıllı takvim bir
-        sonraki adımda eklenecek.
-      </p>
     </section>
   )
 }
@@ -328,6 +323,7 @@ function ProgressPage({
             </div>
           )}
         </section>
+        <ReviewPage grade={grade} onOpenLessons={onOpenLessons} />
       </div>
       <div className="col">
         <TopicMap grade={grade} onOpenLessons={onOpenLessons} />

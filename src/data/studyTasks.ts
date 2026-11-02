@@ -7,6 +7,10 @@ export type StudyTask = {
   completed: boolean
   date: string
   grade?: number
+  // Program oluşturucunun eklediği görevlerde dolu olur.
+  kind?: 'study' | 'quiz' | 'review' | 'custom'
+  topicId?: string
+  minutes?: number
 }
 
 const KEY = 'kimya-kocum-tasks-v2'
