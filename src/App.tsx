@@ -17,10 +17,8 @@ import Onboarding from './components/Onboarding'
 import {
   loadProfile,
   profilSiniflari,
-  saveProfile,
-  SINAV_AD,
+  profilEtiketi,
   SINAV_SINIFLARI,
-  type Sinav,
   type StudentProfile,
   type StudyPurpose,
 } from './data/profile'
@@ -40,7 +38,6 @@ const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'progress', label: 'Gelişimim', short: 'Gelişim', icon: 'chart' },
 ]
 
-const grades = [9, 10, 11, 12]
 
 // İlk girişten sonra amaca göre açılacak sayfa.
 const startPage: Record<StudyPurpose, PageId> = {
@@ -55,7 +52,6 @@ const startPage: Record<StudyPurpose, PageId> = {
 
 const PAGE_KEY = 'kimya-kocum-page'
 const GOAL_KEY = 'kimya-kocum-goal'
-const GRADE_KEY = 'kimya-kocum-grade'
 const VIEW_KEY = 'kimya-kocum-ders-gorunum'
 
 function App() {
@@ -68,31 +64,23 @@ function App() {
     () => localStorage.getItem(GOAL_KEY) || ''
   )
 
-  const [selectedGrade, setSelectedGrade] = useState<number | null>(() => {
-    const saved = Number(localStorage.getItem(GRADE_KEY))
-    return grades.includes(saved) ? saved : null
-  })
-
   const [profile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
 
-  // Derslerim'de gösterilen sınıf ya da sınav (TYT: 9+10, AYT: 11)
-  const [gorunum, setGorunum] = useState<number | Sinav | null>(() => {
+  // 12. sınıf / mezun Derslerim'de TYT (9+10), AYT (11) ve 12 arasında geçer.
+  // 9, 10 ve 11. sınıflar yalnızca kendi sınıflarını görür; seçici gösterilmez.
+  type Gorunum = 'TYT' | 'AYT' | 12
+  const [gorunum, setGorunum] = useState<Gorunum>(() => {
     const saved = localStorage.getItem(VIEW_KEY)
-    if (saved === 'TYT' || saved === 'AYT' || saved === 'TYT_AYT') return saved
-    if (saved && grades.includes(Number(saved))) return Number(saved)
-    const p = loadProfile()
-    if (p?.purpose === 'tyt_ayt' && p.sinav) return p.sinav
-    return p?.grade ?? null
+    return saved === 'AYT' ? 'AYT' : saved === '12' ? 12 : 'TYT'
   })
 
-  function changeView(next: number | Sinav) {
+  function changeView(next: Gorunum) {
     setGorunum(next)
     setOpenTopic(null)
     localStorage.setItem(VIEW_KEY, String(next))
-    if (typeof next === 'number') selectGrade(next)
   }
 
   function changePage(next: PageId) {
@@ -101,17 +89,6 @@ function App() {
     setMistakesOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
-  }
-
-  function selectGrade(grade: number) {
-    setSelectedGrade(grade)
-    setOpenTopic(null)
-    localStorage.setItem(GRADE_KEY, String(grade))
-    if (profile) {
-      const next = { ...profile, grade, updatedAt: new Date().toISOString() }
-      saveProfile(next)
-      setProfile(next)
-    }
   }
 
   function updateStudentGoal(goal: string) {
@@ -123,10 +100,6 @@ function App() {
   function finishOnboarding(next: StudentProfile) {
     setProfile(next)
     setEditingProfile(false)
-    setSelectedGrade(next.grade)
-    const view = next.purpose === 'tyt_ayt' && next.sinav ? next.sinav : next.grade
-    setGorunum(view)
-    localStorage.setItem(VIEW_KEY, String(view))
     setStudentGoal(localStorage.getItem(GOAL_KEY) || '')
     changePage(startPage[next.purpose])
   }
@@ -143,10 +116,10 @@ function App() {
 
   const current = pages.find(item => item.id === page)!
   const activeGrades = profilSiniflari(profile)
-  const isExam = profile.purpose === 'tyt_ayt' && !!profile.sinav
-  const activeLabel = isExam && profile.sinav ? SINAV_AD[profile.sinav] : undefined
-  const avatar = isExam && profile.sinav ? (profile.sinav === 'TYT_AYT' ? 'T+A' : profile.sinav) : selectedGrade ?? '?'
-  const viewGrades = gorunum === null ? [] : typeof gorunum === 'number' ? [gorunum] : SINAV_SINIFLARI[gorunum]
+  const activeLabel = profilEtiketi(profile)
+  const avatar = profile.grade
+  const isSenior = profile.grade === 12
+  const viewGrades = !isSenior ? [profile.grade] : gorunum === 12 ? [12] : SINAV_SINIFLARI[gorunum]
   const contentGrades = viewGrades.filter(grade => sinifMufredati(grade))
 
   return (
@@ -181,7 +154,7 @@ function App() {
         >
           <span className="avatar">{avatar}</span>
           <span className="label">
-            {activeLabel ? `${activeLabel} hazırlığı` : selectedGrade ? `${selectedGrade}. sınıf` : 'Sınıfını seç'}
+            {isSenior ? '12. sınıf · TYT + AYT' : `${profile.grade}. sınıf`}
             <small>Amacımı değiştir</small>
           </span>
         </button>
@@ -199,7 +172,7 @@ function App() {
 
         {page === 'today' && (
           <TodayPage
-            selectedGrade={selectedGrade}
+            selectedGrade={profile.grade}
             grades={activeGrades}
             gradeLabel={activeLabel}
             studentGoal={studentGoal}
@@ -235,40 +208,36 @@ function App() {
 
         {page === 'lessons' && !openTopic && (
           <div className="stack">
-            <section className="card">
-              <h3 className="card-title">Ne çalışmak istiyorsun?</h3>
-              <div className="grade-picker" role="group" aria-label="Sınıf ya da sınav seçimi">
-                {grades.map(grade => (
-                  <button
-                    key={grade}
-                    type="button"
-                    className={gorunum === grade ? 'chip is-active' : 'chip'}
-                    onClick={() => changeView(grade)}
-                    aria-pressed={gorunum === grade}
-                  >
-                    {grade}. sınıf
-                  </button>
-                ))}
-                <span className="picker-sep" aria-hidden="true" />
-                {(['TYT', 'AYT'] as const).map(sinav => (
-                  <button
-                    key={sinav}
-                    type="button"
-                    className={gorunum === sinav ? 'chip is-active' : 'chip'}
-                    onClick={() => changeView(sinav)}
-                    aria-pressed={gorunum === sinav}
-                  >
-                    {sinav}
-                    <small>{SINAV_SINIFLARI[sinav].join(' + ')}. sınıf</small>
-                  </button>
-                ))}
-              </div>
-              {gorunum === 'AYT' && (
-                <p className="muted small picker-note">
-                  AYT'nin 12. sınıf konuları yeni Maarif programı yayımlanınca eklenecek.
-                </p>
-              )}
-            </section>
+            {isSenior && (
+              <section className="card">
+                <h3 className="card-title">Ne çalışmak istiyorsun?</h3>
+                <div className="grade-picker" role="group" aria-label="TYT, AYT ya da 12. sınıf">
+                  {(['TYT', 'AYT', 12] as const).map(item => (
+                    <button
+                      key={item}
+                      type="button"
+                      className={gorunum === item ? 'chip is-active' : 'chip'}
+                      onClick={() => changeView(item)}
+                      aria-pressed={gorunum === item}
+                    >
+                      {item === 12 ? '12. sınıf' : item}
+                      <small>
+                        {item === 12 ? 'hazırlanıyor' : `${SINAV_SINIFLARI[item].join(' + ')}. sınıf konuları`}
+                      </small>
+                    </button>
+                  ))}
+                </div>
+                {gorunum === 'AYT' && (
+                  <p className="muted small picker-note">
+                    AYT'nin 12. sınıf konuları yeni Maarif programı yayımlanınca eklenecek.
+                  </p>
+                )}
+              </section>
+            )}
+
+            {!isSenior && (
+              <h2 className="section-title">{profile.grade}. sınıf kimya</h2>
+            )}
 
             {contentGrades.map(grade => (
               <div key={grade} className="stack">
@@ -283,14 +252,14 @@ function App() {
               </div>
             ))}
 
-            {typeof gorunum === 'number' && !sinifMufredati(gorunum) && (
-              /* İçeriği henüz hazır olmayan sınıflarda kendi konularını ekleyebilir. */
-              <div className="stack" key={gorunum}>
+            {isSenior && gorunum === 12 && (
+              /* 12. sınıf içeriği hazır olana kadar kendi konularını ekleyebilir. */
+              <div className="stack">
                 <p className="program-message">
-                  {gorunum}. sınıfın konu anlatımı ve testleri yeni Maarif programıyla hazırlanacak. Şimdilik kendi konularını ekleyip takip edebilirsin.
+                  12. sınıfın konu anlatımı ve testleri yeni Maarif programıyla hazırlanacak. Şimdilik kendi konularını ekleyip takip edebilirsin.
                 </p>
-                <StudyTopics selectedGrade={gorunum} />
-                <LearningTracker selectedGrade={gorunum} />
+                <StudyTopics selectedGrade={12} />
+                <LearningTracker selectedGrade={12} />
               </div>
             )}
           </div>

@@ -97,12 +97,17 @@ export function loadProfile(): StudentProfile | null {
   }
 }
 
-// Öğrencinin çalıştığı sınıflar: TYT/AYT hazırlığında sınavın sınıfları,
-// diğer durumlarda kendi sınıfı.
+// Öğrencinin gördüğü sınıflar. Sınıf ilk girişte bir kez seçilir:
+// 9, 10, 11 yalnızca kendi sınıfını; 12 (ve mezun) TYT (9+10), AYT (11)
+// ve 12. sınıfı görür. 12. sınıf içeriği yeni Maarif programıyla eklenecek.
 export function profilSiniflari(profile: StudentProfile | null): number[] {
   if (!profile) return []
-  if (profile.purpose === 'tyt_ayt' && profile.sinav) return SINAV_SINIFLARI[profile.sinav]
+  if (profile.grade === 12) return SINAV_SINIFLARI.TYT_AYT
   return [profile.grade]
+}
+
+export function profilEtiketi(profile: StudentProfile | null): string | undefined {
+  return profile?.grade === 12 ? 'TYT + AYT' : undefined
 }
 
 // Mevcut çalışma tercihlerindeki hedef türüne çevirir.

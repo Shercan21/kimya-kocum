@@ -2233,3 +2233,43 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   color: var(--coral-600);
   font-weight: 600;
 }
+
+/* ---------- Tek seferlik sınıf seçimi ---------- */
+.grade-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--amber-50);
+  color: var(--amber-800);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.grade-scope {
+  margin: 12px 0 0;
+}
+
+.grade-confirm {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 2px solid var(--coral-600);
+  border-radius: 12px;
+  background: var(--coral-50);
+  color: var(--coral-600);
+}
+
+.grade-confirm p {
+  margin: 4px 0 0;
+}
+
+.grade-confirm .row-actions {
+  margin-top: 12px;
+}
+
+.ob-grade:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

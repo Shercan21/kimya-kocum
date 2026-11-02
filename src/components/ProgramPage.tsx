@@ -17,10 +17,10 @@ import {
   type PlannedTask,
 } from '../data/planner'
 import {
+  profilEtiketi,
   profilSiniflari,
   purposeTitle,
   saveProfile,
-  SINAV_AD,
   type StudentProfile,
 } from '../data/profile'
 
@@ -55,8 +55,8 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
   const grade = profile.grade
   const grades = profilSiniflari(profile)
   const gradeLabel =
-    profile.purpose === 'tyt_ayt' && profile.sinav
-      ? `${SINAV_AD[profile.sinav]} (${grades.join(', ')}. sınıf konuları)`
+    profilEtiketi(profile)
+      ? `${profilEtiketi(profile)} (${grades.join(', ')}. sınıf konuları)`
       : `${grade}. sınıf`
   const today = localDate(new Date())
   const monday = mondayOf(weekOffset)
