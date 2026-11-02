@@ -2137,3 +2137,99 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
     flex: 1 1 100%;
   }
 }
+
+/* ---------- Hata defteri ---------- */
+.neden {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.neden small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-2);
+}
+
+.neden .chip {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.neden-dagilim {
+  margin: 14px 0;
+}
+
+.neden-dagilim > small {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.neden-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 90px 28px;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.neden-bar .mini-bar {
+  width: 100%;
+}
+
+.neden-bar .mini-bar span {
+  background: var(--coral-600);
+}
+
+.neden-bar b {
+  text-align: right;
+}
+
+.primary-button.full {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.mistake-group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.mistake-group-head > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.mistake-group-head h3 {
+  margin: 2px 0 0;
+  font-size: 16px;
+}
+
+.mistake-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mistake-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mistake-list li:last-child {
+  border-bottom: 0;
+}
+
+.error-text {
+  margin: 12px 0 0;
+  color: var(--coral-600);
+  font-weight: 600;
+}

@@ -5,6 +5,7 @@ import TopicMap from './TopicMap'
 import { loadTopics } from '../data/topics'
 import { getTopicProgress } from '../data/learningProgress'
 import { getQuestionCount } from '../data/questionBank'
+import { useHataDefteri } from '../data/mistakes'
 import {
   localDate,
   updateStudyTasks,
@@ -18,6 +19,7 @@ type Props = {
   studentGoal: string
   onGoalChange: (goal: string) => void
   onOpenLessons: () => void
+  onOpenMistakes: () => void
 }
 
 type NextStep = {
@@ -44,7 +46,11 @@ export default function TodayPage({
   studentGoal,
   onGoalChange,
   onOpenLessons,
+  onOpenMistakes,
 }: Props) {
+  const acikHatalar = useHataDefteri().filter(
+    item => item.durum === 'acik' && grades.includes(item.grade)
+  ).length
   const tasks = useStudyTasks()
   const [editingGoal, setEditingGoal] = useState(!studentGoal.trim())
   const now = new Date()
@@ -84,6 +90,17 @@ export default function TodayPage({
         detail: 'Konuların, programın ve sınavların sınıfına göre hazırlanır.',
         action: 'Sınıfımı seç',
         onAction: onOpenLessons,
+      }
+    }
+
+    // Biriken hatalar varsa önce onları kapat (plan §7).
+    if (acikHatalar >= 3) {
+      return {
+        eyebrow: 'Hata defterin',
+        title: `${acikHatalar} soru seni bekliyor`,
+        detail: 'Yanlış yaptığın soruları tekrar çöz, hatalarını kapat.',
+        action: 'Tekrar çöz',
+        onAction: onOpenMistakes,
       }
     }
 

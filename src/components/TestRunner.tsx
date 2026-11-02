@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import { icerikHtml, testDosyasi, type Soru, type TestDosyasi } from '../data/content'
 import { basari, GECME_ORANI, sonucKaydet, type TestSonucu } from '../data/results'
+import {
+  hataKaydiKey,
+  nedenKaydet,
+  NEDEN_AD,
+  testSonucunuIsle,
+  useHataDefteri,
+  type HataNedeni,
+} from '../data/mistakes'
 
 type Props = {
   grade: number
@@ -26,6 +34,7 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
   const [cevaplar, setCevaplar] = useState<Record<number, number>>({})
   const [sonuc, setSonuc] = useState<TestSonucu | null>(null)
   const [onay, setOnay] = useState(false)
+  const hatalar = useHataDefteri()
 
   useEffect(() => {
     let active = true
@@ -80,6 +89,15 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
         konuBaslik
       )
     )
+    testSonucunuIsle({
+      grade,
+      testId,
+      testIndex,
+      konuKod,
+      testBaslik: baslik,
+      dogruCevaplar: sorular.map(item => item.d),
+      cevaplar,
+    })
     setIndex(0)
     window.scrollTo({ top: 0 })
   }
@@ -144,6 +162,28 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
                   </li>
                 ))}
               </ol>
+              {durum !== 'dogru' && (() => {
+                const key = hataKaydiKey(grade, testId, testIndex, i)
+                const kayit = hatalar.find(h => h.key === key)
+                return (
+                  <div className="neden">
+                    <small>Hata defterine eklendi. Neden {durum === 'bos' ? 'boş bıraktın' : 'yanlış yaptın'}?</small>
+                    <div className="cipler">
+                      {(Object.keys(NEDEN_AD) as HataNedeni[]).map(neden => (
+                        <button
+                          key={neden}
+                          type="button"
+                          className={kayit?.neden === neden ? 'chip is-active' : 'chip'}
+                          onClick={() => nedenKaydet(key, neden)}
+                          aria-pressed={kayit?.neden === neden}
+                        >
+                          {NEDEN_AD[neden]}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
               {item.c && (
                 <details className="cozum" open={durum !== 'dogru'}>
                   <summary>Çözüm</summary>

@@ -7,6 +7,8 @@ import ProgramPage from './components/ProgramPage'
 import CurriculumPage from './components/CurriculumPage'
 import TopicPage from './components/TopicPage'
 import ExamsPage from './components/ExamsPage'
+import MistakeBook from './components/MistakeBook'
+import { useHataDefteri } from './data/mistakes'
 import { sinifMufredati } from './data/content'
 import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
@@ -74,6 +76,7 @@ function App() {
   const [profile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string } | null>(null)
+  const [mistakesOpen, setMistakesOpen] = useState(false)
 
   // Derslerim'de gösterilen sınıf ya da sınav (TYT: 9+10, AYT: 11)
   const [gorunum, setGorunum] = useState<number | Sinav | null>(() => {
@@ -95,6 +98,7 @@ function App() {
   function changePage(next: PageId) {
     setPage(next)
     setOpenTopic(null)
+    setMistakesOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
   }
@@ -201,6 +205,10 @@ function App() {
             studentGoal={studentGoal}
             onGoalChange={updateStudentGoal}
             onOpenLessons={() => changePage('lessons')}
+            onOpenMistakes={() => {
+              changePage('progress')
+              setMistakesOpen(true)
+            }}
           />
         )}
 
@@ -298,11 +306,19 @@ function App() {
           />
         )}
 
-        {page === 'progress' && (
+        {page === 'progress' && mistakesOpen && (
+          <MistakeBook grades={activeGrades} onClose={() => setMistakesOpen(false)} />
+        )}
+
+        {page === 'progress' && !mistakesOpen && (
           <ProgressPage
             grades={activeGrades}
             label={activeLabel}
             onOpenLessons={() => changePage('lessons')}
+            onOpenMistakes={() => {
+              setMistakesOpen(true)
+              window.scrollTo({ top: 0 })
+            }}
           />
         )}
 
@@ -384,11 +400,15 @@ function ProgressPage({
   grades,
   label,
   onOpenLessons,
+  onOpenMistakes,
 }: {
   grades: number[]
   label?: string
   onOpenLessons: () => void
+  onOpenMistakes: () => void
 }) {
+  const hatalar = useHataDefteri().filter(item => grades.includes(item.grade))
+  const acikHata = hatalar.filter(item => item.durum === 'acik').length
   const summaries = grades.map(grade => getGradeLearningSummary(grade))
   const total = (key: 'studied' | 'learned' | 'permanent') =>
     summaries.reduce((sum, item) => sum + item[key], 0)
@@ -411,6 +431,20 @@ function ProgressPage({
               <div className="stat"><small>Kalıcı</small><b>{total('permanent')}</b></div>
             </div>
           )}
+        </section>
+        <section className="card">
+          <h3 className="card-title">
+            <Icon name="notebook" />
+            Hata defterim
+          </h3>
+          <p className="muted">
+            {hatalar.length === 0
+              ? 'Testlerde yanlış yaptığın ya da boş bıraktığın sorular burada birikir.'
+              : `${acikHata} açık hata · ${hatalar.length - acikHata} düzeltildi`}
+          </p>
+          <button type="button" className={acikHata ? 'primary-button' : 'btn-secondary'} onClick={onOpenMistakes}>
+            Hata defterini aç
+          </button>
         </section>
         <ReviewPage grades={grades} onOpenLessons={onOpenLessons} />
       </div>
