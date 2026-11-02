@@ -1,24 +1,18 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import './App.css'
 import Icon, { type IconName } from './components/Icon'
 import TodayPage from './components/TodayPage'
 import TopicMap from './components/TopicMap'
-import ProgramPage from './components/ProgramPage'
 import CurriculumPage from './components/CurriculumPage'
-import TopicPage, { type TopicTab } from './components/TopicPage'
-import CoachPage from './components/CoachPage'
+import type { TopicTab } from './components/TopicPage'
 import type { Eylem } from './data/coach'
-import ExamsPage from './components/ExamsPage'
-import MistakeBook from './components/MistakeBook'
 import { useHataDefteri } from './data/mistakes'
 import { sinifMufredati } from './data/content'
 import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
-import QuestionBankManager from './components/QuestionBankManager'
 import Onboarding from './components/Onboarding'
 import AccountCard from './components/AccountCard'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
-import TeacherPanel from './components/TeacherPanel'
 import {
   loadProfile,
   profilSiniflari,
@@ -32,6 +26,15 @@ import {
   getGradeLearningSummary,
   getTopicProgress,
 } from './data/learningProgress'
+
+// Sayfalar ilk açılışı hızlandırmak için ayrı parçalar halinde yüklenir.
+const TopicPage = lazy(() => import('./components/TopicPage'))
+const ProgramPage = lazy(() => import('./components/ProgramPage'))
+const CoachPage = lazy(() => import('./components/CoachPage'))
+const ExamsPage = lazy(() => import('./components/ExamsPage'))
+const MistakeBook = lazy(() => import('./components/MistakeBook'))
+const TeacherPanel = lazy(() => import('./components/TeacherPanel'))
+const QuestionBankManager = lazy(() => import('./components/QuestionBankManager'))
 
 type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'progress'
 
@@ -204,6 +207,7 @@ function App() {
       </aside>
 
       <main className="main">
+        <Suspense fallback={<p className="muted page-loading">Yükleniyor…</p>}>
         <button
           type="button"
           className="mobile-profile"
@@ -383,6 +387,7 @@ function App() {
             <QuestionBankManager />
           </details>
         )}
+      </Suspense>
       </main>
 
       <nav className="tabbar" aria-label="Alt menü">
