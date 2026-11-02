@@ -1,0 +1,95 @@
+import Icon, { type IconName } from './Icon'
+import { loadTopics } from '../data/topics'
+import {
+  getTopicProgress,
+  type LearningStatus,
+} from '../data/learningProgress'
+
+type Props = {
+  grade: number | null
+  onOpenLessons: () => void
+}
+
+const statusInfo: Record<
+  LearningStatus,
+  { label: string; icon: IconName; tone: string }
+> = {
+  not_started: { label: 'Başlanmadı', icon: 'lock', tone: 'gray' },
+  studied: { label: 'Çalışıldı · mini sınav seni bekliyor', icon: 'book', tone: 'purple' },
+  learned: { label: 'Öğrenildi · tekrarla kalıcı hâle getir', icon: 'check', tone: 'teal' },
+  permanent: { label: 'Kalıcı öğrenildi', icon: 'star', tone: 'amber' },
+}
+
+export default function TopicMap({ grade, onOpenLessons }: Props) {
+  const topics =
+    grade === null
+      ? []
+      : loadTopics().filter(topic => topic.grade === grade)
+
+  const withStatus = topics.map(topic => ({
+    ...topic,
+    status:
+      getTopicProgress(topic.grade, topic.id)?.status ??
+      ('not_started' as LearningStatus),
+  }))
+
+  // Sıradaki konu: ilk "çalışıldı", yoksa ilk "başlanmadı".
+  const nextId =
+    withStatus.find(topic => topic.status === 'studied')?.id ??
+    withStatus.find(topic => topic.status === 'not_started')?.id
+
+  return (
+    <section className="card topic-map-card">
+      <h3 className="card-title">
+        <Icon name="route" />
+        Konu haritam
+        {grade !== null && <span className="card-link">{grade}. sınıf</span>}
+      </h3>
+
+      <div className="legend">
+        <span><b className="dot-gray" />Başlanmadı</span>
+        <span><b className="dot-purple" />Çalışıldı</span>
+        <span><b className="dot-teal" />Öğrenildi</span>
+        <span><b className="dot-amber" />Kalıcı</span>
+      </div>
+
+      {grade === null && (
+        <div className="empty">
+          <p>Konu haritanı görmek için önce sınıfını seç.</p>
+          <button type="button" className="btn-secondary" onClick={onOpenLessons}>
+            Sınıfımı seç
+          </button>
+        </div>
+      )}
+
+      {grade !== null && withStatus.length === 0 && (
+        <div className="empty">
+          <p>{grade}. sınıf için henüz konu yok. Derslerim sayfasından konu ekleyebilirsin.</p>
+          <button type="button" className="btn-secondary" onClick={onOpenLessons}>
+            Konu ekle
+          </button>
+        </div>
+      )}
+
+      {withStatus.length > 0 && (
+        <ol className="map">
+          {withStatus.map(topic => {
+            const info = statusInfo[topic.status]
+            return (
+              <li
+                key={topic.id}
+                className={`node tone-${info.tone}${topic.id === nextId ? ' is-next' : ''}`}
+              >
+                <span className="node-dot">
+                  <Icon name={info.icon} size={15} />
+                </span>
+                <span className="node-title">{topic.title}</span>
+                <small>{info.label}</small>
+              </li>
+            )
+          })}
+        </ol>
+      )}
+    </section>
+  )
+}
