@@ -5,7 +5,9 @@ import TodayPage from './components/TodayPage'
 import TopicMap from './components/TopicMap'
 import ProgramPage from './components/ProgramPage'
 import CurriculumPage from './components/CurriculumPage'
-import TopicPage from './components/TopicPage'
+import TopicPage, { type TopicTab } from './components/TopicPage'
+import CoachPage from './components/CoachPage'
+import type { Eylem } from './data/coach'
 import ExamsPage from './components/ExamsPage'
 import MistakeBook from './components/MistakeBook'
 import { useHataDefteri } from './data/mistakes'
@@ -31,10 +33,11 @@ import {
   getTopicProgress,
 } from './data/learningProgress'
 
-type PageId = 'today' | 'program' | 'lessons' | 'exams' | 'progress'
+type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'progress'
 
 const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'today', label: 'Bugün', short: 'Bugün', icon: 'home' },
+  { id: 'coach', label: 'Koçum', short: 'Koç', icon: 'target' },
   { id: 'program', label: 'Programım', short: 'Program', icon: 'calendar' },
   { id: 'lessons', label: 'Derslerim', short: 'Dersler', icon: 'book' },
   { id: 'exams', label: 'Yazılı ve TYT/AYT', short: 'Sınav', icon: 'file' },
@@ -71,7 +74,7 @@ function App() {
 
   const [profile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
-  const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string } | null>(null)
+  const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
   const [teacherOpen, setTeacherOpen] = useState(false)
 
@@ -111,6 +114,17 @@ function App() {
     setTeacherOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
+  }
+
+  // Koçun önerdiği eyleme git.
+  function coachAction(eylem: Eylem) {
+    if (eylem.tur === 'hata') {
+      changePage('progress')
+      setMistakesOpen(true)
+      return
+    }
+    changePage('lessons')
+    if (eylem.tur !== 'dersler') setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur })
   }
 
   function updateStudentGoal(goal: string) {
@@ -225,9 +239,10 @@ function App() {
 
         {page === 'lessons' && openTopic && (
           <TopicPage
-            key={`${openTopic.grade}-${openTopic.kod}`}
+            key={`${openTopic.grade}-${openTopic.kod}-${openTopic.tab ?? ""}`}
             grade={openTopic.grade}
             kod={openTopic.kod}
+            initialTab={openTopic.tab}
             onBack={() => {
               setOpenTopic(null)
               window.scrollTo({ top: 0 })
@@ -321,6 +336,10 @@ function App() {
           teacherView
             ? <ExamsPage grades={SINAV_SINIFLARI.TYT_AYT} label="Tüm sınıflar" showWritten />
             : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} />
+        )}
+
+        {page === 'coach' && (
+          <CoachPage grades={teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades} onAction={coachAction} />
         )}
 
         {page === 'program' && (

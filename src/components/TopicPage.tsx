@@ -16,10 +16,12 @@ import { basari, testSonuclari } from '../data/results'
 type Props = {
   grade: number
   kod: string
+  initialTab?: TopicTab
   onBack: () => void
 }
 
-type Tab = 'anlatim' | 'test' | 'etkinlik'
+export type TopicTab = 'anlatim' | 'test' | 'etkinlik'
+type Tab = TopicTab
 
 type ActiveTest = { id: string; index: number; baslik: string }
 
@@ -36,10 +38,10 @@ function lastScore(grade: number, testId: string, seviye: string | null) {
   return last ? basari(last) : null
 }
 
-export default function TopicPage({ grade, kod, onBack }: Props) {
+export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
   const found = konuBul(grade, kod)
   const mufredat = sinifMufredati(grade)
-  const [tab, setTab] = useState<Tab>('anlatim')
+  const [tab, setTab] = useState<Tab>(initialTab ?? 'anlatim')
   const [html, setHtml] = useState<string | null>(null)
   const [kit, setKit] = useState<EtkinlikKitabi | null>(null)
   const [error, setError] = useState('')
