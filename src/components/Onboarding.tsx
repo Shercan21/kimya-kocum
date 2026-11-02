@@ -24,7 +24,22 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const [purpose, setPurpose] = useState<StudyPurpose | null>(initial?.purpose ?? null)
   const [grade, setGrade] = useState<number | null>(initial?.grade ?? null)
   // Sınıf yalnızca ilk girişte, bir kez seçilir.
-  const gradeLocked = !!initial
+  // Öğretmen modu: logoya 3 saniye içinde 5 kez dokununca kilit açılır (test için).
+  const [teacherMode, setTeacherMode] = useState(false)
+  const [taps, setTaps] = useState<number[]>([])
+  const gradeLocked = !!initial && !teacherMode
+
+  function logoTap(event: { timeStamp: number }) {
+    if (!initial || teacherMode) return
+    const now = event.timeStamp
+    const recent = [...taps.filter(t => now - t < 3000), now]
+    if (recent.length >= 5) {
+      setTeacherMode(true)
+      setTaps([])
+      setStep(1)
+      setError('')
+    } else setTaps(recent)
+  }
   const [confirmGrade, setConfirmGrade] = useState(false)
   const [dailyMinutes, setDailyMinutes] = useState(initial?.dailyMinutes ?? 45)
   const [days, setDays] = useState<number[]>(initial?.days ?? [0, 1, 2, 3, 4])
@@ -34,7 +49,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
     if (step === 1 && !grade) return setError('Devam etmek için sınıfını seç.')
-    if (step === 1 && !gradeLocked && !confirmGrade) {
+    if (step === 1 && !initial && !confirmGrade) {
       setError('')
       setConfirmGrade(true)
       return
@@ -87,7 +102,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
     <div className="onboarding">
       <div className="ob-card">
         <div className="ob-top">
-          <span className="brand-mark"><Icon name="flask" /></span>
+          <span className="brand-mark" onClick={logoTap}><Icon name="flask" /></span>
           <div className="ob-steps" aria-label={`Adım ${step + 1} / ${steps.length}`}>
             {steps.map((name, index) => (
               <span
@@ -138,7 +153,9 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
         {step === 1 && (
           <>
             <h1>Kaçıncı sınıftasın?</h1>
-            {gradeLocked ? (
+            {teacherMode ? (
+              <p className="teacher-note">Öğretmen modu: sınıf kilidi açık. Test için istediğin sınıfı seç.</p>
+            ) : gradeLocked ? (
               <p className="muted">Sınıf seçimi ilk girişte yapılır ve değiştirilemez.</p>
             ) : (
               <p className="grade-warning">

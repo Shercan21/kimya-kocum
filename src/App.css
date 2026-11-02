@@ -2273,3 +2273,13 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   opacity: 0.35;
   cursor: not-allowed;
 }
+
+.teacher-note {
+  margin: 4px 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #e1f5ee;
+  color: #0f6e56;
+  font-size: 14px;
+  font-weight: 600;
+}
