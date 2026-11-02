@@ -1,4 +1,5 @@
 import publishedQuestionBank from './questionBankData.json'
+import { icerikliSiniflar, konuId, tumKonular } from './content'
 
 export type StudyTopic = {
   id: string
@@ -29,15 +30,31 @@ const publishedTopics: unknown[] =
     ? publishedQuestionBank.topics
     : []
 
-export const builtInTopics: StudyTopic[] = publishedTopics
-  .filter(isPublishedTopic)
-  .map(topic => ({
-    id: topic.id,
-    title: topic.title,
-    grade: topic.grade,
-    createdAt: '2026-11-01T00:00:00.000Z',
+// Müfredattaki konular (9, 10, 11) + eski soru havuzunun konuları.
+// İçeriği hazır sınıflarda eski havuz konuları gösterilmez.
+const curriculumTopics: StudyTopic[] = icerikliSiniflar().flatMap(grade =>
+  tumKonular(grade).map(({ konu }) => ({
+    id: konuId(grade, konu.kod),
+    title: konu.ad,
+    grade,
+    createdAt: '2026-11-02T00:00:00.000Z',
     builtIn: true,
   }))
+)
+
+export const builtInTopics: StudyTopic[] = [
+  ...curriculumTopics,
+  ...publishedTopics
+    .filter(isPublishedTopic)
+    .filter(topic => !icerikliSiniflar().includes(topic.grade))
+    .map(topic => ({
+      id: topic.id,
+      title: topic.title,
+      grade: topic.grade,
+      createdAt: '2026-11-01T00:00:00.000Z',
+      builtIn: true,
+    })),
+]
 
 const builtInIds = new Set(builtInTopics.map(topic => topic.id))
 

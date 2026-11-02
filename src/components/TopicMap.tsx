@@ -38,6 +38,12 @@ export default function TopicMap({ grade, onOpenLessons }: Props) {
     withStatus.find(topic => topic.status === 'studied')?.id ??
     withStatus.find(topic => topic.status === 'not_started')?.id
 
+  // Uzun listelerde sıradaki konunun çevresindeki 6 konu gösterilir.
+  const nextIndex = Math.max(0, withStatus.findIndex(topic => topic.id === nextId))
+  const start = Math.max(0, Math.min(nextIndex - 2, withStatus.length - 6))
+  const visible = withStatus.slice(start, start + 6)
+  const hidden = withStatus.length - visible.length
+
   return (
     <section className="card topic-map-card">
       <h3 className="card-title">
@@ -73,7 +79,7 @@ export default function TopicMap({ grade, onOpenLessons }: Props) {
 
       {withStatus.length > 0 && (
         <ol className="map">
-          {withStatus.map(topic => {
+          {visible.map(topic => {
             const info = statusInfo[topic.status]
             return (
               <li
@@ -89,6 +95,12 @@ export default function TopicMap({ grade, onOpenLessons }: Props) {
             )
           })}
         </ol>
+      )}
+
+      {hidden > 0 && (
+        <button type="button" className="btn-secondary" onClick={onOpenLessons}>
+          Bütün konular ({withStatus.length})
+        </button>
       )}
     </section>
   )

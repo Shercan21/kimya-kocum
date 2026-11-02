@@ -35,3 +35,14 @@ $env:BASE_PATH="/kimya-kocum/"; npm run build
 - React 19 + TypeScript + Vite
 - Veriler şimdilik tarayıcıda (localStorage, `kimya-kocum-` önekli anahtarlar) saklanır.
 - Service worker (`public/sw.js`) yalnızca derlenmiş sürümde çalışır; yeni sürümde `CACHE` adını artırın.
+
+## İçerik (konu anlatımı, testler, etkinlikler)
+
+9, 10 ve 11. sınıf içerikleri Shercan Kimya'dan, kazanımlar `kimya klasör/kazanımlar/config.py` dosyasından aktarılır:
+
+```bash
+python tools/icerik_aktar.py "C:/Users/LENOVO/Desktop/shercan-kimya" "C:/Users/LENOVO/Desktop/kimya klasör/kazanımlar/config.py" public/icerik src/data/mufredat.json
+```
+
+- `src/data/mufredat.json` → sınıf / tema / bölüm / konu / kazanım ağacı (uygulamaya gömülü)
+- `public/icerik/<sınıf>/testler.json`, `konular.json`, `etkinlikler.json` ve `public/icerik/img/` → gerektiğinde yüklenir

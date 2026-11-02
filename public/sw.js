@@ -3,7 +3,7 @@
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocun-v3'
+const CACHE = 'kimya-kocun-v4'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname
@@ -56,6 +56,25 @@ self.addEventListener('fetch', event => {
         .catch(() =>
           caches.match(INDEX).then(cached => cached || caches.match(BASE))
         )
+    )
+    return
+  }
+
+  // Konu anlatımı, test ve etkinlikler: önbellekten hemen göster,
+  // arkada ağdan güncelle (çevrimdışıyken daha önce açılanlar çalışır).
+  if (url.pathname.startsWith(BASE + 'icerik/')) {
+    event.respondWith(
+      caches.open(CACHE).then(cache =>
+        cache.match(request).then(cached => {
+          const network = fetch(request)
+            .then(response => {
+              if (response.ok) cache.put(request, response.clone())
+              return response
+            })
+            .catch(() => cached)
+          return cached || network
+        })
+      )
     )
     return
   }

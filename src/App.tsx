@@ -4,6 +4,10 @@ import Icon, { type IconName } from './components/Icon'
 import TodayPage from './components/TodayPage'
 import TopicMap from './components/TopicMap'
 import ProgramPage from './components/ProgramPage'
+import CurriculumPage from './components/CurriculumPage'
+import TopicPage from './components/TopicPage'
+import ExamsPage from './components/ExamsPage'
+import { sinifMufredati } from './data/content'
 import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
 import QuestionBankManager from './components/QuestionBankManager'
@@ -59,15 +63,18 @@ function App() {
 
   const [profile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
+  const [openTopic, setOpenTopic] = useState<string | null>(null)
 
   function changePage(next: PageId) {
     setPage(next)
+    setOpenTopic(null)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
   }
 
   function selectGrade(grade: number) {
     setSelectedGrade(grade)
+    setOpenTopic(null)
     localStorage.setItem(GRADE_KEY, String(grade))
     if (profile) {
       const next = { ...profile, grade, updatedAt: new Date().toISOString() }
@@ -168,7 +175,19 @@ function App() {
           </div>
         )}
 
-        {page === 'lessons' && (
+        {page === 'lessons' && openTopic && selectedGrade !== null && (
+          <TopicPage
+            key={`${selectedGrade}-${openTopic}`}
+            grade={selectedGrade}
+            kod={openTopic}
+            onBack={() => {
+              setOpenTopic(null)
+              window.scrollTo({ top: 0 })
+            }}
+          />
+        )}
+
+        {page === 'lessons' && !openTopic && (
           <div className="stack">
             <section className="card">
               <h3 className="card-title">Hangi sınıftasın?</h3>
@@ -187,25 +206,31 @@ function App() {
               </div>
             </section>
 
-            {/* Sınıf değişince bileşenler yeni sınıfın verisiyle açılsın. */}
-            <div className="stack" key={selectedGrade ?? 'none'}>
-              <StudyTopics selectedGrade={selectedGrade} />
-              <LearningTracker selectedGrade={selectedGrade} />
-            </div>
+            {sinifMufredati(selectedGrade) && selectedGrade !== null ? (
+              <CurriculumPage
+                key={selectedGrade}
+                grade={selectedGrade}
+                onOpenTopic={kod => {
+                  setOpenTopic(kod)
+                  window.scrollTo({ top: 0 })
+                }}
+              />
+            ) : (
+              /* İçeriği henüz hazır olmayan sınıflarda kendi konularını ekleyebilir. */
+              <div className="stack" key={selectedGrade ?? 'none'}>
+                {selectedGrade !== null && (
+                  <p className="program-message">
+                    {selectedGrade}. sınıfın konu anlatımı ve testleri hazırlanıyor. Şimdilik kendi konularını ekleyip takip edebilirsin.
+                  </p>
+                )}
+                <StudyTopics selectedGrade={selectedGrade} />
+                <LearningTracker selectedGrade={selectedGrade} />
+              </div>
+            )}
           </div>
         )}
 
-        {page === 'exams' && (
-          <section className="card coming">
-            <Icon name="file" size={28} />
-            <h2>Yazılıya hazırlık ve TYT/AYT</h2>
-            <p>
-              Senaryoya uygun yazılı provası, açık uçlu cevap değerlendirmesi
-              ve TYT/AYT denemeleri bu bölüme gelecek.
-            </p>
-            <span className="badge">Hazırlanıyor</span>
-          </section>
-        )}
+        {page === 'exams' && <ExamsPage grade={selectedGrade} />}
 
         {page === 'program' && (
           <ProgramPage
