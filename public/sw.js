@@ -1,9 +1,9 @@
-// Kimya Koçun service worker
+// Kimya Koçum service worker
 // Sayfalar: önce ağ, ağ yoksa önbellek (güncel içerik + çevrimdışı açılış).
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocun-v2'
+const CACHE = 'kimya-kocun-v3'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname

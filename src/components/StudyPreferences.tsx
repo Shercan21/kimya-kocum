@@ -111,7 +111,7 @@ export default function StudyPreferences() {
       <h2>Akıllı Çalışma Tercihlerim</h2>
 
       <p>
-        Kimya Koçun'un sana uygun bir çalışma programı
+        Kimya Koçum'un sana uygun bir çalışma programı
         hazırlayabilmesi için tercihlerini belirle.
       </p>
 

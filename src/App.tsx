@@ -107,7 +107,7 @@ function App() {
       <aside className="side" aria-label="Ana menü">
         <div className="brand">
           <span className="brand-mark"><Icon name="flask" /></span>
-          <span className="label">Kimya Koçun</span>
+          <span className="label">Kimya Koçum</span>
         </div>
 
         <nav className="side-nav">
@@ -162,7 +162,7 @@ function App() {
         {page !== 'today' && (
           <div className="page-head">
             <div>
-              <small>Kimya Koçun</small>
+              <small>Kimya Koçum</small>
               <h1>{current.label}</h1>
             </div>
           </div>

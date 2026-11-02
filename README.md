@@ -1,4 +1,4 @@
-# Kimya Koçun
+# Kimya Koçum
 
 9–12. sınıf öğrencileri ve TYT/AYT adayları için yapay zekâ destekli kişisel kimya koçu. Telefon, tablet ve bilgisayarda çalışan bir PWA.
 

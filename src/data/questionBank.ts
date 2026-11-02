@@ -225,7 +225,7 @@ export function exportQuestionBankJSON(): string {
   return JSON.stringify(
     {
       version: 1,
-      application: 'Kimya Koçun',
+      application: 'Kimya Koçum',
       exportedAt: new Date().toISOString(),
       questionCount: questions.length,
       questions,
