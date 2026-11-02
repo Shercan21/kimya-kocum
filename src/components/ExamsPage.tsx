@@ -5,11 +5,13 @@ import WrittenExams from './WrittenExams'
 import { sinifMufredati } from '../data/content'
 import { basari, testSonuclari } from '../data/results'
 
-type Props = { grades: number[]; label?: string }
+// 12. sınıf / mezun TYT-AYT için 9-11 testlerini görür ama o sınıfların
+// okul yazılılarını görmez (showWritten=false).
+type Props = { grades: number[]; label?: string; showWritten?: boolean }
 
 type Active = { grade: number; id: string; baslik: string }
 
-export default function ExamsPage({ grades, label }: Props) {
+export default function ExamsPage({ grades, label, showWritten = true }: Props) {
   const sets = grades
     .map(grade => ({ grade, data: sinifMufredati(grade) }))
     .filter((item): item is { grade: number; data: NonNullable<ReturnType<typeof sinifMufredati>> } => item.data !== null)
@@ -61,7 +63,7 @@ export default function ExamsPage({ grades, label }: Props) {
 
   return (
     <div className="stack">
-      {sets.length > 0 && <WrittenExams key={sets.map(item => item.grade).join('-')} grades={sets.map(item => item.grade)} />}
+      {showWritten && sets.length > 0 && <WrittenExams key={sets.map(item => item.grade).join('-')} grades={sets.map(item => item.grade)} />}
 
       {sets.length === 0 && (
         <section className="card coming">

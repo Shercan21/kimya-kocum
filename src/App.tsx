@@ -121,6 +121,9 @@ function App() {
   const isSenior = profile.grade === 12
   const viewGrades = !isSenior ? [profile.grade] : gorunum === 12 ? [12] : SINAV_SINIFLARI[gorunum]
   const contentGrades = viewGrades.filter(grade => sinifMufredati(grade))
+  // 12. sınıfta okul yazılısı yok; sınav sekmesi yalnızca TYT/AYT testleridir.
+  const labelOf = (item: (typeof pages)[number]) =>
+    item.id === 'exams' && isSenior ? 'TYT / AYT testleri' : item.label
 
   return (
     <div className="app">
@@ -138,10 +141,10 @@ function App() {
               className={item.id === page ? 'nav-item is-active' : 'nav-item'}
               onClick={() => changePage(item.id)}
               aria-current={item.id === page ? 'page' : undefined}
-              title={item.label}
+              title={labelOf(item)}
             >
               <Icon name={item.icon} />
-              <span className="label">{item.label}</span>
+              <span className="label">{labelOf(item)}</span>
             </button>
           ))}
         </nav>
@@ -189,7 +192,7 @@ function App() {
           <div className="page-head">
             <div>
               <small>Kimya Koçum</small>
-              <h1>{current.label}</h1>
+              <h1>{labelOf(current)}</h1>
             </div>
           </div>
         )}
@@ -265,7 +268,7 @@ function App() {
           </div>
         )}
 
-        {page === 'exams' && <ExamsPage grades={activeGrades} label={activeLabel} />}
+        {page === 'exams' && <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} />}
 
         {page === 'program' && (
           <ProgramPage
