@@ -4,6 +4,8 @@ import {
   purposes,
   purposeTitle,
   saveProfile,
+  SINAV_AD,
+  type Sinav,
   type StudentProfile,
   type StudyPurpose,
 } from '../data/profile'
@@ -23,6 +25,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const [step, setStep] = useState(0)
   const [purpose, setPurpose] = useState<StudyPurpose | null>(initial?.purpose ?? null)
   const [grade, setGrade] = useState<number | null>(initial?.grade ?? null)
+  const [sinav, setSinav] = useState<Sinav | null>(initial?.sinav ?? null)
   const [dailyMinutes, setDailyMinutes] = useState(initial?.dailyMinutes ?? 45)
   const [days, setDays] = useState<number[]>(initial?.days ?? [0, 1, 2, 3, 4])
   const [goal, setGoal] = useState(initial?.goal ?? '')
@@ -31,6 +34,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
     if (step === 1 && !grade) return setError('Devam etmek için sınıfını seç.')
+    if (step === 1 && purpose === 'tyt_ayt' && !sinav) return setError('Hangi sınava hazırlandığını seç.')
     if (step === 2 && days.length === 0) return setError('En az bir çalışma günü seç.')
     setError('')
     setStep(value => value + 1)
@@ -48,6 +52,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
     const profile: StudentProfile = {
       purpose,
       grade,
+      ...(purpose === 'tyt_ayt' && sinav ? { sinav } : {}),
       dailyMinutes,
       days: [...days].sort((a, b) => a - b),
       goal: goal.trim(),
@@ -151,6 +156,35 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
                 </button>
               ))}
             </div>
+
+            {purpose === 'tyt_ayt' && (
+              <>
+                <h3 className="ob-label">Hangi sınava hazırlanıyorsun?</h3>
+                <div className="ob-options">
+                  {([
+                    ['TYT', '9 ve 10. sınıf konuları'],
+                    ['AYT', '11. sınıf konuları (12. sınıf yeni programla eklenecek)'],
+                    ['TYT_AYT', '9, 10 ve 11. sınıf konuları'],
+                  ] as const).map(([id, detail]) => (
+                    <button
+                      key={id}
+                      type="button"
+                      className={sinav === id ? 'ob-option is-selected' : 'ob-option'}
+                      onClick={() => {
+                        setSinav(id)
+                        setError('')
+                      }}
+                      aria-pressed={sinav === id}
+                    >
+                      <span>
+                        {SINAV_AD[id]}
+                        <small>{detail}</small>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </>
         )}
 
@@ -220,7 +254,10 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
             </p>
             <div className="ob-contract">
               <p><Icon name="target" size={18} /> {purposeTitle(purpose)}.</p>
-              <p><Icon name="book" size={18} /> {grade}. sınıf kimya</p>
+              <p>
+                <Icon name="book" size={18} /> {grade}. sınıf kimya
+                {purpose === 'tyt_ayt' && sinav ? ` · ${SINAV_AD[sinav]} hazırlığı` : ''}
+              </p>
               <p>
                 <Icon name="list" size={18} />
                 {days.map(day => dayLong[day]).join(', ')} günleri, günde {dailyMinutes} dakika

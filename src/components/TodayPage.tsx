@@ -13,6 +13,8 @@ import {
 
 type Props = {
   selectedGrade: number | null
+  grades: number[]
+  gradeLabel?: string
   studentGoal: string
   onGoalChange: (goal: string) => void
   onOpenLessons: () => void
@@ -37,6 +39,8 @@ function greeting(date: Date) {
 
 export default function TodayPage({
   selectedGrade,
+  grades,
+  gradeLabel,
   studentGoal,
   onGoalChange,
   onOpenLessons,
@@ -51,7 +55,8 @@ export default function TodayPage({
       task.date === today &&
       (selectedGrade === null ||
         task.grade === selectedGrade ||
-        task.grade === undefined)
+        task.grade === undefined ||
+        grades.includes(task.grade))
   )
   const doneToday = todayTasks.filter(task => task.completed).length
   const dailyRate = todayTasks.length
@@ -82,7 +87,7 @@ export default function TodayPage({
       }
     }
 
-    const topics = loadTopics().filter(topic => topic.grade === selectedGrade)
+    const topics = loadTopics().filter(topic => grades.includes(topic.grade))
     const studied = topics.find(
       topic => getTopicProgress(topic.grade, topic.id)?.status === 'studied'
     )
@@ -206,7 +211,7 @@ export default function TodayPage({
             )}
           </section>
 
-          <DailyTasks selectedGrade={selectedGrade} />
+          <DailyTasks selectedGrade={selectedGrade} grades={grades} />
 
           <section className="card">
             <h3 className="card-title">
@@ -231,7 +236,7 @@ export default function TodayPage({
         </div>
 
         <div className="col">
-          <TopicMap grade={selectedGrade} onOpenLessons={onOpenLessons} />
+          <TopicMap grades={grades} label={gradeLabel} onOpenLessons={onOpenLessons} />
         </div>
       </div>
     </>

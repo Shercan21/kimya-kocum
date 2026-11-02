@@ -9,10 +9,12 @@ import {
 
 type Props = {
   selectedGrade: number | null
+  grades?: number[]
 }
 
 export default function DailyTasks({
   selectedGrade,
+  grades = [],
 }: Props) {
   const tasks = useStudyTasks()
   const [today, setToday] = useState(() => localDate(new Date()))
@@ -32,7 +34,8 @@ export default function DailyTasks({
       task.date === today &&
       (selectedGrade === null ||
         task.grade === selectedGrade ||
-        task.grade === undefined)
+        task.grade === undefined ||
+        grades.includes(task.grade))
     )
     .sort((a, b) => Number(a.completed) - Number(b.completed))
 

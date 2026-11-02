@@ -7,6 +7,7 @@ import { localDate } from './studyTasks'
 
 export type PlannerTopic = {
   id: string
+  grade: number
   title: string
   status: LearningStatus
   learnedAt: string | null
@@ -67,7 +68,7 @@ function addDays(iso: string, days: number): string {
 }
 
 type Options = {
-  grade: number
+  grades: number[]
   days: PlannerDay[]
   studyWeekdays: number[]
   dailyMinutes: number
@@ -79,7 +80,7 @@ type Options = {
 // Haftanın bugünden sonraki çalışma günlerine görev önerir.
 // Geçmiş günlere ve mevcut görevlere dokunmaz.
 export function planWeek({
-  grade,
+  grades,
   days,
   studyWeekdays,
   dailyMinutes,
@@ -92,7 +93,7 @@ export function planWeek({
   )
   if (studyDays.length === 0) return []
 
-  const gradeTasks = tasks.filter(task => task.grade === grade)
+  const gradeTasks = tasks.filter(task => task.grade !== undefined && grades.includes(task.grade))
 
   // Gün başına kalan süre
   const capacity = new Map<string, number>()
@@ -123,7 +124,7 @@ export function planWeek({
     planned.push({
       title: `${topic.title} · ${KIND_LABEL[kind]}`,
       date: day.key,
-      grade,
+      grade: topic.grade,
       kind,
       topicId: topic.id,
       minutes,

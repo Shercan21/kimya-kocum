@@ -1923,3 +1923,29 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   .act-buttons { margin-left: 0; width: 100%; }
   .act-buttons .primary-button { flex: 1; }
 }
+
+/* ---------- Sınıf / sınav seçici ---------- */
+.grade-picker .chip small {
+  display: block;
+  font-size: 11px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.picker-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 0 4px;
+  background: var(--line);
+}
+
+.picker-note {
+  margin: 10px 0 0;
+}
+
+.section-title {
+  margin: 8px 0 -6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-2);
+}

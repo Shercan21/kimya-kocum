@@ -6,7 +6,8 @@ import {
 } from '../data/learningProgress'
 
 type Props = {
-  grade: number | null
+  grades: number[]
+  label?: string
   onOpenLessons: () => void
 }
 
@@ -20,11 +21,9 @@ const statusInfo: Record<
   permanent: { label: 'Kalıcı öğrenildi', icon: 'star', tone: 'amber' },
 }
 
-export default function TopicMap({ grade, onOpenLessons }: Props) {
-  const topics =
-    grade === null
-      ? []
-      : loadTopics().filter(topic => topic.grade === grade)
+export default function TopicMap({ grades, label, onOpenLessons }: Props) {
+  const grade = grades.length ? grades[0] : null
+  const topics = loadTopics().filter(topic => grades.includes(topic.grade))
 
   const withStatus = topics.map(topic => ({
     ...topic,
@@ -49,7 +48,7 @@ export default function TopicMap({ grade, onOpenLessons }: Props) {
       <h3 className="card-title">
         <Icon name="route" />
         Konu haritam
-        {grade !== null && <span className="card-link">{grade}. sınıf</span>}
+        {grade !== null && <span className="card-link">{label ?? `${grades.join(', ')}. sınıf`}</span>}
       </h3>
 
       <div className="legend">
@@ -70,7 +69,7 @@ export default function TopicMap({ grade, onOpenLessons }: Props) {
 
       {grade !== null && withStatus.length === 0 && (
         <div className="empty">
-          <p>{grade}. sınıf için henüz konu yok. Derslerim sayfasından konu ekleyebilirsin.</p>
+          <p>{label ?? `${grade}. sınıf`} için henüz konu yok. Derslerim sayfasından konu ekleyebilirsin.</p>
           <button type="button" className="btn-secondary" onClick={onOpenLessons}>
             Konu ekle
           </button>

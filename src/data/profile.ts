@@ -27,9 +27,26 @@ export const purposes: {
   { id: 'gaps', title: 'Eksiklerimi belirlemek istiyorum', detail: 'Kısa ön değerlendirme' },
 ]
 
+export type Sinav = 'TYT' | 'AYT' | 'TYT_AYT'
+
+// Sınavların kapsadığı sınıflar. AYT'nin 12. sınıf kısmı yeni Maarif
+// programı gelince eklenecek.
+export const SINAV_SINIFLARI: Record<Sinav, number[]> = {
+  TYT: [9, 10],
+  AYT: [11],
+  TYT_AYT: [9, 10, 11],
+}
+
+export const SINAV_AD: Record<Sinav, string> = {
+  TYT: 'TYT',
+  AYT: 'AYT',
+  TYT_AYT: 'TYT + AYT',
+}
+
 export type StudentProfile = {
   purpose: StudyPurpose
   grade: number
+  sinav?: Sinav
   dailyMinutes: number
   days: number[]
   goal: string
@@ -69,12 +86,23 @@ export function loadProfile(): StudentProfile | null {
       days: data.days.filter(day => Number.isInteger(day) && day >= 0 && day <= 6),
       goal: typeof data.goal === 'string' ? data.goal : '',
       contractAccepted: data.contractAccepted === true,
+      ...(data.sinav === 'TYT' || data.sinav === 'AYT' || data.sinav === 'TYT_AYT'
+        ? { sinav: data.sinav }
+        : {}),
       createdAt: typeof data.createdAt === 'string' ? data.createdAt : new Date().toISOString(),
       updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : new Date().toISOString(),
     }
   } catch {
     return null
   }
+}
+
+// Öğrencinin çalıştığı sınıflar: TYT/AYT hazırlığında sınavın sınıfları,
+// diğer durumlarda kendi sınıfı.
+export function profilSiniflari(profile: StudentProfile | null): number[] {
+  if (!profile) return []
+  if (profile.purpose === 'tyt_ayt' && profile.sinav) return SINAV_SINIFLARI[profile.sinav]
+  return [profile.grade]
 }
 
 // Mevcut çalışma tercihlerindeki hedef türüne çevirir.

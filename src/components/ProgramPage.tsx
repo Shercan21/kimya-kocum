@@ -17,8 +17,10 @@ import {
   type PlannedTask,
 } from '../data/planner'
 import {
+  profilSiniflari,
   purposeTitle,
   saveProfile,
+  SINAV_AD,
   type StudentProfile,
 } from '../data/profile'
 
@@ -51,13 +53,18 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
   const [newTitle, setNewTitle] = useState('')
 
   const grade = profile.grade
+  const grades = profilSiniflari(profile)
+  const gradeLabel =
+    profile.purpose === 'tyt_ayt' && profile.sinav
+      ? `${SINAV_AD[profile.sinav]} (${grades.join(', ')}. sınıf konuları)`
+      : `${grade}. sınıf`
   const today = localDate(new Date())
   const monday = mondayOf(weekOffset)
   const days = weekDays(monday)
   const rangeLabel = `${new Date(`${days[0].key}T12:00`).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })} – ${new Date(`${days[6].key}T12:00`).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })}`
 
   const weekTasks = tasks.filter(
-    task => task.grade === grade && task.date >= days[0].key && task.date <= days[6].key
+    task => task.grade !== undefined && grades.includes(task.grade) && task.date >= days[0].key && task.date <= days[6].key
   )
   const done = weekTasks.filter(task => task.completed).length
   const weeklyMinutes = profile.days.length * profile.dailyMinutes
@@ -88,11 +95,12 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
 
   function generate() {
     const topics = loadTopics()
-      .filter(topic => topic.grade === grade)
+      .filter(topic => grades.includes(topic.grade))
       .map(topic => {
         const progress = getTopicProgress(topic.grade, topic.id)
         return {
           id: topic.id,
+          grade: topic.grade,
           title: topic.title,
           status: progress?.status ?? ('not_started' as const),
           learnedAt: progress?.learnedAt ?? null,
@@ -101,12 +109,12 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
 
     if (topics.length === 0) {
       setPreview([])
-      setMessage(`${grade}. sınıf için önce Derslerim sayfasından konu eklemelisin.`)
+      setMessage(`${gradeLabel} için önce Derslerim sayfasından konu eklemelisin.`)
       return
     }
 
     const result = planWeek({
-      grade,
+      grades,
       days,
       studyWeekdays: profile.days,
       dailyMinutes: profile.dailyMinutes,
@@ -168,7 +176,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
         <div className="program-summary-main">
           <small>{purposeTitle(profile.purpose)}</small>
           <h2>
-            {grade}. sınıf · haftada {profile.days.length} gün · günde {profile.dailyMinutes} dk
+            {gradeLabel} · haftada {profile.days.length} gün · günde {profile.dailyMinutes} dk
           </h2>
           <p className="muted">
             Haftalık hedef: {formatMinutes(weeklyMinutes)}
