@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { GoogleMark } from './AccountCard'
+import { googleIleGiris, useCloud } from '../data/cloud'
 import Icon from './Icon'
 import {
   purposes,
@@ -45,6 +47,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const [days, setDays] = useState<number[]>(initial?.days ?? [0, 1, 2, 3, 4])
   const [goal, setGoal] = useState(initial?.goal ?? '')
   const [error, setError] = useState('')
+  const cloud = useCloud()
 
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
@@ -121,6 +124,23 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
 
         {step === 0 && (
           <>
+            {!initial && (
+              <div className="ob-login">
+                {cloud.user ? (
+                  <p className="muted small">
+                    {cloud.syncing ? 'Hesabın kontrol ediliyor…' : `${cloud.user.displayName ?? cloud.user.email} olarak giriş yaptın. Yeni profilin hesabına kaydedilecek.`}
+                  </p>
+                ) : (
+                  <>
+                    <p className="muted small">Daha önce kullandın mı? Giriş yap, ilerlemen geri gelsin.</p>
+                    <button type="button" className="google-button" onClick={() => googleIleGiris()}>
+                      <GoogleMark />
+                      Google ile giriş yap
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
             <h1>Ne yapmak istiyorsun?</h1>
             <p className="muted">Bunu istediğin zaman değiştirebilirsin.</p>
             <div className="ob-options">

@@ -14,6 +14,9 @@ import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
 import QuestionBankManager from './components/QuestionBankManager'
 import Onboarding from './components/Onboarding'
+import AccountCard from './components/AccountCard'
+import { syncNow } from './data/cloud'
+import TeacherPanel from './components/TeacherPanel'
 import {
   loadProfile,
   profilSiniflari,
@@ -68,6 +71,7 @@ function App() {
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
+  const [teacherOpen, setTeacherOpen] = useState(false)
 
   // 12. sınıf / mezun Derslerim'de TYT (9+10), AYT (11) ve 12 arasında geçer.
   // 9, 10 ve 11. sınıflar yalnızca kendi sınıflarını görür; seçici gösterilmez.
@@ -87,6 +91,7 @@ function App() {
     setPage(next)
     setOpenTopic(null)
     setMistakesOpen(false)
+    setTeacherOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
   }
@@ -102,6 +107,7 @@ function App() {
     setEditingProfile(false)
     setStudentGoal(localStorage.getItem(GOAL_KEY) || '')
     changePage(startPage[next.purpose])
+    syncNow()
   }
 
   if (!profile || editingProfile) {
@@ -282,13 +288,21 @@ function App() {
           <MistakeBook grades={activeGrades} onClose={() => setMistakesOpen(false)} />
         )}
 
-        {page === 'progress' && !mistakesOpen && (
+        {page === 'progress' && teacherOpen && (
+          <TeacherPanel onClose={() => setTeacherOpen(false)} />
+        )}
+
+        {page === 'progress' && !mistakesOpen && !teacherOpen && (
           <ProgressPage
             grades={activeGrades}
             label={activeLabel}
             onOpenLessons={() => changePage('lessons')}
             onOpenMistakes={() => {
               setMistakesOpen(true)
+              window.scrollTo({ top: 0 })
+            }}
+            onOpenTeacher={() => {
+              setTeacherOpen(true)
               window.scrollTo({ top: 0 })
             }}
           />
@@ -373,11 +387,13 @@ function ProgressPage({
   label,
   onOpenLessons,
   onOpenMistakes,
+  onOpenTeacher,
 }: {
   grades: number[]
   label?: string
   onOpenLessons: () => void
   onOpenMistakes: () => void
+  onOpenTeacher: () => void
 }) {
   const hatalar = useHataDefteri().filter(item => grades.includes(item.grade))
   const acikHata = hatalar.filter(item => item.durum === 'acik').length
@@ -421,6 +437,7 @@ function ProgressPage({
         <ReviewPage grades={grades} onOpenLessons={onOpenLessons} />
       </div>
       <div className="col">
+        <AccountCard onOpenTeacher={onOpenTeacher} />
         <TopicMap grades={grades} label={label} onOpenLessons={onOpenLessons} />
       </div>
     </div>

@@ -2283,3 +2283,49 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   font-size: 14px;
   font-weight: 600;
 }
+
+/* Hesap ve öğretmen paneli */
+.google-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--line, #dcdce6);
+  border-radius: 999px;
+  background: #fff;
+  color: #1f1f1f;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.google-button:hover { background: #f6f6fa; }
+.ob-login {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line, #ececf2);
+}
+.ob-login p { margin: 0; }
+.account-row { display: flex; align-items: center; gap: 12px; margin: 4px 0 8px; }
+.account-row div { display: grid; min-width: 0; }
+.account-row small { overflow: hidden; text-overflow: ellipsis; }
+.account-photo {
+  width: 40px; height: 40px; border-radius: 50%; flex: none;
+  display: grid; place-items: center;
+  background: #eeedfe; color: #534ab7; font-weight: 700; object-fit: cover;
+}
+.form-error { color: #a32d2d; font-size: 14px; margin: 6px 0; }
+.teacher-panel { display: grid; gap: 12px; }
+.teacher-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.teacher-head h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 22px; }
+.teacher-table-wrap { overflow-x: auto; }
+.teacher-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.teacher-table th, .teacher-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid #ececf2; vertical-align: top; white-space: nowrap; }
+.teacher-table th { font-size: 12px; color: #6b6b80; font-weight: 600; }
+.teacher-table th button { all: unset; cursor: pointer; text-decoration: underline dotted; }
+.teacher-table td small { display: block; color: #6b6b80; font-size: 12px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }

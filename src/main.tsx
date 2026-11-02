@@ -2,6 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { startCloud } from './data/cloud'
+
+// Hesaptan başka cihazın verisi geldiyse uygulama yeni veriyle yeniden açılır.
+startCloud(() => window.location.reload())
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
