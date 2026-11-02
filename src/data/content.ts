@@ -132,3 +132,29 @@ export type EtkinlikKitabi = { kod: string; ad: string; amac: string; etkinlikle
 export function etkinlikler(grade: number, kod: string) {
   return load<Record<string, EtkinlikKitabi>>(`${grade}/etkinlikler.json`, 'json').then(data => pick(data, kod))
 }
+
+// ---------- Yazılıya hazırlık ----------
+
+export type YaziliMadde = { h: string; p: number; s: string; c: string }
+export type YaziliSoru = { baglam: string; maddeler: YaziliMadde[]; kazanim: string; puan: number }
+export type YaziliSinav = {
+  id: string
+  donem: number
+  yazili: number
+  senaryo: number
+  sure: number
+  sorular: YaziliSoru[]
+}
+export type YaziliDosyasi = {
+  sinavlar: YaziliSinav[]
+  tumu: { donem: number; yazili: number }[]
+  kazanimlar: Record<string, string>
+}
+
+export function yazililar(grade: number) {
+  return load<YaziliDosyasi>(`${grade}/yazili.json`, 'json')
+}
+
+export function yaziliPdfAdi(grade: number, sinav: YaziliSinav) {
+  return `${grade}-sinif-${sinav.donem}-donem-${sinav.yazili}-yazili-senaryo-${sinav.senaryo}`
+}

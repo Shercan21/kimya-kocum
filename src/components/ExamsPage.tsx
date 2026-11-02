@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
+import WrittenExams from './WrittenExams'
 import { sinifMufredati } from '../data/content'
 import { basari, testSonuclari } from '../data/results'
 
@@ -60,6 +61,8 @@ export default function ExamsPage({ grades, label }: Props) {
 
   return (
     <div className="stack">
+      {sets.length > 0 && <WrittenExams key={sets.map(item => item.grade).join('-')} grades={sets.map(item => item.grade)} />}
+
       {sets.length === 0 && (
         <section className="card coming">
           <Icon name="file" size={28} />
@@ -103,15 +106,6 @@ export default function ExamsPage({ grades, label }: Props) {
         </>
       )}
 
-      <section className="card coming">
-        <Icon name="file" size={28} />
-        <h2>Yazılıya hazırlık</h2>
-        <p>
-          Senaryoya uygun yazılı provası ve açık uçlu cevap değerlendirmesi bu
-          bölüme gelecek.
-        </p>
-        <span className="badge">Hazırlanıyor</span>
-      </section>
     </div>
   )
 }

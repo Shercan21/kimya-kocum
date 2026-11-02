@@ -1949,3 +1949,191 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   font-weight: 600;
   color: var(--text-2);
 }
+
+/* ---------- Yazılıya hazırlık ---------- */
+.ysecim {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 14px 0 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.ysatir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.ysatir > span {
+  min-width: 64px;
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cipler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cipler .chip {
+  padding: 7px 14px;
+}
+
+.chip.pasif {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ykagit {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.ykbas {
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--text);
+  text-align: center;
+}
+
+.ykbas b {
+  display: block;
+  font-size: 17px;
+}
+
+.ykbas span {
+  color: var(--text-2);
+  font-size: 13.5px;
+}
+
+.yindir {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+
+.yindir a {
+  margin-top: 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.ysoru {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.ysbas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ysbas .no {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--purple-600);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ysbas .yk {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--purple-50);
+  color: var(--purple-800);
+  font-size: 12px;
+}
+
+.ysbas .yp {
+  margin-left: auto;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.ybaglam {
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+.ybaglam img,
+.ymadde img {
+  display: block;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 8px auto;
+  object-fit: contain;
+}
+
+.ybaglam table td {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+}
+
+.ybaglam table tr:first-child td {
+  background: var(--gray-50);
+  font-weight: 600;
+}
+
+.ymadde {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: 6px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.ymadde .yp {
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.ycevap {
+  grid-column: 2 / 4;
+  padding: 10px 12px;
+  border: 1px solid #fac775;
+  border-radius: 8px;
+  background: var(--amber-50);
+}
+
+.ycevap > div {
+  display: inline;
+}
+
+.ysoru > .btn-secondary {
+  margin-top: 4px;
+}
+
+.yhepsi {
+  width: 100%;
+  margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+  .ykagit {
+    padding: 12px;
+  }
+
+  .yindir a {
+    flex: 1 1 100%;
+  }
+}

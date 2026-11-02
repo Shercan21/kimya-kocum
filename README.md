@@ -46,3 +46,4 @@ python tools/icerik_aktar.py "C:/Users/LENOVO/Desktop/shercan-kimya" "C:/Users/L
 
 - `src/data/mufredat.json` → sınıf / tema / bölüm / konu / kazanım ağacı (uygulamaya gömülü)
 - `public/icerik/<sınıf>/testler.json`, `konular.json`, `etkinlikler.json` ve `public/icerik/img/` → gerektiğinde yüklenir
+- `public/icerik/<sınıf>/yazili.json` ve `public/icerik/pdf/` → yazılıya hazırlık. Shercan Kimya'daki `veri/ayar.json` içinde açık olan yazılılar (ör. `"1-1"`) aktarılır; kapalı yazılıların soruları ve PDF'leri yayımlanmaz.

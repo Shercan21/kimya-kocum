@@ -204,6 +204,35 @@ def main(src: Path, config_path: Path, out: Path, mufredat_path: Path):
                 if not k["kazanimlar"]:
                     print(f"  ! {g}. sınıf {k['kod']} için kazanım bulunamadı")
 
+    # Yazılıya hazırlık: yalnızca veri/ayar.json'da açık olan yazılılar
+    # (ör. "1-1" = 1. dönem 1. yazılı) ve onların PDF'leri yayımlanır.
+    ayar_path = src / "veri" / "ayar.json"
+    ayar = json.loads(ayar_path.read_text(encoding="utf-8")) if ayar_path.exists() else {}
+    aktif = (ayar.get("yazili") or {}).get("aktif") or ["1-1"]
+    (out / "yazili-ayar.json").write_text(json.dumps({"aktif": aktif}, ensure_ascii=False), encoding="utf-8")
+    for g in GRADES:
+        ypath = src / "veri" / f"yazili{g}.json"
+        if not ypath.exists():
+            continue
+        data = json.loads(ypath.read_text(encoding="utf-8"))
+        tumu = [{"donem": s["donem"], "yazili": s["yazili"]} for s in data["sinavlar"]]
+        acik = [s for s in data["sinavlar"] if f"{s['donem']}-{s['yazili']}" in aktif]
+        (out / str(g) / "yazili.json").write_text(
+            json.dumps({"sinavlar": acik, "tumu": tumu, "kazanimlar": data.get("kazanimlar", {})}, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+        for s in acik:
+            ad = f"{g}-sinif-{s['donem']}-donem-{s['yazili']}-yazili-senaryo-{s['senaryo']}"
+            for suffix in ("", "-cevap-anahtari"):
+                pdf = src / "pdf" / str(g) / f"{ad}{suffix}.pdf"
+                if pdf.exists():
+                    target = out / "pdf" / str(g) / pdf.name
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(pdf, target)
+                else:
+                    print(f"  ! PDF yok: {pdf.name}")
+        print(g, "yazılı:", len(acik), "senaryo")
+
     # Görseller
     for path in (src / "img").rglob("*"):
         if path.is_file():
