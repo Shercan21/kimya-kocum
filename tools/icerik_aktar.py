@@ -43,6 +43,11 @@ UNITE = {
     },
 }
 
+# Kendi bağlam testi olmayan konular için öğretmen onaylı kazanım eşlemesi (2 Kasım 2026).
+KAZANIM_DUZELTME = {
+    9: {"3.1.2": ["KİM.9.3.2"]},
+}
+
 TEMA_AD = {1: "Etkileşim", 2: "Çeşitlilik", 3: "Sürdürülebilirlik"}
 
 
@@ -171,6 +176,11 @@ def main(src: Path, config_path: Path, out: Path, mufredat_path: Path):
                 source = sibling or prev or nxt
                 if source:
                     konu["kazanimlar"] = source["kazanimlar"][:1]
+
+        # Öğretmenin (Hasan) onayladığı düzeltmeler — tahmin kuralını ezer.
+        for kod, kazanimlar in KAZANIM_DUZELTME.get(g, {}).items():
+            if kod in konu_by_kod:
+                konu_by_kod[kod]["kazanimlar"] = kazanimlar
 
         # Etkinlikler: kod "1.1.2-3" → konu "1.1.2"
         for kit in etk:
