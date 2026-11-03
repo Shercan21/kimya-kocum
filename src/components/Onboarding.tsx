@@ -106,7 +106,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
     <div className="onboarding">
       <div className="ob-card">
         <div className="ob-top">
-          <span className="brand-mark"><Icon name="flask" /></span>
+          <img className="brand-logo" src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={36} height={36} />
           <div className="ob-steps" aria-label={`Adım ${step + 1} / ${gorunenAdimlar.length}`}>
             {gorunenAdimlar.map((name, index) => (
               <span

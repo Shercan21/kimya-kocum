@@ -327,7 +327,7 @@ function App() {
     <div className="app">
       <aside className="side" aria-label="Ana menü">
         <div className="brand">
-          <span className="brand-mark"><Icon name="flask" /></span>
+          <img className="brand-logo" src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={36} height={36} />
           <span className="label">Kimya Koçum</span>
         </div>
 

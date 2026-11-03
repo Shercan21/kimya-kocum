@@ -2464,3 +2464,4 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .kr-tur.eksik b { color: #a32d2d; }
 .tarama-geri { justify-self: start; margin-bottom: 4px; }
 .reminder-card { display: grid; gap: 12px; } .reminder-card a.primary-button { text-decoration: none; display: inline-flex; align-items: center; }
+.brand-logo { width: 36px; height: 36px; display: block; flex: none; }
