@@ -37,6 +37,11 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   const teacherMode = isTeacher(cloud.user)
   const gradeLocked = !!initial && !teacherMode
 
+  // Yazılı, soru çözme ve eksik belirleme amaçlarında çalışma düzeni ve
+  // sözleşme adımları sorulmaz; sınıf seçilince uygulama açılır.
+  const kisa = purpose === 'written_exam' || purpose === 'practice' || purpose === 'gaps'
+  const gorunenAdimlar = kisa ? steps.slice(0, 2) : steps
+
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
     if (step === 1 && !grade) return setError('Devam etmek için sınıfını seç.')
@@ -44,6 +49,10 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
       setError('')
       setConfirmGrade(true)
       return
+    }
+    if (step === 1 && kisa) {
+      setError('')
+      return finish(initial?.contractAccepted ?? false)
     }
     if (step === 2 && days.length === 0) return setError('En az bir çalışma günü seç.')
     setError('')
@@ -94,8 +103,8 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
       <div className="ob-card">
         <div className="ob-top">
           <span className="brand-mark"><Icon name="flask" /></span>
-          <div className="ob-steps" aria-label={`Adım ${step + 1} / ${steps.length}`}>
-            {steps.map((name, index) => (
+          <div className="ob-steps" aria-label={`Adım ${step + 1} / ${gorunenAdimlar.length}`}>
+            {gorunenAdimlar.map((name, index) => (
               <span
                 key={name}
                 className={index <= step ? 'is-on' : ''}
@@ -207,7 +216,8 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
                     className="primary-button"
                     onClick={() => {
                       setConfirmGrade(false)
-                      setStep(2)
+                      if (kisa) finish(false)
+                      else setStep(2)
                     }}
                   >
                     Evet, eminim
@@ -311,7 +321,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
           )}
           {step < 3 ? (
             !confirmGrade && <button type="button" className="primary-button" onClick={next}>
-              Devam
+              {step === 1 && kisa ? 'Başla' : 'Devam'}
             </button>
           ) : (
             <>
