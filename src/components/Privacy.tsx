@@ -29,6 +29,11 @@ export function AydinlatmaMetni() {
         <li><b>Uygulama içinden:</b> sınıfın, çalışma amacın ve düzenin, test ve etkinlik sonuçların, hata defterin, tarama sonucun ve konuların öğrenme durumu. Raporlar ve koçun önerileri bu bilgilerle senin cihazında hesaplanır.</li>
       </ul>
       <p>Kimlik numarası, telefon, adres, sağlık bilgisi gibi bilgiler istenmez.</p>
+      <p>
+        <b>Anonim ziyaret sayacı:</b> Uygulamanın kaç kez ve hangi bölümlerinin açıldığını görmek için çerez kullanmayan
+        GoatCounter sayacı kullanılır. Sayaca adın, e-postan, sonuçların ya da hesabınla ilgili hiçbir bilgi gönderilmez;
+        yalnızca açılan bölümün adı (örneğin "Dersler") ve tarayıcının genel bilgileri sayılır. Kim olduğun bilinemez.
+      </p>
 
       <h4>Nerede saklanır?</h4>
       <p>

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import './App.css'
 import Icon, { type IconName } from './components/Icon'
 import TodayPage from './components/TodayPage'
@@ -17,6 +17,7 @@ import KazanimRaporu from './components/KazanimRaporu'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
 import { kilitliKonular } from './data/locks'
 import { eksikKonular, useTaramaSonucu } from './data/screening'
+import { sayfaSay } from './data/sayac'
 import { useBackStep } from './data/backNav'
 import { useYaziliKonulari } from './data/yaziliKazanim'
 import {
@@ -223,6 +224,11 @@ function App() {
   // Telefonun geri tuşu: açık ekranı kapatır, ana sekmeye döner; ana sekmede uygulamadan çıkar.
   const homePage = MOD_SAYFALARI[mod][0].id
   useBackStep(!!profile && !editingProfile && page !== homePage, () => changePage(homePage))
+
+  const sayilanSayfa = !profile || editingProfile ? 'giris' : page
+  useEffect(() => {
+    sayfaSay(sayilanSayfa)
+  }, [sayilanSayfa])
   useBackStep(!!openTopic, () => setOpenTopic(null))
   useBackStep(mistakesOpen, () => setMistakesOpen(false))
   useBackStep(editingProfile && !!storedProfile, () => setEditingProfile(false))
