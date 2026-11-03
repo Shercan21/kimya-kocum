@@ -2442,3 +2442,15 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .konu-onay p { line-height: 1.5; }
 .test-list li.test-locked { opacity: .6; }
 .test-list li.test-locked svg { flex: none; color: var(--text-2); }
+
+/* Kazanım raporu */
+.kazanim-raporu { display: grid; gap: 14px; }
+.kr-grup h4 { margin: 4px 0 2px; font-size: 15px; }
+.kr-grup h4 span { color: var(--text-2); font-weight: 500; }
+.kr-grup.eksik h4 { color: #a32d2d; }
+.kr-grup.kismen h4 { color: #854f0b; }
+.kr-grup.tamam h4 { color: #0f6e56; }
+.kr-grup p { margin: 0 0 8px; }
+.kr-grup ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.kr-satir { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; line-height: 1.4; }
+.kr-satir small { display: block; color: var(--text-2); font-size: 12px; margin-top: 2px; }

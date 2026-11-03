@@ -13,6 +13,7 @@ import LearningTracker from './components/LearningTracker'
 import Onboarding from './components/Onboarding'
 import AccountCard from './components/AccountCard'
 import StudentPreviewCard from './components/StudentPreviewCard'
+import KazanimRaporu from './components/KazanimRaporu'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
 import { kilitliKonular } from './data/locks'
 import { eksikKonular, useTaramaSonucu } from './data/screening'
@@ -760,6 +761,7 @@ function ProgressPage({
             Hata defterini aç
           </button>
         </section>
+        <KazanimRaporu grades={grades} />
         <ReviewPage grades={grades} onOpenLessons={onOpenLessons} />
       </div>
       <div className="col">
