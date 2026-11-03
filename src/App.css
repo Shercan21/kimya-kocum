@@ -2428,3 +2428,8 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .tarama-kazanim li span { color: var(--text-2); margin-left: 6px; }
 .tarama-kazanim li.is-eksik b { color: #a32d2d; }
 .plan-sec { display: grid; gap: 12px; }
+.coach-list li.tarama-satir {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+}
+.coach-list li.tarama-satir span { display: grid; font-size: 14px; }

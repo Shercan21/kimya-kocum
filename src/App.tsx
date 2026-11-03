@@ -483,10 +483,6 @@ function App() {
           <ScreeningPage
             grade={profile.grade === 12 ? 11 : profile.grade}
             onChoosePlan={choosePlan}
-            onOpenTopic={kod => {
-              changePage('lessons')
-              setOpenTopic({ grade: profile.grade === 12 ? 11 : profile.grade, kod })
-            }}
           />
         )}
 

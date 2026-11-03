@@ -15,7 +15,6 @@ import {
 
 type Props = {
   grade: number
-  onOpenTopic: (kod: string) => void
   onChoosePlan: (purpose: StudyPurpose) => void
 }
 
@@ -33,12 +32,10 @@ const DURUM = {
 
 function Sonuc({
   sonuc,
-  onOpenTopic,
   onChoosePlan,
   onRestart,
 }: {
   sonuc: TaramaSonucu
-  onOpenTopic: (kod: string) => void
   onChoosePlan: (p: StudyPurpose) => void
   onRestart: () => void
 }) {
@@ -53,14 +50,12 @@ function Sonuc({
     items.length > 0 && (
       <ul className="coach-list">
         {items.map(k => (
-          <li key={k.kod}>
-            <button type="button" onClick={() => onOpenTopic(k.kod)}>
-              <span>
-                {k.kod} · {k.ad}
-                <small>{k.dogru} / {k.toplam} doğru</small>
-              </span>
-              <b className={`tarama-etiket ${DURUM[durum].cls}`}>{DURUM[durum].ad}</b>
-            </button>
+          <li key={k.kod} className="tarama-satir">
+            <span>
+              {k.kod} · {k.ad}
+              <small>{k.dogru} / {k.toplam} doğru</small>
+            </span>
+            <b className={`tarama-etiket ${DURUM[durum].cls}`}>{DURUM[durum].ad}</b>
           </li>
         ))}
       </ul>
@@ -78,7 +73,7 @@ function Sonuc({
         <p className="muted">
           {eksik.length + kismen.length === 0
             ? 'Harika! Taramada eksik konu çıkmadı.'
-            : `${eksik.length} konuda eksik, ${kismen.length} konuda kısmen eksik var. Konuya dokunarak çalışmaya başlayabilirsin.`}
+            : `${eksik.length} konuda eksik, ${kismen.length} konuda kısmen eksik var. Aşağıdan planını seçerek çalışmaya başla.`}
         </p>
       </section>
 
@@ -149,7 +144,7 @@ function Sonuc({
   )
 }
 
-export default function ScreeningPage({ grade, onOpenTopic, onChoosePlan }: Props) {
+export default function ScreeningPage({ grade, onChoosePlan }: Props) {
   const kayitli = useTaramaSonucu(grade)
   const [sorular, setSorular] = useState<TaramaSorusu[] | null>(null)
   const [yukleniyor, setYukleniyor] = useState(false)
@@ -262,7 +257,7 @@ export default function ScreeningPage({ grade, onOpenTopic, onChoosePlan }: Prop
   }
 
   if (kayitli) {
-    return <Sonuc sonuc={kayitli} onOpenTopic={onOpenTopic} onChoosePlan={onChoosePlan} onRestart={basla} />
+    return <Sonuc sonuc={kayitli} onChoosePlan={onChoosePlan} onRestart={basla} />
   }
 
   return (
