@@ -2416,3 +2416,15 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   margin: 0 0 16px; padding: 10px 14px; border-radius: 12px;
   background: #faeeda; color: #633806; border: 1px solid #ef9f27; font-size: 14px;
 }
+
+/* Eksik taraması */
+.tarama-etiket { font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+.tarama-etiket.eksik { background: #fcebeb; color: #a32d2d; }
+.tarama-etiket.kismen { background: #faeeda; color: #854f0b; }
+.tarama-etiket.tamam { background: #e1f5ee; color: #0f6e56; }
+.coach-list b.tarama-etiket { font-size: 12px; }
+.tarama-kazanim summary { cursor: pointer; font-weight: 600; }
+.tarama-kazanim ul { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+.tarama-kazanim li span { color: var(--text-2); margin-left: 6px; }
+.tarama-kazanim li.is-eksik b { color: #a32d2d; }
+.plan-sec { display: grid; gap: 12px; }

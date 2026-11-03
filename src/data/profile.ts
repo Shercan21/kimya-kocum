@@ -24,7 +24,7 @@ export const purposes: {
   { id: 'tyt_ayt', title: "TYT / AYT'ye hazırlanmak istiyorum", detail: 'Eksik kazanımlar ve sınav hedefi' },
   { id: 'topic', title: 'Belirli bir konuyu öğrenmek istiyorum', detail: 'Konuyu seç, kazanımına ve testlerine git' },
   { id: 'practice', title: 'Soru çözmek istiyorum', detail: 'Tema bazlı sarmal ya da bütün sınıf karma testleri' },
-  { id: 'gaps', title: 'Eksiklerimi belirlemek istiyorum', detail: 'Kısa ön değerlendirme' },
+  { id: 'gaps', title: 'Eksiklerimi belirlemek istiyorum', detail: 'Her kazanımdan 2 soruluk tarama, sonunda eksik konular ve yeni plan' },
 ]
 
 export type Sinav = 'TYT' | 'AYT' | 'TYT_AYT'

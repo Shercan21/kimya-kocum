@@ -15,6 +15,7 @@ import AccountCard from './components/AccountCard'
 import StudentPreviewCard from './components/StudentPreviewCard'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
 import { kilitliKonular } from './data/locks'
+import { eksikKonular, useTaramaSonucu } from './data/screening'
 import { useBackStep } from './data/backNav'
 import { useYaziliKonulari } from './data/yaziliKazanim'
 import {
@@ -42,8 +43,9 @@ const MistakeBook = lazy(() => import('./components/MistakeBook'))
 const TeacherPanel = lazy(() => import('./components/TeacherPanel'))
 const QuestionBankManager = lazy(() => import('./components/QuestionBankManager'))
 const PracticePage = lazy(() => import('./components/PracticePage'))
+const ScreeningPage = lazy(() => import('./components/ScreeningPage'))
 
-type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'practice' | 'progress'
+type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'practice' | 'screening' | 'progress'
 
 const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'today', label: 'Bugün', short: 'Bugün', icon: 'home' },
@@ -52,6 +54,7 @@ const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'lessons', label: 'Derslerim', short: 'Dersler', icon: 'book' },
   { id: 'exams', label: 'Yazılı ve TYT/AYT', short: 'Sınav', icon: 'file' },
   { id: 'practice', label: 'Soru çöz', short: 'Soru çöz', icon: 'list' },
+  { id: 'screening', label: 'Eksik taraması', short: 'Tarama', icon: 'target' },
   { id: 'progress', label: 'Gelişimim', short: 'Gelişim', icon: 'chart' },
 ]
 
@@ -60,7 +63,7 @@ const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
 // - konu: konu listesi; seçilen konu (kazanımı) açılır, kilit yok
 // - soru: sınıf/TYT-AYT → tema (sarmal) ya da genel (karma) test
 // - tam: bütün sayfalar; konular sırayla açılır (öncekini tamamla)
-type Mod = 'tam' | 'yazili' | 'konu' | 'soru'
+type Mod = 'tam' | 'yazili' | 'konu' | 'soru' | 'eksik'
 
 const MOD_SAYFALARI: Record<Mod, { id: PageId; label?: string; short?: string }[]> = {
   tam: [{ id: 'today' }, { id: 'coach' }, { id: 'program' }, { id: 'lessons' }, { id: 'exams' }, { id: 'progress' }],
@@ -71,6 +74,7 @@ const MOD_SAYFALARI: Record<Mod, { id: PageId; label?: string; short?: string }[
   ],
   konu: [{ id: 'lessons', label: 'Konular', short: 'Konular' }, { id: 'coach' }, { id: 'progress' }],
   soru: [{ id: 'practice' }, { id: 'coach' }, { id: 'progress' }],
+  eksik: [{ id: 'screening' }, { id: 'lessons', label: 'Konular', short: 'Konular' }, { id: 'coach' }, { id: 'progress' }],
 }
 
 function modOf(purpose: StudyPurpose, grade: number, teacher: boolean): Mod {
@@ -78,6 +82,7 @@ function modOf(purpose: StudyPurpose, grade: number, teacher: boolean): Mod {
   if (purpose === 'written_exam') return grade === 12 ? 'tam' : 'yazili'
   if (purpose === 'topic') return 'konu'
   if (purpose === 'practice') return 'soru'
+  if (purpose === 'gaps') return 'eksik'
   return 'tam'
 }
 
@@ -90,7 +95,7 @@ const startPage: Record<StudyPurpose, PageId> = {
   tyt_ayt: 'program',
   topic: 'lessons',
   practice: 'practice',
-  gaps: 'lessons',
+  gaps: 'screening',
 }
 
 const PAGE_KEY = 'kimya-kocum-page'
@@ -169,6 +174,23 @@ function App() {
 
   const mod: Mod = profile ? modOf(profile.purpose, profile.grade, teacherView) : 'tam'
   const yaziliKonulari = useYaziliKonulari(profile ? [profile.grade] : [], mod === 'yazili')
+  const tarama = useTaramaSonucu(profile?.grade ?? 0)
+  const taramaDurum = eksikKonular(tarama)
+
+  // Tarama sonunda seçilen plan: amaç güncellenir, uygulama yeni plana göre açılır.
+  function choosePlan(purpose: StudyPurpose) {
+    if (previewing && onizleme) {
+      const next = { ...onizleme, purpose }
+      sessionStorage.setItem(PREVIEW_KEY, JSON.stringify(next))
+      setOnizleme(next)
+    } else if (storedProfile) {
+      const next = { ...storedProfile, purpose, updatedAt: new Date().toISOString() }
+      saveProfile(next)
+      setProfile(next)
+      syncNow()
+    }
+    changePage(startPage[purpose])
+  }
 
   // Telefonun geri tuşu: açık ekranı kapatır, ana sekmeye döner; ana sekmede uygulamadan çıkar.
   const homePage = MOD_SAYFALARI[mod][0].id
@@ -255,7 +277,8 @@ function App() {
   const labelOf = (item: (typeof navPages)[number]) =>
     item.id === 'exams' && isSenior && !teacherView ? 'TYT / AYT testleri' : item.label
   // Tam modda öğrenci konuları sırayla açar (öğretmende kilit yok).
-  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades) : undefined
+  const bilinen = new Set([...taramaDurum].filter(([, d]) => d === 'tamam').map(([k]) => k))
+  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades, bilinen) : undefined
 
   return (
     <div className="app">
@@ -426,6 +449,7 @@ function App() {
                   grade={grade}
                   only={mod === 'yazili' ? yaziliKonulari : null}
                   locked={kilitler}
+                  tarama={taramaDurum}
                   onOpenTopic={kod => {
                     setOpenTopic({ grade, kod })
                     window.scrollTo({ top: 0 })
@@ -454,6 +478,17 @@ function App() {
         )}
 
         {shown === 'practice' && <PracticePage grade={profile.grade} />}
+
+        {shown === 'screening' && (
+          <ScreeningPage
+            grade={profile.grade === 12 ? 11 : profile.grade}
+            onChoosePlan={choosePlan}
+            onOpenTopic={kod => {
+              changePage('lessons')
+              setOpenTopic({ grade: profile.grade === 12 ? 11 : profile.grade, kod })
+            }}
+          />
+        )}
 
         {shown === 'coach' && (
           <CoachPage grades={teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades} onAction={coachAction} />

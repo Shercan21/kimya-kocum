@@ -10,7 +10,11 @@ type Props = {
   only?: Set<string> | null
   // Kilitli konular: önceki konu tamamlanmadan açılmaz.
   locked?: Set<string>
+  // Eksik taraması sonucu: grade|kod → eksik / kısmen / tamam
+  tarama?: Map<string, 'eksik' | 'kismen' | 'tamam'>
 }
+
+const TARAMA_AD = { eksik: 'Eksik', kismen: 'Kısmen', tamam: 'Biliyor' } as const
 
 const STATUS_LABEL = {
   not_started: '',
@@ -19,7 +23,7 @@ const STATUS_LABEL = {
   permanent: 'Kalıcı',
 } as const
 
-export default function CurriculumPage({ grade, onOpenTopic, only, locked }: Props) {
+export default function CurriculumPage({ grade, onOpenTopic, only, locked, tarama }: Props) {
   const goster = (kod: string) => !only || only.has(`${grade}|${kod}`)
   const data = sinifMufredati(grade)
   const [openTema, setOpenTema] = useState<number | null>(null)
@@ -69,6 +73,7 @@ export default function CurriculumPage({ grade, onOpenTopic, only, locked }: Pro
                     {bolum.konular.filter(k => goster(k.kod)).map(konu => {
                       const status = getTopicProgress(grade, konuId(grade, konu.kod))?.status ?? 'not_started'
                       const kilitli = locked?.has(`${grade}|${konu.kod}`) ?? false
+                      const td = tarama?.get(`${grade}|${konu.kod}`)
                       return (
                         <li key={konu.kod} className={kilitli ? 'is-locked' : undefined}>
                           <button
@@ -88,6 +93,9 @@ export default function CurriculumPage({ grade, onOpenTopic, only, locked }: Pro
                                 {kilitli ? ' · Önceki konuyu tamamlayınca açılır' : ''}
                               </small>
                             </span>
+                            {td && td !== 'tamam' && status === 'not_started' && (
+                              <span className={`tarama-etiket ${td}`}>{TARAMA_AD[td]}</span>
+                            )}
                             {STATUS_LABEL[status] && (
                               <span className={`status-chip status-${status}`}>{STATUS_LABEL[status]}</span>
                             )}
