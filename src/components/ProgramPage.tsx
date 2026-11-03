@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ReminderCard from './ReminderCard'
 import Icon from './Icon'
 import { loadTopics } from '../data/topics'
 import { getTopicProgress } from '../data/learningProgress'
@@ -239,6 +240,8 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
           </div>
         )}
       </section>
+
+      <ReminderCard days={profile.days} dailyMinutes={profile.dailyMinutes} />
 
       <section className="card">
         <div className="week-nav">
