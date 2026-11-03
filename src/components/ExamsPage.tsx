@@ -7,11 +7,11 @@ import { basari, testSonuclari } from '../data/results'
 
 // 12. sınıf / mezun TYT-AYT için 9-11 testlerini görür ama o sınıfların
 // okul yazılılarını görmez (showWritten=false).
-type Props = { grades: number[]; label?: string; showWritten?: boolean }
+type Props = { grades: number[]; label?: string; showWritten?: boolean; onlyWritten?: boolean }
 
 type Active = { grade: number; id: string; baslik: string }
 
-export default function ExamsPage({ grades, label, showWritten = true }: Props) {
+export default function ExamsPage({ grades, label, showWritten = true, onlyWritten = false }: Props) {
   const sets = grades
     .map(grade => ({ grade, data: sinifMufredati(grade) }))
     .filter((item): item is { grade: number; data: NonNullable<ReturnType<typeof sinifMufredati>> } => item.data !== null)
@@ -73,7 +73,7 @@ export default function ExamsPage({ grades, label, showWritten = true }: Props) 
         </section>
       )}
 
-      {sets.length > 0 && (
+      {sets.length > 0 && !onlyWritten && (
         <>
           {label && (
             <p className="program-message">

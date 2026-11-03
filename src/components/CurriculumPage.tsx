@@ -6,6 +6,10 @@ import { getTopicProgress } from '../data/learningProgress'
 type Props = {
   grade: number
   onOpenTopic: (kod: string) => void
+  // Yalnızca bu konular gösterilir (ör. yazılı modunda yazılı konuları).
+  only?: Set<string> | null
+  // Kilitli konular: önceki konu tamamlanmadan açılmaz.
+  locked?: Set<string>
 }
 
 const STATUS_LABEL = {
@@ -15,7 +19,8 @@ const STATUS_LABEL = {
   permanent: 'Kalıcı',
 } as const
 
-export default function CurriculumPage({ grade, onOpenTopic }: Props) {
+export default function CurriculumPage({ grade, onOpenTopic, only, locked }: Props) {
+  const goster = (kod: string) => !only || only.has(`${grade}|${kod}`)
   const data = sinifMufredati(grade)
   const [openTema, setOpenTema] = useState<number | null>(null)
 
@@ -24,12 +29,14 @@ export default function CurriculumPage({ grade, onOpenTopic }: Props) {
   return (
     <div className="stack">
       {data.temalar.map(tema => {
-        const konular = tema.bolumler.flatMap(bolum => bolum.konular)
+        const konular = tema.bolumler.flatMap(bolum => bolum.konular).filter(konu => goster(konu.kod))
+        if (konular.length === 0) return null
         const done = konular.filter(konu => {
           const status = getTopicProgress(grade, konuId(grade, konu.kod))?.status
           return status === 'learned' || status === 'permanent'
         }).length
-        const isOpen = openTema === null ? tema.no === data.temalar[0].no : openTema === tema.no
+        const ilkTema = data.temalar.find(t => t.bolumler.some(b => b.konular.some(k => goster(k.kod))))?.no
+        const isOpen = openTema === null ? tema.no === ilkTema : openTema === tema.no
 
         return (
           <section key={tema.no} className="card tema-card">
@@ -52,18 +59,24 @@ export default function CurriculumPage({ grade, onOpenTopic }: Props) {
             </button>
 
             {isOpen &&
-              tema.bolumler.map(bolum => (
+              tema.bolumler.filter(bolum => bolum.konular.some(k => goster(k.kod))).map(bolum => (
                 <div key={bolum.kod} className="bolum">
                   <h3>
                     <span>{bolum.kod}</span> {bolum.ad}
                   </h3>
                   <p className="muted small">{bolum.ozet}</p>
                   <ul className="konu-list">
-                    {bolum.konular.map(konu => {
+                    {bolum.konular.filter(k => goster(k.kod)).map(konu => {
                       const status = getTopicProgress(grade, konuId(grade, konu.kod))?.status ?? 'not_started'
+                      const kilitli = locked?.has(`${grade}|${konu.kod}`) ?? false
                       return (
-                        <li key={konu.kod}>
-                          <button type="button" onClick={() => onOpenTopic(konu.kod)}>
+                        <li key={konu.kod} className={kilitli ? 'is-locked' : undefined}>
+                          <button
+                            type="button"
+                            disabled={kilitli}
+                            title={kilitli ? 'Önceki konuyu tamamlayınca açılır' : undefined}
+                            onClick={() => onOpenTopic(konu.kod)}
+                          >
                             <span className={`dot status-dot-${status}`} />
                             <span className="konu-kod">{konu.kod}</span>
                             <span className="konu-ad">
@@ -72,12 +85,13 @@ export default function CurriculumPage({ grade, onOpenTopic }: Props) {
                                 {konu.anlatim ? 'Anlatım · ' : ''}
                                 {konu.soru + konu.baglam.reduce((sum, test) => sum + test.soru, 0)} soru
                                 {konu.etkinlik ? ` · ${konu.etkinlik} etkinlik` : ''}
+                                {kilitli ? ' · Önceki konuyu tamamlayınca açılır' : ''}
                               </small>
                             </span>
                             {STATUS_LABEL[status] && (
                               <span className={`status-chip status-${status}`}>{STATUS_LABEL[status]}</span>
                             )}
-                            <span className="chev">›</span>
+                            {kilitli ? <Icon name="lock" size={16} /> : <span className="chev">›</span>}
                           </button>
                         </li>
                       )

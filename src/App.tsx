@@ -13,6 +13,8 @@ import LearningTracker from './components/LearningTracker'
 import Onboarding from './components/Onboarding'
 import AccountCard from './components/AccountCard'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
+import { kilitliKonular } from './data/locks'
+import { useYaziliKonulari } from './data/yaziliKazanim'
 import {
   loadProfile,
   profilSiniflari,
@@ -35,8 +37,9 @@ const ExamsPage = lazy(() => import('./components/ExamsPage'))
 const MistakeBook = lazy(() => import('./components/MistakeBook'))
 const TeacherPanel = lazy(() => import('./components/TeacherPanel'))
 const QuestionBankManager = lazy(() => import('./components/QuestionBankManager'))
+const PracticePage = lazy(() => import('./components/PracticePage'))
 
-type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'progress'
+type PageId = 'today' | 'coach' | 'program' | 'lessons' | 'exams' | 'practice' | 'progress'
 
 const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'today', label: 'Bugün', short: 'Bugün', icon: 'home' },
@@ -44,8 +47,35 @@ const pages: { id: PageId; label: string; short: string; icon: IconName }[] = [
   { id: 'program', label: 'Programım', short: 'Program', icon: 'calendar' },
   { id: 'lessons', label: 'Derslerim', short: 'Dersler', icon: 'book' },
   { id: 'exams', label: 'Yazılı ve TYT/AYT', short: 'Sınav', icon: 'file' },
+  { id: 'practice', label: 'Soru çöz', short: 'Soru çöz', icon: 'list' },
   { id: 'progress', label: 'Gelişimim', short: 'Gelişim', icon: 'chart' },
 ]
+
+// Amaca göre uygulamanın çalışma biçimi:
+// - yazili: yalnızca yazılıya hazırlık ve yazılı senaryolarındaki konular
+// - konu: konu listesi; seçilen konu (kazanımı) açılır, kilit yok
+// - soru: sınıf/TYT-AYT → tema (sarmal) ya da genel (karma) test
+// - tam: bütün sayfalar; konular sırayla açılır (öncekini tamamla)
+type Mod = 'tam' | 'yazili' | 'konu' | 'soru'
+
+const MOD_SAYFALARI: Record<Mod, { id: PageId; label?: string; short?: string }[]> = {
+  tam: [{ id: 'today' }, { id: 'coach' }, { id: 'program' }, { id: 'lessons' }, { id: 'exams' }, { id: 'progress' }],
+  yazili: [
+    { id: 'exams', label: 'Yazılıya hazırlık', short: 'Yazılı' },
+    { id: 'lessons', label: 'Yazılı konuları', short: 'Konular' },
+    { id: 'progress' },
+  ],
+  konu: [{ id: 'lessons', label: 'Konular', short: 'Konular' }, { id: 'coach' }, { id: 'progress' }],
+  soru: [{ id: 'practice' }, { id: 'coach' }, { id: 'progress' }],
+}
+
+function modOf(purpose: StudyPurpose, grade: number, teacher: boolean): Mod {
+  if (teacher) return 'tam'
+  if (purpose === 'written_exam') return grade === 12 ? 'tam' : 'yazili'
+  if (purpose === 'topic') return 'konu'
+  if (purpose === 'practice') return 'soru'
+  return 'tam'
+}
 
 
 // İlk girişten sonra amaca göre açılacak sayfa.
@@ -55,7 +85,7 @@ const startPage: Record<StudyPurpose, PageId> = {
   written_exam: 'exams',
   tyt_ayt: 'program',
   topic: 'lessons',
-  practice: 'lessons',
+  practice: 'practice',
   gaps: 'lessons',
 }
 
@@ -98,6 +128,9 @@ function App() {
   })
   const teacherView = isTeacher(cloud.user)
 
+  const mod: Mod = profile ? modOf(profile.purpose, profile.grade, teacherView) : 'tam'
+  const yaziliKonulari = useYaziliKonulari(profile ? [profile.grade] : [], mod === 'yazili')
+
   function changeTeacherGrade(next: number) {
     setOgretmenSinif(next)
     setOpenTopic(null)
@@ -127,7 +160,9 @@ function App() {
       return
     }
     changePage('lessons')
-    if (eylem.tur !== 'dersler') setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur })
+    if (eylem.tur === 'dersler') return
+    const kilitli = mod === 'tam' && !teacherView && kilitliKonular([eylem.grade]).has(`${eylem.grade}|${eylem.kod}`)
+    if (!kilitli) setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur })
   }
 
   function updateStudentGoal(goal: string) {
@@ -154,7 +189,6 @@ function App() {
     )
   }
 
-  const current = pages.find(item => item.id === page)!
   const activeGrades = profilSiniflari(profile)
   const activeLabel = profilEtiketi(profile)
   const avatar = profile.grade
@@ -165,8 +199,16 @@ function App() {
   const show12Placeholder = teacherView ? ogretmenSinif === 12 : isSenior && gorunum === 12
   const contentGrades = viewGrades.filter(grade => sinifMufredati(grade))
   // 12. sınıfta okul yazılısı yok; sınav sekmesi yalnızca TYT/AYT testleridir.
-  const labelOf = (item: (typeof pages)[number]) =>
+  const navPages = MOD_SAYFALARI[mod].map(m => {
+    const base = pages.find(item => item.id === m.id)!
+    return { ...base, label: m.label ?? base.label, short: m.short ?? base.short }
+  })
+  const shown: PageId = navPages.some(item => item.id === page) ? page : navPages[0].id
+  const current = navPages.find(item => item.id === shown)!
+  const labelOf = (item: (typeof navPages)[number]) =>
     item.id === 'exams' && isSenior && !teacherView ? 'TYT / AYT testleri' : item.label
+  // Tam modda öğrenci konuları sırayla açar (öğretmende kilit yok).
+  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades) : undefined
 
   return (
     <div className="app">
@@ -177,13 +219,13 @@ function App() {
         </div>
 
         <nav className="side-nav">
-          {pages.map(item => (
+          {navPages.map(item => (
             <button
               key={item.id}
               type="button"
-              className={item.id === page ? 'nav-item is-active' : 'nav-item'}
+              className={item.id === shown ? 'nav-item is-active' : 'nav-item'}
               onClick={() => changePage(item.id)}
-              aria-current={item.id === page ? 'page' : undefined}
+              aria-current={item.id === shown ? 'page' : undefined}
               title={labelOf(item)}
             >
               <Icon name={item.icon} />
@@ -217,7 +259,7 @@ function App() {
           {avatar}
         </button>
 
-        {page === 'today' && (
+        {shown === 'today' && (
           <TodayPage
             selectedGrade={profile.grade}
             grades={activeGrades}
@@ -232,7 +274,7 @@ function App() {
           />
         )}
 
-        {page !== 'today' && (
+        {shown !== 'today' && (
           <div className="page-head">
             <div>
               <small>Kimya Koçum</small>
@@ -241,7 +283,7 @@ function App() {
           </div>
         )}
 
-        {page === 'lessons' && openTopic && (
+        {shown === 'lessons' && openTopic && (
           <TopicPage
             key={`${openTopic.grade}-${openTopic.kod}-${openTopic.tab ?? ""}`}
             grade={openTopic.grade}
@@ -254,7 +296,7 @@ function App() {
           />
         )}
 
-        {page === 'lessons' && !openTopic && (
+        {shown === 'lessons' && !openTopic && (
           <div className="stack">
             {teacherView && (
               <section className="card teacher-view">
@@ -310,11 +352,25 @@ function App() {
               <h2 className="section-title">{profile.grade}. sınıf kimya</h2>
             )}
 
+            {mod === 'yazili' && (
+              <p className="program-message">
+                Yalnızca açık yazılı senaryolarındaki kazanımların konuları gösteriliyor.
+              </p>
+            )}
+
+            {kilitler && kilitler.size > 0 && (
+              <p className="muted small lock-note">
+                Konular sırayla açılır: bir konunun testinden %70 ve üstü alınca sıradaki konu açılır.
+              </p>
+            )}
+
             {contentGrades.map(grade => (
               <div key={grade} className="stack">
                 {viewGrades.length > 1 && <h2 className="section-title">{grade}. sınıf konuları</h2>}
                 <CurriculumPage
                   grade={grade}
+                  only={mod === 'yazili' ? yaziliKonulari : null}
+                  locked={kilitler}
                   onOpenTopic={kod => {
                     setOpenTopic({ grade, kod })
                     window.scrollTo({ top: 0 })
@@ -336,17 +392,19 @@ function App() {
           </div>
         )}
 
-        {page === 'exams' && (
+        {shown === 'exams' && (
           teacherView
             ? <ExamsPage grades={SINAV_SINIFLARI.TYT_AYT} label="Tüm sınıflar" showWritten />
-            : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} />
+            : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} onlyWritten={mod === 'yazili'} />
         )}
 
-        {page === 'coach' && (
+        {shown === 'practice' && <PracticePage grade={profile.grade} />}
+
+        {shown === 'coach' && (
           <CoachPage grades={teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades} onAction={coachAction} />
         )}
 
-        {page === 'program' && (
+        {shown === 'program' && (
           <ProgramPage
             profile={profile}
             onProfileChange={setProfile}
@@ -354,15 +412,15 @@ function App() {
           />
         )}
 
-        {page === 'progress' && mistakesOpen && (
+        {shown === 'progress' && mistakesOpen && (
           <MistakeBook grades={activeGrades} onClose={() => setMistakesOpen(false)} />
         )}
 
-        {page === 'progress' && teacherOpen && (
+        {shown === 'progress' && teacherOpen && (
           <TeacherPanel onClose={() => setTeacherOpen(false)} />
         )}
 
-        {page === 'progress' && !mistakesOpen && !teacherOpen && (
+        {shown === 'progress' && !mistakesOpen && !teacherOpen && (
           <ProgressPage
             grades={activeGrades}
             label={activeLabel}
@@ -390,14 +448,14 @@ function App() {
       </Suspense>
       </main>
 
-      <nav className="tabbar" aria-label="Alt menü">
-        {pages.map(item => (
+      <nav className="tabbar" aria-label="Alt menü" style={{ gridTemplateColumns: `repeat(${navPages.length}, 1fr)` }}>
+        {navPages.map(item => (
           <button
             key={item.id}
             type="button"
-            className={item.id === page ? 'tab is-active' : 'tab'}
+            className={item.id === shown ? 'tab is-active' : 'tab'}
             onClick={() => changePage(item.id)}
-            aria-current={item.id === page ? 'page' : undefined}
+            aria-current={item.id === shown ? 'page' : undefined}
           >
             <Icon name={item.icon} size={22} />
             {item.short}

@@ -2401,3 +2401,8 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .danger-button { min-height: 40px; padding: 0 16px; border: 0; border-radius: 10px; background: #a32d2d; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
 .danger-button:disabled, .primary-button:disabled { opacity: .5; cursor: not-allowed; }
 .page-loading { padding: 24px 4px; }
+
+/* Kilitli konular */
+.konu-list li.is-locked button { cursor: not-allowed; opacity: .55; }
+.konu-list li.is-locked button:hover { background: transparent; }
+.lock-note { margin: 0; }
