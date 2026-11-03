@@ -39,6 +39,7 @@ const SAYFA_AD: Record<string, string> = {
   progress: 'Gelişim',
   practice: 'Soru çöz',
   screening: 'Tarama',
+  giris: 'Giriş ve kurulum',
 }
 
 export function sayfaSay(sayfa: string) {
