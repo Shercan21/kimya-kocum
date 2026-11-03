@@ -12,11 +12,14 @@ import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
 import Onboarding from './components/Onboarding'
 import AccountCard from './components/AccountCard'
+import StudentPreviewCard from './components/StudentPreviewCard'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
 import { kilitliKonular } from './data/locks'
 import { useYaziliKonulari } from './data/yaziliKazanim'
 import {
   loadProfile,
+  saveProfile,
+  purposeTitle,
   profilSiniflari,
   profilEtiketi,
   SINAV_SINIFLARI,
@@ -93,6 +96,8 @@ const PAGE_KEY = 'kimya-kocum-page'
 const GOAL_KEY = 'kimya-kocum-goal'
 const VIEW_KEY = 'kimya-kocum-ders-gorunum'
 const TEACHER_GRADE_KEY = 'kimya-kocum-ogretmen-sinif'
+const PREVIEW_KEY = 'kimya-kocum-onizleme'
+type Onizleme = { grade: number; purpose: StudyPurpose }
 const ALL_GRADES = [9, 10, 11, 12] as const
 
 function App() {
@@ -105,7 +110,7 @@ function App() {
     () => localStorage.getItem(GOAL_KEY) || ''
   )
 
-  const [profile, setProfile] = useState<StudentProfile | null>(loadProfile)
+  const [storedProfile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
@@ -126,7 +131,40 @@ function App() {
     const saved = Number(localStorage.getItem(TEACHER_GRADE_KEY))
     return ALL_GRADES.includes(saved as 9) ? saved : 9
   })
-  const teacherView = isTeacher(cloud.user)
+  const teacherReal = isTeacher(cloud.user)
+
+  // Öğretmen için geçici öğrenci önizlemesi: seçilen sınıf ve amaçla
+  // uygulamayı bir öğrenci gibi gösterir; gerçek profil değişmez.
+  const [onizleme, setOnizleme] = useState<Onizleme | null>(() => {
+    try {
+      const raw = sessionStorage.getItem(PREVIEW_KEY)
+      return raw ? (JSON.parse(raw) as Onizleme) : null
+    } catch {
+      return null
+    }
+  })
+  const previewing = teacherReal && !!onizleme
+  const teacherView = teacherReal && !onizleme
+  const profile: StudentProfile | null =
+    storedProfile && previewing && onizleme ? { ...storedProfile, ...onizleme } : storedProfile
+
+  function startPreview(next: Onizleme) {
+    sessionStorage.setItem(PREVIEW_KEY, JSON.stringify(next))
+    setOnizleme(next)
+    setOpenTopic(null)
+    setMistakesOpen(false)
+    setTeacherOpen(false)
+    const sayfa = startPage[next.purpose]
+    setPage(sayfa)
+    window.scrollTo({ top: 0 })
+  }
+
+  function stopPreview() {
+    sessionStorage.removeItem(PREVIEW_KEY)
+    setOnizleme(null)
+    setOpenTopic(null)
+    setPage('progress')
+  }
 
   const mod: Mod = profile ? modOf(profile.purpose, profile.grade, teacherView) : 'tam'
   const yaziliKonulari = useYaziliKonulari(profile ? [profile.grade] : [], mod === 'yazili')
@@ -182,9 +220,9 @@ function App() {
   if (!profile || editingProfile) {
     return (
       <Onboarding
-        initial={profile}
+        initial={storedProfile}
         onDone={finishOnboarding}
-        onCancel={profile ? () => setEditingProfile(false) : undefined}
+        onCancel={storedProfile ? () => setEditingProfile(false) : undefined}
       />
     )
   }
@@ -250,6 +288,14 @@ function App() {
 
       <main className="main">
         <Suspense fallback={<p className="muted page-loading">Yükleniyor…</p>}>
+        {previewing && onizleme && (
+          <div className="preview-banner" role="status">
+            <span>
+              <b>Öğrenci önizlemesi</b> · {onizleme.grade}. sınıf · {purposeTitle(onizleme.purpose)}
+            </span>
+            <button type="button" className="btn-secondary" onClick={stopPreview}>Önizlemeyi bitir</button>
+          </div>
+        )}
         <button
           type="button"
           className="mobile-profile"
@@ -407,7 +453,13 @@ function App() {
         {shown === 'program' && (
           <ProgramPage
             profile={profile}
-            onProfileChange={setProfile}
+            onProfileChange={next => {
+              // Yalnızca çalışma düzeni kaydedilir; önizlemedeki sınıf/amaç gerçek profile yazılmaz.
+              if (!storedProfile) return
+              const merged = { ...storedProfile, days: next.days, dailyMinutes: next.dailyMinutes, updatedAt: next.updatedAt }
+              saveProfile(merged)
+              setProfile(merged)
+            }}
             onOpenLessons={() => changePage('lessons')}
           />
         )}
@@ -433,6 +485,7 @@ function App() {
               setTeacherOpen(true)
               window.scrollTo({ top: 0 })
             }}
+            onPreview={teacherReal && !previewing ? startPreview : undefined}
           />
         )}
 
@@ -517,12 +570,14 @@ function ProgressPage({
   onOpenLessons,
   onOpenMistakes,
   onOpenTeacher,
+  onPreview,
 }: {
   grades: number[]
   label?: string
   onOpenLessons: () => void
   onOpenMistakes: () => void
   onOpenTeacher: () => void
+  onPreview?: (next: Onizleme) => void
 }) {
   const hatalar = useHataDefteri().filter(item => grades.includes(item.grade))
   const acikHata = hatalar.filter(item => item.durum === 'acik').length
@@ -566,6 +621,7 @@ function ProgressPage({
         <ReviewPage grades={grades} onOpenLessons={onOpenLessons} />
       </div>
       <div className="col">
+        {onPreview && <StudentPreviewCard onStart={onPreview} />}
         <AccountCard onOpenTeacher={onOpenTeacher} />
         <TopicMap grades={grades} label={label} onOpenLessons={onOpenLessons} />
       </div>

@@ -2406,3 +2406,13 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .konu-list li.is-locked button { cursor: not-allowed; opacity: .55; }
 .konu-list li.is-locked button:hover { background: transparent; }
 .lock-note { margin: 0; }
+
+/* Öğretmen önizlemesi */
+.preview-card { display: grid; gap: 12px; }
+.preview-card .primary-button { justify-self: start; }
+.preview-banner {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin: 0 0 16px; padding: 10px 14px; border-radius: 12px;
+  background: #faeeda; color: #633806; border: 1px solid #ef9f27; font-size: 14px;
+}
