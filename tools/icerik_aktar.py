@@ -253,6 +253,11 @@ def main(src: Path, config_path: Path, out: Path, mufredat_path: Path):
     (out / "ozet.json").write_text(json.dumps(summary, ensure_ascii=False), encoding="utf-8")
     mufredat_path.write_text(json.dumps(mufredat, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    # Sarmal ve karma sorularına tahmini kazanım etiketi
+    sys.path.insert(0, str(Path(__file__).parent))
+    import kazanim_etiketle
+    kazanim_etiketle.main(out, mufredat_path)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:

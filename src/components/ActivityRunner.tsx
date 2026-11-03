@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { EtkinlikKayit, etkinlikSonucuKaydet } from '../data/activityResults'
 import { icerikYolu, type Etkinlik } from '../data/content'
 
 const TUR_AD: Record<Etkinlik['tur'], string> = {
@@ -55,6 +56,16 @@ function Footer({
   onReset: () => void
   revealed: boolean
 }) {
+  // Kontrol edilince puan kaydedilir (gelişim raporu için).
+  const kaydet = useContext(EtkinlikKayit)
+  const son = useRef<string>('')
+  useEffect(() => {
+    if (!checked || total === undefined || score === undefined || !kaydet) return
+    const key = `${score}/${total}`
+    if (son.current === key) return
+    son.current = key
+    kaydet(score, total)
+  }, [checked, score, total, kaydet])
   return (
     <div className="act-footer">
       {checked && total !== undefined && (
@@ -401,8 +412,13 @@ function Tablo({ data }: { data: Etkinlik }) {
   )
 }
 
-export default function ActivityRunner({ etkinlik }: { etkinlik: Etkinlik }) {
+export default function ActivityRunner({ etkinlik, grade, kod }: { etkinlik: Etkinlik; grade?: number; kod?: string }) {
+  const kaydet =
+    grade !== undefined && kod
+      ? (dogru: number, toplam: number) => etkinlikSonucuKaydet({ grade, kod, no: etkinlik.no, dogru, toplam })
+      : null
   return (
+    <EtkinlikKayit.Provider value={kaydet}>
     <section className="card activity">
       <div className="act-head">
         <span className="badge">{etkinlik.no}. etkinlik · {TUR_AD[etkinlik.tur]}</span>
@@ -415,5 +431,6 @@ export default function ActivityRunner({ etkinlik }: { etkinlik: Etkinlik }) {
       {etkinlik.tur === 'kh' && <KavramHaritasi data={etkinlik} />}
       {etkinlik.tur === 'ta' && <Tablo data={etkinlik} />}
     </section>
+    </EtkinlikKayit.Provider>
   )
 }

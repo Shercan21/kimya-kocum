@@ -46,6 +46,7 @@ export type Soru = {
   d: number // doğru şık sırası (0'dan)
   c?: string // HTML çözüm
   z?: string // zorluk
+  k?: string // kazanım (sarmal/karma sorularında tahmini etiket)
 }
 
 export type TestDosyasi = {
@@ -157,4 +158,15 @@ export function yazililar(grade: number) {
 
 export function yaziliPdfAdi(grade: number, sinav: YaziliSinav) {
   return `${grade}-sinif-${sinav.donem}-donem-${sinav.yazili}-yazili-senaryo-${sinav.senaryo}`
+}
+
+// Bir testin sorularına varsayılan kazanım: bağlam testinin kazanımı ya da
+// tek kazanımlı konunun kazanımı. Sarmal/karma sorularında soru kendi "k"sını taşır.
+export function testKazanimi(grade: number, testId: string): string | null {
+  for (const { konu } of tumKonular(grade)) {
+    const b = konu.baglam.find(x => x.id === testId)
+    if (b) return b.kazanim
+    if (konu.test === testId) return konu.kazanimlar.length === 1 ? konu.kazanimlar[0] : null
+  }
+  return null
 }

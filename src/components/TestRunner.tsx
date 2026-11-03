@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import { useBackStep } from '../data/backNav'
-import { icerikHtml, testDosyasi, type Soru, type TestDosyasi } from '../data/content'
+import { icerikHtml, testDosyasi, testKazanimi, type Soru, type TestDosyasi } from '../data/content'
 import { basari, GECME_ORANI, sonucKaydet, type TestSonucu } from '../data/results'
 import {
   hataKaydiKey,
@@ -84,10 +84,19 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
     const yanlisSorular: number[] = []
     let dogru = 0
     let bos = 0
+    const varsayilan = testKazanimi(grade, testId)
+    const kazanimlar: Record<string, [number, number]> = {}
     sorular.forEach((item, i) => {
       if (cevaplar[i] === undefined) bos++
       else if (cevaplar[i] === item.d) dogru++
       else yanlisSorular.push(i)
+      const k = item.k ?? varsayilan
+      if (k) {
+        const c = kazanimlar[k] ?? [0, 0]
+        c[1]++
+        if (cevaplar[i] === item.d) c[0]++
+        kazanimlar[k] = c
+      }
     })
     setSonuc(
       sonucKaydet(
@@ -102,6 +111,7 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
           bos,
           toplam: sorular.length,
           yanlisSorular,
+          kazanimlar: Object.keys(kazanimlar).length ? kazanimlar : undefined,
         },
         konuBaslik
       )

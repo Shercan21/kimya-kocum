@@ -230,7 +230,7 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
         kit === null ? (
           <section className="card"><p className="muted">Yükleniyor…</p></section>
         ) : (
-          kit.etkinlikler.map(item => <ActivityRunner key={item.no} etkinlik={item} />)
+          kit.etkinlikler.map(item => <ActivityRunner key={item.no} etkinlik={item} grade={grade} kod={kod} />)
         )
       )}
     </div>

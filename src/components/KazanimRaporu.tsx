@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Icon from './Icon'
-import { kazanimRaporu, type KazanimDurum, type KazanimSatiri } from '../data/kazanimRaporu'
+import { KAYNAK_AD, kazanimRaporu, type Kaynak, type KazanimDurum, type KazanimSatiri } from '../data/kazanimRaporu'
 import { useTaramaSonucu } from '../data/screening'
 
 const BASLIK: Record<Exclude<KazanimDurum, 'yok'>, { ad: string; not: string; cls: string }> = {
@@ -15,6 +15,9 @@ function Satir({ s }: { s: KazanimSatiri }) {
       <div>
         <b>{s.kod}</b> {s.ad}
         {s.konular.length > 0 && <small>Konu: {s.konular.map(k => `${k.kod} ${k.ad}`).join(' · ')}</small>}
+        <small className="kr-kaynak">
+          {(Object.keys(s.kaynaklar) as Kaynak[]).map(k => `${KAYNAK_AD[k]} %${s.kaynaklar[k]}`).join(' · ')}
+        </small>
       </div>
       <span className={`tarama-etiket ${s.durum === 'iyi' ? 'tamam' : s.durum === 'tekrar' ? 'kismen' : 'eksik'}`}>%{s.oran}</span>
     </li>
@@ -25,7 +28,7 @@ export default function KazanimRaporu({ grades }: { grades: number[] }) {
   const t1 = useTaramaSonucu(grades[0] ?? 0)
   const t2 = useTaramaSonucu(grades[1] ?? 0)
   const t3 = useTaramaSonucu(grades[2] ?? 0)
-  const { satirlar, genel } = kazanimRaporu(grades, [t1, t2, t3])
+  const { satirlar, genel, turlar } = kazanimRaporu(grades, [t1, t2, t3])
   const [hepsi, setHepsi] = useState(false)
 
   const cozulen = satirlar.filter(s => s.durum !== 'yok')
@@ -41,11 +44,19 @@ export default function KazanimRaporu({ grades }: { grades: number[] }) {
       </h3>
 
       {cozulen.length === 0 ? (
-        <p className="muted">Konu testlerini çözdükçe hangi kazanımlarda iyi olduğun, hangilerini tekrar etmen gerektiği burada görünecek.</p>
+        <p className="muted">Test, sarmal, karma ve etkinlik çözdükçe hangi kazanımlarda iyi olduğun, hangilerini tekrar etmen gerektiği burada görünecek.</p>
       ) : (
         <>
+          <div className="kr-turlar">
+            {turlar.map(t => (
+              <div key={t.kaynak} className={`kr-tur ${t.oran >= 70 ? 'tamam' : t.oran >= 40 ? 'kismen' : 'eksik'}`}>
+                <small>{KAYNAK_AD[t.kaynak]}</small>
+                <b>%{t.oran}</b>
+              </div>
+            ))}
+          </div>
           <p className="muted small">
-            {cozulen.length} kazanımda sonucun var{yok ? `, ${yok} kazanımın testini henüz çözmedin` : ''}.
+            {cozulen.length} kazanımda sonucun var{yok ? `, ${yok} kazanımda henüz soru çözmedin` : ''}.
           </p>
           {(['eksik', 'tekrar', 'iyi'] as const).map(d => {
             const list = grup(d)
