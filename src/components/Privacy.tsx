@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import { TEACHER_EMAIL } from '../data/cloud'
 import { kvkkOnayla } from '../data/kvkk'
 
@@ -65,6 +66,7 @@ export function AydinlatmaMetni() {
 }
 
 export function PrivacyModal({ onClose, children }: { onClose: () => void; children?: React.ReactNode }) {
+  useBackStep(true, onClose)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)

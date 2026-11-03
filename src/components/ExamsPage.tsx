@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import WrittenExams from './WrittenExams'
@@ -18,6 +19,10 @@ export default function ExamsPage({ grades, label, showWritten = true, onlyWritt
   const multi = sets.length > 1
   const [active, setActive] = useState<Active | null>(null)
   const [, refresh] = useState(0)
+  useBackStep(!!active, () => {
+    setActive(null)
+    refresh(value => value + 1)
+  })
 
   if (active) {
     return (

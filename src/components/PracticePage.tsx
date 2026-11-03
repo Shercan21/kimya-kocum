@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import { sinifMufredati } from '../data/content'
@@ -51,6 +52,10 @@ export default function PracticePage({ grade: profileGrade }: Props) {
   const [temaNo, setTemaNo] = useState<number | null>(null)
   const [active, setActive] = useState<Active | null>(null)
   const [, refresh] = useState(0)
+  useBackStep(!!active, () => {
+    setActive(null)
+    refresh(v => v + 1)
+  })
 
   if (active) {
     return (

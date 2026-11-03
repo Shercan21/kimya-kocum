@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import { icerikHtml, konuBul, testDosyasi, type Soru } from '../data/content'
 import {
@@ -156,6 +157,7 @@ export default function MistakeBook({ grades, onClose }: Props) {
   const acik = hatalar.filter(item => item.durum === 'acik')
   const duzeltilen = hatalar.filter(item => item.durum === 'duzeltildi')
   const [practice, setPractice] = useState<string[] | null>(null)
+  useBackStep(!!practice, () => setPractice(null))
   const [showFixed, setShowFixed] = useState(false)
 
   if (practice) {

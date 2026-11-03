@@ -15,6 +15,7 @@ import AccountCard from './components/AccountCard'
 import StudentPreviewCard from './components/StudentPreviewCard'
 import { isTeacher, syncNow, useCloud } from './data/cloud'
 import { kilitliKonular } from './data/locks'
+import { useBackStep } from './data/backNav'
 import { useYaziliKonulari } from './data/yaziliKazanim'
 import {
   loadProfile,
@@ -168,6 +169,14 @@ function App() {
 
   const mod: Mod = profile ? modOf(profile.purpose, profile.grade, teacherView) : 'tam'
   const yaziliKonulari = useYaziliKonulari(profile ? [profile.grade] : [], mod === 'yazili')
+
+  // Telefonun geri tuşu: açık ekranı kapatır, ana sekmeye döner; ana sekmede uygulamadan çıkar.
+  const homePage = MOD_SAYFALARI[mod][0].id
+  useBackStep(!!profile && !editingProfile && page !== homePage, () => changePage(homePage))
+  useBackStep(!!openTopic, () => setOpenTopic(null))
+  useBackStep(mistakesOpen, () => setMistakesOpen(false))
+  useBackStep(teacherOpen, () => setTeacherOpen(false))
+  useBackStep(editingProfile && !!storedProfile, () => setEditingProfile(false))
 
   function changeTeacherGrade(next: number) {
     setOgretmenSinif(next)

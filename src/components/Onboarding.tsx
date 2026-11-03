@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import SignInButton from './SignInButton'
 import { PrivacyLink } from './Privacy'
 import { isTeacher, useCloud } from '../data/cloud'
@@ -58,6 +59,9 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
     setError('')
     setStep(value => value + 1)
   }
+
+  // Telefonun geri tuşu bir önceki adıma (ilk adımda, düzenlemedeyse kapatmaya) gider.
+  useBackStep(step > 0 || confirmGrade, () => back())
 
   function back() {
     setError('')
