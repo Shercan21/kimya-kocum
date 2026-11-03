@@ -194,8 +194,15 @@ function App() {
     setSeciliKonu(null)
   }
 
-  const tarama = useTaramaSonucu(profile?.grade ?? 0)
-  const taramaDurum = eksikKonular(tarama)
+  // 12. sınıf TYT (9, 10) ve AYT (11) için ayrı ayrı taranabilir; hepsi birleştirilir.
+  const t9 = useTaramaSonucu(9)
+  const t10 = useTaramaSonucu(10)
+  const t11 = useTaramaSonucu(11)
+  const taramaDurum = new Map(
+    [t9, t10, t11]
+      .filter(t => t && (profile?.grade === 12 || t.grade === profile?.grade))
+      .flatMap(t => [...eksikKonular(t)])
+  )
 
   // Tarama sonunda seçilen plan: amaç güncellenir, uygulama yeni plana göre açılır.
   function choosePlan(purpose: StudyPurpose) {
@@ -579,7 +586,7 @@ function App() {
 
         {shown === 'screening' && (
           <ScreeningPage
-            grade={profile.grade === 12 ? 11 : profile.grade}
+            grade={profile.grade}
             onChoosePlan={choosePlan}
           />
         )}

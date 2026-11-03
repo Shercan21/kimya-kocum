@@ -144,7 +144,65 @@ function Sonuc({
   )
 }
 
-export default function ScreeningPage({ grade, onChoosePlan }: Props) {
+// 12. sınıf / mezun: önce TYT (9 ya da 10. sınıf) veya AYT (11. sınıf) seçilir.
+export default function ScreeningPage({ grade: profilSinifi, onChoosePlan }: Props) {
+  const [secim, setSecim] = useState<number | null>(profilSinifi === 12 ? null : profilSinifi)
+  if (secim === null) {
+    return <SinavSecimi onSec={setSecim} />
+  }
+  return (
+    <ScreeningForGrade
+      key={secim}
+      grade={secim}
+      onChoosePlan={onChoosePlan}
+      onChangeGrade={profilSinifi === 12 ? () => setSecim(null) : undefined}
+    />
+  )
+}
+
+function SinavSecimi({ onSec }: { onSec: (grade: number) => void }) {
+  const t9 = useTaramaSonucu(9)
+  const t10 = useTaramaSonucu(10)
+  const t11 = useTaramaSonucu(11)
+  const durum = (t: TaramaSonucu | null) =>
+    t ? `Tarandı · %${t.toplam ? Math.round((t.dogru / t.toplam) * 100) : 0}` : 'Henüz taranmadı'
+  const secenek = (grade: number, baslik: string, t: TaramaSonucu | null) => (
+    <button key={grade} type="button" className="ob-option" onClick={() => onSec(grade)}>
+      <span>
+        {baslik}
+        <small>{durum(t)}</small>
+      </span>
+    </button>
+  )
+  return (
+    <div className="stack">
+      <section className="card">
+        <h3 className="card-title"><Icon name="target" /> Hangi sınav için taramak istersin?</h3>
+        <p className="muted small">Her sınıf ayrı taranır; her kazanımdan 2 soru gelir. İstediğin kadarını tarayabilirsin.</p>
+        <h4 className="coach-sub">TYT</h4>
+        <div className="ob-options">
+          {secenek(9, '9. sınıf konuları', t9)}
+          {secenek(10, '10. sınıf konuları', t10)}
+        </div>
+        <h4 className="coach-sub">AYT</h4>
+        <div className="ob-options">
+          {secenek(11, '11. sınıf konuları', t11)}
+        </div>
+        <p className="muted small">AYT'nin 12. sınıf konuları yeni Maarif programı yayımlanınca eklenecek.</p>
+      </section>
+    </div>
+  )
+}
+
+function ScreeningForGrade({
+  grade,
+  onChoosePlan,
+  onChangeGrade,
+}: {
+  grade: number
+  onChoosePlan: (purpose: StudyPurpose) => void
+  onChangeGrade?: () => void
+}) {
   const kayitli = useTaramaSonucu(grade)
   const [sorular, setSorular] = useState<TaramaSorusu[] | null>(null)
   const [yukleniyor, setYukleniyor] = useState(false)
@@ -283,7 +341,14 @@ export default function ScreeningPage({ grade, onChoosePlan }: Props) {
   }
 
   if (kayitli) {
-    return <Sonuc sonuc={kayitli} onChoosePlan={onChoosePlan} onRestart={basla} />
+    return (
+      <>
+        {onChangeGrade && (
+          <button type="button" className="btn-secondary tarama-geri" onClick={onChangeGrade}>‹ Başka sınıfı tara</button>
+        )}
+        <Sonuc sonuc={kayitli} onChoosePlan={onChoosePlan} onRestart={basla} />
+      </>
+    )
   }
 
   return (
@@ -295,9 +360,14 @@ export default function ScreeningPage({ grade, onChoosePlan }: Props) {
           Sonunda hangi konularda eksiğin olduğunu göreceksin ve ona göre planını seçeceksin.
         </p>
         {hata && <p className="form-error">{hata}</p>}
-        <button type="button" className="primary-button" disabled={yukleniyor} onClick={basla}>
-          {yukleniyor ? 'Sorular hazırlanıyor…' : 'Taramaya başla'}
-        </button>
+        <div className="row-actions start">
+          <button type="button" className="primary-button" disabled={yukleniyor} onClick={basla}>
+            {yukleniyor ? 'Sorular hazırlanıyor…' : 'Taramaya başla'}
+          </button>
+          {onChangeGrade && (
+            <button type="button" className="btn-secondary" onClick={onChangeGrade}>Başka sınıf seç</button>
+          )}
+        </div>
       </section>
     </div>
   )

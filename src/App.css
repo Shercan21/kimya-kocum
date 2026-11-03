@@ -2462,3 +2462,4 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .kr-tur.tamam b { color: #0f6e56; }
 .kr-tur.kismen b { color: #854f0b; }
 .kr-tur.eksik b { color: #a32d2d; }
+.tarama-geri { justify-self: start; margin-bottom: 4px; }
