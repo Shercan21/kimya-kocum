@@ -1,0 +1,75 @@
+<!-- 11. sınıf 2.1.4 Tepkime Oranı Q -->
+<div class="ka" data-konu="11-2.1.4">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Tepkime oranını (Q) hesaplamayı ve Q ile K'yi karşılaştırarak sistemin dengede olup olmadığını ve hangi yöne ilerleyeceğini bulmayı öğreneceksin. <span class="ka-kazanim">KİM.11.2.4</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li><b>Q</b>, K ile aynı biçimde yazılır ama <b>herhangi bir andaki</b> derişimlerle hesaplanır.</li>
+    <li><b>Q &lt; K:</b> ürünler eksik → tepkime <b>ileri</b> yönde ilerler.</li>
+    <li><b>Q = K:</b> sistem <b>dengededir</b>.</li>
+    <li><b>Q &gt; K:</b> ürünler fazla → tepkime <b>geri</b> yönde ilerler.</li>
+    <li>Q, dengeye ulaşınca K'ye eşitlenir.</li>
+  </ol>
+
+  <h3>1. Q ve K karşılaştırması</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 230" role="img" aria-label="Q ve K terazisi">
+      <defs><marker id="ok1214" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#534ab7"/></marker></defs>
+      <g font-family="Arial" text-anchor="middle">
+        <line x1="40" y1="110" x2="600" y2="110" stroke="#2c2c2a" stroke-width="3"/>
+        <circle cx="320" cy="110" r="12" fill="#534ab7"/><text x="320" y="85" font-size="20" font-weight="700" fill="#3c3489">K</text>
+        <circle cx="140" cy="110" r="10" fill="#e24b4a"/><text x="140" y="85" font-size="18" font-weight="700" fill="#a32d2d">Q &lt; K</text>
+        <line x1="160" y1="140" x2="290" y2="140" stroke="#534ab7" stroke-width="3" marker-end="url(#ok1214)"/>
+        <text x="140" y="175" font-size="16" fill="#26215c">ileri yöne (sağa)</text><text x="140" y="197" font-size="15" fill="#5f5e5a">ürünler artar</text>
+        <circle cx="500" cy="110" r="10" fill="#1d9e75"/><text x="500" y="85" font-size="18" font-weight="700" fill="#085041">Q &gt; K</text>
+        <line x1="480" y1="140" x2="350" y2="140" stroke="#534ab7" stroke-width="3" marker-end="url(#ok1214)"/>
+        <text x="500" y="175" font-size="16" fill="#26215c">geri yöne (sola)</text><text x="500" y="197" font-size="15" fill="#5f5e5a">tepkenler artar</text>
+        <text x="320" y="40" font-size="16" fill="#5f5e5a">Q, her zaman K'ye doğru ilerler.</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Durum</th><th>Anlamı</th><th>Sistem nereye ilerler?</th></tr></thead>
+    <tbody>
+      <tr><td>Q &lt; K</td><td>Ürünler dengedekinden az</td><td>İleri (ürünler artar)</td></tr>
+      <tr><td>Q = K</td><td>Dengede</td><td>Net değişim yok</td></tr>
+      <tr><td>Q &gt; K</td><td>Ürünler dengedekinden fazla</td><td>Geri (tepkenler artar)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2. Örneklerle</h3>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 1:</b> H₂ + I₂ ⇌ 2HI için K<sub>c</sub> = 64. 2 L'lik kapta 1 mol H₂, 1 mol I₂ ve 4 mol HI var. Sistem dengede midir?
+    <p><b>Çözüm:</b> [H₂] = [I₂] = 0,5 M, [HI] = 2 M. Q = 2² / (0,5 × 0,5) = <b>16</b>. Q &lt; K → dengede değil, <b>ileri yönde</b> ilerler; HI artar.</p></div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 2:</b> N₂O₄ ⇌ 2NO₂ için K<sub>c</sub> = 0,2. 1 L'de 0,5 mol N₂O₄ ve 0,5 mol NO₂ var. Kabın rengi nasıl değişir?
+    <p><b>Çözüm:</b> Q = 0,5² / 0,5 = 0,5 &gt; 0,2 → <b>geri yöne</b>; kahverengi NO₂ azalır, renk <b>açılır</b>.</p></div>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 250" role="img" aria-label="Q zamanla K'ye yaklaşır">
+      <line x1="70" y1="210" x2="610" y2="210" stroke="#2c2c2a" stroke-width="2"/><line x1="70" y1="210" x2="70" y2="20" stroke="#2c2c2a" stroke-width="2"/>
+      <line x1="70" y1="110" x2="610" y2="110" stroke="#534ab7" stroke-width="3" stroke-dasharray="9 6"/>
+      <path d="M70 180 C 180 130, 260 114, 400 111 L 610 110" fill="none" stroke="#e24b4a" stroke-width="4"/>
+      <path d="M70 40 C 180 90, 260 106, 400 109 L 610 110" fill="none" stroke="#1d9e75" stroke-width="4"/>
+      <g font-family="Arial" font-size="16">
+        <text x="540" y="100" fill="#3c3489" font-weight="700">K</text>
+        <text x="90" y="200" fill="#a32d2d">Q &lt; K'den başlarsa</text>
+        <text x="90" y="40" fill="#085041">Q &gt; K'den başlarsa</text>
+        <text x="580" y="235" text-anchor="end" fill="#5f5e5a">zaman</text>
+        <text x="20" y="20" fill="#5f5e5a">Q</text>
+      </g>
+    </svg>
+  </figure>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Mol sayılarını hacme bölmeden Q hesaplamak (hacim 1 L değilse).</li>
+    <li>Q &lt; K iken tepkimenin geri yöne gittiğini sanmak.</li>
+    <li>Q hesabında katı ve saf sıvıları yazmak.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. Q = K ise sistem hangi durumdadır?</summary><p>Dengededir.</p></details>
+  <details class="ka-soru"><summary>2. Q &gt; K ise ürünlerin derişimi nasıl değişir?</summary><p>Azalır (geri tepkime baskın).</p></details>
+  <details class="ka-soru"><summary>3. Başlangıçta yalnız tepkenler varsa Q kaçtır?</summary><p>0; tepkime ileri yöne gider.</p></details>
+  <details class="ka-soru"><summary>4. Q ile K arasındaki fark nedir?</summary><p>K yalnız denge derişimleriyle, Q herhangi bir andaki derişimlerle hesaplanır.</p></details>
+</section>
+</div>

@@ -1,0 +1,86 @@
+<!-- 10. sınıf 2.1.7 Molarite ve ppm -->
+<div class="ka" data-konu="10-2.1.7">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Molar derişimi, iyon derişimini, seyreltme ve karıştırma hesaplarını, ppm birimini öğreneceksin. <span class="ka-kazanim">KİM.10.2.4</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li><b>Molarite: M = n / V</b> (n: çözünen molü, V: çözelti hacmi, L).</li>
+    <li>İyon derişimi formülden bulunur: 0,2 M CaCl₂ → [Cl⁻] = 0,4 M.</li>
+    <li><b>Seyreltme:</b> çözünen molü değişmez → <b>M₁V₁ = M₂V₂</b>.</li>
+    <li><b>Karıştırma:</b> M<sub>son</sub> = (M₁V₁ + M₂V₂) / (V₁ + V₂).</li>
+    <li><b>ppm</b> = (çözünen kütlesi / çözelti kütlesi) × 10⁶; seyreltik sulu çözeltide 1 ppm ≈ 1 mg/L.</li>
+  </ol>
+
+  <h3>1. Molarite</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 260" role="img" aria-label="Balonjojede çözelti hazırlama">
+      <g font-family="Arial" text-anchor="middle">
+        <g transform="translate(60,20)"><rect x="20" y="110" width="80" height="20" fill="#ef9f27"/><text x="60" y="160" font-size="15" fill="#633806">tart: 4 g NaOH</text></g>
+        <text x="190" y="140" font-size="30">→</text>
+        <g transform="translate(250,20)">
+          <path d="M50 0 L50 90 Q0 120 0 165 Q0 210 70 210 Q140 210 140 165 Q140 120 90 90 L90 0" fill="#e6f1fb" stroke="#2c2c2a" stroke-width="3"/>
+          <line x1="44" y1="40" x2="96" y2="40" stroke="#e24b4a" stroke-width="3"/>
+          <text x="70" y="170" font-size="16" fill="#0c447c">1 L çizgisi</text>
+        </g>
+        <text x="420" y="140" font-size="30">=</text>
+        <g transform="translate(460,60)">
+          <rect width="160" height="110" rx="14" fill="#eeedfe"/>
+          <text x="80" y="35" font-size="16" fill="#26215c">n = 4/40 = 0,1 mol</text>
+          <text x="80" y="62" font-size="16" fill="#26215c">V = 1 L</text>
+          <text x="80" y="95" font-size="22" font-weight="700" fill="#3c3489">0,1 M</text>
+        </g>
+        <text x="320" y="250" font-size="15" fill="#5f5e5a">Önce çözünen konur, sonra su ile işaret çizgisine kadar tamamlanır.</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu dikkat"><b>Dikkat:</b> V, <b>çözeltinin</b> hacmidir, eklenen suyun hacmi değil. Hacim mL verilirse litreye çevrilir (÷ 1000).</div>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Çözelti</th><th>Katyon derişimi</th><th>Anyon derişimi</th><th>Toplam iyon</th></tr></thead>
+    <tbody>
+      <tr><td>0,2 M NaCl</td><td>[Na⁺] = 0,2 M</td><td>[Cl⁻] = 0,2 M</td><td>0,4 M</td></tr>
+      <tr><td>0,2 M CaCl₂</td><td>[Ca²⁺] = 0,2 M</td><td>[Cl⁻] = 0,4 M</td><td>0,6 M</td></tr>
+      <tr><td>0,1 M Al₂(SO₄)₃</td><td>[Al³⁺] = 0,2 M</td><td>[SO₄²⁻] = 0,3 M</td><td>0,5 M</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2. Seyreltme ve karıştırma</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 230" role="img" aria-label="Seyreltmede mol sabit kalır">
+      <defs><marker id="ok1027" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#534ab7"/></marker></defs>
+      <g font-family="Arial" text-anchor="middle">
+        <g transform="translate(80,30)"><path d="M0 0 L0 130 Q0 150 20 150 L80 150 Q100 150 100 130 L100 0" fill="none" stroke="#2c2c2a" stroke-width="3"/><rect x="2" y="90" width="96" height="58" fill="#7f77dd" opacity=".75"/>
+        <g fill="#26215c"><circle cx="25" cy="110" r="5"/><circle cx="50" cy="125" r="5"/><circle cx="75" cy="105" r="5"/><circle cx="35" cy="138" r="5"/><circle cx="70" cy="135" r="5"/></g></g>
+        <text x="130" y="210" font-size="16" fill="#26215c">100 mL, 0,4 M</text>
+        <line x1="210" y1="110" x2="380" y2="110" stroke="#534ab7" stroke-width="4" marker-end="url(#ok1027)"/><text x="295" y="95" font-size="16" fill="#534ab7">+ 300 mL su</text>
+        <g transform="translate(420,30)"><path d="M0 0 L0 130 Q0 150 20 150 L100 150 Q120 150 120 130 L120 0" fill="none" stroke="#2c2c2a" stroke-width="3"/><rect x="2" y="10" width="116" height="138" fill="#cecbf6"/>
+        <g fill="#26215c"><circle cx="25" cy="40" r="5"/><circle cx="85" cy="60" r="5"/><circle cx="50" cy="90" r="5"/><circle cx="95" cy="120" r="5"/><circle cx="30" cy="130" r="5"/></g></g>
+        <text x="480" y="210" font-size="16" fill="#26215c">400 mL, 0,1 M</text>
+        <text x="320" y="226" font-size="15" fill="#5f5e5a">Tanecik (mol) sayısı aynı: 5 nokta = 5 nokta</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 1:</b> 8 g NaOH ile 500 mL çözelti hazırlanıyor. Molarite kaçtır? 100 mL'si su ile 400 mL'ye seyreltilirse yeni molarite ne olur? (NaOH 40)
+    <p><b>Çözüm:</b> n = 8/40 = 0,2 mol; V = 0,5 L → <b>0,4 M</b>. Seyreltme: 0,4 × 100 = M₂ × 400 → <b>M₂ = 0,1 M</b>.</p></div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 2:</b> 200 mL 0,5 M ve 300 mL 0,2 M NaCl çözeltileri karıştırılıyor. Son derişim kaçtır?
+    <p><b>Çözüm:</b> (0,5 × 200 + 0,2 × 300) / 500 = (100 + 60) / 500 = <b>0,32 M</b>.</p></div>
+
+  <h3>3. ppm (milyonda bir kısım)</h3>
+  <div class="ka-kutu tanim"><b>ppm</b> = (çözünen kütlesi / çözelti kütlesi) × 10⁶. İçme suyundaki iyonlar, havadaki kirleticiler gibi çok küçük derişimler için kullanılır. Seyreltik sulu çözeltide <b>1 ppm ≈ 1 mg/L</b>.</div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 3:</b> 2 kg suda 0,5 mg kurşun bulunuyor. Derişim kaç ppm'dir?
+    <p><b>Çözüm:</b> 0,5 mg = 5 × 10⁻⁴ g; çözelti ≈ 2000 g. (5 × 10⁻⁴ / 2000) × 10⁶ = <b>0,25 ppm</b>.</p></div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>V'yi mL olarak bırakmak.</li>
+    <li>Seyreltince mol sayısının azaldığını sanmak.</li>
+    <li>İyon derişiminde indisi unutmak (CaCl₂'de [Cl⁻] = 2 × M).</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. 0,5 L çözeltide 0,25 mol şeker var. Molarite kaçtır?</summary><p>0,5 M.</p></details>
+  <details class="ka-soru"><summary>2. 0,3 M MgCl₂ çözeltisinde [Cl⁻] kaçtır?</summary><p>0,6 M.</p></details>
+  <details class="ka-soru"><summary>3. 2 M 50 mL çözelti 200 mL'ye seyreltilirse derişim kaç olur?</summary><p>0,5 M.</p></details>
+  <details class="ka-soru"><summary>4. 1 ppm yaklaşık kaç mg/L'dir (seyreltik sulu çözelti)?</summary><p>1 mg/L.</p></details>
+</section>
+</div>

@@ -1,0 +1,83 @@
+<!-- 11. sınıf 1.1.1 Tepkimelerde Enerji Değişimi -->
+<div class="ka" data-konu="11-1.1.1">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Entalpiyi, ekzotermik ve endotermik olayları, potansiyel enerji diyagramlarını ve termokimyasal denklemlerle hesap yapmayı öğreneceksin. <span class="ka-kazanim">KİM.11.1.1</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li>Sabit basınçta sistemin ısı içeriği <b>entalpi (H)</b>; değişimi <b>ΔH = H<sub>ürünler</sub> − H<sub>tepkenler</sub></b>.</li>
+    <li><b>Ekzotermik:</b> ısı verir, ΔH &lt; 0, ortam ısınır (yanma, nötrleşme, donma).</li>
+    <li><b>Endotermik:</b> ısı alır, ΔH &gt; 0, ortam soğur (fotosentez, erime, buharlaşma).</li>
+    <li>Denklem katsayıları <b>n katına</b> çıkarsa ΔH de n katına çıkar.</li>
+    <li>Denklem <b>ters çevrilirse</b> ΔH'nin işareti değişir.</li>
+  </ol>
+
+  <h3>1. Ekzotermik ve endotermik</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 280" role="img" aria-label="Entalpi diyagramları">
+      <defs><marker id="ok1111" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#e24b4a"/></marker>
+      <marker id="ok1111b" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#378add"/></marker></defs>
+      <g font-family="Arial" text-anchor="middle">
+        <line x1="40" y1="240" x2="40" y2="30" stroke="#2c2c2a" stroke-width="2"/><text x="28" y="30" font-size="17" font-weight="700">H</text>
+        <line x1="60" y1="70" x2="170" y2="70" stroke="#26215c" stroke-width="5"/><text x="115" y="58" font-size="16" fill="#26215c">tepkenler</text>
+        <line x1="190" y1="200" x2="300" y2="200" stroke="#26215c" stroke-width="5"/><text x="245" y="225" font-size="16" fill="#26215c">ürünler</text>
+        <line x1="180" y1="75" x2="180" y2="192" stroke="#e24b4a" stroke-width="4" marker-end="url(#ok1111)"/>
+        <text x="215" y="140" font-size="17" font-weight="700" fill="#a32d2d">ΔH &lt; 0</text>
+        <text x="170" y="265" font-size="18" font-weight="700" fill="#a32d2d">Ekzotermik 🔥</text>
+        <line x1="350" y1="240" x2="350" y2="30" stroke="#2c2c2a" stroke-width="2"/><text x="338" y="30" font-size="17" font-weight="700">H</text>
+        <line x1="370" y1="200" x2="480" y2="200" stroke="#26215c" stroke-width="5"/><text x="425" y="225" font-size="16" fill="#26215c">tepkenler</text>
+        <line x1="500" y1="70" x2="610" y2="70" stroke="#26215c" stroke-width="5"/><text x="555" y="58" font-size="16" fill="#26215c">ürünler</text>
+        <line x1="490" y1="195" x2="490" y2="78" stroke="#378add" stroke-width="4" marker-end="url(#ok1111b)"/>
+        <text x="530" y="140" font-size="17" font-weight="700" fill="#0c447c">ΔH &gt; 0</text>
+        <text x="480" y="265" font-size="18" font-weight="700" fill="#0c447c">Endotermik ❄️</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th></th><th>Ekzotermik</th><th>Endotermik</th></tr></thead>
+    <tbody>
+      <tr><td>ΔH</td><td>Negatif</td><td>Pozitif</td></tr>
+      <tr><td>Ortam</td><td>Isınır</td><td>Soğur</td></tr>
+      <tr><td>Kimyasal örnek</td><td>Yanma, nötrleşme, solunum, paslanma</td><td>Fotosentez, suyun elektrolizi, CaCO₃'ün ayrışması</td></tr>
+      <tr><td>Fiziksel örnek</td><td>Donma, yoğuşma, kırağılaşma; NaOH'ın çözünmesi</td><td>Erime, buharlaşma, süblimleşme; NH₄NO₃'ın çözünmesi</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 170" role="img" aria-label="Hâl değişimlerinde ısı">
+      <defs><marker id="ok1111c" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#378add"/></marker>
+      <marker id="ok1111d" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#e24b4a"/></marker></defs>
+      <g font-family="Arial" text-anchor="middle">
+        <rect x="20" y="55" width="120" height="56" rx="12" fill="#cecbf6"/><text x="80" y="90" font-size="19" font-weight="700" fill="#26215c">katı</text>
+        <rect x="260" y="55" width="120" height="56" rx="12" fill="#b5d4f4"/><text x="320" y="90" font-size="19" font-weight="700" fill="#0c447c">sıvı</text>
+        <rect x="500" y="55" width="120" height="56" rx="12" fill="#e1f5ee"/><text x="560" y="90" font-size="19" font-weight="700" fill="#085041">gaz</text>
+        <line x1="145" y1="62" x2="252" y2="62" stroke="#378add" stroke-width="3" marker-end="url(#ok1111c)"/><text x="200" y="50" font-size="15" fill="#0c447c">erime (ısı alır)</text>
+        <line x1="252" y1="104" x2="145" y2="104" stroke="#e24b4a" stroke-width="3" marker-end="url(#ok1111d)"/><text x="200" y="130" font-size="15" fill="#a32d2d">donma (ısı verir)</text>
+        <line x1="385" y1="62" x2="492" y2="62" stroke="#378add" stroke-width="3" marker-end="url(#ok1111c)"/><text x="440" y="50" font-size="15" fill="#0c447c">buharlaşma</text>
+        <line x1="492" y1="104" x2="385" y2="104" stroke="#e24b4a" stroke-width="3" marker-end="url(#ok1111d)"/><text x="440" y="130" font-size="15" fill="#a32d2d">yoğuşma</text>
+        <text x="320" y="160" font-size="15" fill="#5f5e5a">Mavi oklar endotermik, kırmızı oklar ekzotermik.</text>
+      </g>
+    </svg>
+  </figure>
+
+  <h3>2. Termokimyasal denklemler</h3>
+  <div class="ka-kutu tanim">N₂(g) + 3H₂(g) → 2NH₃(g) &nbsp; ΔH = −92 kJ<br>
+    <b>×2:</b> 2N₂ + 6H₂ → 4NH₃ &nbsp; ΔH = −184 kJ<br>
+    <b>Ters:</b> 2NH₃ → N₂ + 3H₂ &nbsp; ΔH = +92 kJ</div>
+  <div class="ka-kutu dikkat"><b>Hâl önemlidir:</b> H₂O(s) oluşurken açığa çıkan ısı, H₂O(g) oluşurkenkinden fazladır; çünkü buhar yoğuşurken ayrıca ısı verir. Bu yüzden denklemlerde hâl simgeleri yazılır.</div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek:</b> N₂ + 3H₂ → 2NH₃, ΔH = −92 kJ. 3,4 g NH₃ oluşurken kaç kJ ısı açığa çıkar? (NH₃ 17)
+    <p><b>Çözüm:</b> 3,4 / 17 = 0,2 mol. 2 mol için 92 kJ ise 0,2 mol için 92 × 0,2 / 2 = <b>9,2 kJ</b>.</p></div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Ekzotermikte ΔH'yi pozitif yazmak.</li>
+    <li>Tepkimeyi ters çevirince ΔH işaretini değiştirmeyi unutmak.</li>
+    <li>Erimeyi ısı veren olay sanmak.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. Buzun erimesinde ΔH işareti nedir?</summary><p>Pozitif (endotermik).</p></details>
+  <details class="ka-soru"><summary>2. Yanma tepkimelerinde ortam ısınır mı soğur mu?</summary><p>Isınır.</p></details>
+  <details class="ka-soru"><summary>3. A → B, ΔH = +50 kJ ise 2B → 2A için ΔH kaçtır?</summary><p>−100 kJ.</p></details>
+  <details class="ka-soru"><summary>4. Endotermik tepkimede ürünlerin entalpisi tepkenlerden büyük mü küçük mü?</summary><p>Büyük.</p></details>
+</section>
+</div>

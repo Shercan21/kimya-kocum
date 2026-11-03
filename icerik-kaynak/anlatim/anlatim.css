@@ -61,3 +61,6 @@
   .ka-kutu.arti-eksi { grid-template-columns: 1fr; }
 }
 .ka-model ul { clear: both; }
+.ka-iki-kart { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+.ka-mini { background: #f6f5fd; border: 1px solid #dcd9f5; border-radius: 12px; padding: 10px 12px; }
+.ka-mini p { margin: 4px 0 0; font-size: .95em; }

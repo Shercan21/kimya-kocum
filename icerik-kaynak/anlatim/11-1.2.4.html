@@ -1,0 +1,79 @@
+<!-- 11. sınıf 1.2.4 Hız Denklemi -->
+<div class="ka" data-konu="11-1.2.4">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Hız denklemini, tepkime derecesini, hız sabitini, mekanizmalı tepkimeleri ve deneysel verilerden hız denklemi bulmayı öğreneceksin. <span class="ka-kazanim">KİM.11.1.8</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li>Tek basamaklı aA + bB → ürünler için: <b>r = k[A]<sup>a</sup>[B]<sup>b</sup></b>.</li>
+    <li><b>Tepkime derecesi</b> = üslerin toplamı (a + b).</li>
+    <li><b>Katı ve sıvılar</b> hız denklemine yazılmaz.</li>
+    <li><b>k</b> yalnız sıcaklığa ve katalizöre bağlıdır; derişimle değişmez.</li>
+    <li>Çok basamaklı tepkimelerde hızı <b>en yavaş basamak</b> belirler.</li>
+  </ol>
+
+  <h3>1. Hız denklemi ve derece</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 200" role="img" aria-label="Hız denkleminin parçaları">
+      <g font-family="Arial" text-anchor="middle">
+        <text x="320" y="70" font-size="40" font-weight="700" fill="#26215c">r = k [A]<tspan font-size="24" dy="-16" fill="#e8593c">a</tspan><tspan dy="16"> [B]</tspan><tspan font-size="24" dy="-16" fill="#e8593c">b</tspan></text>
+        <rect x="40" y="110" width="170" height="70" rx="14" fill="#eeedfe"/><text x="125" y="140" font-size="17" font-weight="700" fill="#26215c">k: hız sabiti</text><text x="125" y="164" font-size="14" fill="#26215c">T ve katalizöre bağlı</text>
+        <rect x="235" y="110" width="170" height="70" rx="14" fill="#e6f1fb"/><text x="320" y="140" font-size="17" font-weight="700" fill="#0c447c">[ ]: derişim</text><text x="320" y="164" font-size="14" fill="#0c447c">yalnız gaz ve (suda)</text>
+        <rect x="430" y="110" width="170" height="70" rx="14" fill="#fcebeb"/><text x="515" y="140" font-size="17" font-weight="700" fill="#791f1f">a, b: dereceler</text><text x="515" y="164" font-size="14" fill="#791f1f">toplam = a + b</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu ipucu"><b>Örnek:</b> 2NO(g) + O₂(g) → 2NO₂(g) tek basamaklı ise r = k[NO]²[O₂], toplam derece 3.<br>CaCO₃(k) + 2HCl(suda) → … tek basamaklı ise r = k[HCl]²; katı CaCO₃ yazılmaz.</div>
+
+  <h3>2. Mekanizmalı tepkimeler</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 220" role="img" aria-label="İki basamaklı mekanizma">
+      <defs><marker id="ok1124" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#534ab7"/></marker></defs>
+      <g font-family="Arial" text-anchor="middle">
+        <rect x="20" y="20" width="600" height="56" rx="12" fill="#fcebeb"/>
+        <text x="200" y="55" font-size="19" font-weight="700" fill="#791f1f">1) NO₂ + NO₂ → NO₃ + NO</text><text x="510" y="55" font-size="17" fill="#791f1f">yavaş 🐢</text>
+        <rect x="20" y="88" width="600" height="56" rx="12" fill="#e1f5ee"/>
+        <text x="200" y="123" font-size="19" font-weight="700" fill="#085041">2) NO₃ + CO → NO₂ + CO₂</text><text x="510" y="123" font-size="17" fill="#085041">hızlı 🐇</text>
+        <text x="320" y="178" font-size="19" fill="#26215c">Net: NO₂ + CO → NO + CO₂ &#160;&#160; r = k[NO₂]²</text>
+        <text x="320" y="208" font-size="16" fill="#5f5e5a">NO₃ ara üründür: 1. basamakta oluşur, 2. basamakta harcanır.</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu akil"><b>Darboğaz benzetmesi:</b> Bir fabrikada en yavaş makine, üretim hızını belirler. Tepkimede de hızı en yavaş basamak belirler; hız denklemi o basamağın tepkenlerine göre yazılır.</div>
+
+  <h3>3. Deneysel verilerden hız denklemi</h3>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Derişim 2 katına çıkınca hız…</th><th>O tepkene göre derece</th></tr></thead>
+    <tbody>
+      <tr><td>Değişmez</td><td>0</td></tr>
+      <tr><td>2 katına çıkar</td><td>1</td></tr>
+      <tr><td>4 katına çıkar</td><td>2</td></tr>
+      <tr><td>8 katına çıkar</td><td>3</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Deney</th><th>[X] (M)</th><th>[Y] (M)</th><th>Hız (M/s)</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>0,1</td><td>0,1</td><td>2 × 10⁻³</td></tr>
+      <tr><td>2</td><td>0,2</td><td>0,1</td><td>4 × 10⁻³</td></tr>
+      <tr><td>3</td><td>0,2</td><td>0,2</td><td>16 × 10⁻³</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek:</b> X + 2Y → Z için tablodaki verilerle hız denklemini, derecesini ve k'yi bulunuz.
+    <p><b>Çözüm:</b> 1 → 2: [X] 2 katı, hız 2 katı → X'e göre 1. derece. 2 → 3: [Y] 2 katı, hız 4 katı → Y'ye göre 2. derece. <b>r = k[X][Y]²</b>, toplam derece <b>3</b>. Deney 1: 2 × 10⁻³ = k × 0,1 × 0,01 → <b>k = 2 M⁻²s⁻¹</b>.</p></div>
+  <div class="ka-kutu dikkat"><b>Dikkat:</b> Hız denklemindeki üsler <b>her zaman denklem katsayıları değildir</b>. Tepkime tek basamaklı değilse üsler deneyle bulunur. Örnekte Y'nin katsayısı 2, derecesi de 2 çıktı; bu bir rastlantı olabilir.</div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Katı maddeyi hız denklemine yazmak.</li>
+    <li>k'nin derişimle değiştiğini sanmak.</li>
+    <li>Mekanizmada hızlı basamağa göre hız denklemi yazmak.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. r = k[A]²[B] ise tepkime derecesi kaçtır?</summary><p>3.</p></details>
+  <details class="ka-soru"><summary>2. r = k[A]² için [A] 3 katına çıkarsa hız kaç katına çıkar?</summary><p>9 katına.</p></details>
+  <details class="ka-soru"><summary>3. Hız sabiti hangi etkenlerle değişir?</summary><p>Sıcaklık ve katalizör.</p></details>
+  <details class="ka-soru"><summary>4. Ara ürün nedir?</summary><p>Bir basamakta oluşup sonraki basamakta harcanan, net denklemde görünmeyen tanecik.</p></details>
+</section>
+</div>

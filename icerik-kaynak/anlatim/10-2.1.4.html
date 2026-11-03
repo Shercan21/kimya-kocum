@@ -1,0 +1,82 @@
+<!-- 10. sınıf 2.1.4 Çözünürlük -->
+<div class="ka" data-konu="10-2.1.4">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Çözünürlüğü, doymuş ve doymamış çözeltiyi, dinamik dengeyi ve çözünürlük hesaplamalarını öğreneceksin. <span class="ka-kazanim">KİM.10.2.5</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li><b>Çözünürlük:</b> belirli sıcaklık ve basınçta <b>100 g çözücüde</b> çözünebilen en fazla madde miktarı.</li>
+    <li>Birimi genellikle <b>g / 100 g su</b>; maddeler için ayırt edici özelliktir.</li>
+    <li>Sınıra kadar çözünen içeren çözelti <b>doymuş</b>, daha azını içeren <b>doymamıştır</b>.</li>
+    <li>Doymuş çözeltide dipte katı varsa <b>dinamik denge</b> vardır.</li>
+    <li>Su miktarı değişirse çözünebilecek miktar <b>orantılı</b> değişir.</li>
+  </ol>
+
+  <h3>1. Çözünürlük ve doygunluk</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 260" role="img" aria-label="Doymamış ve doymuş çözelti">
+      <g font-family="Arial" text-anchor="middle">
+        <g transform="translate(40,30)">
+          <path d="M0 0 L0 150 Q0 170 20 170 L120 170 Q140 170 140 150 L140 0" fill="none" stroke="#2c2c2a" stroke-width="3"/><rect x="2" y="50" width="136" height="118" fill="#e6f1fb"/>
+          <g fill="#ef9f27"><circle cx="30" cy="80" r="4"/><circle cx="80" cy="100" r="4"/><circle cx="110" cy="130" r="4"/></g>
+          <text x="70" y="200" font-size="16" font-weight="700" fill="#0c447c">doymamış</text><text x="70" y="220" font-size="14" fill="#5f5e5a">daha çözebilir</text>
+        </g>
+        <g transform="translate(250,30)">
+          <path d="M0 0 L0 150 Q0 170 20 170 L120 170 Q140 170 140 150 L140 0" fill="none" stroke="#2c2c2a" stroke-width="3"/><rect x="2" y="50" width="136" height="118" fill="#d3e6f8"/>
+          <g fill="#ef9f27"><circle cx="20" cy="70" r="4"/><circle cx="50" cy="90" r="4"/><circle cx="80" cy="75" r="4"/><circle cx="110" cy="95" r="4"/><circle cx="30" cy="120" r="4"/><circle cx="70" cy="130" r="4"/><circle cx="115" cy="125" r="4"/></g>
+          <text x="70" y="200" font-size="16" font-weight="700" fill="#26215c">doymuş</text><text x="70" y="220" font-size="14" fill="#5f5e5a">sınırda</text>
+        </g>
+        <g transform="translate(460,30)">
+          <path d="M0 0 L0 150 Q0 170 20 170 L120 170 Q140 170 140 150 L140 0" fill="none" stroke="#2c2c2a" stroke-width="3"/><rect x="2" y="50" width="136" height="118" fill="#d3e6f8"/>
+          <g fill="#ef9f27"><circle cx="20" cy="70" r="4"/><circle cx="50" cy="90" r="4"/><circle cx="80" cy="75" r="4"/><circle cx="110" cy="95" r="4"/><circle cx="30" cy="120" r="4"/><circle cx="70" cy="125" r="4"/></g>
+          <path d="M10 165 L40 150 L70 158 L100 148 L130 165 Z" fill="#ef9f27"/>
+          <path d="M60 140 q6 -12 12 0" stroke="#534ab7" stroke-width="2" fill="none"/><path d="M90 135 q6 12 12 0" stroke="#534ab7" stroke-width="2" fill="none"/>
+          <text x="70" y="200" font-size="16" font-weight="700" fill="#633806">doymuş + katı</text><text x="70" y="220" font-size="14" fill="#5f5e5a">dinamik denge</text>
+        </g>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu tanim"><b>Dinamik denge:</b> Dipteki katı çözünmeye, çözeltideki tanecikler de katıya dönmeye devam eder; iki hız eşit olduğu için çözünmüş miktar sabit kalır.</div>
+
+  <h3>2. Çözünürlük hesapları</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 200" role="img" aria-label="Su miktarı ve çözünen orantısı">
+      <g font-family="Arial" text-anchor="middle">
+        <rect x="20" y="30" width="180" height="120" rx="14" fill="#e6f1fb"/><text x="110" y="75" font-size="19" font-weight="700" fill="#0c447c">100 g su</text><text x="110" y="110" font-size="19" fill="#0c447c">en çok 40 g X</text>
+        <rect x="230" y="30" width="180" height="120" rx="14" fill="#e6f1fb"/><text x="320" y="75" font-size="19" font-weight="700" fill="#0c447c">50 g su</text><text x="320" y="110" font-size="19" fill="#0c447c">en çok 20 g X</text>
+        <rect x="440" y="30" width="180" height="120" rx="14" fill="#e6f1fb"/><text x="530" y="75" font-size="19" font-weight="700" fill="#0c447c">250 g su</text><text x="530" y="110" font-size="19" fill="#0c447c">en çok 100 g X</text>
+        <text x="320" y="185" font-size="16" fill="#5f5e5a">Çözünürlük 40 g/100 g su ise çözünen miktarı su ile orantılıdır.</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 1:</b> X'in 20 °C'de çözünürlüğü 30 g/100 g sudur. 200 g suya 80 g X ekleniyor. Kaç g X dipte kalır? Doymuş çözeltinin kütlesi kaçtır?
+    <p><b>Çözüm:</b> 200 g suda en çok 60 g çözünür. Dipte 80 − 60 = <b>20 g</b> kalır. Çözelti 200 + 60 = <b>260 g</b>.</p></div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 2:</b> 25 °C'de doymuş 150 g çözeltide 50 g Y çözünmüştür. Y'nin çözünürlüğü kaçtır?
+    <p><b>Çözüm:</b> Su = 150 − 50 = 100 g → <b>50 g/100 g su</b>.</p></div>
+  <div class="ka-kutu dikkat"><b>Dikkat:</b> Çözünürlük 100 g <b>çözücü</b> başınadır, 100 g çözelti başına değil. Örnek 2'de suyu bulmak için önce çözünen çıkarıldı.</div>
+
+  <h3>3. Çözünürlük bir ayırt edici özelliktir</h3>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Madde</th><th>20 °C'de çözünürlük (g/100 g su, yaklaşık)</th></tr></thead>
+    <tbody>
+      <tr><td>Şeker (sakaroz)</td><td>200</td></tr>
+      <tr><td>NaCl</td><td>36</td></tr>
+      <tr><td>KNO₃</td><td>32</td></tr>
+      <tr><td>CaCO₃</td><td>≈ 0,001 (çok az)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Çözünürlüğü 100 g çözelti başına hesaplamak.</li>
+    <li>Dipte katı varken çözeltiyi doymamış saymak.</li>
+    <li>Karıştırmanın çözünürlüğü artırdığını sanmak; yalnız hızı artırır.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. Çözünürlüğü 25 g/100 g su olan maddeden 300 g suda en çok kaç g çözünür?</summary><p>75 g.</p></details>
+  <details class="ka-soru"><summary>2. Dibinde katı bulunan çözelti doymuş mudur?</summary><p>Evet (aynı sıcaklıkta).</p></details>
+  <details class="ka-soru"><summary>3. Dinamik dengede çözünme durur mu?</summary><p>Hayır; çözünme ve çökelme eşit hızla sürer.</p></details>
+  <details class="ka-soru"><summary>4. 60 g suda 12 g madde çözünerek doymuş çözelti oluşuyor. Çözünürlük kaçtır?</summary><p>20 g/100 g su.</p></details>
+</section>
+</div>

@@ -1,0 +1,95 @@
+<!-- 11. sınıf 1.1.2 Maddelerin Enerji Kaynağı Olma Potansiyeli -->
+<div class="ka" data-konu="11-1.1.2">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Yakıt değerini, yakıtları ve besinleri enerji açısından karşılaştırmayı, kalorimetreyle ısı ölçmeyi ve yakıt seçimini etkileyen ölçütleri öğreneceksin. <span class="ka-kazanim">KİM.11.1.2</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li><b>Yakıt değeri:</b> yakıtın 1 gramı yandığında verdiği enerji (kJ/g).</li>
+    <li>Hidrojenin yakıt değeri en yüksektir (≈ 143 kJ/g); yanınca yalnız su oluşur.</li>
+    <li>Besinlerde: karbonhidrat ve protein ≈ 17 kJ/g, yağ ≈ 38 kJ/g.</li>
+    <li>Kalorimetre ile: <b>q = m · c · Δt</b> (suyun c = 4,18 J/g·°C).</li>
+    <li>Yakıt seçiminde enerji kadar <b>çevre, güvenlik, depolama ve maliyet</b> önemlidir.</li>
+  </ol>
+
+  <h3>1. Yakıtların karşılaştırılması</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 280" role="img" aria-label="Yakıt değerleri grafiği">
+      <line x1="150" y1="20" x2="150" y2="250" stroke="#2c2c2a" stroke-width="2"/>
+      <g font-family="Arial" font-size="17">
+        <text x="140" y="50" text-anchor="end" font-weight="700">hidrojen</text><rect x="150" y="32" width="430" height="28" rx="6" fill="#1d9e75"/><text x="570" y="52" text-anchor="end" fill="#fff" font-weight="700">143</text>
+        <text x="140" y="95" text-anchor="end" font-weight="700">metan</text><rect x="150" y="77" width="166" height="28" rx="6" fill="#378add"/><text x="326" y="97" fill="#0c447c" font-weight="700">55</text>
+        <text x="140" y="140" text-anchor="end" font-weight="700">benzin</text><rect x="150" y="122" width="141" height="28" rx="6" fill="#7f77dd"/><text x="301" y="142" fill="#3c3489" font-weight="700">47</text>
+        <text x="140" y="185" text-anchor="end" font-weight="700">kömür (C)</text><rect x="150" y="167" width="99" height="28" rx="6" fill="#5f5e5a"/><text x="259" y="187" fill="#2c2c2a" font-weight="700">33</text>
+        <text x="140" y="230" text-anchor="end" font-weight="700">etanol</text><rect x="150" y="212" width="90" height="28" rx="6" fill="#ef9f27"/><text x="250" y="232" fill="#633806" font-weight="700">30</text>
+        <text x="380" y="272" fill="#5f5e5a" text-anchor="middle">yakıt değeri (kJ/g, yaklaşık)</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Yakıt</th><th>Yanma ısısı (yaklaşık)</th><th>Yakıt değeri</th></tr></thead>
+    <tbody>
+      <tr><td>H₂</td><td>286 kJ/mol (sıvı su oluşursa)</td><td>≈ 143 kJ/g</td></tr>
+      <tr><td>CH₄</td><td>890 kJ/mol</td><td>≈ 55 kJ/g</td></tr>
+      <tr><td>Benzin (oktan)</td><td>—</td><td>≈ 47 kJ/g</td></tr>
+      <tr><td>C (kömür)</td><td>394 kJ/mol</td><td>≈ 33 kJ/g</td></tr>
+      <tr><td>Etanol</td><td>1367 kJ/mol</td><td>≈ 30 kJ/g</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ka-kutu ipucu"><b>Yanma ısısından yakıt değerine:</b> yakıt değeri = yanma ısısı (kJ/mol) / mol kütlesi (g/mol). CH₄: 890 / 16 ≈ 55,6 kJ/g.</div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 1:</b> 1000 kJ enerji için kaç g H₂, kaç g CH₄ yakmak gerekir? (H₂ 143, CH₄ 55,6 kJ/g)
+    <p><b>Çözüm:</b> H₂: 1000/143 ≈ <b>7 g</b>. CH₄: 1000/55,6 ≈ <b>18 g</b>. Hidrojen çok daha az kütleyle aynı enerjiyi verir.</p></div>
+
+  <h3>2. Kalorimetre</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 260" role="img" aria-label="Basit kalorimetre">
+      <g font-family="Arial" text-anchor="middle">
+        <rect x="180" y="40" width="200" height="150" rx="10" fill="#e6f1fb" stroke="#2c2c2a" stroke-width="3"/>
+        <rect x="183" y="80" width="194" height="107" fill="#b5d4f4"/>
+        <rect x="300" y="10" width="10" height="150" rx="4" fill="#d3d1c7" stroke="#888780"/><circle cx="305" cy="160" r="9" fill="#e24b4a"/>
+        <rect x="250" y="205" width="60" height="30" rx="6" fill="#888780"/><path d="M280 205 q-10 -18 0 -28 q10 10 0 28" fill="#ef9f27"/>
+        <text x="280" y="252" font-size="15" fill="#2c2c2a">yakıt</text>
+        <text x="215" y="120" font-size="16" fill="#0c447c" font-weight="700">su</text>
+        <text x="330" y="30" font-size="15" text-anchor="start" fill="#2c2c2a">termometre</text>
+        <rect x="420" y="70" width="200" height="120" rx="14" fill="#eeedfe"/>
+        <text x="520" y="105" font-size="22" font-weight="700" fill="#3c3489">q = m·c·Δt</text>
+        <text x="520" y="135" font-size="14" fill="#26215c">m: suyun kütlesi (g)</text><text x="520" y="155" font-size="14" fill="#26215c">c = 4,18 J/g·°C</text><text x="520" y="175" font-size="14" fill="#26215c">Δt: sıcaklık artışı</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek 2:</b> 1 g yakıt yakılınca 500 g suyun sıcaklığı 20 °C artıyor. Yakıt değeri kaç kJ/g'dır? (Isı kaybı yok)
+    <p><b>Çözüm:</b> q = 500 × 4,18 × 20 = 41 800 J = <b>41,8 kJ</b> → 41,8 kJ/g.</p></div>
+
+  <h3>3. Besinler de yakıttır</h3>
+  <div class="ka-iki-kart">
+    <div class="ka-mini"><b>🍞 Karbonhidrat</b><p>≈ 17 kJ/g</p></div>
+    <div class="ka-mini"><b>🥚 Protein</b><p>≈ 17 kJ/g</p></div>
+    <div class="ka-mini"><b>🧈 Yağ</b><p>≈ 38 kJ/g</p></div>
+  </div>
+
+  <h3>4. Yakıt seçimi</h3>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Ölçüt</th><th>Soru</th></tr></thead>
+    <tbody>
+      <tr><td>Enerji</td><td>Birim kütle ya da hacim başına ne kadar enerji verir?</td></tr>
+      <tr><td>Çevre</td><td>CO₂, SO₂, partikül salımı ne kadar?</td></tr>
+      <tr><td>Güvenlik</td><td>Patlama, sızıntı riski var mı?</td></tr>
+      <tr><td>Depolama ve taşıma</td><td>Gaz mı, sıvı mı? Basınç gerekir mi?</td></tr>
+      <tr><td>Maliyet ve erişim</td><td>Kolay ve ucuz bulunur mu? Yenilenebilir mi?</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ka-kutu dikkat"><b>Eksik yanma</b> zehirli CO oluşturur ve açığa çıkan ısıyı azaltır. <b>Verim:</b> işe dönüşen enerjinin toplam enerjiye oranıdır; termik santrallerde enerjinin önemli kısmı ısı olarak kaybolur.</div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Mol başına yanma ısısı ile gram başına yakıt değerini karıştırmak.</li>
+    <li>Kalorimetrede yakıtın değil suyun kütlesini kullanmak gerektiğini unutmak.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. Hangi yakıtın yakıt değeri en yüksektir?</summary><p>Hidrojen.</p></details>
+  <details class="ka-soru"><summary>2. 10 g yağ yaklaşık kaç kJ enerji verir?</summary><p>≈ 380 kJ.</p></details>
+  <details class="ka-soru"><summary>3. Etanolün yanma ısısı 1367 kJ/mol ise yakıt değeri kaçtır? (46 g/mol)</summary><p>≈ 30 kJ/g.</p></details>
+  <details class="ka-soru"><summary>4. Hidrojenin çevre açısından avantajı nedir?</summary><p>Yanınca yalnız su oluşur; CO₂ salmaz.</p></details>
+</section>
+</div>

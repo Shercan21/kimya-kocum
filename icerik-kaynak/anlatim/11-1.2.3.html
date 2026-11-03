@@ -1,0 +1,92 @@
+<!-- 11. sınıf 1.2.3 Tepkime Hızına Etki Eden Faktörler -->
+<div class="ka" data-konu="11-1.2.3">
+<section class="ka-seviye" data-seviye="tek">
+  <div class="ka-hedef"><b>Bu konuda:</b> Maddenin cinsi, derişim, sıcaklık, temas yüzeyi ve katalizörün tepkime hızına etkisini; bu etkilerin çarpışma teorisiyle açıklamasını ve deney tasarımını öğreneceksin. <span class="ka-kazanim">KİM.11.1.7</span></div>
+
+  <h3>Bir bakışta</h3>
+  <ol class="ka-ozet">
+    <li><b>Derişim</b> (gazlarda basınç) artarsa çarpışma sayısı artar → hız artar.</li>
+    <li><b>Sıcaklık</b> artarsa E<sub>a</sub>'yı aşan tanecik oranı artar → hız artar (ekzo ve endo için).</li>
+    <li><b>Temas yüzeyi</b> artarsa (toz hâli) hız artar.</li>
+    <li><b>Katalizör</b> daha düşük E<sub>a</sub>'lı yol sağlar; <b>inhibitör</b> hızı azaltır.</li>
+    <li>Bir faktörü incelerken <b>diğer bütün faktörler sabit</b> tutulur.</li>
+  </ol>
+
+  <h3>1. Faktörler ve nedenleri</h3>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Faktör</th><th>Etkisi</th><th>Neden?</th></tr></thead>
+    <tbody>
+      <tr><td>Maddenin cinsi</td><td>Zıt yüklü iyon tepkimeleri hızlı; çok bağ kırılan tepkimeler yavaş</td><td>E<sub>a</sub> farklıdır</td></tr>
+      <tr><td>Derişim / basınç</td><td>Artarsa hız artar</td><td>Birim hacimde tanecik ve çarpışma sayısı artar</td></tr>
+      <tr><td>Sıcaklık</td><td>Artarsa hız artar</td><td>Kinetik enerji artar; E<sub>a</sub>'yı aşan tanecik oranı artar</td></tr>
+      <tr><td>Temas yüzeyi</td><td>Artarsa hız artar</td><td>Çarpışabilen tanecik sayısı artar</td></tr>
+      <tr><td>Katalizör</td><td>Hızı artırır</td><td>Daha düşük E<sub>a</sub>'lı yol</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2. Sıcaklık ve katalizör: enerji dağılımı</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Maxwell-Boltzmann dağılımı">
+      <line x1="60" y1="260" x2="610" y2="260" stroke="#2c2c2a" stroke-width="2"/><line x1="60" y1="260" x2="60" y2="20" stroke="#2c2c2a" stroke-width="2"/>
+      <path d="M440 260 L440 232 C 470 240, 520 250, 600 256 L600 260 Z" fill="#378add" opacity=".35"/>
+      <path d="M440 260 L440 175 C 480 200, 540 235, 600 250 L600 260 Z" fill="#e24b4a" opacity=".3"/>
+      <path d="M60 260 C 110 260, 140 40, 200 40 C 260 40, 330 200, 440 232 C 500 248, 560 255, 600 257" fill="none" stroke="#378add" stroke-width="4"/>
+      <path d="M60 260 C 130 260, 180 110, 260 110 C 340 110, 380 160, 440 175 C 510 200, 560 240, 600 250" fill="none" stroke="#e24b4a" stroke-width="4"/>
+      <line x1="440" y1="30" x2="440" y2="260" stroke="#26215c" stroke-width="3"/>
+      <line x1="340" y1="30" x2="340" y2="260" stroke="#1d9e75" stroke-width="3" stroke-dasharray="8 6"/>
+      <g font-family="Arial" font-size="16">
+        <text x="190" y="32" fill="#0c447c" font-weight="700">T₁</text><text x="260" y="100" fill="#a32d2d" font-weight="700">T₂ &gt; T₁</text>
+        <text x="446" y="45" fill="#26215c" font-weight="700">Eₐ</text>
+        <text x="280" y="45" fill="#085041" font-weight="700">Eₐ (katalizörlü)</text>
+        <text x="520" y="285" text-anchor="middle" fill="#5f5e5a">kinetik enerji</text>
+        <text x="15" y="20" fill="#5f5e5a">tanecik sayısı</text>
+      </g>
+    </svg>
+    <figcaption>Sıcaklık artınca Eₐ çizgisinin sağındaki alan (etkin çarpışma yapabilecek tanecikler) büyür. Katalizör ise Eₐ çizgisini sola kaydırır.</figcaption>
+  </figure>
+  <div class="ka-kutu dikkat"><b>Dikkat:</b> Sıcaklık ve derişim artışı E<sub>a</sub>'yı ve ΔH'yi <b>değiştirmez</b>. Katalizör E<sub>a</sub>'yı düşürür ama ΔH'yi değiştirmez.</div>
+
+  <h3>3. Temas yüzeyi</h3>
+  <figure class="ka-gorsel">
+    <svg viewBox="0 0 640 200" role="img" aria-label="Parça ve toz mermer">
+      <g font-family="Arial" text-anchor="middle">
+        <rect x="20" y="20" width="290" height="160" rx="16" fill="#f1efe8"/>
+        <rect x="120" y="70" width="80" height="60" fill="#d3d1c7" stroke="#888780" stroke-width="2"/>
+        <g fill="#fff" stroke="#378add" stroke-width="2"><circle cx="210" cy="70" r="5"/><circle cx="110" cy="80" r="5"/></g>
+        <text x="165" y="165" font-size="16" font-weight="700" fill="#2c2c2a">parça: az yüzey, yavaş</text>
+        <rect x="330" y="20" width="290" height="160" rx="16" fill="#e1f5ee"/>
+        <g fill="#d3d1c7" stroke="#888780"><rect x="400" y="80" width="14" height="14"/><rect x="425" y="70" width="14" height="14"/><rect x="450" y="90" width="14" height="14"/><rect x="475" y="72" width="14" height="14"/><rect x="500" y="95" width="14" height="14"/><rect x="525" y="78" width="14" height="14"/><rect x="430" y="105" width="14" height="14"/><rect x="480" y="110" width="14" height="14"/></g>
+        <g fill="#fff" stroke="#378add" stroke-width="2"><circle cx="410" cy="65" r="5"/><circle cx="445" cy="60" r="5"/><circle cx="470" cy="62" r="5"/><circle cx="500" cy="65" r="5"/><circle cx="535" cy="68" r="5"/><circle cx="455" cy="85" r="4"/><circle cx="515" cy="88" r="4"/></g>
+        <text x="475" y="165" font-size="16" font-weight="700" fill="#085041">toz: çok yüzey, hızlı</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="ka-kutu ipucu"><b>Günlük hayatta:</b> Yiyecekler buzdolabında geç bozulur (düşük sıcaklık). Odun talaşı kütükten hızlı yanar (yüzey). Un fabrikalarında toz patlaması riski vardır.</div>
+
+  <h3>4. Deney tasarımı</h3>
+  <div class="ka-tablo-wrap"><table class="ka-tablo">
+    <thead><tr><th>Deney</th><th>Mermer</th><th>HCl</th><th>Sıcaklık</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>parça</td><td>0,1 M</td><td>20 °C</td></tr>
+      <tr><td>2</td><td>toz</td><td>0,1 M</td><td>20 °C</td></tr>
+      <tr><td>3</td><td>toz</td><td>0,5 M</td><td>20 °C</td></tr>
+      <tr><td>4</td><td>toz</td><td>0,5 M</td><td>40 °C</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ka-kutu ornek"><b>Çözümlü örnek:</b> Tablodaki deneyleri (eşit kütlede mermer) hızına göre sıralayınız.
+    <p><b>Çözüm:</b> 1 → 2 yüzey arttı; 2 → 3 derişim arttı; 3 → 4 sıcaklık arttı. Her adımda hız artar: <b>4 &gt; 3 &gt; 2 &gt; 1</b>. Her karşılaştırmada yalnız bir değişken değiştiği için sonuçlar güvenilirdir.</p></div>
+
+  <h3>Sık yapılan hatalar</h3>
+  <ul class="ka-eksik">
+    <li>Sıcaklığın yalnız endotermik tepkimeleri hızlandırdığını sanmak.</li>
+    <li>Sıcaklığın E<sub>a</sub>'yı düşürdüğünü düşünmek; E<sub>a</sub>'yı aşan tanecik oranını artırır.</li>
+    <li>Aynı anda iki değişkeni değiştirip sonuç çıkarmak.</li>
+  </ul>
+
+  <h3>Kendini dene</h3>
+  <details class="ka-soru"><summary>1. Kapalı kaptaki gaz tepkimesinde hacim küçültülürse hız nasıl değişir?</summary><p>Derişim artar, hız artar.</p></details>
+  <details class="ka-soru"><summary>2. Katalizör E<sub>a</sub>'yı nasıl etkiler?</summary><p>Düşürür.</p></details>
+  <details class="ka-soru"><summary>3. Toz şeker kesme şekerden neden hızlı çözünür?</summary><p>Temas yüzeyi daha büyüktür.</p></details>
+  <details class="ka-soru"><summary>4. Sıcaklık artınca ΔH değişir mi?</summary><p>Hayır (pratikte değişmez kabul edilir).</p></details>
+</section>
+</div>
