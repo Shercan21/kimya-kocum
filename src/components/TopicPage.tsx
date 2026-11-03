@@ -3,6 +3,7 @@ import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
 import {
+  ayrintiliAnlatim,
   etkinlikler,
   konuAnlatimi,
   konuBul,
@@ -43,6 +44,9 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
   const mufredat = sinifMufredati(grade)
   const [tab, setTab] = useState<Tab>(initialTab ?? 'anlatim')
   const [html, setHtml] = useState<string | null>(null)
+  // Ayrıntılı anlatım: undefined = yükleniyor, null = bu konu için yok
+  const [detay, setDetay] = useState<string | null | undefined>(undefined)
+  const [anlatimTuru, setAnlatimTuru] = useState<'kisa' | 'ayrintili'>('ayrintili')
   const [kit, setKit] = useState<EtkinlikKitabi | null>(null)
   const [error, setError] = useState('')
   const [activeTest, setActiveTest] = useState<ActiveTest | null>(null)
@@ -55,6 +59,9 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
         .then(text => active && setHtml(text))
         .catch(() => active && setError('Konu anlatımı yüklenemedi.'))
     }
+    if (tab === 'anlatim' && detay === undefined) {
+      ayrintiliAnlatim(grade, kod).then(text => active && setDetay(text))
+    }
     if (tab === 'etkinlik' && found?.konu.etkinlik && kit === null) {
       etkinlikler(grade, kod)
         .then(data => active && setKit(data))
@@ -63,7 +70,7 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
     return () => {
       active = false
     }
-  }, [tab, grade, kod, found, html, kit])
+  }, [tab, grade, kod, found, html, kit, detay])
 
   if (!found || !mufredat) {
     return (
@@ -138,11 +145,35 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
 
       {tab === 'anlatim' && (
         <section className="card">
-          {html === null ? (
+          {detay && (
+            <div className="anlatim-secim" role="group" aria-label="Anlatım türü">
+              <button
+                type="button"
+                className={anlatimTuru === 'kisa' ? 'chip is-active' : 'chip'}
+                aria-pressed={anlatimTuru === 'kisa'}
+                onClick={() => setAnlatimTuru('kisa')}
+              >
+                Kısa anlatım
+              </button>
+              <button
+                type="button"
+                className={anlatimTuru === 'ayrintili' ? 'chip is-active' : 'chip'}
+                aria-pressed={anlatimTuru === 'ayrintili'}
+                onClick={() => setAnlatimTuru('ayrintili')}
+              >
+                Ayrıntılı ve görselli
+              </button>
+            </div>
+          )}
+          {html === null || detay === undefined ? (
             <p className="muted">Yükleniyor…</p>
           ) : (
             <>
-              <div className="konu" dangerouslySetInnerHTML={{ __html: html }} />
+              {detay && anlatimTuru === 'ayrintili' ? (
+                <div dangerouslySetInnerHTML={{ __html: detay }} />
+              ) : (
+                <div className="konu" dangerouslySetInnerHTML={{ __html: html }} />
+              )}
               <div className="row-actions start">
                 {status === 'not_started' ? (
                   <button

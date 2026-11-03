@@ -117,6 +117,13 @@ export function konuAnlatimi(grade: number, kod: string) {
   return load<Record<string, string>>(`${grade}/konular.json`, 'json').then(data => icerikHtml(pick(data, kod)))
 }
 
+// Ayrıntılı (görselli) konu anlatımı; henüz yazılmamış konular için null.
+export function ayrintiliAnlatim(grade: number, kod: string): Promise<string | null> {
+  return load<Record<string, string>>(`${grade}/anlatim-detay.json`, 'json')
+    .then(data => (kod in data ? icerikHtml(data[kod]) : null))
+    .catch(() => null)
+}
+
 export function testDosyasi(grade: number, id: string) {
   return load<Record<string, TestDosyasi>>(`${grade}/testler.json`, 'json').then(data => pick(data, id))
 }
