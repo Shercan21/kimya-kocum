@@ -2,18 +2,18 @@ import { useState } from 'react'
 import Icon from './Icon'
 import SignInButton from './SignInButton'
 import { PrivacyLink } from './Privacy'
-import { cikisYap, hesabiSil, isTeacher, syncNow, useCloud } from '../data/cloud'
+import { cikisYap, hesabiSil, syncNow, useCloud } from '../data/cloud'
 
 function zaman(iso: string | null) {
-  if (!iso) return 'henüz eşitlenmedi'
+  if (!iso) return 'henüz yedeklenmedi'
   const d = new Date(iso)
   const dk = Math.round((Date.now() - d.getTime()) / 60000)
-  if (dk < 1) return 'az önce eşitlendi'
-  if (dk < 60) return `${dk} dk önce eşitlendi`
-  return `${d.toLocaleDateString('tr-TR')} ${d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })} eşitlendi`
+  if (dk < 1) return 'az önce yedeklendi'
+  if (dk < 60) return `${dk} dk önce yedeklendi`
+  return `${d.toLocaleDateString('tr-TR')} ${d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })} yedeklendi`
 }
 
-export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => void }) {
+export default function AccountCard() {
   const cloud = useCloud()
   const [silme, setSilme] = useState(false)
   const [cihaz, setCihaz] = useState(false)
@@ -29,7 +29,7 @@ export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => v
           Hesabım
         </h3>
         <p className="muted">
-          Google ile giriş yaparsan ilerlemen yedeklenir; telefonunu değiştirsen de kaldığın yerden devam edersin.
+          Google ile giriş yaparsan ilerlemen kendi Google Drive'ına yedeklenir; telefonunu değiştirsen de kaldığın yerden devam edersin. Yedeğini senden başka kimse göremez.
         </p>
         {cloud.error && <p className="form-error">{cloud.error}</p>}
         <SignInButton />
@@ -57,18 +57,12 @@ export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => v
         </div>
       </div>
       <p className="muted small">
-        {cloud.syncing ? 'Eşitleniyor…' : zaman(cloud.lastSync)}
+        {cloud.syncing ? 'Yedekleniyor…' : `Google Drive'ına ${zaman(cloud.lastSync)}`}
       </p>
       {cloud.error && <p className="form-error">{cloud.error}</p>}
       <div className="row-actions start">
-        {isTeacher(user) && onOpenTeacher && (
-          <button type="button" className="primary-button" onClick={onOpenTeacher}>
-            <Icon name="users" size={18} />
-            Öğrencilerim
-          </button>
-        )}
-        <button type="button" className="btn-secondary" onClick={() => syncNow()}>
-          Şimdi eşitle
+        <button type="button" className="btn-secondary" onClick={() => syncNow(true)}>
+          Şimdi yedekle
         </button>
         <button type="button" className="btn-ghost" onClick={() => cikisYap()}>
           Çıkış yap
@@ -78,14 +72,14 @@ export default function AccountCard({ onOpenTeacher }: { onOpenTeacher?: () => v
         <PrivacyLink />
         {!silme && (
           <button type="button" className="link-button danger" onClick={() => setSilme(true)}>
-            Hesabımı ve verilerimi sil
+            Yedeğimi sil ve hesaptan çık
           </button>
         )}
       </p>
       {silme && (
         <div className="delete-box" role="alert">
-          <b>Hesabın ve sunucudaki bütün verilerin silinecek.</b>
-          <p className="small">Bu işlem geri alınamaz. Öğretmenin de artık gelişimini göremez.</p>
+          <b>Drive'daki yedeğin silinecek.</b>
+          <p className="small">Google Drive'ındaki yedeğin silinir ve uygulamanın Drive iznini geri alırız. Bu işlem geri alınamaz.</p>
           <label className="consent">
             <input type="checkbox" checked={cihaz} onChange={e => setCihaz(e.target.checked)} />
             <span>Bu cihazdaki ilerlemem de silinsin</span>

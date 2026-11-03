@@ -41,7 +41,6 @@ const ProgramPage = lazy(() => import('./components/ProgramPage'))
 const CoachPage = lazy(() => import('./components/CoachPage'))
 const ExamsPage = lazy(() => import('./components/ExamsPage'))
 const MistakeBook = lazy(() => import('./components/MistakeBook'))
-const TeacherPanel = lazy(() => import('./components/TeacherPanel'))
 const QuestionBankManager = lazy(() => import('./components/QuestionBankManager'))
 const PracticePage = lazy(() => import('./components/PracticePage'))
 const ScreeningPage = lazy(() => import('./components/ScreeningPage'))
@@ -122,7 +121,6 @@ function App() {
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
-  const [teacherOpen, setTeacherOpen] = useState(false)
 
   // 12. sınıf / mezun Derslerim'de TYT (9+10), AYT (11) ve 12 arasında geçer.
   // 9, 10 ve 11. sınıflar yalnızca kendi sınıflarını görür; seçici gösterilmez.
@@ -161,7 +159,6 @@ function App() {
     setOnizleme(next)
     setOpenTopic(null)
     setMistakesOpen(false)
-    setTeacherOpen(false)
     const sayfa = startPage[next.purpose]
     setPage(sayfa)
     window.scrollTo({ top: 0 })
@@ -221,7 +218,6 @@ function App() {
   useBackStep(!!profile && !editingProfile && page !== homePage, () => changePage(homePage))
   useBackStep(!!openTopic, () => setOpenTopic(null))
   useBackStep(mistakesOpen, () => setMistakesOpen(false))
-  useBackStep(teacherOpen, () => setTeacherOpen(false))
   useBackStep(editingProfile && !!storedProfile, () => setEditingProfile(false))
 
   function changeTeacherGrade(next: number) {
@@ -240,7 +236,6 @@ function App() {
     setPage(next)
     setOpenTopic(null)
     setMistakesOpen(false)
-    setTeacherOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
   }
@@ -611,21 +606,13 @@ function App() {
           <MistakeBook grades={activeGrades} onClose={() => setMistakesOpen(false)} />
         )}
 
-        {shown === 'progress' && teacherOpen && (
-          <TeacherPanel onClose={() => setTeacherOpen(false)} />
-        )}
-
-        {shown === 'progress' && !mistakesOpen && !teacherOpen && (
+        {shown === 'progress' && !mistakesOpen && (
           <ProgressPage
             grades={activeGrades}
             label={activeLabel}
             onOpenLessons={() => changePage('lessons')}
             onOpenMistakes={() => {
               setMistakesOpen(true)
-              window.scrollTo({ top: 0 })
-            }}
-            onOpenTeacher={() => {
-              setTeacherOpen(true)
               window.scrollTo({ top: 0 })
             }}
             onPreview={teacherReal && !previewing ? startPreview : undefined}
@@ -712,14 +699,12 @@ function ProgressPage({
   label,
   onOpenLessons,
   onOpenMistakes,
-  onOpenTeacher,
   onPreview,
 }: {
   grades: number[]
   label?: string
   onOpenLessons: () => void
   onOpenMistakes: () => void
-  onOpenTeacher: () => void
   onPreview?: (next: Onizleme) => void
 }) {
   const hatalar = useHataDefteri().filter(item => grades.includes(item.grade))
@@ -766,7 +751,7 @@ function ProgressPage({
       </div>
       <div className="col">
         {onPreview && <StudentPreviewCard onStart={onPreview} />}
-        <AccountCard onOpenTeacher={onOpenTeacher} />
+        <AccountCard />
         <TopicMap grades={grades} label={label} onOpenLessons={onOpenLessons} />
       </div>
     </div>

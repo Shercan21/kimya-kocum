@@ -6,60 +6,55 @@ import { kvkkOnayla } from '../data/kvkk'
 export function AydinlatmaMetni() {
   return (
     <div className="privacy-text">
-      <p className="muted small">Son güncelleme: 2 Kasım 2026</p>
+      <p className="muted small">Son güncelleme: 3 Kasım 2026</p>
 
       <h4>Kısaca</h4>
       <ul>
-        <li>Kimya Koçum'u <b>giriş yapmadan</b> kullanırsan bütün çalışma bilgilerin yalnızca kendi cihazında kalır; hiçbir yere gönderilmez.</li>
-        <li><b>Google ile giriş yaparsan</b> ilerlemen yedeklenir ve kimya öğretmenin gelişimini görebilir.</li>
-        <li>Reklam yok, verilerin satılmaz ve başka kimseyle paylaşılmaz.</li>
-        <li>İstediğin zaman hesabını ve verilerini kendin silebilirsin.</li>
+        <li>Kimya Koçum'un bir sunucusu ya da veritabanı yok. Çalışma bilgilerin <b>yalnızca kendi cihazında</b> tutulur.</li>
+        <li><b>Google ile giriş yaparsan</b> bu bilgilerin yedeği <b>senin kendi Google Drive'ına</b>, uygulamaya ayrılmış gizli bir klasöre kaydedilir. Böylece telefon değiştirsen de kaldığın yerden devam edersin.</li>
+        <li>Yedeğini <b>öğretmen dahil kimse göremez</b>; uygulama yalnızca kendi klasörüne erişebilir, Drive'ındaki diğer dosyalarını göremez.</li>
+        <li>Reklam yok, bilgilerin satılmaz ve kimseyle paylaşılmaz.</li>
+        <li>Yedeğini istediğin zaman uygulamadan silebilirsin.</li>
       </ul>
 
-      <h4>Veri sorumlusu</h4>
+      <h4>Uygulamayı hazırlayan</h4>
       <p>
-        Uygulamayı hazırlayan ve yöneten kimya öğretmeni Hasan. İletişim:{' '}
+        Kimya öğretmeni Hasan. Soruların ve önerilerin için:{' '}
         <a href={`mailto:${TEACHER_EMAIL}`}>{TEACHER_EMAIL}</a>
       </p>
 
-      <h4>Hangi bilgiler işlenir?</h4>
+      <h4>Hangi bilgiler kullanılır?</h4>
       <ul>
-        <li><b>Google hesabından:</b> adın, e-posta adresin ve profil fotoğrafın (fotoğraf yalnızca ekranda gösterilir, kaydedilmez).</li>
-        <li><b>Uygulama içinden:</b> sınıfın, çalışma amacın ve düzenin (günler, süre, hedef), çözdüğün testlerin sonuçları, hata defterin ve seçtiğin hata nedenleri, konuların öğrenme durumu ve çalışma programın.</li>
+        <li><b>Google hesabından:</b> adın, e-posta adresin ve profil fotoğrafın — yalnızca "kimin hesabıyla giriş yapıldığını" göstermek için, yalnızca senin cihazında.</li>
+        <li><b>Uygulama içinden:</b> sınıfın, çalışma amacın ve düzenin, test ve etkinlik sonuçların, hata defterin, tarama sonucun ve konuların öğrenme durumu. Raporlar ve koçun önerileri bu bilgilerle senin cihazında hesaplanır.</li>
       </ul>
-      <p>Kimlik numarası, telefon, adres, sağlık bilgisi gibi bilgiler istenmez ve işlenmez.</p>
+      <p>Kimlik numarası, telefon, adres, sağlık bilgisi gibi bilgiler istenmez.</p>
 
-      <h4>Neden işlenir?</h4>
-      <ul>
-        <li>İlerlemeni yedeklemek ve başka cihazda kaldığın yerden devam etmeni sağlamak,</li>
-        <li>Koç bölümünde sana kişisel çalışma önerileri sunmak (öneriler cihazında hesaplanır),</li>
-        <li>Öğretmeninin gelişimini takip edip sana daha iyi yol gösterebilmesi.</li>
-      </ul>
-
-      <h4>Nerede saklanır, kim görür?</h4>
+      <h4>Nerede saklanır?</h4>
       <p>
-        Bilgiler Google'ın Firebase hizmetinde, Avrupa'daki sunucularda saklanır. Bu nedenle yurt dışına aktarılmış olur;
-        giriş yaparken buna onay verirsin. Bilgilerini yalnızca sen ve öğretmenin görebilir; diğer öğrenciler göremez.
-        Google bu bilgileri yalnızca barındırma hizmeti sağlamak için işler.
+        Cihazında (tarayıcının uygulama deposunda) ve giriş yaptıysan kendi Google Drive hesabında. Drive'daki yedek
+        Google'ın sunucularındadır ve Google'ın kendi gizlilik kurallarına tabidir; Drive kotandan çok az yer kaplar.
+        Uygulamanın kendisi hiçbir yerde senin bilgilerini toplamaz.
       </p>
 
-      <h4>Ne kadar süre saklanır?</h4>
+      <h4>Ne zaman silinir?</h4>
       <p>
-        Hesabını silene kadar. "Hesabımı ve verilerimi sil" düğmesine bastığında sunucudaki bütün bilgilerin silinir.
-        Uzun süre kullanılmayan hesaplar da öğretmen tarafından silinebilir.
+        "Yedeğimi sil ve hesaptan çık" ile Drive'daki yedeğin silinir ve uygulamanın Drive iznini geri alırız. İstersen
+        cihazındaki bilgileri de aynı anda silebilirsin. Ayrıca Google hesabının Drive ayarlarından ("Uygulamaları
+        yönet") da yedeği silebilirsin.
       </p>
 
       <h4>18 yaşından küçüksen</h4>
       <p>
-        Google ile giriş yapmadan önce bu metni velinle birlikte oku ve onun onayını al. Velin istemezse uygulamayı
-        giriş yapmadan kullanmaya devam edebilirsin; hiçbir özellik kaybetmezsin, yalnızca yedekleme olmaz.
+        Google ile giriş yapmadan önce bu metni velinle birlikte oku ve onun onayını al. Giriş yapmadan da bütün
+        özellikleri kullanabilirsin; yalnızca yedekleme olmaz.
       </p>
 
       <h4>Hakların</h4>
       <p>
-        6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 11. maddesi uyarınca verilerinin işlenip işlenmediğini öğrenme,
-        bilgi isteme, düzeltilmesini ya da silinmesini isteme, onayını geri çekme ve şikâyet hakların vardır. Bunun için
-        yukarıdaki e-posta adresine yazabilir ya da hesabını uygulamadan kendin silebilirsin.
+        6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 11. maddesindeki haklarına ilişkin sorularını yukarıdaki
+        e-posta adresine yazabilirsin. Bilgilerin uygulamanın elinde değil, kendi cihazında ve kendi Drive'ında
+        durduğu için onları her zaman kendin silebilirsin.
       </p>
     </div>
   )
@@ -107,8 +102,8 @@ export function GirisOnayi({ onOnay, onClose }: { onOnay: () => void; onClose: (
       <label className="consent">
         <input type="checkbox" checked={onay} onChange={e => setOnay(e.target.checked)} />
         <span>
-          Metni okudum. Bilgilerimin bu metinde anlatıldığı şekilde işlenmesine ve Avrupa'daki sunucularda saklanmasına
-          onay veriyorum. 18 yaşından küçüksem velimin de onayı var.
+          Metni okudum. İlerlememin kendi Google Drive'ıma yedeklenmesine onay veriyorum. 18 yaşından küçüksem velimin
+          de onayı var.
         </span>
       </label>
       <div className="row-actions">

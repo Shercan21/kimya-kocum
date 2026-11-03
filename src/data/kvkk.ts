@@ -1,7 +1,7 @@
 // Aydınlatma metni onayı (sürümlü; metin değişirse yeniden sorulur).
 
 export const KVKK_KEY = 'kimya-kocum-kvkk-onay'
-export const KVKK_SURUM = '2026-11-02'
+export const KVKK_SURUM = '2026-11-03'
 
 export function kvkkOnayliMi() {
   try {
