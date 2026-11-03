@@ -19,6 +19,9 @@ type Props = {
   konuBaslik: string | null
   baslik: string
   onClose: () => void
+  // Verilirse sonuç ekranında "Devam et" çıkar (ör. sıradaki rastgele test).
+  onNext?: () => void
+  closeLabel?: string
 }
 
 const harf = ['A', 'B', 'C', 'D', 'E', 'F']
@@ -27,7 +30,7 @@ function Html({ html, className }: { html: string; className?: string }) {
   return <div className={className} dangerouslySetInnerHTML={{ __html: icerikHtml(html) }} />
 }
 
-export default function TestRunner({ grade, testId, testIndex, konuKod, konuBaslik, baslik, onClose }: Props) {
+export default function TestRunner({ grade, testId, testIndex, konuKod, konuBaslik, baslik, onClose, onNext, closeLabel }: Props) {
   const [dosya, setDosya] = useState<TestDosyasi | null>(null)
   const [hata, setHata] = useState('')
   const [index, setIndex] = useState(0)
@@ -122,10 +125,15 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
               : `Geçme sınırı %${GECME_ORANI}. Aşağıdan yanlışlarının çözümlerine bak, sonra tekrar dene.`}
           </p>
           <div className="row-actions start">
-            <button type="button" className="btn-secondary" onClick={onClose}>Konuya dön</button>
+            <button type="button" className="btn-secondary" onClick={onClose}>{closeLabel ?? 'Konuya dön'}</button>
+            {onNext && (
+              <button type="button" className="primary-button" onClick={onNext}>
+                Devam et · yeni test
+              </button>
+            )}
             <button
               type="button"
-              className="primary-button"
+              className={onNext ? 'btn-secondary' : 'primary-button'}
               onClick={() => {
                 setSonuc(null)
                 setCevaplar({})

@@ -3,7 +3,7 @@ import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import { sinifMufredati } from '../data/content'
-import { basari, testSonuclari } from '../data/results'
+import { testSonuclari } from '../data/results'
 import { SINAV_SINIFLARI } from '../data/profile'
 
 // "Soru çözmek istiyorum" akışı:
@@ -54,45 +54,53 @@ export default function PracticePage({ grade: profileGrade }: Props) {
   const [, refresh] = useState(0)
   useBackStep(!!active, () => {
     setActive(null)
+    setTur(null)
+    setTemaNo(null)
     refresh(v => v + 1)
   })
 
-  if (active) {
+  const data = sinif ? sinifMufredati(sinif) : null
+
+  // Seçime uyan testler: tema → o temanın sarmal testleri, genel → karma testler.
+  function havuz(t: Tur, g: number, tema: number | null): Active[] {
+    const d = sinifMufredati(g)
+    if (!d) return []
+    if (t === 'genel') return d.karma.map((test, i) => ({ grade: g, id: test.id, baslik: `${g}. sınıf · Karma test ${i + 1}` }))
+    return d.temalar
+      .filter(x => x.no === tema)
+      .flatMap(x => x.bolumler.flatMap(b => b.sarmal.map(test => ({ grade: g, id: test.id, baslik: `${g}. sınıf · Sarmal · ${b.kod} ${b.ad}` }))))
+  }
+
+  // Rastgele test: önce hiç çözülmemişler, aynı test arka arkaya gelmez.
+  function rastgele(t: Tur, g: number, tema: number | null, onceki?: string) {
+    const list = havuz(t, g, tema)
+    if (!list.length) return
+    const cozulmemis = list.filter(x => testSonuclari(x.grade, x.id, null).length === 0 && x.id !== onceki)
+    const aday = cozulmemis.length ? cozulmemis : list.filter(x => x.id !== onceki)
+    const secim = (aday.length ? aday : list)[Math.floor(Math.random() * (aday.length || list.length))]
+    setActive(secim)
+    window.scrollTo({ top: 0 })
+  }
+
+  if (active && sinif && tur) {
     return (
       <TestRunner
+        key={active.id}
         grade={active.grade}
         testId={active.id}
         testIndex={0}
         konuKod={null}
         konuBaslik={null}
         baslik={active.baslik}
+        closeLabel="Bitir"
+        onNext={() => rastgele(tur, sinif, temaNo, active.id)}
         onClose={() => {
           setActive(null)
+          setTur(null)
+          setTemaNo(null)
           refresh(v => v + 1)
         }}
       />
-    )
-  }
-
-  const data = sinif ? sinifMufredati(sinif) : null
-
-  const row = (g: number, id: string, baslik: string, alt: string) => {
-    const results = testSonuclari(g, id, null)
-    const last = results.length ? basari(results[results.length - 1]) : null
-    return (
-      <li key={`${g}-${id}`}>
-        <span className="test-title">
-          {baslik}
-          <small>{alt}{last !== null ? ` · Son sonuç: %${last}` : ''}</small>
-        </span>
-        <button
-          type="button"
-          className={last === null ? 'primary-button' : 'btn-secondary'}
-          onClick={() => setActive({ grade: g, id, baslik })}
-        >
-          {last === null ? 'Başla' : 'Tekrar çöz'}
-        </button>
-      </li>
     )
   }
 
@@ -140,6 +148,7 @@ export default function PracticePage({ grade: profileGrade }: Props) {
           onSec={id => {
             setTur(id)
             setTemaNo(null)
+            if (id === 'genel' && sinif) rastgele('genel', sinif, null)
           }}
         />
       )}
@@ -149,32 +158,11 @@ export default function PracticePage({ grade: profileGrade }: Props) {
           baslik="Tema seç"
           secenekler={data.temalar.map(t => ({ id: t.no, ad: `${t.no}. tema`, alt: t.ad }))}
           deger={temaNo}
-          onSec={id => setTemaNo(Number(id))}
+          onSec={id => {
+            setTemaNo(Number(id))
+            rastgele('tema', sinif, Number(id))
+          }}
         />
-      )}
-
-      {sinif && data && tur === 'tema' && temaNo !== null && (
-        <section className="card">
-          <h3 className="card-title"><Icon name="repeat" /> Sarmal testler</h3>
-          <p className="muted small">Her test bir bölümün bütün konularını birlikte tekrar eder.</p>
-          <ul className="test-list">
-            {data.temalar
-              .filter(t => t.no === temaNo)
-              .flatMap(t =>
-                t.bolumler.flatMap(b => b.sarmal.map(test => row(sinif, test.id, `${b.kod} ${b.ad}`, `${test.soru} soru`)))
-              )}
-          </ul>
-        </section>
-      )}
-
-      {sinif && data && tur === 'genel' && (
-        <section className="card">
-          <h3 className="card-title"><Icon name="list" /> {sinif}. sınıf karma testleri</h3>
-          <p className="muted small">Bütün kazanımlardan karışık sorular. Deneme gibi çöz.</p>
-          <ul className="test-list">
-            {data.karma.map((test, i) => row(sinif, test.id, `Karma test ${i + 1}`, `${test.soru} soru`))}
-          </ul>
-        </section>
       )}
 
       {sinif && !data && (
