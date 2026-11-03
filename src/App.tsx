@@ -309,7 +309,13 @@ function App() {
     mod === 'konu' && seciliKonu
       ? new Set(contentGrades.flatMap(g => tumKonular(g).map(({ konu }) => `${g}|${konu.kod}`)).filter(k => k !== seciliKonu))
       : undefined
-  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades, bilinen) : konuKilitleri
+  const yaziliKilitleri =
+    mod === 'yazili' && yaziliKonulari
+      ? new Set(contentGrades.flatMap(g => tumKonular(g).map(({ konu }) => `${g}|${konu.kod}`)).filter(k => !yaziliKonulari.kodlar.has(k)))
+      : undefined
+  const kilitler = mod === 'tam' && !teacherView
+    ? kilitliKonular(viewGrades, bilinen)
+    : mod === 'yazili' ? yaziliKilitleri : konuKilitleri
   const seciliKonuBilgi = mod === 'konu' && seciliKonu
     ? konuBul(Number(seciliKonu.split('|')[0]), seciliKonu.split('|')[1])
     : null
@@ -464,9 +470,11 @@ function App() {
               <h2 className="section-title">{profile.grade}. sınıf kimya</h2>
             )}
 
-            {mod === 'yazili' && (
+            {mod === 'yazili' && yaziliKonulari && (
               <p className="program-message">
-                Yalnızca açık yazılı senaryolarındaki kazanımların konuları gösteriliyor.
+                {yaziliKonulari.donem
+                  ? `${yaziliKonulari.donem}. dönem ${yaziliKonulari.yazili}. yazılının kapsamındaki konular açık; diğerleri kilitli. Başka bir yazılıya çalışmak için Yazılı sayfasından dönemi ve yazılıyı seç.`
+                  : 'Yazılı sınavları henüz eklenmedi.'}
               </p>
             )}
 
@@ -534,9 +542,10 @@ function App() {
                 {viewGrades.length > 1 && <h2 className="section-title">{grade}. sınıf konuları</h2>}
                 <CurriculumPage
                   grade={grade}
-                  only={mod === 'yazili' ? yaziliKonulari : null}
                   locked={kilitler}
-                  lockReason={mod === 'konu' ? 'Planını değiştirince açılır' : undefined}
+                  lockReason={
+                    mod === 'konu' ? 'Planını değiştirince açılır' : mod === 'yazili' ? 'Bu yazılının kapsamında değil' : undefined
+                  }
                   tarama={taramaDurum}
                   onOpenTopic={kod => {
                     if (mod === 'konu' && !seciliKonu) {

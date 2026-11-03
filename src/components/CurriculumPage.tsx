@@ -40,7 +40,9 @@ export default function CurriculumPage({ grade, onOpenTopic, only, locked, lockR
           const status = getTopicProgress(grade, konuId(grade, konu.kod))?.status
           return status === 'learned' || status === 'permanent'
         }).length
-        const ilkTema = data.temalar.find(t => t.bolumler.some(b => b.konular.some(k => goster(k.kod))))?.no
+        const acik = (kod: string) => goster(kod) && !locked?.has(`${grade}|${kod}`)
+        const ilkTema = (data.temalar.find(t => t.bolumler.some(b => b.konular.some(k => acik(k.kod)))) ??
+          data.temalar.find(t => t.bolumler.some(b => b.konular.some(k => goster(k.kod)))))?.no
         const isOpen = openTema === null ? tema.no === ilkTema : openTema === tema.no
 
         return (
