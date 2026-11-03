@@ -153,10 +153,20 @@ export default function ScreeningPage({ grade, onChoosePlan }: Props) {
   const [cevaplar, setCevaplar] = useState<Record<number, number>>({})
   const [onay, setOnay] = useState(false)
 
-  useBackStep(!!sorular, () => {
+  const [cikisSor, setCikisSor] = useState(false)
+  function kapat() {
     setSorular(null)
     setCevaplar({})
     setIndex(0)
+    setCikisSor(false)
+  }
+  function cikmayiDene() {
+    if (Object.keys(cevaplar).length > 0) setCikisSor(true)
+    else kapat()
+  }
+  useBackStep(!!sorular, () => {
+    if (cikisSor) setCikisSor(false)
+    else cikmayiDene()
   })
 
   async function basla() {
@@ -189,9 +199,25 @@ export default function ScreeningPage({ grade, onChoosePlan }: Props) {
     const cevaplanan = Object.keys(cevaplar).length
     return (
       <div className="stack">
+        {cikisSor && (
+          <div className="modal-backdrop" role="presentation" onClick={() => setCikisSor(false)}>
+            <div className="modal konu-onay" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
+              <div className="modal-body">
+                <h3>Taramadan çıkmak istiyor musun?</h3>
+                <p>{cevaplanan} soruyu cevapladın. Bitirmeden çıkarsan cevapların kaydedilmez.</p>
+              </div>
+              <div className="modal-foot">
+                <div className="row-actions">
+                  <button type="button" className="btn-secondary" onClick={kapat}>Çık</button>
+                  <button type="button" className="primary-button" onClick={() => setCikisSor(false)}>Taramaya devam et</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <section className="card test-card">
           <div className="test-head">
-            <button type="button" className="btn-ghost" onClick={() => setSorular(null)} aria-label="Taramadan çık">×</button>
+            <button type="button" className="btn-ghost" onClick={cikmayiDene} aria-label="Taramadan çık">×</button>
             <div>
               <small>{grade}. sınıf eksik taraması · {soru.kazanim}</small>
               <b>{index + 1} / {sorular.length}</b>

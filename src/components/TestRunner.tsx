@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
+import { useBackStep } from '../data/backNav'
 import { icerikHtml, testDosyasi, type Soru, type TestDosyasi } from '../data/content'
 import { basari, GECME_ORANI, sonucKaydet, type TestSonucu } from '../data/results'
 import {
@@ -38,6 +39,19 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
   const [sonuc, setSonuc] = useState<TestSonucu | null>(null)
   const [onay, setOnay] = useState(false)
   const hatalar = useHataDefteri()
+  const [cikisSor, setCikisSor] = useState(false)
+
+  // Cevap verilmiş ve bitirilmemiş testten çıkarken onay iste.
+  const devamEdiyor = !sonuc && Object.keys(cevaplar).length > 0
+  function cikmayiDene() {
+    if (devamEdiyor) setCikisSor(true)
+    else onClose()
+  }
+  // Telefonun geri tuşu da aynı onayı sorar; onay penceresi açıkken geri tuşu onu kapatır.
+  useBackStep(true, () => {
+    if (cikisSor) setCikisSor(false)
+    else cikmayiDene()
+  })
 
   useEffect(() => {
     let active = true
@@ -207,9 +221,25 @@ export default function TestRunner({ grade, testId, testIndex, konuKod, konuBasl
 
   return (
     <div className="stack">
+      {cikisSor && (
+        <div className="modal-backdrop" role="presentation" onClick={() => setCikisSor(false)}>
+          <div className="modal konu-onay" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
+            <div className="modal-body">
+              <h3>Testten çıkmak istiyor musun?</h3>
+              <p>{Object.keys(cevaplar).length} soruyu cevapladın. Testi bitirmeden çıkarsan cevapların kaydedilmez.</p>
+            </div>
+            <div className="modal-foot">
+              <div className="row-actions">
+                <button type="button" className="btn-secondary" onClick={onClose}>Çık</button>
+                <button type="button" className="primary-button" onClick={() => setCikisSor(false)}>Teste devam et</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <section className="card test-card">
         <div className="test-head">
-          <button type="button" className="btn-ghost" onClick={onClose} aria-label="Testten çık">×</button>
+          <button type="button" className="btn-ghost" onClick={cikmayiDene} aria-label="Testten çık">×</button>
           <div>
             <small>{baslik}</small>
             <b>{index + 1} / {sorular.length}</b>

@@ -41,6 +41,11 @@ export function testSonuclari(grade: number, testId: string, seviye: string | nu
   )
 }
 
+// Seviyesinden bağımsız olarak bir testin bütün sonuçları (sarmal testlerin seviyeleri var).
+export function testinSonuclari(grade: number, testId: string) {
+  return sonuclariYukle().filter(item => item.grade === grade && item.testId === testId)
+}
+
 export function basari(sonuc: Pick<TestSonucu, 'dogru' | 'toplam'>) {
   return sonuc.toplam ? Math.round((sonuc.dogru / sonuc.toplam) * 100) : 0
 }

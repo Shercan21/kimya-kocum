@@ -2440,3 +2440,5 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .konu-secim p { margin: 0; }
 .konu-onay h3 { margin: 16px 0 8px; font-size: 18px; }
 .konu-onay p { line-height: 1.5; }
+.test-list li.test-locked { opacity: .6; }
+.test-list li.test-locked svg { flex: none; color: var(--text-2); }

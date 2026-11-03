@@ -576,7 +576,7 @@ function App() {
         {shown === 'exams' && (
           teacherView
             ? <ExamsPage grades={SINAV_SINIFLARI.TYT_AYT} label="Tüm sınıflar" showWritten />
-            : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} onlyWritten={mod === 'yazili'} />
+            : <ExamsPage grades={activeGrades} label={activeLabel} showWritten={!isSenior} onlyWritten={mod === 'yazili'} sirali={mod === 'tam'} bilinen={bilinen} />
         )}
 
         {shown === 'practice' && <PracticePage grade={profile.grade} />}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
@@ -47,7 +46,6 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
   const [kit, setKit] = useState<EtkinlikKitabi | null>(null)
   const [error, setError] = useState('')
   const [activeTest, setActiveTest] = useState<ActiveTest | null>(null)
-  useBackStep(!!activeTest, () => setActiveTest(null))
   const [, refresh] = useState(0)
 
   useEffect(() => {
