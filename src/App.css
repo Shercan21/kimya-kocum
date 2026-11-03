@@ -2433,3 +2433,10 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
   padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
 }
 .coach-list li.tarama-satir span { display: grid; font-size: 14px; }
+
+/* Tek konu seçimi */
+.konu-secim { display: grid; gap: 12px; }
+.konu-secim b { display: block; font-size: 17px; margin: 2px 0 4px; }
+.konu-secim p { margin: 0; }
+.konu-onay h3 { margin: 16px 0 8px; font-size: 18px; }
+.konu-onay p { line-height: 1.5; }

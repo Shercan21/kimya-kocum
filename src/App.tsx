@@ -7,7 +7,7 @@ import CurriculumPage from './components/CurriculumPage'
 import type { TopicTab } from './components/TopicPage'
 import type { Eylem } from './data/coach'
 import { useHataDefteri } from './data/mistakes'
-import { sinifMufredati } from './data/content'
+import { konuBul, sinifMufredati, tumKonular } from './data/content'
 import StudyTopics from './components/StudyTopics'
 import LearningTracker from './components/LearningTracker'
 import Onboarding from './components/Onboarding'
@@ -103,6 +103,7 @@ const GOAL_KEY = 'kimya-kocum-goal'
 const VIEW_KEY = 'kimya-kocum-ders-gorunum'
 const TEACHER_GRADE_KEY = 'kimya-kocum-ogretmen-sinif'
 const PREVIEW_KEY = 'kimya-kocum-onizleme'
+const SECILI_KONU_KEY = 'kimya-kocum-secili-konu'
 type Onizleme = { grade: number; purpose: StudyPurpose }
 const ALL_GRADES = [9, 10, 11, 12] as const
 
@@ -174,11 +175,33 @@ function App() {
 
   const mod: Mod = profile ? modOf(profile.purpose, profile.grade, teacherView) : 'tam'
   const yaziliKonulari = useYaziliKonulari(profile ? [profile.grade] : [], mod === 'yazili')
+  // "Belirli bir konuyu öğrenmek" planı: öğrenci tek bir konu seçer; diğerleri
+  // plan değiştirilene kadar kilitli kalır.
+  const [seciliKonu, setSeciliKonu] = useState<string | null>(() => localStorage.getItem(SECILI_KONU_KEY))
+  const [konuOnay, setKonuOnay] = useState<{ grade: number; kod: string; ad: string } | null>(null)
+  useBackStep(!!konuOnay, () => setKonuOnay(null))
+
+  function konuSec(grade: number, kod: string) {
+    const key = `${grade}|${kod}`
+    localStorage.setItem(SECILI_KONU_KEY, key)
+    setSeciliKonu(key)
+    setKonuOnay(null)
+    setOpenTopic({ grade, kod })
+    window.scrollTo({ top: 0 })
+    syncNow()
+  }
+
+  function konuSeciminiSil() {
+    localStorage.removeItem(SECILI_KONU_KEY)
+    setSeciliKonu(null)
+  }
+
   const tarama = useTaramaSonucu(profile?.grade ?? 0)
   const taramaDurum = eksikKonular(tarama)
 
   // Tarama sonunda seçilen plan: amaç güncellenir, uygulama yeni plana göre açılır.
   function choosePlan(purpose: StudyPurpose) {
+    konuSeciminiSil()
     if (previewing && onizleme) {
       const next = { ...onizleme, purpose }
       sessionStorage.setItem(PREVIEW_KEY, JSON.stringify(next))
@@ -230,7 +253,10 @@ function App() {
     }
     changePage('lessons')
     if (eylem.tur === 'dersler') return
-    const kilitli = mod === 'tam' && !teacherView && kilitliKonular([eylem.grade]).has(`${eylem.grade}|${eylem.kod}`)
+    const key = `${eylem.grade}|${eylem.kod}`
+    const kilitli =
+      (mod === 'tam' && !teacherView && kilitliKonular([eylem.grade]).has(key)) ||
+      (mod === 'konu' && localStorage.getItem(SECILI_KONU_KEY) !== key)
     if (!kilitli) setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur })
   }
 
@@ -241,6 +267,7 @@ function App() {
   }
 
   function finishOnboarding(next: StudentProfile) {
+    if (next.purpose !== storedProfile?.purpose) konuSeciminiSil()
     setProfile(next)
     setEditingProfile(false)
     setStudentGoal(localStorage.getItem(GOAL_KEY) || '')
@@ -278,7 +305,14 @@ function App() {
     item.id === 'exams' && isSenior && !teacherView ? 'TYT / AYT testleri' : item.label
   // Tam modda öğrenci konuları sırayla açar (öğretmende kilit yok).
   const bilinen = new Set([...taramaDurum].filter(([, d]) => d === 'tamam').map(([k]) => k))
-  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades, bilinen) : undefined
+  const konuKilitleri =
+    mod === 'konu' && seciliKonu
+      ? new Set(contentGrades.flatMap(g => tumKonular(g).map(({ konu }) => `${g}|${konu.kod}`)).filter(k => k !== seciliKonu))
+      : undefined
+  const kilitler = mod === 'tam' && !teacherView ? kilitliKonular(viewGrades, bilinen) : konuKilitleri
+  const seciliKonuBilgi = mod === 'konu' && seciliKonu
+    ? konuBul(Number(seciliKonu.split('|')[0]), seciliKonu.split('|')[1])
+    : null
 
   return (
     <div className="app">
@@ -436,7 +470,60 @@ function App() {
               </p>
             )}
 
-            {kilitler && kilitler.size > 0 && (
+            {mod === 'konu' && !seciliKonu && (
+              <p className="program-message">
+                Öğrenmek istediğin konuyu seç. Yalnızca bir konu seçebilirsin; başka bir konu için planını değiştirmen gerekir.
+              </p>
+            )}
+
+            {mod === 'konu' && seciliKonuBilgi && (
+              <section className="card konu-secim">
+                <div>
+                  <small className="muted">Seçtiğin konu</small>
+                  <b>{seciliKonuBilgi.konu.kod} · {seciliKonuBilgi.konu.ad}</b>
+                  <p className="muted small">Diğer konular kilitli. Başka bir konu çalışmak istersen planını değiştir.</p>
+                </div>
+                <div className="row-actions start">
+                  <button
+                    type="button"
+                    className="primary-button"
+                    onClick={() => {
+                      setOpenTopic({ grade: Number(seciliKonu!.split('|')[0]), kod: seciliKonuBilgi.konu.kod })
+                      window.scrollTo({ top: 0 })
+                    }}
+                  >
+                    Konuya git
+                  </button>
+                  <button type="button" className="btn-secondary" onClick={() => setEditingProfile(true)}>
+                    Planı değiştir
+                  </button>
+                </div>
+              </section>
+            )}
+
+            {konuOnay && (
+              <div className="modal-backdrop" role="presentation" onClick={() => setKonuOnay(null)}>
+                <div className="modal konu-onay" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
+                  <div className="modal-body">
+                    <h3>{konuOnay.kod} · {konuOnay.ad}</h3>
+                    <p>
+                      Bu konuyu seçince diğer konular kilitlenecek. Başka bir konu çalışmak için planını değiştirmen gerekecek.
+                      Bu konuyu seçmek istediğine emin misin?
+                    </p>
+                  </div>
+                  <div className="modal-foot">
+                    <div className="row-actions">
+                      <button type="button" className="btn-secondary" onClick={() => setKonuOnay(null)}>Vazgeç</button>
+                      <button type="button" className="primary-button" onClick={() => konuSec(konuOnay.grade, konuOnay.kod)}>
+                        Evet, bu konuyu seç
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {mod === 'tam' && kilitler && kilitler.size > 0 && (
               <p className="muted small lock-note">
                 Konular sırayla açılır: bir konunun testinden %70 ve üstü alınca sıradaki konu açılır.
               </p>
@@ -449,8 +536,14 @@ function App() {
                   grade={grade}
                   only={mod === 'yazili' ? yaziliKonulari : null}
                   locked={kilitler}
+                  lockReason={mod === 'konu' ? 'Planını değiştirince açılır' : undefined}
                   tarama={taramaDurum}
                   onOpenTopic={kod => {
+                    if (mod === 'konu' && !seciliKonu) {
+                      const k = konuBul(grade, kod)
+                      setKonuOnay({ grade, kod, ad: k?.konu.ad ?? kod })
+                      return
+                    }
                     setOpenTopic({ grade, kod })
                     window.scrollTo({ top: 0 })
                   }}

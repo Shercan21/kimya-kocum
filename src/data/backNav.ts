@@ -2,36 +2,71 @@
 // Bir ekran (konu, test, hata defteri, pencere…) açılınca tarayıcı geçmişine
 // bir adım eklenir; geri tuşu en son açılanı kapatır. Ana sayfada geri tuşu
 // her zamanki gibi uygulamadan çıkar.
+//
+// Her geçmiş adımı bir kimlik taşır. Geri gidilince, kimliği şimdiki adımdan
+// büyük olan açık ekranlar kapatılır. Uygulama içinden kapatılan ekranın
+// adımı en üstteyse geçmişten de geri alınır; bu sırada gelen yeni adımlar,
+// geri alma bitene kadar bekletilir (aksi halde tarayıcı sırayı karıştırır).
 
 import { useEffect, useRef, useState } from 'react'
 
 type Entry = { id: number; fn: () => void }
-const stack: Entry[] = []
+const live: Entry[] = []
 let seq = 0
-let ignore = 0
+let pendingBack = 0
+const queue: number[] = []
+
+function currentId(): number {
+  const st = window.history.state as { kimyaKocum?: number } | null
+  return st?.kimyaKocum ?? 0
+}
+
+function doPush(id: number) {
+  window.history.pushState({ kimyaKocum: id }, '')
+}
 
 if (typeof window !== 'undefined') {
   window.addEventListener('popstate', () => {
-    if (ignore > 0) {
-      ignore--
+    if (pendingBack > 0) {
+      pendingBack--
+      if (pendingBack === 0) {
+        // Bekleyen adımlardan hâlâ açık olanları geçmişe ekle.
+        queue.splice(0).forEach(id => {
+          if (live.some(e => e.id === id)) doPush(id)
+        })
+      }
       return
     }
-    stack.pop()?.fn()
+    const cur = currentId()
+    // Şimdiki adımdan sonra açılmış ekranları (en sondan başlayarak) kapat.
+    const kapanacak = live.filter(e => e.id > cur).sort((a, b) => b.id - a.id)
+    kapanacak.forEach(e => {
+      live.splice(live.indexOf(e), 1)
+      e.fn()
+    })
+    // Uygulama içinden kapatılmış eski bir adıma düştüysek onu da atla.
+    if (cur !== 0 && !live.some(e => e.id === cur)) window.history.back()
   })
 }
 
-// Geri adımı ekler; dönen fonksiyon, ekran uygulama içinden kapatılınca
-// geçmişteki adımı da geri alır.
 function pushBack(fn: () => void): () => void {
   const id = ++seq
-  stack.push({ id, fn })
-  window.history.pushState({ kimyaKocum: id }, '')
+  live.push({ id, fn })
+  if (pendingBack > 0) queue.push(id)
+  else doPush(id)
   return () => {
-    const i = stack.findIndex(e => e.id === id)
+    const i = live.findIndex(e => e.id === id)
     if (i < 0) return
-    stack.splice(i, 1)
-    ignore++
-    window.history.back()
+    live.splice(i, 1)
+    const q = queue.indexOf(id)
+    if (q >= 0) {
+      queue.splice(q, 1)
+      return
+    }
+    if (currentId() === id) {
+      pendingBack++
+      window.history.back()
+    }
   }
 }
 

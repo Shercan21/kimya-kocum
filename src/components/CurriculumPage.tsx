@@ -10,6 +10,7 @@ type Props = {
   only?: Set<string> | null
   // Kilitli konular: önceki konu tamamlanmadan açılmaz.
   locked?: Set<string>
+  lockReason?: string
   // Eksik taraması sonucu: grade|kod → eksik / kısmen / tamam
   tarama?: Map<string, 'eksik' | 'kismen' | 'tamam'>
 }
@@ -23,7 +24,7 @@ const STATUS_LABEL = {
   permanent: 'Kalıcı',
 } as const
 
-export default function CurriculumPage({ grade, onOpenTopic, only, locked, tarama }: Props) {
+export default function CurriculumPage({ grade, onOpenTopic, only, locked, lockReason = 'Önceki konuyu tamamlayınca açılır', tarama }: Props) {
   const goster = (kod: string) => !only || only.has(`${grade}|${kod}`)
   const data = sinifMufredati(grade)
   const [openTema, setOpenTema] = useState<number | null>(null)
@@ -79,7 +80,7 @@ export default function CurriculumPage({ grade, onOpenTopic, only, locked, taram
                           <button
                             type="button"
                             disabled={kilitli}
-                            title={kilitli ? 'Önceki konuyu tamamlayınca açılır' : undefined}
+                            title={kilitli ? lockReason : undefined}
                             onClick={() => onOpenTopic(konu.kod)}
                           >
                             <span className={`dot status-dot-${status}`} />
@@ -90,7 +91,7 @@ export default function CurriculumPage({ grade, onOpenTopic, only, locked, taram
                                 {konu.anlatim ? 'Anlatım · ' : ''}
                                 {konu.soru + konu.baglam.reduce((sum, test) => sum + test.soru, 0)} soru
                                 {konu.etkinlik ? ` · ${konu.etkinlik} etkinlik` : ''}
-                                {kilitli ? ' · Önceki konuyu tamamlayınca açılır' : ''}
+                                {kilitli ? ` · ${lockReason}` : ''}
                               </small>
                             </span>
                             {td && td !== 'tamam' && status === 'not_started' && (
