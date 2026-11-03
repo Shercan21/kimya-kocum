@@ -74,7 +74,7 @@ const MOD_SAYFALARI: Record<Mod, { id: PageId; label?: string; short?: string }[
   ],
   konu: [{ id: 'lessons', label: 'Konular', short: 'Konular' }, { id: 'coach' }, { id: 'progress' }],
   soru: [{ id: 'practice' }, { id: 'coach' }, { id: 'progress' }],
-  eksik: [{ id: 'screening' }, { id: 'lessons', label: 'Konular', short: 'Konular' }, { id: 'coach' }, { id: 'progress' }],
+  eksik: [{ id: 'screening' }, { id: 'coach' }, { id: 'progress' }],
 }
 
 function modOf(purpose: StudyPurpose, grade: number, teacher: boolean): Mod {
