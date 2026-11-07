@@ -155,12 +155,13 @@ function App() {
       return null
     }
   })
-  const previewing = !!onizleme
-  const teacherView = teacherReal && !onizleme
+  const previewing = teacherReal && !!onizleme
+  const teacherView = teacherReal && !previewing
   const profile: StudentProfile | null =
     storedProfile && previewing && onizleme ? { ...storedProfile, ...onizleme } : storedProfile
 
   function startPreview(next: Onizleme) {
+    if (!teacherReal) return
     sessionStorage.setItem(PREVIEW_KEY, JSON.stringify(next))
     setOnizleme(next)
     setOpenTopic(null)
@@ -447,8 +448,8 @@ function App() {
 
         {shown === 'lessons' && !openTopic && (
           <div className="stack">
-            <details className="card classroom-preview"><summary>9, 10, 11, 12. sınıf öğrenci görünümünü dene</summary><StudentPreviewCard onStart={startPreview} /></details>
-            <ResourceLibrary grades={viewGrades} />
+            {teacherView && <details className="card classroom-preview"><summary>9, 10, 11, 12. sınıf öğrenci görünümünü dene</summary><StudentPreviewCard onStart={startPreview} /></details>}
+            {teacherView && import.meta.env.DEV && <ResourceLibrary grades={viewGrades} />}
             {teacherView && (
               <section className="card teacher-view">
                 <h3 className="card-title">
@@ -653,7 +654,7 @@ function App() {
               setMistakesOpen(true)
               window.scrollTo({ top: 0 })
             }}
-            onPreview={!previewing ? startPreview : undefined}
+            onPreview={teacherView ? startPreview : undefined}
           />
         )}
 

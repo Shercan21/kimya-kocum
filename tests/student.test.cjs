@@ -20,7 +20,7 @@ test('Review planning respects completed work and daily capacity',()=>{const r=p
 test('Review moves to the next day with available time',()=>assert.equal(planner.planWeek(options)[0].date,'2026-11-05'));
 test('Already scheduled review is not planned again next week',()=>{const r=planner.planWeek({...options,tasks:[{id:'old',date:'2026-11-04',grade:9,kind:'review',topicId:'one',reviewDue:'2026-11-04',completed:true,minutes:10}],topics:[options.topics[0]]});assert.equal(r.some(x=>x.topicId==='one'&&x.reviewDue==='2026-11-04'),false)});
 test('Every curriculum topic has a detailed illustrated lesson',()=>{const m=JSON.parse(fs.readFileSync('src/data/mufredat.json','utf8'));for(const [g,d] of Object.entries(m)){const details=JSON.parse(fs.readFileSync('public/icerik/'+g+'/anlatim-detay.json','utf8'));for(const t of d.temalar)for(const b of t.bolumler)for(const k of b.konular)assert.ok(details[k.kod]?.length>100,k.kod+' missing detailed lesson')}});
-test('All nine original study books are accessible',()=>{for(const g of [9,10,11])for(const kind of ['konu-anlatimi','etkinlik-kitabi','soru-bankasi'])assert.ok(fs.existsSync('public/kitaplar/Kimya-Kocum-'+g+'-sinif-'+kind+'.pdf'))});
+test('Student publication contains no downloadable book PDFs',()=>assert.equal(fs.existsSync('public/kitaplar'),false));
 console.log(passed+' checks passed');
 
 const manifest=JSON.parse(fs.readFileSync('public/manifest.webmanifest','utf8'));

@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 *.tsbuildinfo
+
+# Teacher-only local PDFs: never include in student publication.
+/private-books/
