@@ -60,7 +60,7 @@ export default function ReminderCard({ days, dailyMinutes }: { days: number[]; d
     const ics = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Kimya Kocum//TR',
+      'PRODID:-//Kimya Kocun//TR',
       'BEGIN:VEVENT',
       `UID:kimya-kocum-${Date.now()}@shercan21.github.io`,
       `DTSTAMP:${yerel(new Date())}`,

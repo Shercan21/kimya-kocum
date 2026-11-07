@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import ReminderCard from './ReminderCard'
 import Icon from './Icon'
+import ReminderCard from './ReminderCard'
 import { loadTopics } from '../data/topics'
 import { getTopicProgress } from '../data/learningProgress'
 import {
@@ -29,6 +29,7 @@ type Props = {
   profile: StudentProfile
   onProfileChange: (profile: StudentProfile) => void
   onOpenLessons: () => void
+  onOpenTopic: (grade: number, topicId: string, tab?: 'anlatim' | 'test' | 'etkinlik') => void
 }
 
 const dayShort = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz']
@@ -42,7 +43,7 @@ function formatMinutes(total: number) {
   return minutes ? `${hours} sa ${minutes} dk` : `${hours} saat`
 }
 
-export default function ProgramPage({ profile, onProfileChange, onOpenLessons }: Props) {
+export default function ProgramPage({ profile, onProfileChange, onOpenLessons, onOpenTopic }: Props) {
   const tasks = useStudyTasks()
   const [weekOffset, setWeekOffset] = useState(0)
   const [editing, setEditing] = useState(false)
@@ -52,6 +53,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
   const [message, setMessage] = useState('')
   const [addingDay, setAddingDay] = useState<string | null>(null)
   const [newTitle, setNewTitle] = useState('')
+  const [removed, setRemoved] = useState<StudyTask | null>(null)
 
   const grade = profile.grade
   const grades = profilSiniflari(profile)
@@ -144,6 +146,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
         kind: item.kind,
         topicId: item.topicId,
         minutes: item.minutes,
+        reviewDue: item.reviewDue,
       })),
     ])
     setMessage(`${preview.length} görev programına eklendi.`)
@@ -157,6 +160,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
   }
 
   function remove(task: StudyTask) {
+    setRemoved(task)
     updateStudyTasks(previous => previous.filter(item => item.id !== task.id))
   }
 
@@ -172,7 +176,9 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
   }
 
   return (
-    <div className="stack">
+<div className="stack">
+      {removed && <div className="undo-notice" role="status"><span>Görev kaldırıldı: {removed.title}</span><button className="btn-secondary" onClick={() => { updateStudyTasks(previous => previous.some(t => t.id === removed.id) ? previous : [...previous, removed]); setRemoved(null) }}>Geri al</button><button className="btn-ghost" aria-label="Bildirimi kapat" onClick={() => setRemoved(null)}>×</button></div>}
+      <ReminderCard days={profile.days} dailyMinutes={profile.dailyMinutes} />
       <section className="card program-summary">
         <div className="program-summary-main">
           <small>{purposeTitle(profile.purpose)}</small>
@@ -241,8 +247,6 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
         )}
       </section>
 
-      <ReminderCard days={profile.days} dailyMinutes={profile.dailyMinutes} />
-
       <section className="card">
         <div className="week-nav">
           <button type="button" className="btn-ghost" onClick={() => changeWeek(-1)} aria-label="Önceki hafta">‹</button>
@@ -278,7 +282,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
             const isStudyDay = profile.days.includes(day.weekday)
             const dayTasks = weekTasks.filter(task => task.date === day.key)
             const dayPreview = preview.filter(item => item.date === day.key)
-            const used = [...dayTasks.filter(task => !task.completed)].reduce((sum, task) => sum + taskMinutes(task), 0)
+            const used = [...dayTasks].reduce((sum, task) => sum + taskMinutes(task), 0)
               + dayPreview.reduce((sum, item) => sum + item.minutes, 0)
             const isPast = day.key < today
             const date = new Date(`${day.key}T12:00`)
@@ -327,6 +331,7 @@ export default function ProgramPage({ profile, onProfileChange, onOpenLessons }:
                           <small>{KIND_LABEL[task.kind]} · {taskMinutes(task)} dk</small>
                         )}
                       </span>
+                      {task.topicId && task.grade && <button className="task-open" onClick={() => onOpenTopic(task.grade!, task.topicId!, task.kind === 'quiz' || task.kind === 'review' ? 'test' : 'anlatim')}>Başla →</button>}
                       <button
                         type="button"
                         className="btn-ghost tiny"

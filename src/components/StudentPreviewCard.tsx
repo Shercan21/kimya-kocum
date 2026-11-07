@@ -20,7 +20,7 @@ export default function StudentPreviewCard({
       </h3>
       <p className="muted small">
         Sınıfı ve amacı seç, uygulama o öğrencinin göreceği gibi açılsın. Geçicidir; "Önizlemeyi bitir" deyince
-        ya da uygulamayı kapatınca kendi görünümüne dönersin.
+        ya da uygulamayı kapatınca kendi görünümüne dönersin. Deneme sırasında yaptığın çalışmalar bu cihazda kaydedilir; asıl sınıf ve amaç seçimin değişmez.
       </p>
       <div className="grade-picker" role="group" aria-label="Sınıf">
         {[9, 10, 11, 12].map(g => (

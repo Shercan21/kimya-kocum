@@ -1,5 +1,5 @@
-
 import { useState } from 'react'
+import Icon from './Icon'
 import { loadTopics, saveTopics, type StudyTopic } from '../data/topics'
 
 type Props = {
@@ -69,32 +69,54 @@ export default function StudyTopics({ selectedGrade }: Props) {
   }
 
   return (
-    <section
-      className="dashboard-card"
-      style={{ marginBottom: 24 }}
-    >
-      <div className="card-icon">📚</div>
-      <h2>Çalışılacak Konularım</h2>
-
-      <p>
-        Haftalık çalışma programına eklemek istediğin
-        kimya konularını belirle.
-      </p>
+    <section className="card">
+      <h3 className="card-title">
+        <Icon name="book" />
+        Konularım
+        {selectedGrade !== null && (
+          <span className="count">{visibleTopics.length}</span>
+        )}
+      </h3>
 
       {selectedGrade === null ? (
-        <p style={{ color: '#6542c0', fontWeight: 600 }}>
-          Konu eklemek için önce sınıfını seç.
-        </p>
+        <p className="muted">Konu eklemek için önce sınıfını seç.</p>
       ) : (
         <>
-          <p>📚 {selectedGrade}. Sınıf</p>
+          {visibleTopics.length === 0 ? (
+            <p className="muted">Henüz çalışma konusu eklemedin.</p>
+          ) : (
+            <ol className="row-list">
+              {visibleTopics.map((topic, index) => (
+                <li key={topic.id}>
+                  <span className="row-index">{index + 1}</span>
+                  <span className="row-title">{topic.title}</span>
 
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 10,
-            marginTop: 16,
-          }}>
+                  {topic.builtIn ? (
+                    <span className="tag">Hazır konu</span>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn-ghost"
+                      onClick={() =>
+                        deleteTopic(topic.id, topic.title)
+                      }
+                      aria-label={`${topic.title} konusunu sil`}
+                    >
+                      <Icon name="trash" size={16} />
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ol>
+          )}
+
+          <form
+            className="task-add"
+            onSubmit={event => {
+              event.preventDefault()
+              addTopic()
+            }}
+          >
             <input
               type="text"
               value={title}
@@ -102,82 +124,22 @@ export default function StudyTopics({ selectedGrade }: Props) {
                 setTitle(event.target.value)
                 setMessage('')
               }}
-              onKeyDown={event => {
-                if (event.key === 'Enter') addTopic()
-              }}
-              placeholder="Örneğin: Atomun Yapısı"
+              placeholder="Örneğin: Atomun yapısı"
               aria-label="Çalışılacak konu"
-              style={{
-                flex: '1 1 220px',
-                padding: 12,
-                border: '1px solid #d9d2ec',
-                borderRadius: 10,
-              }}
             />
 
             <button
-              type="button"
-              className="primary-button"
-              onClick={addTopic}
+              type="submit"
+              className="btn-secondary"
               disabled={!title.trim()}
             >
-              + Konu Ekle
+              Ekle
             </button>
-          </div>
+          </form>
 
           {message && (
-            <p style={{ color: '#6542c0', marginTop: 12 }}>
-              {message}
-            </p>
+            <p className="small muted" role="status">{message}</p>
           )}
-
-          <div style={{ marginTop: 20 }}>
-            <h3>Konu Listem ({visibleTopics.length})</h3>
-
-            {visibleTopics.length === 0 && (
-              <p>Henüz çalışma konusu eklemedin.</p>
-            )}
-
-            {visibleTopics.map((topic, index) => (
-              <div
-                key={topic.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 12,
-                  padding: 12,
-                  marginBottom: 8,
-                  background: '#f3f0ff',
-                  borderRadius: 10,
-                }}
-              >
-                <span style={{ flex: 1 }}>
-                  <strong>{index + 1}. {topic.title}</strong>
-                </span>
-
-                {topic.builtIn ? (
-                  <small style={{ color: '#77718f' }}>
-                    Hazır konu
-                  </small>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      deleteTopic(topic.id, topic.title)
-                    }
-                    aria-label={`${topic.title} konusunu sil`}
-                  >
-                    🗑️ Sil
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <p style={{ fontSize: 13, color: '#77718f' }}>
-            Bu konular henüz otomatik olarak takvime eklenmez.
-            Program oluşturucu tamamlandığında kullanılacaktır.
-          </p>
         </>
       )}
     </section>

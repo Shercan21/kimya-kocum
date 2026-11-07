@@ -9,7 +9,6 @@ export function tamamlandi(status: string | undefined) {
 }
 
 // Kilitli konuların kodları (grade|kod).
-// bilinen: eksik taramasında bilindiği görülen konular (grade|kod) tamamlanmış sayılır.
 export function kilitliKonular(grades: number[], bilinen: Set<string> = new Set()): Set<string> {
   const progress = loadLearningProgress()
   const durum = new Map(progress.map(p => [`${p.grade}|${p.topicId}`, p.status]))
@@ -17,9 +16,9 @@ export function kilitliKonular(grades: number[], bilinen: Set<string> = new Set(
   let oncekiTamam = true
   for (const grade of grades) {
     for (const { konu } of tumKonular(grade)) {
-      // Taramada bilindiği görülen konu her zaman açıktır.
-      if (!oncekiTamam && !bilinen.has(`${grade}|${konu.kod}`)) kilitli.add(`${grade}|${konu.kod}`)
-      oncekiTamam = tamamlandi(durum.get(`${grade}|${konuId(grade, konu.kod)}`)) || bilinen.has(`${grade}|${konu.kod}`)
+      const biliyor = bilinen.has(`${grade}|${konu.kod}`)
+      if (!oncekiTamam && !biliyor) kilitli.add(`${grade}|${konu.kod}`)
+      oncekiTamam = (biliyor || tamamlandi(durum.get(`${grade}|${konuId(grade, konu.kod)}`)))
         ? oncekiTamam
         : false
     }

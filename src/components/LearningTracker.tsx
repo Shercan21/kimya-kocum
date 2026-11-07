@@ -1,5 +1,5 @@
-
 import { useState } from 'react'
+import Icon from './Icon'
 import MiniAssessment from './MiniAssessment'
 import {
   getTopicProgress,
@@ -10,6 +10,14 @@ import { loadTopics, type StudyTopic } from '../data/topics'
 
 type Props = {
   selectedGrade: number | null
+}
+
+// Konu haritasıyla aynı renkler: gri → mor → turkuaz → amber.
+const statusView: Record<LearningStatus, { label: string; tone: string }> = {
+  not_started: { label: 'Başlanmadı', tone: 'gray' },
+  studied: { label: 'Çalışıldı', tone: 'purple' },
+  learned: { label: 'Öğrenildi', tone: 'teal' },
+  permanent: { label: 'Kalıcı', tone: 'amber' },
 }
 
 export default function LearningTracker({
@@ -46,8 +54,6 @@ export default function LearningTracker({
     )?.status ?? 'not_started'
   }
 
-  
-
   const studied = visibleTopics.filter(
     topic => getStatus(topic) === 'studied'
   ).length
@@ -67,58 +73,38 @@ export default function LearningTracker({
     : 0
 
   return (
-    <section
-      className="dashboard-card"
-      style={{ marginBottom: 24 }}
-    >
-      <div className="card-icon">🧠</div>
-      <h2>Akıllı Öğrenme Takibim</h2>
-
-      <p>
-        Kimya konularındaki öğrenme yolculuğunu takip et.
-      </p>
+    <section className="card">
+      <h3 className="card-title">
+        <Icon name="brain" />
+        Öğrenme takibim
+        {selectedGrade !== null && (
+          <button
+            type="button"
+            className="card-link link-button"
+            onClick={refresh}
+          >
+            Yenile
+          </button>
+        )}
+      </h3>
 
       {selectedGrade === null ? (
-        <p>Öğrenme durumlarını görmek için önce sınıfını seç.</p>
+        <p className="muted">Öğrenme durumlarını görmek için önce sınıfını seç.</p>
       ) : (
         <>
-          <p>📚 {selectedGrade}. Sınıf</p>
-
-          <button type="button" onClick={refresh}>
-            🔄 Konuları Yenile
-          </button>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fit, minmax(130px, 1fr))',
-            gap: 12,
-            marginTop: 20,
-          }}>
+          <div className="stats stats-4">
             {[
-              ['📚 Toplam Konu', visibleTopics.length],
-              ['✏️ Çalışıldı', studied],
-              ['🧠 Öğrenildi', learned],
-              ['🏆 Kalıcı', permanent],
+              ['Toplam konu', visibleTopics.length],
+              ['Çalışıldı', studied],
+              ['Öğrenildi', learned],
+              ['Kalıcı', permanent],
             ].map(([label, value]) => (
-              <div
-                key={label}
-                style={{
-                  background: '#f3f0ff',
-                  padding: 14,
-                  borderRadius: 12,
-                  textAlign: 'center',
-                }}
-              >
-                <strong>{value}</strong>
-                <p>{label}</p>
+              <div key={label} className="stat">
+                <small>{label}</small>
+                <b>{value}</b>
               </div>
             ))}
           </div>
-
-          <p style={{ marginTop: 20 }}>
-            Çalışılmaya başlanan konular: %{progress}
-          </p>
 
           <div className="progress-track">
             <div
@@ -126,98 +112,72 @@ export default function LearningTracker({
               style={{ width: `${progress}%` }}
             />
           </div>
-
-          <div style={{ marginTop: 24 }}>
-            {visibleTopics.length === 0 && (
-              <p>
-                Henüz konu eklenmedi. Önce Çalışılacak Konularım
-                bölümünden konu ekle.
-              </p>
-            )}
-
-            {visibleTopics.map(topic => {
-              const status = getStatus(topic)
-
-              return (
-                <div
-                  key={topic.id}
-                  style={{
-                    padding: 16,
-                    marginBottom: 12,
-                    background: '#f3f0ff',
-                    borderRadius: 12,
-                  }}
-                >
-                  <h3>{topic.title}</h3>
-
-                  <p>
-                    {status === 'not_started'
-                      ? '⚪ Henüz başlanmadı'
-                      : status === 'studied'
-                      ? '✏️ Çalışıldı'
-                      : status === 'learned'
-                      ? '🧠 Öğrenildi'
-                      : '🏆 Kalıcı'}
-                  </p>
-                    
-                  <div style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: 8,
-                  }}>
-                    <button
-                      type="button"
-                      disabled={status !== 'not_started'}
-                      onClick={() => markStudied(topic)}
-                    >
-                      ✓ Çalıştım
-                    </button>
-
-                    <button type="button" disabled>
-                      🧠 Öğrenildi
-                    </button>
-
-                    <button type="button" disabled>
-                      🏆 Kalıcı
-                    </button>
-                  </div>
-                  {status !== 'not_started' && (
-                    <div style={{ marginTop: 12 }}>
-                        <button
-                        type="button"
-                        onClick={() =>
-                            setOpenAssessmentId(current =>
-                            current === topic.id ? null : topic.id
-                            )
-                        }
-                        >
-                        🧪 {openAssessmentId === topic.id
-                            ? 'Değerlendirmeyi Kapat'
-                            : 'Mini Değerlendirmeyi Aç'}
-                        </button>
-
-                        {openAssessmentId === topic.id && (
-                        <MiniAssessment
-                            key={topic.id}
-                            grade={topic.grade}
-                            topicId={topic.id}
-                            topicTitle={topic.title}
-                        />
-                        )}
-                    </div>
-                    )}
-                </div>
-              )
-            })}
-          </div>
-
-          <p style={{
-            fontSize: 13,
-            color: '#77718f',
-          }}>
-            Öğrenildi ve Kalıcı aşamaları, değerlendirme
-            sistemi eklendiğinde açılacaktır.
+          <p className="small muted">
+            Başlanan konular: %{progress}
           </p>
+
+          {visibleTopics.length === 0 ? (
+            <p className="muted">
+              Henüz konu yok. Konularım kartından konu ekle.
+            </p>
+          ) : (
+            <ul className="topic-rows">
+              {visibleTopics.map(topic => {
+                const status = getStatus(topic)
+                const view = statusView[status]
+                const isOpen = openAssessmentId === topic.id
+
+                return (
+                  <li key={topic.id} className={`topic-row tone-${view.tone}`}>
+                    <div className="topic-row-head">
+                      <span className="row-title">{topic.title}</span>
+                      <span className={`pill pill-${view.tone}`}>
+                        {view.label}
+                      </span>
+                    </div>
+
+                    <div className="card-actions">
+                      {status === 'not_started' ? (
+                        <button
+                          type="button"
+                          className="btn-secondary"
+                          onClick={() => markStudied(topic)}
+                        >
+                          <Icon name="check" size={16} />
+                          Çalıştım
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className={isOpen ? 'btn-secondary' : 'primary-button'}
+                          aria-expanded={isOpen}
+                          onClick={() =>
+                            setOpenAssessmentId(current =>
+                              current === topic.id ? null : topic.id
+                            )
+                          }
+                        >
+                          <Icon name="flask" size={16} />
+                          {isOpen ? 'Sınavı kapat' : 'Mini sınav'}
+                        </button>
+                      )}
+                    </div>
+
+                    {isOpen && (
+                      <div className="assessment-box">
+                        <MiniAssessment
+                          key={topic.id}
+                          grade={topic.grade}
+                          topicId={topic.id}
+                          topicTitle={topic.title}
+                        />
+                      </div>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          )}
         </>
       )}
     </section>

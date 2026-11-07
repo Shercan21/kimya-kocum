@@ -10,11 +10,13 @@ import {
 type Props = {
   selectedGrade: number | null
   grades?: number[]
+  onOpenTopic?: (grade: number, topicId: string, tab?: 'anlatim' | 'test' | 'etkinlik') => void
 }
 
 export default function DailyTasks({
   selectedGrade,
   grades = [],
+  onOpenTopic,
 }: Props) {
   const tasks = useStudyTasks()
   const [today, setToday] = useState(() => localDate(new Date()))
@@ -137,6 +139,7 @@ export default function DailyTasks({
                   <Icon name={task.completed ? 'circleCheck' : 'circle'} />
                 </button>
                 <span className="task-title">{task.title}</span>
+                {task.topicId && task.grade && onOpenTopic && <button className="btn-secondary task-start" onClick={() => onOpenTopic(task.grade!, task.topicId!, task.kind === 'quiz' || task.kind === 'review' ? 'test' : 'anlatim')}>Başla →</button>}
                 <span className="task-actions">
                   <button
                     type="button"

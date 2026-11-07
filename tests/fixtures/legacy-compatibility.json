@@ -1,0 +1,3310 @@
+{
+  "curriculum": {
+    "9": {
+      "sinif": 9,
+      "temalar": [
+        {
+          "no": 1,
+          "ad": "Etkileşim",
+          "bolumler": [
+            {
+              "kod": "1.1",
+              "tema": 1,
+              "ad": "Kimya Bilimi ve Laboratuvar Güvenliği",
+              "ozet": "Günlük hayatta kimya, alt disiplinler, kariyer, kimyasalların güvenli kullanımı",
+              "konular": [
+                {
+                  "kod": "1.1.1",
+                  "ad": "Günlük Hayatta Kimya",
+                  "kazanimlar": [
+                    "KİM.9.1.1"
+                  ],
+                  "test": "bkq000",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq001",
+                      "baslik": "Kimyanın günlük hayata katkısı (çıkarım)",
+                      "kazanim": "KİM.9.1.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.1.2",
+                  "ad": "Kimyanın Alt Disiplinleri ve Kariyer",
+                  "kazanimlar": [
+                    "KİM.9.1.1"
+                  ],
+                  "test": "bkq002",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.1.4",
+                  "ad": "Kimyasal Maddelerin Kullanımı ve Güvenlik",
+                  "kazanimlar": [
+                    "KİM.9.1.2"
+                  ],
+                  "test": "bkq003",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq004",
+                      "baslik": "Kimyasal maddelerin kullanımı ve güvenlik (problem çözme)",
+                      "kazanim": "KİM.9.1.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq005",
+                  "baslik": "Sarmal Test 1 (1.1 Kimya Bilimi, Alt Disiplinler ve Laboratuvar Güvenliği)",
+                  "soru": 28
+                }
+              ]
+            },
+            {
+              "kod": "1.2",
+              "tema": 1,
+              "ad": "Atomun Yapısı ve Periyodik Tablo",
+              "ozet": "Atom teorileri, orbitaller, periyodik tablo, iyonlar, periyodik özellikler",
+              "konular": [
+                {
+                  "kod": "1.2.1",
+                  "ad": "Atom Teorileri ve Atomun Yapısı",
+                  "kazanimlar": [
+                    "KİM.9.1.3"
+                  ],
+                  "test": "bkq006",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq007",
+                      "baslik": "Atom teorileri ve bilimsel bilginin değişebilirliği",
+                      "kazanim": "KİM.9.1.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.2",
+                  "ad": "Atom Orbitalleri ve Elektron Dizilimi",
+                  "kazanimlar": [
+                    "KİM.9.1.4",
+                    "KİM.9.1.5"
+                  ],
+                  "test": "bkq008",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq009",
+                      "baslik": "Orbitallerin bağıl enerjileri (veriye dayalı tahmin)",
+                      "kazanim": "KİM.9.1.4",
+                      "soru": 12
+                    },
+                    {
+                      "id": "bkq010",
+                      "baslik": "Elektronların orbitallere yerleşimi (tümevarım)",
+                      "kazanim": "KİM.9.1.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.3-A",
+                  "ad": "Periyodik Tabloda Yer Bulma",
+                  "kazanimlar": [
+                    "KİM.9.1.6"
+                  ],
+                  "test": "bkq011",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq012",
+                      "baslik": "Elementlerin periyodik tablodaki yeri (tümevarım)",
+                      "kazanim": "KİM.9.1.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.2.3-B",
+                  "ad": "Atomdan İyona",
+                  "kazanimlar": [
+                    "KİM.9.1.7"
+                  ],
+                  "test": "bkq013",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq014",
+                      "baslik": "İyon oluşumu (tümevarım)",
+                      "kazanim": "KİM.9.1.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.2.4-A",
+                  "ad": "Atom ve İyon Yarıçapı",
+                  "kazanimlar": [
+                    "KİM.9.1.8"
+                  ],
+                  "test": "bkq015",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.4-B",
+                  "ad": "İyonlaşma Enerjisi",
+                  "kazanimlar": [
+                    "KİM.9.1.8"
+                  ],
+                  "test": "bkq016",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.4-C",
+                  "ad": "Elektronegatiflik",
+                  "kazanimlar": [
+                    "KİM.9.1.8"
+                  ],
+                  "test": "bkq017",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq018",
+                      "baslik": "Periyodik özelliklerin değişimi (çözümleme)",
+                      "kazanim": "KİM.9.1.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq019",
+                  "baslik": "Sarmal Test 2 (1.2 Atomun Yapısı, Periyodik Tablo ve Periyodik Özellikler)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 2,
+          "ad": "Çeşitlilik",
+          "bolumler": [
+            {
+              "kod": "2.1",
+              "tema": 2,
+              "ad": "Kimyasal Türler Arası Güçlü Etkileşimler",
+              "ozet": "Metalik, iyonik ve kovalent bağ, Lewis yapısı, polarlık, adlandırma",
+              "konular": [
+                {
+                  "kod": "2.1.1",
+                  "ad": "Metalik Bağ",
+                  "kazanimlar": [
+                    "KİM.9.2.1"
+                  ],
+                  "test": "bkq020",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq021",
+                      "baslik": "Metalik bağın oluşumu (tümevarımsal akıl yürütme)",
+                      "kazanim": "KİM.9.2.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.2-A",
+                  "ad": "İyonik Bağ: Oluşum, İyonlar ve Kristal Yapı",
+                  "kazanimlar": [
+                    "KİM.9.2.2"
+                  ],
+                  "test": "bkq022",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq023",
+                      "baslik": "İyonik bağın oluşumu (gözleme dayalı tahmin)",
+                      "kazanim": "KİM.9.2.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.2-B",
+                  "ad": "İyonik Bileşiklerin Formülleri ve Çok Atomlu İyonlar",
+                  "kazanimlar": [
+                    "KİM.9.2.2"
+                  ],
+                  "test": "bkq024",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.3-A",
+                  "ad": "Kovalent Bağın Oluşumu",
+                  "kazanimlar": [
+                    "KİM.9.2.3"
+                  ],
+                  "test": "bkq025",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 27,
+                  "baglam": [
+                    {
+                      "id": "bkq026",
+                      "baslik": "Kovalent bağın oluşumu (gözleme dayalı tahmin)",
+                      "kazanim": "KİM.9.2.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.3-B",
+                  "ad": "Apolar ve Polar Kovalent Bağ",
+                  "kazanimlar": [
+                    "KİM.9.2.3"
+                  ],
+                  "test": "bkq027",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.4",
+                  "ad": "Lewis Nokta Yapısı",
+                  "kazanimlar": [
+                    "KİM.9.2.4"
+                  ],
+                  "test": "bkq028",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq029",
+                      "baslik": "Lewis nokta yapısı (çıkarım)",
+                      "kazanim": "KİM.9.2.4",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.5",
+                  "ad": "Molekül Polarlığı ve Apolarlığı",
+                  "kazanimlar": [
+                    "KİM.9.2.5"
+                  ],
+                  "test": "bkq030",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq031",
+                      "baslik": "Molekül polarlığı (sınıflandırma)",
+                      "kazanim": "KİM.9.2.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.6-A",
+                  "ad": "İyonik Bileşiklerin Adlandırılması",
+                  "kazanimlar": [
+                    "KİM.9.2.6"
+                  ],
+                  "test": "bkq032",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.6-B",
+                  "ad": "Moleküler Bileşiklerin Adlandırılması",
+                  "kazanimlar": [
+                    "KİM.9.2.6"
+                  ],
+                  "test": "bkq033",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq034",
+                      "baslik": "Bileşiklerin adlandırılması (tümdengelim)",
+                      "kazanim": "KİM.9.2.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq035",
+                  "baslik": "Sarmal Test 3 (2.1 Kimyasal Türler Arası Etkileşimler: Bağlar, Formüller ve Adlandırma)",
+                  "soru": 27
+                }
+              ]
+            },
+            {
+              "kod": "2.2",
+              "tema": 2,
+              "ad": "Zayıf Etkileşimler ve Sıvıların Özellikleri",
+              "ozet": "Moleküller arası kuvvetler, katılar, buhar basıncı, kaynama, viskozite, yüzey gerilimi",
+              "konular": [
+                {
+                  "kod": "2.2.1-A",
+                  "ad": "Moleküller Arası Etkileşim Türleri",
+                  "kazanimlar": [
+                    "KİM.9.2.7"
+                  ],
+                  "test": "bkq036",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq037",
+                      "baslik": "Moleküller arası etkileşimleri sınıflandırma",
+                      "kazanim": "KİM.9.2.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.1-B",
+                  "ad": "Hidrojen Bağı ve Etkileşim Kuvvetleri",
+                  "kazanimlar": [
+                    "KİM.9.2.7"
+                  ],
+                  "test": "bkq038",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.2",
+                  "ad": "Katılar ve Özellikleri",
+                  "kazanimlar": [
+                    "KİM.9.2.8"
+                  ],
+                  "test": "bkq039",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq040",
+                      "baslik": "Etkileşimler ve katıların özellikleri (bilimsel çıkarım)",
+                      "kazanim": "KİM.9.2.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.3-A",
+                  "ad": "Buharlaşma ve Denge Buhar Basıncı",
+                  "kazanimlar": [
+                    "KİM.9.2.9"
+                  ],
+                  "test": "bkq041",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq042",
+                      "baslik": "Buhar basıncını etkileyen faktörler (hipotez)",
+                      "kazanim": "KİM.9.2.9",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.3-B",
+                  "ad": "Kaynama Sıcaklığı",
+                  "kazanimlar": [
+                    "KİM.9.2.10"
+                  ],
+                  "test": "bkq043",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq044",
+                      "baslik": "Kaynama sıcaklığını etkileyen faktörler (kanıt kullanma)",
+                      "kazanim": "KİM.9.2.10",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.3-C",
+                  "ad": "Viskozite",
+                  "kazanimlar": [
+                    "KİM.9.2.11"
+                  ],
+                  "test": "bkq045",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq046",
+                      "baslik": "Viskoziteyi etkileyen faktörler (bilimsel gözlem)",
+                      "kazanim": "KİM.9.2.11",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.3-D",
+                  "ad": "Adezyon, Kohezyon, Yüzey Gerilimi ve Kılcallık",
+                  "kazanimlar": [
+                    "KİM.9.2.12",
+                    "KİM.9.2.13"
+                  ],
+                  "test": "bkq047",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq048",
+                      "baslik": "Adezyon ve kohezyon (bilimsel çıkarım)",
+                      "kazanim": "KİM.9.2.12",
+                      "soru": 12
+                    },
+                    {
+                      "id": "bkq049",
+                      "baslik": "Yüzey gerilimini etkileyen faktörler (bilimsel sorgulama)",
+                      "kazanim": "KİM.9.2.13",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq050",
+                  "baslik": "Sarmal Test 4 (2.2 Zayıf Etkileşimler, Katılar ve Sıvıların Özellikleri)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 3,
+          "ad": "Sürdürülebilirlik",
+          "bolumler": [
+            {
+              "kod": "3.1",
+              "tema": 3,
+              "ad": "Nanoteknoloji ve Yeşil Kimya",
+              "ozet": "Metal nanoparçacıklar, atık önleme, metal ve alaşımların çevresel etkileri",
+              "konular": [
+                {
+                  "kod": "3.1.1",
+                  "ad": "Metal Nanoparçacıklar",
+                  "kazanimlar": [
+                    "KİM.9.3.1"
+                  ],
+                  "test": "bkq051",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 27,
+                  "baglam": [
+                    {
+                      "id": "bkq052",
+                      "baslik": "Evsel atıklardan metal nanoparçacık eldesi (deney)",
+                      "kazanim": "KİM.9.3.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "3.1.2",
+                  "ad": "Yeşil Kimyanın Atık Önleme İlkesi",
+                  "kazanimlar": [
+                    "KİM.9.3.2"
+                  ],
+                  "test": "bkq053",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "3.1.3",
+                  "ad": "Metal, Alaşım ve Nanoparçacıkların Çevresel Etkileri",
+                  "kazanimlar": [
+                    "KİM.9.3.2"
+                  ],
+                  "test": "bkq054",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq055",
+                      "baslik": "Metal, alaşım ve nanoparçacıkların ekosistem etkileri",
+                      "kazanim": "KİM.9.3.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq056",
+                  "baslik": "Sarmal Test 5 (3.1 Nanoteknoloji, Yeşil Kimya ve Çevresel Etkiler)",
+                  "soru": 27
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "karma": [
+        {
+          "id": "bkq057",
+          "baslik": "Karma Test 01 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq058",
+          "baslik": "Karma Test 02 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq059",
+          "baslik": "Karma Test 03 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq060",
+          "baslik": "Karma Test 04 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq061",
+          "baslik": "Karma Test 05 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq062",
+          "baslik": "Karma Test 06 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq063",
+          "baslik": "Karma Test 07 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq064",
+          "baslik": "Karma Test 08 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq065",
+          "baslik": "Karma Test 09 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq066",
+          "baslik": "Karma Test 10 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq067",
+          "baslik": "Karma Test 11 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq068",
+          "baslik": "Karma Test 12 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq069",
+          "baslik": "Karma Test 13 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq070",
+          "baslik": "Karma Test 14 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq071",
+          "baslik": "Karma Test 15 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq072",
+          "baslik": "Karma Test 16 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq073",
+          "baslik": "Karma Test 17 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq074",
+          "baslik": "Karma Test 18 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq075",
+          "baslik": "Karma Test 19 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq076",
+          "baslik": "Karma Test 20 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq077",
+          "baslik": "Karma Test 21 — Tüm kazanımlardan karışık",
+          "soru": 6
+        },
+        {
+          "id": "bkq078",
+          "baslik": "Karma Test 22 — Tüm kazanımlardan karışık",
+          "soru": 6
+        }
+      ],
+      "kazanimlar": {
+        "KİM.9.1.1": "Kimya biliminin günlük hayata katkısına ilişkin çıkarım yapabilme",
+        "KİM.9.1.2": "Farklı ortamlarda kimyasal maddelerin kullanımından kaynaklanan problemleri çözebilme",
+        "KİM.9.1.3": "Atom teorilerindeki varsayımları kullanarak bilimsel bilginin değişebilirliliğine ilişkin çıkarım yapabilme",
+        "KİM.9.1.4": "Atom orbitallerinin bağıl enerjilerine ilişkin veriye dayalı tahminde bulunabilme",
+        "KİM.9.1.5": "Elektronların atom orbitallerine yerleşimine ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.9.1.6": "Elementlerin periyodik tablodaki yerlerine ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.9.1.7": "İyon oluşumuna ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.9.1.8": "Elementlerin periyodik özelliklerinin periyodik tablodaki değişimini çözümleyebilme",
+        "KİM.9.2.1": "Metalik bağın oluşumuna yönelik tümevarımsal akıl yürütebilme",
+        "KİM.9.2.2": "İyonik bağın oluşumunu bilimsel gözleme dayalı tahmin edebilme",
+        "KİM.9.2.3": "Kovalent bağ oluşumunu bilimsel gözleme dayalı tahmin edebilme",
+        "KİM.9.2.4": "Moleküllerin Lewis nokta yapısına ilişkin çıkarımda bulunabilme",
+        "KİM.9.2.5": "Molekülleri polar ya da apolar olarak sınıflandırabilme",
+        "KİM.9.2.6": "Bileşikleri adlandırma kurallarına ilişkin tümdengelimsel akıl yürütebilme",
+        "KİM.9.2.7": "Moleküller arası etkileşimleri sınıflandırabilme",
+        "KİM.9.2.8": "Etkileşimlerin katıların özelliklerine etkilerine ilişkin bilimsel çıkarım yapabilme",
+        "KİM.9.2.9": "Sıvıların buhar basıncını etkileyen faktörlere ilişkin hipotez oluşturabilme",
+        "KİM.9.2.10": "Sıvıların kaynama sıcaklığını etkileyen faktörleri belirlemeye yönelik kanıt kullanabilme",
+        "KİM.9.2.11": "Sıvıların viskozitesini etkileyen faktörlere ilişkin bilimsel gözlem yapabilme",
+        "KİM.9.2.12": "Adezyon ve kohezyon kuvvetlerinin sıvıların özelliklerine etkilerine ilişkin çıkarım yapabilme",
+        "KİM.9.2.13": "Sıvıların yüzey gerilimini etkileyen faktörlere ilişkin bilimsel sorgulama yapabilme",
+        "KİM.9.3.1": "Evsel atıklardan metal nanoparçacık elde etmek üzere deney yapabilme",
+        "KİM.9.3.2": "Metal, alaşım ve metal nanoparçacıkların ekosistemdeki etkilerine ilişkin problem çözebilme"
+      },
+      "kelimeler": {
+        "KİM.9.1.1": [
+          "günlük hayatta kimya",
+          "kimya alt dallari",
+          "kimya alaninda kariyer olanaklari",
+          "kimya ile ilgili mesleklerr",
+          "kimya bilimine katki saglayan bilim adamlari"
+        ],
+        "KİM.9.1.2": [
+          "laboratuvarda uyulmasi gereken kurallar",
+          "temel uyari ve güvenlik işaretleri",
+          "laboratuvar araç gereçleri",
+          "kimyasal madde guvenligi",
+          "depolama matrisi",
+          "kimyasal madde kullanimi zararlari"
+        ],
+        "KİM.9.1.3": [
+          "dalton atom modeli",
+          "thomson atom modeli",
+          "rutherford atom modeli",
+          "bohr atom modeli",
+          "atom teorisi",
+          "absorbsiyon",
+          "emisyon",
+          "atom alti tanecikler",
+          "proton sayisi",
+          "nötron sayisi",
+          "elektron sayisi",
+          "atom numarasi",
+          "cekirdek yükü",
+          "kütle numarasi",
+          "nükleon sayisi"
+        ],
+        "KİM.9.1.4": [
+          "atom orbitali",
+          "s orbitali",
+          "p orbitali",
+          "d orbitali",
+          "f orbitali",
+          "orbital enerjisi",
+          "orbital"
+        ],
+        "KİM.9.1.5": [
+          "elektron dizilimi",
+          "aufbau ilkesi",
+          "hund kurali",
+          "pauli ilkesi",
+          "orbitallere elektron yerlesimi",
+          "kuresel simetri",
+          "valans elektron",
+          "değerlik elektronlari"
+        ],
+        "KİM.9.1.6": [
+          "periyodik tablo",
+          "periyot ve grup",
+          "elementin grubu",
+          "elementin periyodu",
+          "metal",
+          "ametal",
+          "yari metal",
+          "soygaz",
+          "asal gaz",
+          "alkali metaller",
+          "toprak metalleri",
+          "toprak alkali metaller",
+          "halojenler"
+        ],
+        "KİM.9.1.7": [
+          "iyon olusumu",
+          "anyon",
+          "katyon",
+          "elektron alip",
+          "elektron vererek iyon",
+          "izoelektronik"
+        ],
+        "KİM.9.1.8": [
+          "atom yaricapi",
+          "iyonlasma enerjisi",
+          "elektronegatiflik",
+          "elektron ilgisi",
+          "periyodik ozellik"
+        ],
+        "KİM.9.2.1": [
+          "metalik bag",
+          "elektron denizi",
+          "metaller arasi bag",
+          "metallerin özellikleri"
+        ],
+        "KİM.9.2.2": [
+          "iyonik bag",
+          "iyonik bilesik",
+          "kristal orgu",
+          "iyonik bileşiklerin özellikleri",
+          "anyon katyon orani",
+          "elektron alis verisi"
+        ],
+        "KİM.9.2.3": [
+          "kovalent bag",
+          "elektron ortaklasmasi",
+          "apolar kovalent bag",
+          "polar kovalent bag"
+        ],
+        "KİM.9.2.4": [
+          "lewis nokta yapisi",
+          "lewis yapisi",
+          "lewis elektron nokta"
+        ],
+        "KİM.9.2.5": [
+          "polar molekul",
+          "apolar molekul",
+          "molekul polarligi",
+          "molekul apolarligi",
+          "dipol momenti",
+          "apolar molekul",
+          "polar molekul",
+          "anlik dipol",
+          "kalici dipol",
+          "geici dipol",
+          "polarlanabilir",
+          "yük dagilimi simetrik",
+          "yük dagilimi asimetrik",
+          "dipol",
+          "iyon-dipol",
+          "dipol-dipol",
+          "iyon-indüklenmis dipol",
+          "dipol-indüklenmis dipol",
+          "indüklenmis dipol-indüklenmis dipol",
+          "london",
+          "hidrojen bagi"
+        ],
+        "KİM.9.2.6": [
+          "bilesiklerin adlandirilmasi",
+          "adlandirma kurallari",
+          "bilesik formulu yazimi",
+          "iyonik bagli bilesiklerin adlandirilmasi",
+          "kovalent bagli bilesiklerin adlandirilmasi"
+        ],
+        "KİM.9.2.7": [
+          "hidrojen bagi",
+          "london kuvvetleri",
+          "london kuvveti",
+          "dipol dipol",
+          "molekuller arasi etkilesim",
+          "induklenmis dipol",
+          "dipol dipol etkilesimi",
+          "van der waals etkilesimi",
+          "iyon-dipol",
+          "dipol-dipol",
+          "iyon-indüklenmis dipol",
+          "dipol-indüklenmis dipol",
+          "indüklenmis dipol-indüklenmis dipol",
+          "london"
+        ],
+        "KİM.9.2.8": [
+          "katilarin ozellikleri",
+          "amorf kati",
+          "kristal kati",
+          "metalik kristal",
+          "iyonik kristal",
+          "moleküler kristal",
+          "kovalent kristal",
+          "iyonik katilar",
+          "metalik katilar",
+          "moleküler katilar",
+          "kovalent katilar"
+        ],
+        "KİM.9.2.9": [
+          "buhar basinci",
+          "buharlasma hizi",
+          "ucuculuk",
+          "sivi buhar basinci",
+          "denge buhar basinci",
+          "buhar basincine etki eden faktörler",
+          "buharlasma hizina etki eden faktörler"
+        ],
+        "KİM.9.2.10": [
+          "kaynama sicakligi",
+          "kaynama noktasi",
+          "dis basinc kaynama",
+          "kaynama noktasina etki eden faktörler"
+        ],
+        "KİM.9.2.11": [
+          "viskozite",
+          "viskoziteye etki eden faktörler",
+          "akiskanlik"
+        ],
+        "KİM.9.2.12": [
+          "adezyon",
+          "kohezyon",
+          "kilcallik",
+          "kapiler etki",
+          "kilcallik"
+        ],
+        "KİM.9.2.13": [
+          "yuzey gerilimi",
+          "yuzey gerilimini etkileyen faktörler"
+        ],
+        "KİM.9.3.1": [
+          "metal nanoparcacik",
+          "evsel atiklardan",
+          "atik onleme",
+          "nanoparcacik elde etme",
+          "nanoparcacik elde etme yöntemleri",
+          "Sürdürülebilir Kalkinma Hedefleri",
+          "nanoteknoloji"
+        ],
+        "KİM.9.3.2": [
+          "nanoparcaciklarin ekosistem",
+          "metallerin ekosisteme etkisi",
+          "metal nanoparcacik cevre",
+          "agir metaller",
+          "ekolojik ayak izi",
+          "kimyasal ayak izi",
+          "agir metal",
+          "yesil sentez nanoparcacik",
+          "su ayak izi",
+          "karbon ayak izi"
+        ]
+      }
+    },
+    "10": {
+      "sinif": 10,
+      "temalar": [
+        {
+          "no": 1,
+          "ad": "Etkileşim",
+          "bolumler": [
+            {
+              "kod": "1.1",
+              "tema": 1,
+              "ad": "Kimyasal Tepkimeler",
+              "ozet": "Kimyasal değişim, tepkime türleri, mol, denkleştirme, stokiyometri",
+              "konular": [
+                {
+                  "kod": "1.1.1",
+                  "ad": "Kimyasal Değişimin Göstergeleri",
+                  "kazanimlar": [
+                    "KİM.10.1.1"
+                  ],
+                  "test": "bkq000",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq001",
+                      "baslik": "Kimyasal değişimin göstergeleri (gözlem)",
+                      "kazanim": "KİM.10.1.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.1.2",
+                  "ad": "Kimyasal Tepkime Türleri",
+                  "kazanimlar": [
+                    "KİM.10.1.2",
+                    "KİM.10.1.3"
+                  ],
+                  "test": "bkq002",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq003",
+                      "baslik": "Tepkimenin oluşumunu temsil eden model",
+                      "kazanim": "KİM.10.1.2",
+                      "soru": 12
+                    },
+                    {
+                      "id": "bkq004",
+                      "baslik": "Tepkime türlerinin oluşumu (çökelme, redoks, asit-baz)",
+                      "kazanim": "KİM.10.1.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.1.3-A",
+                  "ad": "Mol Kavramı",
+                  "kazanimlar": [
+                    "KİM.10.1.4"
+                  ],
+                  "test": "bkq005",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq006",
+                      "baslik": "Mol kavramının operasyonel tanımı",
+                      "kazanim": "KİM.10.1.4",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.1.3-B",
+                  "ad": "Mol, Kütle ve Tanecik Sayısı İlişkisi",
+                  "kazanimlar": [
+                    "KİM.10.1.5"
+                  ],
+                  "test": "bkq007",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq008",
+                      "baslik": "Mol sayısı, atom/molekül sayısı ve kütle ilişkisi",
+                      "kazanim": "KİM.10.1.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.1.4",
+                  "ad": "Kimyasal Tepkime Denklemlerinin Denkleştirilmesi",
+                  "kazanimlar": [
+                    "KİM.10.1.6"
+                  ],
+                  "test": "bkq009",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq010",
+                      "baslik": "Tepkime denklemlerinde denkleştirme",
+                      "kazanim": "KİM.10.1.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.1.5",
+                  "ad": "Kimyasal (Stokiyometrik) Hesaplamalar",
+                  "kazanimlar": [
+                    "KİM.10.1.7"
+                  ],
+                  "test": "bkq011",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq012",
+                      "baslik": "Stokiyometrik ilişkiler",
+                      "kazanim": "KİM.10.1.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq013",
+                  "baslik": "Sarmal Test 1 (1.1 Kimyasal Tepkimeler: değişim, tür, mol, denkleştirme, stokiyometri)",
+                  "soru": 28
+                }
+              ]
+            },
+            {
+              "kod": "1.2",
+              "tema": 1,
+              "ad": "Gazlar",
+              "ozet": "Gazların özellikleri, gaz yasaları, ideal gaz, difüzyon ve efüzyon",
+              "konular": [
+                {
+                  "kod": "1.2.1",
+                  "ad": "Gazların Özellikleri",
+                  "kazanimlar": [
+                    "KİM.10.1.8"
+                  ],
+                  "test": "bkq014",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq015",
+                      "baslik": "Gazların özellikleri (gözlem)",
+                      "kazanim": "KİM.10.1.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.2-A",
+                  "ad": "Gaz Yasaları: Boyle, Charles ve Avogadro",
+                  "kazanimlar": [
+                    "KİM.10.1.9"
+                  ],
+                  "test": "bkq016",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.2-B",
+                  "ad": "Gaz Yasaları: Basınç–Sıcaklık, Birleşik Gaz Yasası ve KMT",
+                  "kazanimlar": [
+                    "KİM.10.1.9"
+                  ],
+                  "test": "bkq017",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq018",
+                      "baslik": "Gaz yasaları ve ikili ilişkiler",
+                      "kazanim": "KİM.10.1.9",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.3",
+                  "ad": "İdeal Gaz Yasası",
+                  "kazanimlar": [
+                    "KİM.10.1.10"
+                  ],
+                  "test": "bkq019",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq020",
+                      "baslik": "İdeal gaz denklemi",
+                      "kazanim": "KİM.10.1.10",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.4",
+                  "ad": "Graham Difüzyon ve Efüzyon Yasası",
+                  "kazanimlar": [
+                    "KİM.10.1.11"
+                  ],
+                  "test": "bkq021",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq022",
+                      "baslik": "Efüzyon ve difüzyon",
+                      "kazanim": "KİM.10.1.11",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq023",
+                  "baslik": "Sarmal Test 2 (1.2 Gazlar: özellikler, gaz yasaları, ideal gaz, difüzyon)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 2,
+          "ad": "Çeşitlilik",
+          "bolumler": [
+            {
+              "kod": "2.1",
+              "tema": 2,
+              "ad": "Çözeltiler",
+              "ozet": "Çözünme, çözünürlük, derişim birimleri, koligatif özellikler",
+              "konular": [
+                {
+                  "kod": "2.1.1",
+                  "ad": "Çözünme Süreci",
+                  "kazanimlar": [
+                    "KİM.10.2.1"
+                  ],
+                  "test": "bkq024",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq025",
+                      "baslik": "Çözünme sürecinin modeli",
+                      "kazanim": "KİM.10.2.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.2",
+                  "ad": "Maddelerin Birbiri İçindeki Çözünebilirliği",
+                  "kazanimlar": [
+                    "KİM.10.2.2"
+                  ],
+                  "test": "bkq026",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq027",
+                      "baslik": "Maddelerin birbiri içinde çözünebilirliği",
+                      "kazanim": "KİM.10.2.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.3",
+                  "ad": "Çözünme Olayının Sınıflandırılması",
+                  "kazanimlar": [
+                    "KİM.10.2.3"
+                  ],
+                  "test": "bkq028",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq029",
+                      "baslik": "Çözünme olayının sınıflandırılması",
+                      "kazanim": "KİM.10.2.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.4",
+                  "ad": "Çözünürlük",
+                  "kazanimlar": [
+                    "KİM.10.2.5"
+                  ],
+                  "test": "bkq030",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq031",
+                      "baslik": "Çözünürlük kavramı",
+                      "kazanim": "KİM.10.2.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.5",
+                  "ad": "Çözünürlüğe Etki Eden Faktörler",
+                  "kazanimlar": [
+                    "KİM.10.2.6"
+                  ],
+                  "test": "bkq032",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq033",
+                      "baslik": "Çözünürlüğe etki eden faktörler",
+                      "kazanim": "KİM.10.2.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.6",
+                  "ad": "Çözeltilerin Sınıflandırılması",
+                  "kazanimlar": [
+                    "KİM.10.2.7"
+                  ],
+                  "test": "bkq034",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq035",
+                      "baslik": "Çözeltilerin sınıflandırılması",
+                      "kazanim": "KİM.10.2.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.7",
+                  "ad": "Derişim Birimleri (Molarite, ppm)",
+                  "kazanimlar": [
+                    "KİM.10.2.4"
+                  ],
+                  "test": "bkq036",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq037",
+                      "baslik": "Molar derişim (molarite)",
+                      "kazanim": "KİM.10.2.4",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.8",
+                  "ad": "Koligatif Özellikler (Kaynama Noktası Yükselmesi, Donma Noktası Alçalması)",
+                  "kazanimlar": [
+                    "KİM.10.2.8"
+                  ],
+                  "test": "bkq038",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq039",
+                      "baslik": "Koligatif özellikler (kaynama ve donma noktası)",
+                      "kazanim": "KİM.10.2.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq040",
+                  "baslik": "Sarmal Test 3 (2.1 Çözeltiler: çözünme, çözünürlük, derişim, koligatif özellikler)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 3,
+          "ad": "Sürdürülebilirlik",
+          "bolumler": [
+            {
+              "kod": "3.1",
+              "tema": 3,
+              "ad": "Yeşil Kimya",
+              "ozet": "Mikro ölçekli deneyler, atmosferdeki tepkimeler ve küresel sorunlar",
+              "konular": [
+                {
+                  "kod": "3.1.1",
+                  "ad": "Makro ve Mikro Ölçekli Deneyler",
+                  "kazanimlar": [
+                    "KİM.10.3.1"
+                  ],
+                  "test": "bkq041",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq042",
+                      "baslik": "Makro ve mikro ölçekli deneyler",
+                      "kazanim": "KİM.10.3.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "3.1.2",
+                  "ad": "Atmosferdeki Tepkimeler ve Küresel Sorunlar",
+                  "kazanimlar": [
+                    "KİM.10.3.2"
+                  ],
+                  "test": "bkq043",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq044",
+                      "baslik": "Atmosferdeki tepkimeler ve küresel sorunlar",
+                      "kazanim": "KİM.10.3.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq045",
+                  "baslik": "Sarmal Test 4 (3.1 Yeşil Kimya: mikro ölçek, atmosfer ve küresel sorunlar)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "karma": [
+        {
+          "id": "bkq046",
+          "baslik": "Karma Test 01 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq047",
+          "baslik": "Karma Test 02 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq048",
+          "baslik": "Karma Test 03 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq049",
+          "baslik": "Karma Test 04 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq050",
+          "baslik": "Karma Test 05 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq051",
+          "baslik": "Karma Test 06 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq052",
+          "baslik": "Karma Test 07 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq053",
+          "baslik": "Karma Test 08 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq054",
+          "baslik": "Karma Test 09 — Tüm kazanımlardan karışık",
+          "soru": 7
+        },
+        {
+          "id": "bkq055",
+          "baslik": "Karma Test 10 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq056",
+          "baslik": "Karma Test 11 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq057",
+          "baslik": "Karma Test 12 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq058",
+          "baslik": "Karma Test 13 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq059",
+          "baslik": "Karma Test 14 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq060",
+          "baslik": "Karma Test 15 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq061",
+          "baslik": "Karma Test 16 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq062",
+          "baslik": "Karma Test 17 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq063",
+          "baslik": "Karma Test 18 — Tüm kazanımlardan karışık",
+          "soru": 7
+        }
+      ],
+      "kazanimlar": {
+        "KİM.10.1.1": "Kimyasal değişimlere ilişkin kanıtları belirlemeye yönelik bilimsel gözlem yapabilme",
+        "KİM.10.1.2": "Kimyasal tepkimelerin oluşumunu açıklamak için model oluşturabilme",
+        "KİM.10.1.3": "Kimyasal tepkime türlerinin oluşum sürecine ilişkin bilimsel gözlem yapabilme",
+        "KİM.10.1.4": "Mol kavramına ilişkin operasyonel tanımlama yapabilme",
+        "KİM.10.1.5": "Saf maddelerin ölçülebilir özellikleri arasındaki ilişkileri belirlemeye yönelik tümdengelimsel akıl yürütebilme",
+        "KİM.10.1.6": "Kimyasal tepkime denklemlerinde tanecik sayılarının tutarsızlıklarına ilişkin çelişkiyi giderebilme",
+        "KİM.10.1.7": "Kimyasal tepkimelerde stokiyometrik ilişkilere yönelik tümdengelimsel akıl yürütebilme",
+        "KİM.10.1.8": "Gazların özelliklerine ilişkin bilimsel gözlem yapabilme",
+        "KİM.10.1.9": "Gazların özellikleri arasındaki ilişkileri bilimsel sorgulayabilme",
+        "KİM.10.1.10": "İdeal gaz denklemini tümevarımsal akıl yürütme yoluyla oluşturabilme",
+        "KİM.10.1.11": "Gazların farklı ortamlarda yayılmasına ilişkin deney yapabilme",
+        "KİM.10.2.1": "Çözünme sürecine ilişkin bilimsel model oluşturabilme",
+        "KİM.10.2.2": "Farklı maddelerin birbiri içinde çözünebilirliğini kanıt kullanarak açıklayabilme",
+        "KİM.10.2.3": "Çözünme olayını sınıflandırabilme",
+        "KİM.10.2.4": "Çözeltilerin molar derişimine ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.10.2.5": "Çözünürlük kavramına ilişkin operasyonel tanımlama yapabilme",
+        "KİM.10.2.6": "Çözünürlüğe etki eden faktörleri belirlemeye yönelik kanıt kullanabilme",
+        "KİM.10.2.7": "Çözeltileri sınıflandırabilme",
+        "KİM.10.2.8": "Çözünen maddenin tanecik sayısının çözeltilerin kaynama ve donma noktasına etkisini belirlemeye yönelik hipotez oluşturabilme",
+        "KİM.10.3.1": "Kimya dersinde mikro ölçekli deney tercih etmenin sonuçlarını ekosistem açısından değerlendirebilme",
+        "KİM.10.3.2": "Kimyasal tepkimeler sonucunda atmosferin doğasındaki değişimin ekosisteme etkilerine yönelik problem çözebilme"
+      },
+      "kelimeler": {
+        "KİM.10.1.1": [
+          "kimyasal degisim kanitlari",
+          "kimyasal tepkime kaniti",
+          "gaz cikisi",
+          "kimyasal tepkime",
+          "renk degisimi",
+          "enerji degisimi",
+          "cokelti olusumu",
+          "koku olusumu",
+          "isik olusumu",
+          "fiziksel degisim",
+          "kimyasal degisim",
+          "kimyasal tepkime denklemi"
+        ],
+        "KİM.10.1.2": [
+          "kimyasal tepkime modeli",
+          "makroskobik gösterim",
+          "alt mikroskobik gösterim",
+          "top-cubuk modeli",
+          "uzay dolgu modeli",
+          "repkenler-ürünler"
+        ],
+        "KİM.10.1.3": [
+          "tepkime turleri",
+          "yanma tepkimesi",
+          "asit-baz tepkimesi",
+          "cozunme tepkimesi",
+          "cokelme tepkimesi",
+          "indirgenme yukseltgenme tepkimesi",
+          "redoks",
+          "nötrallesme tepkimesi"
+        ],
+        "KİM.10.1.4": [
+          "mol kavrami",
+          "avogadro sayisi",
+          "mol sayisi",
+          "tanecik sayisi",
+          "mol kütlesi",
+          "NA akb",
+          "izotop",
+          "ortalama atom kütlesi"
+        ],
+        "KİM.10.1.5": [
+          "atom sayisi",
+          "molekul sayisi",
+          "molekül-atom iliskisi"
+        ],
+        "KİM.10.1.6": [
+          "tepkime denklestirme",
+          "kimyasal denklem denklestirme",
+          "atom sayisi korunumu",
+          "tepkime denklemleri"
+        ],
+        "KİM.10.1.7": [
+          "stokiyometri",
+          "sinirlayici bilesen",
+          "artan madde",
+          "deneysel verim",
+          "tepkime  verimi",
+          "yuzde verim",
+          "sinirlayici bilesen",
+          "safsizlik"
+        ],
+        "KİM.10.1.8": [
+          "gazlarin ozellikleri",
+          "gaz basinci",
+          "gaz hacmi",
+          "gaz sicakligi",
+          "madde miktari",
+          "hacim"
+        ],
+        "KİM.10.1.9": [
+          "boyle mariotte",
+          "charles yasasi",
+          "gay lussac",
+          "birlesik gaz yasasi",
+          "mutlak sicaklik"
+        ],
+        "KİM.10.1.10": [
+          "ideal gaz denklemi",
+          "pv nrt",
+          "gaz denklemi",
+          "ideal gaz",
+          "standart normal sartlar"
+        ],
+        "KİM.10.1.11": [
+          "gazlarin yayilmasi",
+          "difüzyon",
+          "efüzyon"
+        ],
+        "KİM.10.2.1": [
+          "cozunme olayi",
+          "cozunme sureci",
+          "cozucu cozunen etkilesimi",
+          "cozelti",
+          "cozucu",
+          "cozunen",
+          "cozunme"
+        ],
+        "KİM.10.2.2": [
+          "benzer benzeri cozer",
+          "cozunebilirlik",
+          "polarlik ve cozunme"
+        ],
+        "KİM.10.2.3": [
+          "cozunme turleri",
+          "iyonik cozunme",
+          "molekuler cozunme",
+          "elektrolit cözelti,"
+        ],
+        "KİM.10.2.4": [
+          "molar derisim",
+          "molarite",
+          "cozelti derisimi",
+          "milyonda bir derisim",
+          "ppm"
+        ],
+        "KİM.10.2.5": [
+          "cozunurluk",
+          "cozunurluk grafigi",
+          "cozunen en fazla madde",
+          "doymus cozelti"
+        ],
+        "KİM.10.2.6": [
+          "cozunurluge etki eden faktörler",
+          "sicakligin cozunurluge etkisi",
+          "basincin cozunurluge etkisi"
+        ],
+        "KİM.10.2.7": [
+          "doymus cozelti",
+          "doymamis cozelti",
+          "asiri doymus cözelti",
+          "seyreltik derisik",
+          "elektrolit cozelti",
+          "elektrolit olmayan cozelti",
+          "derisik cözelti,"
+        ],
+        "KİM.10.2.8": [
+          "koligatif",
+          "donma noktasi alçalmasi",
+          "kaynama noktasi yukseltisi",
+          "osmotik basinc",
+          "koligatif ozellik"
+        ],
+        "KİM.10.3.1": [
+          "makro olcekli deney",
+          "mikro olcekli deney",
+          "atom ekonomisi",
+          "su ayak izi",
+          "kimyasal madde miktari",
+          "kimyasal kirlilik"
+        ],
+        "KİM.10.3.2": [
+          "asit yagmurlari",
+          "hava kirliligi",
+          "karbon ayak izi",
+          "kuresel isinma",
+          "ozon azalimi",
+          "sera etkisi",
+          "sera gazi",
+          "atmosfer kirliligi"
+        ]
+      }
+    },
+    "11": {
+      "sinif": 11,
+      "temalar": [
+        {
+          "no": 1,
+          "ad": "Etkileşim",
+          "bolumler": [
+            {
+              "kod": "1.1",
+              "tema": 1,
+              "ad": "Kimyasal Tepkimelerde Enerji",
+              "ozet": "Ekzotermik ve endotermik tepkimeler, bağ enerjisi, oluşum entalpisi",
+              "konular": [
+                {
+                  "kod": "1.1.1",
+                  "ad": "Tepkimelerde Meydana Gelen Enerji Değişimi",
+                  "kazanimlar": [
+                    "KİM.11.1.1"
+                  ],
+                  "test": "bkq000",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq001",
+                      "baslik": "Enerji değişimine ilişkin deney",
+                      "kazanim": "KİM.11.1.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.1.2",
+                  "ad": "Maddelerin Enerji Kaynağı Olma Potansiyeli",
+                  "kazanimlar": [
+                    "KİM.11.1.2"
+                  ],
+                  "test": "bkq002",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq003",
+                      "baslik": "Maddelerin enerji kaynağı olma potansiyeli",
+                      "kazanim": "KİM.11.1.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.1.3",
+                  "ad": "Bağ Enerjileriyle Tepkime Entalpisinin Hesaplanması",
+                  "kazanimlar": [
+                    "KİM.11.1.3"
+                  ],
+                  "test": "bkq004",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq005",
+                      "baslik": "Bağ enerjileri ve entalpi değişimi",
+                      "kazanim": "KİM.11.1.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.1.4",
+                  "ad": "Standart Oluşum Entalpisi ve Standart Tepkime Entalpisi",
+                  "kazanimlar": [
+                    "KİM.11.1.4"
+                  ],
+                  "test": "bkq006",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq007",
+                      "baslik": "Standart oluşum entalpisi ve standart tepkime entalpisi",
+                      "kazanim": "KİM.11.1.4",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq008",
+                  "baslik": "Sarmal Test 1 (1.1 Enerji: enerji değişimi, enerji kaynağı, bağ enerjisi, standart oluşum entalpisi)",
+                  "soru": 28
+                }
+              ]
+            },
+            {
+              "kod": "1.2",
+              "tema": 1,
+              "ad": "Kimyasal Tepkimelerde Hız",
+              "ozet": "Çarpışma teorisi, ortalama hız, hıza etki eden faktörler, hız denklemi",
+              "konular": [
+                {
+                  "kod": "1.2.1",
+                  "ad": "Tepkimelerin Gerçekleşmesi İçin Gerekli Şartlar, Çarpışma Teorisi ve Aktivasyon Enerjisi",
+                  "kazanimlar": [
+                    "KİM.11.1.5"
+                  ],
+                  "test": "bkq009",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq010",
+                      "baslik": "Tepkimelerin gerçekleşme şartları",
+                      "kazanim": "KİM.11.1.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.2.2",
+                  "ad": "Ortalama Tepkime Hızı",
+                  "kazanimlar": [
+                    "KİM.11.1.6"
+                  ],
+                  "test": "bkq011",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq012",
+                      "baslik": "Tepkime hızının zamanla değişimi",
+                      "kazanim": "KİM.11.1.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "1.2.3",
+                  "ad": "Tepkime Hızına Etki Eden Faktörler",
+                  "kazanimlar": [
+                    "KİM.11.1.7"
+                  ],
+                  "test": "bkq013",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq014",
+                      "baslik": "Tepkime hızına etki eden faktörler",
+                      "kazanim": "KİM.11.1.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                },
+                {
+                  "kod": "1.2.4",
+                  "ad": "Hız Denklemi",
+                  "kazanimlar": [
+                    "KİM.11.1.8"
+                  ],
+                  "test": "bkq015",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq016",
+                      "baslik": "Hız denklemi",
+                      "kazanim": "KİM.11.1.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq017",
+                  "baslik": "Sarmal Test 2 (1.2 Hız: çarpışma teorisi, ortalama hız, faktörler, hız denklemi)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 2,
+          "ad": "Çeşitlilik",
+          "bolumler": [
+            {
+              "kod": "2.1",
+              "tema": 2,
+              "ad": "Kimyasal Denge",
+              "ozet": "Tersinir tepkimeler, denge sabiti, tepkime oranı, Le Chatelier ilkesi",
+              "konular": [
+                {
+                  "kod": "2.1.1",
+                  "ad": "Tersinir Tepkimeler",
+                  "kazanimlar": [
+                    "KİM.11.2.1"
+                  ],
+                  "test": "bkq018",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq019",
+                      "baslik": "Tersinir tepkimelere ilişkin gözlem",
+                      "kazanim": "KİM.11.2.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.2",
+                  "ad": "Fiziksel ve Kimyasal Denge",
+                  "kazanimlar": [
+                    "KİM.11.2.2"
+                  ],
+                  "test": "bkq020",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq021",
+                      "baslik": "Denge sürecine ilişkin gözlem ve tahmin",
+                      "kazanim": "KİM.11.2.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.3",
+                  "ad": "Denge Sabiti İfadesi",
+                  "kazanimlar": [
+                    "KİM.11.2.3"
+                  ],
+                  "test": "bkq022",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq023",
+                      "baslik": "Denge sabiti ifadesi",
+                      "kazanim": "KİM.11.2.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.4",
+                  "ad": "Tepkime Oranı (Q)",
+                  "kazanimlar": [
+                    "KİM.11.2.4"
+                  ],
+                  "test": "bkq024",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq025",
+                      "baslik": "Dengeye ulaşıp ulaşmadığının tahmini (Q)",
+                      "kazanim": "KİM.11.2.4",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.1.5",
+                  "ad": "Dengeyi Etkileyen Faktörler (Le Chatelier İlkesi)",
+                  "kazanimlar": [
+                    "KİM.11.2.5"
+                  ],
+                  "test": "bkq026",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq027",
+                      "baslik": "Dengeyi etkileyen faktörler",
+                      "kazanim": "KİM.11.2.5",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 6
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq028",
+                  "baslik": "Sarmal Test 3 (2.1 Kimyasal Denge: dinamik denge, Kc, Kp, Qc, Le Chatelier)",
+                  "soru": 28
+                }
+              ]
+            },
+            {
+              "kod": "2.2",
+              "tema": 2,
+              "ad": "Asit-Baz Dengesi",
+              "ozet": "Suyun iyonlaşması, asit-baz teorileri, pH, nötralleşme, titrasyon",
+              "konular": [
+                {
+                  "kod": "2.2.1",
+                  "ad": "Suyun Otoiyonizasyonu",
+                  "kazanimlar": [
+                    "KİM.11.2.6"
+                  ],
+                  "test": "bkq029",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq030",
+                      "baslik": "Saf suyun otoiyonizasyonu",
+                      "kazanim": "KİM.11.2.6",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.2",
+                  "ad": "Asit–Baz Teorileri",
+                  "kazanimlar": [
+                    "KİM.11.2.7"
+                  ],
+                  "test": "bkq031",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq032",
+                      "baslik": "Asit–baz teorileri",
+                      "kazanim": "KİM.11.2.7",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.3",
+                  "ad": "Asit ve Bazların Kuvveti",
+                  "kazanimlar": [
+                    "KİM.11.2.8"
+                  ],
+                  "test": "bkq033",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq034",
+                      "baslik": "Asit ve bazların kuvveti",
+                      "kazanim": "KİM.11.2.8",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.4",
+                  "ad": "pH Hesaplamaları",
+                  "kazanimlar": [
+                    "KİM.11.2.9"
+                  ],
+                  "test": "bkq035",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq036",
+                      "baslik": "pH hesaplamalarının karşılaştırılması",
+                      "kazanim": "KİM.11.2.9",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.5",
+                  "ad": "Nötralleşme Tepkimeleri",
+                  "kazanimlar": [
+                    "KİM.11.2.10"
+                  ],
+                  "test": "bkq037",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq038",
+                      "baslik": "Nötralleşme olayının operasyonel tanımı",
+                      "kazanim": "KİM.11.2.10",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.6",
+                  "ad": "Titrasyon",
+                  "kazanimlar": [
+                    "KİM.11.2.11"
+                  ],
+                  "test": "bkq039",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq040",
+                      "baslik": "Titrasyonla derişim belirleme",
+                      "kazanim": "KİM.11.2.11",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.2.7",
+                  "ad": "Asidik ve Bazik Ürünlerin Seçimi ve Kullanımı",
+                  "kazanimlar": [
+                    "KİM.11.2.12"
+                  ],
+                  "test": "bkq041",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq042",
+                      "baslik": "Asidik ve bazik ürünlerin seçimi",
+                      "kazanim": "KİM.11.2.12",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq043",
+                  "baslik": "Sarmal Test 4 (2.2 Asit-Baz Dengesi: pH, Ka, Kb, Kw, tampon, titrasyon)",
+                  "soru": 28
+                }
+              ]
+            },
+            {
+              "kod": "2.3",
+              "tema": 2,
+              "ad": "Çözünürlük Dengesi",
+              "ozet": "Molar çözünürlük, çözünürlük çarpımı, ortak iyon etkisi",
+              "konular": [
+                {
+                  "kod": "2.3.1",
+                  "ad": "Molar Çözünürlük ve Çözünürlük Çarpımı (Kçç)",
+                  "kazanimlar": [
+                    "KİM.11.2.13"
+                  ],
+                  "test": "bkq044",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq045",
+                      "baslik": "Az çözünen tuzların çözünürlüğü",
+                      "kazanim": "KİM.11.2.13",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "2.3.2",
+                  "ad": "Çözünürlüğe Etki Eden Faktörler",
+                  "kazanimlar": [
+                    "KİM.11.2.14"
+                  ],
+                  "test": "bkq046",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq047",
+                      "baslik": "Çözünürlüğe etki eden faktörler",
+                      "kazanim": "KİM.11.2.14",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq048",
+                  "baslik": "Sarmal Test 5 (2.3 Çözünürlük Dengesi: Kçç, çözünürlük, ortak iyon, çökelme)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "no": 3,
+          "ad": "Sürdürülebilirlik",
+          "bolumler": [
+            {
+              "kod": "3.1",
+              "tema": 3,
+              "ad": "Sürdürülebilirlik",
+              "ozet": "Yeşil hidrojen, nanoteknolojik ürünler, mikro ve nanoplastikler",
+              "konular": [
+                {
+                  "kod": "3.1.1",
+                  "ad": "Yeşil Hidrojen Enerjisi",
+                  "kazanimlar": [
+                    "KİM.11.3.1"
+                  ],
+                  "test": "bkq049",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq050",
+                      "baslik": "Evsel atıklardan yeşil hidrojen",
+                      "kazanim": "KİM.11.3.1",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "3.1.2",
+                  "ad": "Nanoteknolojik Ürünlerin Potansiyel Faydaları ve Olası Zararları",
+                  "kazanimlar": [
+                    "KİM.11.3.2"
+                  ],
+                  "test": "bkq051",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq052",
+                      "baslik": "Nanoteknolojik ürünlerin seçimi",
+                      "kazanim": "KİM.11.3.2",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                },
+                {
+                  "kod": "3.1.3",
+                  "ad": "Mikroplastikler ve Nanoplastikler",
+                  "kazanimlar": [
+                    "KİM.11.3.3"
+                  ],
+                  "test": "bkq053",
+                  "seviyeler": [
+                    "Kolay",
+                    "Orta",
+                    "Zor"
+                  ],
+                  "soru": 28,
+                  "baglam": [
+                    {
+                      "id": "bkq054",
+                      "baslik": "Mikroplastik ve nanoplastikler",
+                      "kazanim": "KİM.11.3.3",
+                      "soru": 12
+                    }
+                  ],
+                  "anlatim": true,
+                  "etkinlik": 5
+                }
+              ],
+              "sarmal": [
+                {
+                  "id": "bkq055",
+                  "baslik": "Sarmal Test 6 (3.1 Sürdürülebilirlik: yeşil kimya, kimyasal döngüler, geri dönüşüm, enerji)",
+                  "soru": 28
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "karma": [
+        {
+          "id": "bkq056",
+          "baslik": "Karma Test 01 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq057",
+          "baslik": "Karma Test 02 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq058",
+          "baslik": "Karma Test 03 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq059",
+          "baslik": "Karma Test 04 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq060",
+          "baslik": "Karma Test 05 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq061",
+          "baslik": "Karma Test 06 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq062",
+          "baslik": "Karma Test 07 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq063",
+          "baslik": "Karma Test 08 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq064",
+          "baslik": "Karma Test 09 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq065",
+          "baslik": "Karma Test 10 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq066",
+          "baslik": "Karma Test 11 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq067",
+          "baslik": "Karma Test 12 — Tüm kazanımlardan karışık",
+          "soru": 7
+        },
+        {
+          "id": "bkq068",
+          "baslik": "Karma Test 13 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq069",
+          "baslik": "Karma Test 14 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq070",
+          "baslik": "Karma Test 15 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq071",
+          "baslik": "Karma Test 16 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq072",
+          "baslik": "Karma Test 17 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq073",
+          "baslik": "Karma Test 18 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq074",
+          "baslik": "Karma Test 19 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq075",
+          "baslik": "Karma Test 20 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq076",
+          "baslik": "Karma Test 21 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq077",
+          "baslik": "Karma Test 22 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq078",
+          "baslik": "Karma Test 23 — Tüm kazanımlardan karışık",
+          "soru": 8
+        },
+        {
+          "id": "bkq079",
+          "baslik": "Karma Test 24 — Tüm kazanımlardan karışık",
+          "soru": 7
+        }
+      ],
+      "kazanimlar": {
+        "KİM.11.1.1": "Fiziksel ve kimyasal olaylardaki enerji değişimine ilişkin deney yapabilme",
+        "KİM.11.1.2": "Maddelerin enerji kaynağı olma potansiyeline ilişkin hipotezler oluşturabilme",
+        "KİM.11.1.3": "Bağ enerjileri temelinde tepkimelerin entalpi değişimine ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.11.1.4": "Kimyasal tepkimelerin standart tepkime entalpilerini standart oluşum entalpi verilerini kullanarak tahmin edebilme",
+        "KİM.11.1.5": "Kimyasal tepkimelerin gerçekleşme şartlarını açıklamak için kanıt kullanabilme",
+        "KİM.11.1.6": "Tepkime hızının zamanla değişimini bilimsel veriye dayalı tahmin edebilme",
+        "KİM.11.1.7": "Tepkime hızına etki eden faktörleri bilimsel sorgulayabilme",
+        "KİM.11.1.8": "Kimyasal tepkimelerin hız denklemini bilimsel veriye dayalı tahmin edebilme",
+        "KİM.11.2.1": "Tepkimelerin tersinir olabileceğine ilişkin gözlem yapabilme",
+        "KİM.11.2.2": "Tepkimelerdeki denge sürecine ilişkin bilimsel gözleme dayalı tahminde bulunabilme",
+        "KİM.11.2.3": "Denge sabiti ifadesinin oluşturulmasına ilişkin tümevarımsal akıl yürütebilme",
+        "KİM.11.2.4": "Tersinir tepkimelerin dengeye ulaşıp ulaşmadığını bilimsel veriye dayalı tahmin edebilme",
+        "KİM.11.2.5": "Dengeye etki eden faktörleri bilimsel sorgulayabilme",
+        "KİM.11.2.6": "Saf suyun otoiyonizasyonuna ilişkin bilimsel gözlem yapabilme",
+        "KİM.11.2.7": "Asit ve baz teorilerini karşılaştırabilme",
+        "KİM.11.2.8": "Asitlerin ve bazların kuvvetlerine ilişkin bilimsel sorgulama yapabilme",
+        "KİM.11.2.9": "Kuvvetli asit-zayıf asit ve kuvvetli baz-zayıf baz sulu çözeltilerindeki pH hesaplamalarını karşılaştırabilme",
+        "KİM.11.2.10": "Nötralleşme olayını operasyonel tanımlayabilme",
+        "KİM.11.2.11": "Kuvvetli asit ve kuvvetli baz çözeltilerinin derişimlerini titrasyon yöntemiyle belirlemeye yönelik deney yapabilme",
+        "KİM.11.2.12": "Asidik ya da bazik ürünlerin en uygun olanına karar verebilme",
+        "KİM.11.2.13": "Suda az çözünen tuzların çözünürlüğüne ilişkin model oluşturabilme",
+        "KİM.11.2.14": "Suda az çözünen tuzların çözünürlüğüne etki eden faktörlere ilişkin bilimsel çıkarım yapabilme",
+        "KİM.11.3.1": "Evsel atıklardan fermantasyon yöntemi ile yeşil hidrojen enerjisi elde etme sürecine yönelik hipotez oluşturabilme",
+        "KİM.11.3.2": "Nanoteknolojik ürünlerin seçimine yönelik eleştirel düşünebilme",
+        "KİM.11.3.3": "Mikroplastik ve nanoplastiklerin etkilerini sorgulayabilme"
+      },
+      "kelimeler": {
+        "KİM.11.1.1": [
+          "entalpi",
+          "tepkime isisi",
+          "ekzotermik",
+          "endotermik",
+          "enerji",
+          "ekzotermik tepkime",
+          "endotermik tepkime"
+        ],
+        "KİM.11.1.2": [
+          "yakit",
+          "enerji kaynagi",
+          "yanma isisi",
+          "enerji kaynagi"
+        ],
+        "KİM.11.1.3": [
+          "bag enerjisi",
+          "olusum entalpisi",
+          "hess yasasi",
+          "bag enerjisi"
+        ],
+        "KİM.11.1.4": [
+          "standart olusum entalpisi",
+          "tepkime entalpisi hesaplama",
+          "standart tepkime entalpisi"
+        ],
+        "KİM.11.1.5": [
+          "aktiflesme enerjisi",
+          "aktivasyon enerjisi",
+          "tepkimenin gerceklesme kosullari",
+          "carpisma teorisi",
+          "katalizor"
+        ],
+        "KİM.11.1.6": [
+          "tepkime hizi",
+          "hiz zaman grafigi",
+          "ortalama hiz",
+          "ortalama tepkime hizi"
+        ],
+        "KİM.11.1.7": [
+          "hiza etki eden faktorler",
+          "derisimin tepkime hizina",
+          "katalizor tepkime hizi",
+          "tepkime hizina etki eden faktorler"
+        ],
+        "KİM.11.1.8": [
+          "hiz denklemi",
+          "tepkime mertebesi",
+          "hiz sabiti",
+          "tepkime derecesi"
+        ],
+        "KİM.11.2.1": [
+          "tersinir tepkime",
+          "dengeye ulasma",
+          "fiziksel denge"
+        ],
+        "KİM.11.2.2": [
+          "kimyasal denge",
+          "denge sabiti",
+          "denge derisimi",
+          "kimyasal denge"
+        ],
+        "KİM.11.2.3": [
+          "denge sabiti ifadesi",
+          "kc",
+          "kp",
+          "denge sabiti"
+        ],
+        "KİM.11.2.4": [
+          "dengeye ulasmis",
+          "tepkime dengede mi",
+          "dengeye ulasip"
+        ],
+        "KİM.11.2.5": [
+          "dengeye etki eden",
+          "le chatelier",
+          "denge kaymasi",
+          "le chatelier ilkesi"
+        ],
+        "KİM.11.2.6": [
+          "suyun otoiyonizasyonu",
+          "su sabiti",
+          "kw",
+          "suyun otoiyonizasyonu"
+        ],
+        "KİM.11.2.7": [
+          "arrhenius",
+          "bronsted lowry",
+          "lewis asit baz",
+          "asit baz teorileri",
+          "arrhenius asidi",
+          "arrhenius bazi",
+          "bronsted lowry asidi",
+          "bronsted lowry bazi"
+        ],
+        "KİM.11.2.8": [
+          "kuvvetli asit",
+          "zayif asit",
+          "kuvvetli baz",
+          "asit baz kuvveti",
+          "asitlik sabiti",
+          "bazlik sabiti",
+          "kuvvetli baz",
+          "zayif baz"
+        ],
+        "KİM.11.2.9": [
+          "ph hesabi",
+          "poh hesabi",
+          "hidrojen iyonu derisimi",
+          "ph",
+          "poh"
+        ],
+        "KİM.11.2.10": [
+          "notrallesme",
+          "titrasyon",
+          "esdegerlik noktasi",
+          "asit baz cifti",
+          "indikator"
+        ],
+        "KİM.11.2.11": [
+          "asit baz titrasyonu",
+          "titrasyon yontemi",
+          "titrasyon",
+          "indikator"
+        ],
+        "KİM.11.2.12": [
+          "asitik urun",
+          "bazik urun",
+          "asit baz urun secimi",
+          "asit baz cifti"
+        ],
+        "KİM.11.2.13": [
+          "cozunurluk carpimi",
+          "ksp",
+          "az cozunen tuz",
+          "cozunurluk carpimi"
+        ],
+        "KİM.11.2.14": [
+          "ortak iyon etkisi",
+          "cozunurluge etki eden faktor",
+          "tuz cozunurlugu",
+          "cozunurluge etki eden faktorler",
+          "ortak iyon etkisi"
+        ],
+        "KİM.11.3.1": [
+          "evsel atik",
+          "fermantasyon",
+          "yesil hidrojen enerjisi",
+          "hidrojen gazi",
+          "hidrojen gaz miktari",
+          "yenilenebilir enerji"
+        ],
+        "KİM.11.3.2": [
+          "nanoteknoloji",
+          "nanoteknolojik urun",
+          "nanoparcacik",
+          "urunlerin potansiyel faydalari",
+          "urunlerin olasi zararlari",
+          "surdurulebilirlik"
+        ],
+        "KİM.11.3.3": [
+          "mikroplastik",
+          "nanoplastik",
+          "mikroplastiklerin etkileri",
+          "nanoplastiklerin etkileri",
+          "plastik kirliligi"
+        ]
+      }
+    }
+  },
+  "manifest": {
+    "id": "./",
+    "name": "Kimya Koçum",
+    "short_name": "Kimya Koçum",
+    "description": "9–12. sınıf ve TYT/AYT için kişisel kimya koçu.",
+    "lang": "tr",
+    "dir": "ltr",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#f7f6f3",
+    "theme_color": "#534ab7",
+    "categories": [
+      "education"
+    ],
+    "icons": [
+      {
+        "src": "icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "maskable-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "icon.svg",
+        "sizes": "any",
+        "type": "image/svg+xml",
+        "purpose": "any"
+      }
+    ]
+  },
+  "storageKeys": [
+    "kimya-kocum-assessment-attempts-v1",
+    "kimya-kocum-assessment-questions-v1",
+    "kimya-kocum-daily-tasks",
+    "kimya-kocum-ders-gorunum",
+    "kimya-kocum-etkinlik-sonuclari-v1",
+    "kimya-kocum-goal",
+    "kimya-kocum-grade",
+    "kimya-kocum-hata-defteri-v1",
+    "kimya-kocum-hatirlatma",
+    "kimya-kocum-hesap",
+    "kimya-kocum-kvkk-onay",
+    "kimya-kocum-learning-progress-v1",
+    "kimya-kocum-ogretmen-sinif",
+    "kimya-kocum-onizleme",
+    "kimya-kocum-page",
+    "kimya-kocum-profile-v1",
+    "kimya-kocum-secili-konu",
+    "kimya-kocum-study-plan",
+    "kimya-kocum-study-preferences",
+    "kimya-kocum-study-topics",
+    "kimya-kocum-sync",
+    "kimya-kocum-tarama-v1",
+    "kimya-kocum-tasks-v2",
+    "kimya-kocum-test-sonuclari-v1",
+    "kimya-kocum-yazili-secim"
+  ],
+  "historicalTests": {
+    "9": {
+      "bkq000": "88dafb3feffed73e5740221fcb19cc9690e3990bf9dff170789e41343f38acd5",
+      "bkq001": "3736b948585dc4736cdf8e26f16c5fd7b884dff8dcf8842fd01ca86efebb77ff",
+      "bkq002": "8e3e613d9cd62eeb2249dabca9fddb246a0ed1e7225300f115777a9fbea8fe7d",
+      "bkq003": "b1fb2ddfa857e4c82987d969ce471c75232bc8660a42013f42317517fdfaabfb",
+      "bkq004": "3c77a1c64dd1dbe6dd60799f1d2774daca82ce633de1f46bb43a0b2df20986b2",
+      "bkq005": "1632d1a277406d12cfcb8ae1702621d140fbfaff0e28e91a08bd6e5437520717",
+      "bkq006": "ae260176736ded9ee9e0b91be4d077eaf5b16346ea44661d48c4b70cb97e0346",
+      "bkq007": "374c570dea3f33b106099643aa1e4cb75bbf41d30988535be136bd4363ae6155",
+      "bkq008": "ce23e970cfb661eb15b5745beeb760f1e6cf4c0cb60259ec2d88bb5580057b91",
+      "bkq009": "47a481a8461e9c71f3d24038548557923c9e308a68059f0ed2cec6104dc41d0c",
+      "bkq010": "b6979179175789a5ad6c3b198f7da01d1014e4d22eb7419b32aae1369e382b70",
+      "bkq011": "2cd5c69e42e0c2872a7183d33e9fb1afe3e99247ae1fd53d9afed5f5ea1b0100",
+      "bkq012": "e9419e6d9a10bad68c371e4d9ee56edd15ad6702198bf5cf692f1c26d193e732",
+      "bkq013": "12e8a2b2a1a6eda82663b53b6c1831c231371f17f388efccda450b414280708e",
+      "bkq014": "effb2c0fb7dcfb2c5e1327d131dbcb758e5801dff30c54cb233aaee85245bab9",
+      "bkq015": "12da12ee10e72b739a634b8f6a1b328ca7ccf634e5de2e8a7020858194fde3b5",
+      "bkq016": "2a3d9fee4f6a2dd81e7e5c4156f72c5038d8e92e60b343d9e7bb2b6c93118d19",
+      "bkq017": "70b2db78804d7f86395e7e75684f82993e90c1671ae5270ed09b3d8eb4395910",
+      "bkq018": "5adff001a2fd61691ae6853f933c2abfcdacbbb36edc2e356d8b21280108882b",
+      "bkq019": "3343f57d81822ec4f0507a4aa0b15cbceac3afc06a747ea51d682b87bfe5f2be",
+      "bkq020": "14d414c8700002b2e2df5073ec42a849d3b09f42aa2f703e67e9b3bd7c3b7ba6",
+      "bkq021": "ec79211052f1b31642c6ff5012ab561c8d8b47606dadb0644baa8eaca27acda5",
+      "bkq022": "a8ed6d3ec1f04c5de4e548c010883b4ad0a465db7181a54a1f70c98de802fdbc",
+      "bkq023": "78b7eb79c18cf8b531ee39f65fd6e06ebbc3a8788c4cc9fd4dc856d2b61cb150",
+      "bkq024": "8e892848a13017b2000639374ee6ecd2b1306174484681e81df107ed5b62ce34",
+      "bkq025": "daf67cc4221a7b7f1dc4d60d62d53ada4236bd00cd367a278b64bc122eb90d66",
+      "bkq026": "a1f2fbceb832cf9c3c8d079aa1bd3d786eac9d79016062de47b47001fd8a175b",
+      "bkq027": "00db98159760ac8d72f99b67d88786a1c127e603f174d0e4fb4ff13ecd995044",
+      "bkq028": "77c9a3e4ead44b951187a440edfd6351b7edce73d5cdf2a8c546af4118e8384c",
+      "bkq029": "fd908d6a4920faefef66f587cdb37495d3ab96864d3987d5412b69fcce99b2c9",
+      "bkq030": "6b75131dbf85ca1edac5902d75c75d3407502028323368221cc2da4ae7355f84",
+      "bkq031": "50fd8e9c766c2711fa35256df0479da997ae131dddfdc34bd363c3cd6755dcbb",
+      "bkq032": "daecc7877868aef9f13da48d97743bb500ddc0ea7eebd5d071eca4dbac11291b",
+      "bkq033": "bd1705fa58d2a2c7ca09fe93317b3d1c4dda8c29fb398b68ba5e8e667fff644d",
+      "bkq034": "cfcda19d4240925c1bcc04f76109a408e93d6eb524db5d475ed5c366e2a06c25",
+      "bkq035": "f7b9c8bf2e8a23f6a11c224d79667fecc54e87b1fb98846aec8442aaa83e1852",
+      "bkq036": "908cd9006c08a45c2026e9e3975b967f806476a9bbcdc8317d1f9d0f50c67cd4",
+      "bkq037": "c320d417458d950168192827c8784361145734c2df28eac34a812870768ff6be",
+      "bkq038": "78115f3393f815f2b6aa135f04081bc1a4107fb7f764621d83ec2c1cde55ccb7",
+      "bkq039": "81afbc54b523a5941e7cc5df4df3ae5c6a0204e6ab91b4d63fb18b692da20392",
+      "bkq040": "2a45c6feed34c9267836503b1f8eb89b929b9da7f0ac28aff37f1469b08b0dfa",
+      "bkq041": "12fca19785fec19019b064f768ef494ca45f15221b21ae636e1cc5060f7e19fc",
+      "bkq042": "ac5d61ef39af25e87744999b59ceb770db884bcc69814109e3914f310e6ff736",
+      "bkq043": "c0f328154190bd058db10259a1f7ebe517bcb59311b78074b181f59d151f4e17",
+      "bkq044": "d3c50cbeb1c89fa514c72948d7be92e96583f70d6f91f6d1de270ef44e574df7",
+      "bkq045": "234b4655597083c765cff926cfae20e94f2ef77be9c570f062ad3f7ad6dd1119",
+      "bkq046": "37f4f6246aeeff4e5a4e55e948facf3a47b16e0d811b168f83697f573978a093",
+      "bkq047": "090a21286540f263324cd0c5793286d53c220e4383871e12eedc92dbce6fea63",
+      "bkq048": "d6655ba5c53e66378e6bded8faa786749e3d9fea9eecb2fe4ef6778a49166aaa",
+      "bkq049": "1b47479501caee808beac0805effd20592daa2b721d66980928c08ecf7965d31",
+      "bkq050": "bd34392b7dc7f5ccbf9c148180223e307d854b3470256abb00187615a0d19e56",
+      "bkq051": "15fea8fb22db321a47d6491abd1553a403c44f244976bd409912c0bc7cf60048",
+      "bkq052": "6501f80d596425b6b43c0e066d9aa0a4e912af20afc67c9d0881276514c68897",
+      "bkq053": "07359f9c563f46f875d4a1fef564b798fa3ee4a673ee93c3e67b31662811cef5",
+      "bkq054": "8311cd058303b99e7c223ec8b711bc558a1b500e0ee74efe657821c15366a8d9",
+      "bkq055": "0ac967498a4af92faf595a1f1457708e76ff1c5abd8edd7deb3f5fe9e45f969a",
+      "bkq056": "ffa60b67a2dbfbd4af774fb7d4bb8de9e2e2f4908e623dd0b9a45f9d63b802ea",
+      "bkq057": "4907f75b6d34344dd7526fd243d81c9dfd38c8364225534a92dc5ea8d6622a60",
+      "bkq058": "4a9cd513e34b515ef069a1ccfa3e98081c9d82fc5e0c4f502ca1860fc3788442",
+      "bkq059": "45c3ba0c9645d9cf230a35e64457a62cf4a2e71e27be3efd52c4572bad270926",
+      "bkq060": "6d9ca697f7f5089da7a7565232981d5fa4e2ab33908b664690f878e27e0ec603",
+      "bkq061": "df0ea789a74313f1c3bd4c82a7d834b27057829c3c666978647757ba5296b70a",
+      "bkq062": "78fa39dbe4e3ebf05a7787d50d35b9a27d851a1ef43649fb85a156e925f6a5f9",
+      "bkq063": "f762944e6802c6a88770a676540b20aa827c370d70cc2a8ac8d9ba4bd63e2f6c",
+      "bkq064": "a57f58c06e0ee3c046f4723f63f23ca1dcca91ac2c94a63cd1c8ff9533c3ed38",
+      "bkq065": "3db8d9442f7e51cc20ae5b15898ce5d9d0c8991f54e393db531ae445d492cb1b",
+      "bkq066": "68397111de9fce51dff2a396593886a55ee27b514126d4d4ba809e3c77ad928e",
+      "bkq067": "e888b375a25eaebafd35ef1fff1c58818b6fd54f9d1d1bed70bf6f155f2e49cc",
+      "bkq068": "324914b75876fad9b24d86583f6eccf85073a1dd507fd8c64f068c74840e50df",
+      "bkq069": "64715d326f8b2c7c0e24eb505058532d5117bb8a1b1f516e8bf64626f66b4683",
+      "bkq070": "24269087828197fa4b211f29439f9b438f78d00ac1375c7a1601b790c1eb9fa8",
+      "bkq071": "f75f77d92a1cb9e0ad857bf00f843d1a4174616e23d461bd7146c52800406d92",
+      "bkq072": "48cfa2fb5f4f417b5ea932939ba3ac2dcc209507485b128e21774b3dadbea795",
+      "bkq073": "d5cd03eccba74dd87a516ab5d1423aad8ea25ed6c5c402bcbbd2a2bf35c232ab",
+      "bkq074": "5bdecbbc16eb27838741194765359a9ddab43c74f43f60f2e950376df569ca51",
+      "bkq075": "adc2d9fc2a1bf9fbe956e234148d03bf8e5d6bc788e4d3f673e81cb4223109bd",
+      "bkq076": "019e9ba0df9547fb54e13817c8c9768ac102cf07dd15c1ccc078da4cd49cbb47",
+      "bkq077": "f0598f22c9bd7a7b669675f10904892b4be01422c0159fba906eb7791ac0cce4",
+      "bkq078": "b239463f51ba4bae917b8b55937c4b2e71c401ed8ae6b797ae70ae53f56f9718"
+    },
+    "10": {
+      "bkq000": "c18517157dddfba25e641d6c98957dd78efae9b1ed5c6e9d9f2033f45bc0e07e",
+      "bkq001": "8b7877228624a03bf6135f82b71c07dd132bc10332e4ed3f9114e3b34b892cd7",
+      "bkq002": "c1127f841c8b7cb8c12aea8103f19eb652617c87f4e8c169fc105dd249ea401e",
+      "bkq003": "b30492f8fb79cc01c50dc83823d259ffefac99bf0f30a38101a03adedce80174",
+      "bkq004": "4e58c46160b10ccec065f17dfc6f11dadaedd6a2ea6640843816897ce0aad5e1",
+      "bkq005": "594ca9b9c372573ae614206e90b966567151f981ee04c4904e03c656a65cc279",
+      "bkq006": "b6a5bbba17b1a6c13fe0719f671e7f61fc03e2b7dd4a72c7d16a8f344fd83f0b",
+      "bkq007": "1095e20a21de5edd3329c731f7320b18598ce2f6d96726b0f1f95d5379e01475",
+      "bkq008": "fc2ef7798967f5098143284766f0655831815755f0b7859c3cb865e84d87ce52",
+      "bkq009": "854cf0bd52248d2b8e06f4ef05ab60f34d651352678fe424e9b43c08071fbe7c",
+      "bkq010": "c3e9552d4a2dd6f7b66009b9b611ca11481643e9976349c9baf878dd2e34134a",
+      "bkq011": "a0bf72326b2e5b30936bd27730505f39543f628673cb87936ec28f6c0d0f1720",
+      "bkq012": "e91df8deb8b521e6a6b70043ed938ca66bc1126a63ec62aa0fe8b102f65a931d",
+      "bkq013": "6c1faa40d2dc88a02faad62909e57b0bdfaf4ffa53ced424a33208c445d1eb5e",
+      "bkq014": "e45459411b94b994277e8fc669df81dcb4a77ee485e9932cbbae29b12b5e9c31",
+      "bkq015": "d2801cbfe0e52c9eb1249ba84f1a8e7c98b4f40924c7e5c7f9aab704305e2d37",
+      "bkq016": "af53dff3eb4d411ab90a092639354c2e7277370b3758166a2959feccd38d68af",
+      "bkq017": "536700ed8c400b336f864f2e78264197ad2c44b788172d7211963ea720ccb9f0",
+      "bkq018": "9866072585425bade6c6bfd7293f36420e9b4c7e76c73d153e8c2c44cfd43f74",
+      "bkq019": "22506daf42500cbb416b0c13b35b1889135555e566e1d4467c125ea9b1535318",
+      "bkq020": "467347ffc38f96892cde5e02fc146a3738a9cb0f771daf4e1469f5fb4f697f0d",
+      "bkq021": "f6b4d19e64f2f7823b3d8d79f3e7f5d504bf18d21b6957fdf5cde5cf08e25fbe",
+      "bkq022": "aa5ed0daf837524467c4c8f32f71f04334372d93bd59f3497dfd433862557f62",
+      "bkq023": "1d7720a0c563fe7fc31bf57e846f189950621b86371e38b86811f1f686547624",
+      "bkq024": "a3236b2b24ca5940499c050b00c7e4370c2da6a31f7cad83ff72775470344bb0",
+      "bkq025": "bd72815bd6a4f8f0ed22288e10a09054e4e7e33b31e7d47f7814230986dece51",
+      "bkq026": "45720099f35d15ab4e564507ae61703624e011778345f43b5c8993b3d353cdc7",
+      "bkq027": "a2dd1025baa9c8ea937c921901bf2e15576e1f76ba7136beb304470cbe4f50b3",
+      "bkq028": "26ddd4fad50ba9648ffdd3db44e51c1f8cfd67a47ea7a8bf1c07f626f51ad62d",
+      "bkq029": "c492f935a0f3b9fa9be7cb1377f348638f7afc290ea72b50d400ba3c8ee82505",
+      "bkq030": "f32dd8623f71a4439adfb21b65ad7f3465ddb5bb1abd880049125315e5938dd4",
+      "bkq031": "6d6da7fa367eab282d74e158f381c460c394c88597210b991653c23785616d83",
+      "bkq032": "e19d14bac94ca3cd481ba95e782e9ca6cdf79ebdd5cf3835fbc73f749b3ceee5",
+      "bkq033": "498e2a0ec17bc784a5d448153b09d0a811fafa77aa50c41e45c44faf4f732a0e",
+      "bkq034": "c2b551f64f6fd0a06ff5609cfd74988148567c13ee05e040f5c2f7c971e2750e",
+      "bkq035": "22f14ae6d321baf536264dae1291713830a5f2ad8700ea233454760798ce0dfa",
+      "bkq036": "fc71c099d74e617761205648b265c7924e6d6bec3a2c16fc7eea0c0b2fb5c6b5",
+      "bkq037": "a7b20c2961bfe14b66d3764e2bf97a786a5ea8a6bb657be57a9ef06c1d191b1a",
+      "bkq038": "2be83e331969f70a4f2d25e11e81900cac7b3ce8dabe6c029634a4f4496a4f3a",
+      "bkq039": "de9b0bb777ae5555a822f84bbb13911b503f3d387e26c1bcf2856edb7c22205c",
+      "bkq040": "1362e503f3d2b01d8ac4c1cc88aefdda462f962dbbd768a813762b6785b3f611",
+      "bkq041": "f97259401c307be455c48b3fb9091ac5aa7ec6ef679d71f2de75c8cc9f121b9c",
+      "bkq042": "18189635358c60063c5afc5455c5923303194b39739e58b5fd746e6c5eb43deb",
+      "bkq043": "ac57823dcb6fab6c72f6c163234f100b415f665b9fa0e2189b6e2c699ed7b21d",
+      "bkq044": "af7458292b0336efa44664153290e0fab7038304b4883e8a923a40cad3060180",
+      "bkq045": "056a86a8667c9f0c0cb3b1783d27a590eaf0b4f63e6f2efc42aa0633f30b4040",
+      "bkq046": "ce1f7cde5bc96b2d6777a571da32f18697383969d698bd97fdad365e4c8b6f8a",
+      "bkq047": "2bd307e167a41f655289b1f37aea9b9fb6f35be57942cc03052a6e21d1d69b0c",
+      "bkq048": "eaee2354abafe0f980b392d69a5df85382cecb9e411def9f1b657d49803b112b",
+      "bkq049": "6de05cc6cc2279fc06fd4a3ac5948508b82d7e07af6ca6f8eb752b7705440e98",
+      "bkq050": "8ac71de96147f3895310a64d52400ff2eab7fad737c8c19049902b1faccce810",
+      "bkq051": "5047696b937813d9431f1fa165fe76aa4cbc32ab662f42591183a78a9a5bd9ec",
+      "bkq052": "5b12280ec4e8b6c06436f60245be0731f2c072eb23569bcb667efbd7bbbdb151",
+      "bkq053": "f42a3bae5e23d9ea8af17e395bf478d9911c51828c01d50b8aef9b7015a46006",
+      "bkq054": "1dfebe3ba405b83f2016d3e3507d200894ce62d5741389ef8bac084de390a66b",
+      "bkq055": "2e6a07018165830a6df4bfcf67ab3fb1ede6a9a54222281c9a9070deb1cb121f",
+      "bkq056": "4c874eb5d8172b4c65711099d43586b9b42a68ee29178f1224814d3cecf1a2d9",
+      "bkq057": "ed0587b48db3ad7064a3c37227d800e296074da0c5aec574f3b3818feaad5800",
+      "bkq058": "c21be841dbc531615af244561410f49299ada66edd87e45853bc1bbfa8460584",
+      "bkq059": "756aa9928c90b5bf1e342e7fc42854ba60764d6ddd3a2746b7652c7435465b42",
+      "bkq060": "e5c9308807b8385af9c88264289c34b26fc2527972d508c7e621c79134151ee1",
+      "bkq061": "b4405e3f28d3999eca842bfb4f557cecc7e45be995dc8d98318eecb15c4f812d",
+      "bkq062": "f69129f3d9051b7caf0569d57198f562b58b0fc56a3914ed746114401a8a83f6",
+      "bkq063": "8f42c270db0cc578617244ef045f240c0d4a2e31919dda7440bbda17d0b225c8"
+    },
+    "11": {
+      "bkq000": "d7794bd54a2aa6bd296392d18e981f862ef67feca540fe20cdcea2d4a83efcc9",
+      "bkq001": "24974321506c6bf28e68d5277c70af98b94cfb56b1d4b98851ad2e9feaf41514",
+      "bkq002": "f7522181ed91a75bb4f9efe8bd42e6a0cfc1638d97340bbc69db2f3195c87c82",
+      "bkq003": "699d3ce97eed90710090c2aeeff70bcb588d9babb42848773621ff8ef77c63d0",
+      "bkq004": "510fe82d5231b1165460a0032f5a8dc766857baddff3ea9b93e8c458b3dab842",
+      "bkq005": "5808113805e45d4495ea3032d8d62b29386f9c7b588a657dd034d1295637ee67",
+      "bkq006": "68dd3999c0534b8572b276455d9a0a69c9747c2e0a2033f06077e52cdeeffe10",
+      "bkq007": "104f5ba136a36de80e7c984d512ca0ddbbf0c3b169cdcd2d3cf2e00c0235fdea",
+      "bkq008": "6f4cd0a736dc7eae6f4b34d35f18f255203d5896d79164000a9de715faa0e0bd",
+      "bkq009": "43b111ae89f680f89f4e29a09365d03d64420907144a9515a23833ceeee7818c",
+      "bkq010": "1eb15b20354cdb058e214fea1bce6e56a30d718e9f0a348ba8ae9532a1b04258",
+      "bkq011": "999bee22462775165f1f8901d5f33832b9d3df5c4094f9ad06c87440e51d5fe6",
+      "bkq012": "b6dbe512f66f551ed2cfd39b694029582a33b31112ae40c4e52a0b2d12cdeeb3",
+      "bkq013": "d15747d9bb081ece4c3af693aa8fa10aad88679a36f44c1914ddb887935020da",
+      "bkq014": "19e61d344139560646fa79973989255f36287a716b5cc1a036a3aecdd8a3ab0f",
+      "bkq015": "e7bef199a9fe73d7e4996f88a370a9665883876f3c9fe983dfbfc99e2a410fde",
+      "bkq016": "20dbdb114c02ba8afe624f3777b3b58d6fb083bfbaa4fc90a9c7cc24440b9e57",
+      "bkq017": "7426c77452b30b3934970b2e5b26a36e7e3ea3028835181b0441ddf6e73425d3",
+      "bkq018": "52658aaf8f32c6dcba0e4f537c176a7f38a2a1a184e679918c96e6866872170b",
+      "bkq019": "c7501edad8b90ebddb52c1fde6ff67b9463e9afb54f56262509134e68a3e6452",
+      "bkq020": "f952c0f21c61a6ce87598012a85c898fe62becf0178143eb222f584660c96ea5",
+      "bkq021": "fe1cdd818de49382663d962b0323796ce1a5d3c926fc5f967cabdbde3c2e99d2",
+      "bkq022": "a66c7526d91128e598b4f1b351bf5c3c6afd0851a4c684c667d1a09d95723a88",
+      "bkq023": "ca1cbecc4d558e231a5572ab756b375cda1387dc31b3901985e05f2f2d925429",
+      "bkq024": "7ea152e018461e50b51d3ded7eb527d1772a02468f534f7f1f3b40d826b55f05",
+      "bkq025": "5a408ef05210952d897dea31877edae20825e1c420a0fdfb441e13a7351b2dad",
+      "bkq026": "678d8bad4a022b361aa020999e329e306583010aae960b5a47fc590ba1e06252",
+      "bkq027": "251c911888fdae18e0690b27ff3f2855f2066195dbe75b348cb5da372cc4c5f3",
+      "bkq028": "1b30574d93b3d132e66090c2df981d9a54fc352a3b43b18f488b8eb91fe14a14",
+      "bkq029": "e40a9fd47bd57ef8b860fc6ff85dd66d9c8d381d4180bee53bbf6ecdea41d5de",
+      "bkq030": "445f9a637c91b2fec7601768327e8671cdb12ca697bca6bf17b6c6db7d258947",
+      "bkq031": "a19075e648f3d44cb4e62e1186ec591a018b9504c1a0b7fc3e633b6713e67c50",
+      "bkq032": "0bfc1f64efd646418fa475b28c5496cf0191dc760eceeded23f9572ea55d3764",
+      "bkq033": "8526d90ad75d41226e070b8c5412b3ed4e87fbc6168e601dfab31c74c6ab404d",
+      "bkq034": "84c9881a927a19116b173058a6a6477fda4e5a1838fb17f0eade45fe1aeb0490",
+      "bkq035": "510ea92c3a4e76daf5a0de1944d9e728e58deae017fd21013885e041f0bbfefb",
+      "bkq036": "cb3fac6916b39bffb57a7e08bc003bdb41df98d740016e99dd0fd20684f2fd67",
+      "bkq037": "08187dea29728b6d6c6f2dbcba4344507a3343cf830b5b08e5aadaa77e2661a2",
+      "bkq038": "9cfae42f6bde4d98edcd4c1ef0b5f66cdff836fb8296c87483c9e454850c81a2",
+      "bkq039": "f1bee4d2e286e5868fcf5dcb6356b4c91b4fc53aeb8ab3e2dd82080c6bf46bd0",
+      "bkq040": "c8cd63aa92ffe8a1e97592e3bfd55c170264feabc41c5938a6034955ac0ae4e7",
+      "bkq041": "87e3b37eeeffe4857ecb57b050ff0ad7385683cd87e67946272dcf6d9797969d",
+      "bkq042": "abe0a036e17d2c08ba4cc0daaee06b7e2fc620da38e9859d2c9c3f1729e108b6",
+      "bkq043": "15aad07d28cde878aa33e0cf4a44d0badec082ec69c5d4d34bd2ea8890ada8e2",
+      "bkq044": "1bb7de09d182e80a9b9f268d991e28125b273002ae2619dd45ba6b5862ec3b84",
+      "bkq045": "da0d816026f6b1f6ff056357e2fbb62965dbf5b098b3666af2b887756f72d4da",
+      "bkq046": "5fc850e8ae52d2e738e51592deb6b1a23cbcd294ac1cfea3a2fc38bf3e8a70f0",
+      "bkq047": "33477cf02f02dfd976af3c810d4916f6d52476b2e335ae2f897f5c6fdf5048d9",
+      "bkq048": "65301b7994052c1ebb581f5ff56c748f54ad19f5e53c4ce1660ebec269f237b4",
+      "bkq049": "9cd209cd4a75ab833371ef146c4b7b8b3d65a9a2ff9ee61b86caef86f6b14951",
+      "bkq050": "10483434f90849c13d7b9cfbc62b8dbcd523f01967f5f28153c291180771387a",
+      "bkq051": "959cdc7ec2866ea532fa5631789c865aefa5299b43289fdb45844083b28cedc0",
+      "bkq052": "ca94de77bd737a5fb76e05677fcff594b3eeba22b57cebb01550bdc335b606e3",
+      "bkq053": "311c05509107028c1f843a0ff2fd55d1d23046f3ff295d1072c0f4385b0ee96b",
+      "bkq054": "3298878815578aedffb6426b6772abd94e775760b08d66624c6deadfe25f204d",
+      "bkq055": "6e731ac8055b91e58bcb60e6f9da3c7441bed904aaa4c3e58d64f3d9402f9780",
+      "bkq056": "3ebabd424b428ef63ceb9e21bfd5c4ef1dfcbf2a2704c5ef02a3cfd736bf8ece",
+      "bkq057": "a1cd6a79782bfdf81e3b8c23eb7b8bdb1089baa5cab80d3db13213659134bda5",
+      "bkq058": "53aed51d78e08e7286e65ad694226b9f377c62a39b5a2702314aa336c4b8645d",
+      "bkq059": "d03d1e917480cfe6265f4640d2043fdf619ee2c63908623d0cfc3884cc13a417",
+      "bkq060": "cedaab8768a75d00d8d148d4cb25b5a29f1abfc093b72b00b0d9cb6097e82b07",
+      "bkq061": "b4fdf86ec23c5bb447f54746c4bdd328afd38428c781bcb5ef80bf3c5fc1f934",
+      "bkq062": "59c99ad8bf2277516cb5580ed86d617e3963ebfa1b6fddd1f72c666807a30144",
+      "bkq063": "cc3c6ab405db0ee1688036f9862a34b215d04738a36a13b490be8f75cb019c0c",
+      "bkq064": "dbcee36d0c7f8f0d35ea4078e1da7b547f87fefe14db31c5c44a2cb96f882edb",
+      "bkq065": "f4b31ce735b752ac71e5b215abb84b35a4453c68ecb9047ce45b85b00fd0a5c4",
+      "bkq066": "afed8c7c96290f8b978d9bcf4ecf3d36e8324d32394f6622db0b22acc786f726",
+      "bkq067": "4f887a9d58395ed5250fb5b200f34eb67c5f3fec4d20204bc5ff7b60aa3bbf0e",
+      "bkq068": "b498400532d2801430a0a3b0820410d8a214edaca2671734ec2edd2d64b13108",
+      "bkq069": "1e536e28e57e2d4377dc5e4696e5bfb945d79133e9462d0d03946830c8f5e357",
+      "bkq070": "51b20ac270842c8a9cebc3654e98aef8d0094635631fcec508239622cf72ae79",
+      "bkq071": "33ae71012ab4766697357de9585c5d19d8313704b088aa2640a79d817a312a9a",
+      "bkq072": "fe27701e1ad3c8216986d07c2248a4df2dbeb11e386b6abd9500e2877da25bf3",
+      "bkq073": "f3f70c98f53d7e4809f1fa2dea0da080859b54cc498ef1a989f96827d28d7400",
+      "bkq074": "757082b11e829469525e76b0db11f1f9bed1def0a6234b2c996c00cbcd3d89ab",
+      "bkq075": "b2c9d0cb243537cc0f31a65821c1dac5d99dd816b52d1a41f6121a68c6e877ea",
+      "bkq076": "6025ba627c7b48c1a763faa2b38dc0ff29528f5bbcf778f6b4d7a1f3033fd789",
+      "bkq077": "2a7b0beb753e78101f9132a4c528aac3bd16dcbced5a4fdfa7cc8a4a67b1fd49",
+      "bkq078": "8b22e00312a73abc6298952512b0f9779774432e2403cdcfc5ac85b4b46e90ab",
+      "bkq079": "85885076a11e511855e8e3bf8df226475552b899cfecd9d9a0a4b05f0763132f"
+    }
+  }
+}

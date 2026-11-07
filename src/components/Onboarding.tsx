@@ -36,7 +36,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   // Sınıf yalnızca ilk girişte, bir kez seçilir. Öğretmen hesabıyla giriş
   // yapılmışsa kilit yoktur (test için istenen sınıf seçilebilir).
   const teacherMode = isTeacher(cloud.user)
-  const gradeLocked = !!initial && !teacherMode
+  const gradeLocked = false
 
   // Yazılı, soru çözme ve eksik belirleme amaçlarında çalışma düzeni ve
   // sözleşme adımları sorulmaz; sınıf seçilince uygulama açılır.
@@ -46,7 +46,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
   function next() {
     if (step === 0 && !purpose) return setError('Devam etmek için bir seçenek seç.')
     if (step === 1 && !grade) return setError('Devam etmek için sınıfını seç.')
-    if (step === 1 && !initial && !confirmGrade) {
+    if (step === 1 && grade !== initial?.grade && !confirmGrade) {
       setError('')
       setConfirmGrade(true)
       return
@@ -106,7 +106,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
     <div className="onboarding">
       <div className="ob-card">
         <div className="ob-top">
-          <img className="brand-logo" src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={36} height={36} />
+          <span className="brand-mark"><Icon name="flask" /></span>
           <div className="ob-steps" aria-label={`Adım ${step + 1} / ${gorunenAdimlar.length}`}>
             {gorunenAdimlar.map((name, index) => (
               <span
@@ -179,7 +179,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
             ) : (
               <p className="grade-warning">
                 <Icon name="lock" size={16} />
-                Dikkat: Sınıfını yalnızca bir kez seçebilirsin, sonra değiştiremezsin.
+                Sınıfını değiştirebilirsin. Önceki sınıfındaki ilerlemen korunur.
               </p>
             )}
             <div className="ob-grades">
@@ -210,7 +210,7 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
             {confirmGrade && grade && (
               <div className="grade-confirm" role="alert">
                 <b>{grade === 12 ? '12. sınıf / mezun' : `${grade}. sınıf`} seçtin.</b>
-                <p>Bu seçimi sonradan değiştiremezsin. Emin misin?</p>
+                <p>Bu sınıfın çalışma planını açacağız. Önceki ilerlemen korunacak. Devam edelim mi?</p>
                 <div className="row-actions start">
                   <button type="button" className="btn-secondary" onClick={() => setConfirmGrade(false)}>
                     Değiştir

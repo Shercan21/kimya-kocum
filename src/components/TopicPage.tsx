@@ -3,9 +3,9 @@ import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
 import {
-  ayrintiliAnlatim,
   etkinlikler,
   konuAnlatimi,
+  ayrintiliAnlatim,
   konuBul,
   konuId,
   sinifMufredati,
@@ -18,6 +18,8 @@ type Props = {
   grade: number
   kod: string
   initialTab?: TopicTab
+  initialTestLevel?: 'Kolay' | 'Orta' | 'Zor'
+  initialShort?: boolean
   onBack: () => void
 }
 
@@ -39,28 +41,28 @@ function lastScore(grade: number, testId: string, seviye: string | null) {
   return last ? basari(last) : null
 }
 
-export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
+export default function TopicPage({ grade, kod, initialTab, initialTestLevel, initialShort, onBack }: Props) {
   const found = konuBul(grade, kod)
   const mufredat = sinifMufredati(grade)
   const [tab, setTab] = useState<Tab>(initialTab ?? 'anlatim')
   const [html, setHtml] = useState<string | null>(null)
-  // Ayrıntılı anlatım: undefined = yükleniyor, null = bu konu için yok
-  const [detay, setDetay] = useState<string | null | undefined>(undefined)
-  const [anlatimTuru, setAnlatimTuru] = useState<'kisa' | 'ayrintili'>('ayrintili')
+  const [detail, setDetail] = useState<string | null>(null)
+  const [detailError, setDetailError] = useState('')
+  const [reading, setReading] = useState<'detail' | 'summary'>(initialShort ? 'summary' : 'detail')
   const [kit, setKit] = useState<EtkinlikKitabi | null>(null)
   const [error, setError] = useState('')
-  const [activeTest, setActiveTest] = useState<ActiveTest | null>(null)
+  const [activeTest, setActiveTest] = useState<ActiveTest | null>(() => { const k = found?.konu; if (!k?.test || !initialTestLevel) return null; const index = k.seviyeler.indexOf(initialTestLevel); return index < 0 ? null : {id: k.test, index, baslik: `${k.ad} · ${initialTestLevel}`}; })
   const [, refresh] = useState(0)
 
   useEffect(() => {
     let active = true
+    if (tab === 'anlatim' && detail === null && !detailError) {
+      ayrintiliAnlatim(grade, kod).then(text => active && setDetail(text)).catch(() => active && setDetailError('Bu konu için ayrıntılı anlatım yüklenemedi. Kısa özeti kullanabilir veya yeniden deneyebilirsin.'))
+    }
     if (tab === 'anlatim' && found?.konu.anlatim && html === null) {
       konuAnlatimi(grade, kod)
         .then(text => active && setHtml(text))
         .catch(() => active && setError('Konu anlatımı yüklenemedi.'))
-    }
-    if (tab === 'anlatim' && detay === undefined) {
-      ayrintiliAnlatim(grade, kod).then(text => active && setDetay(text))
     }
     if (tab === 'etkinlik' && found?.konu.etkinlik && kit === null) {
       etkinlikler(grade, kod)
@@ -70,7 +72,7 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
     return () => {
       active = false
     }
-  }, [tab, grade, kod, found, html, kit, detay])
+  }, [tab, grade, kod, found, html, kit, detail, detailError])
 
   if (!found || !mufredat) {
     return (
@@ -145,35 +147,16 @@ export default function TopicPage({ grade, kod, initialTab, onBack }: Props) {
 
       {tab === 'anlatim' && (
         <section className="card">
-          {detay && (
-            <div className="anlatim-secim" role="group" aria-label="Anlatım türü">
-              <button
-                type="button"
-                className={anlatimTuru === 'kisa' ? 'chip is-active' : 'chip'}
-                aria-pressed={anlatimTuru === 'kisa'}
-                onClick={() => setAnlatimTuru('kisa')}
-              >
-                Kısa anlatım
-              </button>
-              <button
-                type="button"
-                className={anlatimTuru === 'ayrintili' ? 'chip is-active' : 'chip'}
-                aria-pressed={anlatimTuru === 'ayrintili'}
-                onClick={() => setAnlatimTuru('ayrintili')}
-              >
-                Ayrıntılı ve görselli
-              </button>
-            </div>
-          )}
-          {html === null || detay === undefined ? (
+          <div className="reading-picker" role="group" aria-label="Anlatım türü">
+            <button className={reading === 'detail' ? 'chip is-active' : 'chip'} aria-pressed={reading === 'detail'} onClick={() => setReading('detail')}>Ayrıntılı ve şekilli anlatım</button>
+            <button className={reading === 'summary' ? 'chip is-active' : 'chip'} aria-pressed={reading === 'summary'} onClick={() => setReading('summary')}>Kısa özet</button>
+          </div>
+          {reading === 'detail' && detailError && <div role="alert"><p className="form-error">{detailError}</p><button className="btn-secondary" onClick={() => setDetailError('')}>Yeniden dene</button></div>}
+          {(reading === 'detail' ? detail : html) === null ? (
             <p className="muted">Yükleniyor…</p>
           ) : (
             <>
-              {detay && anlatimTuru === 'ayrintili' ? (
-                <div dangerouslySetInnerHTML={{ __html: detay }} />
-              ) : (
-                <div className="konu" dangerouslySetInnerHTML={{ __html: html }} />
-              )}
+              <div className="konu" dangerouslySetInnerHTML={{ __html: (reading === 'detail' ? detail : html) ?? '' }} />
               <div className="row-actions start">
                 {status === 'not_started' ? (
                   <button

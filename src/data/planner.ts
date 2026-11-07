@@ -20,6 +20,7 @@ export type PlannedTask = {
   kind: 'study' | 'quiz' | 'review'
   topicId: string
   minutes: number
+  reviewDue?: string
 }
 
 export type PlannerDay = {
@@ -35,7 +36,7 @@ export const KIND_MINUTES = { study: 30, quiz: 15, review: 10 } as const
 
 export const KIND_LABEL = {
   study: 'konu çalışması',
-  quiz: 'mini sınav',
+  quiz: 'kazanım testi',
   review: 'tekrar',
   custom: 'görev',
 } as const
@@ -99,7 +100,7 @@ export function planWeek({
   const capacity = new Map<string, number>()
   for (const day of studyDays) {
     const used = gradeTasks
-      .filter(task => task.date === day.key && !task.completed)
+      .filter(task => task.date === day.key)
       .reduce((sum, task) => sum + taskMinutes(task), 0)
     capacity.set(day.key, Math.max(0, dailyMinutes - used))
   }
@@ -117,10 +118,10 @@ export function planWeek({
       item => item.kind === kind && item.topicId === topicId && (!date || item.date === date)
     )
 
-  function place(day: PlannerDay, topic: PlannerTopic, kind: PlannedTask['kind'], force = false) {
+  function place(day: PlannerDay, topic: PlannerTopic, kind: PlannedTask['kind'], reviewDue?: string) {
     const minutes = Math.min(KIND_MINUTES[kind], dailyMinutes)
     const left = capacity.get(day.key) ?? 0
-    if (!force && left < minutes) return false
+    if (left < minutes) return false
     planned.push({
       title: `${topic.title} · ${KIND_LABEL[kind]}`,
       date: day.key,
@@ -128,6 +129,7 @@ export function planWeek({
       kind,
       topicId: topic.id,
       minutes,
+      ...(reviewDue ? {reviewDue} : {}),
     })
     capacity.set(day.key, Math.max(0, left - minutes))
     return true
@@ -140,10 +142,13 @@ export function planWeek({
     const learned = localDate(new Date(topic.learnedAt))
     for (const interval of REVIEW_INTERVALS) {
       const due = addDays(learned, interval)
-      const target = studyDays.find(day => day.key >= due)
+      if (gradeTasks.some(task => task.kind === 'review' && task.topicId === topic.id && task.reviewDue === due)) continue
+      const target = studyDays.find(day => day.key >= due &&
+        !alreadyHas('review', topic.id, day.key) &&
+        (capacity.get(day.key) ?? 0) >= Math.min(KIND_MINUTES.review, dailyMinutes))
       if (!target || due > days[days.length - 1].key) continue
       if (alreadyHas('review', topic.id, target.key)) continue
-      place(target, topic, 'review', true)
+      place(target, topic, 'review', due)
     }
   }
 

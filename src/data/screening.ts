@@ -42,7 +42,7 @@ export async function taramaHazirla(grade: number): Promise<TaramaSorusu[]> {
   const konular = tumKonular(grade).map(k => k.konu)
   const ids = new Set<string>()
   for (const k of konular) {
-    ids.add(k.test)
+    if (k.test) ids.add(k.test)
     k.baglam.forEach(b => ids.add(b.id))
   }
   const dosyalar = new Map<string, TestDosyasi>()
@@ -50,7 +50,7 @@ export async function taramaHazirla(grade: number): Promise<TaramaSorusu[]> {
     [...ids].map(id =>
       testDosyasi(grade, id)
         .then(d => dosyalar.set(id, d))
-        .catch(() => undefined)
+        .catch(() => { throw new Error('Tarama için gereken soru paketleri tam yüklenemedi.') })
     )
   )
 
@@ -64,7 +64,7 @@ export async function taramaHazirla(grade: number): Promise<TaramaSorusu[]> {
       const ana = dosyalar.get(k.test)
       ana?.testler
         .filter(t => t.seviye === 'Kolay' || t.seviye === 'Orta' || t.seviye === null)
-        .forEach(t => t.sorular.forEach(soru => list.push({ kazanim, konuKod: k.kod, testId: k.test, soru })))
+        .forEach(t => t.sorular.filter(soru => soru.k ? soru.k === kazanim : k.kazanimlar.length === 1).forEach(soru => list.push({ kazanim, konuKod: k.kod, testId: k.test, soru })))
       k.baglam
         .filter(b => b.kazanim === kazanim)
         .forEach(b =>
@@ -84,6 +84,7 @@ export async function taramaHazirla(grade: number): Promise<TaramaSorusu[]> {
       }
       tur++
     }
+    if (alinan < SORU_PER_KAZANIM) throw new Error("Bu kazanım için yeterli tarama sorusu yok: " + kazanim)
   }
   return secilen
 }

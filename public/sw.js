@@ -3,7 +3,7 @@
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocun-v30'
+const CACHE = 'kimya-kocum-upgrade-20261107-v1'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname
@@ -29,7 +29,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(keys =>
       Promise.all(
         keys
-          .filter(key => key.startsWith('kimya-kocun-') && key !== CACHE)
+          .filter(key => key.startsWith('kimya-kocum-') && key !== CACHE)
           .map(key => caches.delete(key))
       )
     )
@@ -63,19 +63,10 @@ self.addEventListener('fetch', event => {
   // Konu anlatımı, test ve etkinlikler: önbellekten hemen göster,
   // arkada ağdan güncelle (çevrimdışıyken daha önce açılanlar çalışır).
   if (url.pathname.startsWith(BASE + 'icerik/')) {
-    event.respondWith(
-      caches.open(CACHE).then(cache =>
-        cache.match(request).then(cached => {
-          const network = fetch(request)
-            .then(response => {
-              if (response.ok) cache.put(request, response.clone())
-              return response
-            })
-            .catch(() => cached)
-          return cached || network
-        })
-      )
-    )
+    event.respondWith(fetch(request).then(response => {
+      if (response.ok) { const copy = response.clone(); event.waitUntil(caches.open(CACHE).then(cache => cache.put(request, copy)).catch(() => undefined)) }
+      return response
+    }).catch(() => caches.open(CACHE).then(cache => cache.match(request))))
     return
   }
 
@@ -94,3 +85,7 @@ self.addEventListener('fetch', event => {
     )
   )
 })
+
+
+
+

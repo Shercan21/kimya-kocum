@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import { sinifMufredati } from '../data/content'
-import { testinSonuclari } from '../data/results'
+import { testSonuclari } from '../data/results'
 import { SINAV_SINIFLARI } from '../data/profile'
 
 // "Soru çözmek istiyorum" akışı:
@@ -51,6 +52,12 @@ export default function PracticePage({ grade: profileGrade }: Props) {
   const [temaNo, setTemaNo] = useState<number | null>(null)
   const [active, setActive] = useState<Active | null>(null)
   const [, refresh] = useState(0)
+  useBackStep(!!active, () => {
+    setActive(null)
+    setTur(null)
+    setTemaNo(null)
+    refresh(v => v + 1)
+  })
 
   const data = sinif ? sinifMufredati(sinif) : null
 
@@ -68,7 +75,7 @@ export default function PracticePage({ grade: profileGrade }: Props) {
   function rastgele(t: Tur, g: number, tema: number | null, onceki?: string) {
     const list = havuz(t, g, tema)
     if (!list.length) return
-    const cozulmemis = list.filter(x => testinSonuclari(x.grade, x.id).length === 0 && x.id !== onceki)
+    const cozulmemis = list.filter(x => testSonuclari(x.grade, x.id, null).length === 0 && x.id !== onceki)
     const aday = cozulmemis.length ? cozulmemis : list.filter(x => x.id !== onceki)
     const secim = (aday.length ? aday : list)[Math.floor(Math.random() * (aday.length || list.length))]
     setActive(secim)

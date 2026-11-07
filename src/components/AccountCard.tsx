@@ -29,7 +29,7 @@ export default function AccountCard() {
           Hesabım
         </h3>
         <p className="muted">
-          Google ile giriş yaparsan ilerlemen kendi Google Drive'ına yedeklenir; telefonunu değiştirsen de kaldığın yerden devam edersin. Yedeğini senden başka kimse göremez.
+          Google ile giriş yaparsan ilerlemen kendi Google Drive'ına yedeklenir; telefonunu değiştirsen de kaldığın yerden devam edersin. Yedek hesabının uygulamaya ayrılan alanında tutulur. Paylaşılan cihazlarda işin bitince çıkış yap.
         </p>
         {cloud.error && <p className="form-error">{cloud.error}</p>}
         <SignInButton />
@@ -56,6 +56,7 @@ export default function AccountCard() {
           <small className="muted">{user.email}</small>
         </div>
       </div>
+      <p className="small local-save-note">İlerlemen bu cihazda saklanıyor. Son başarılı Drive kontrolü aşağıda; güncel yedek için Şimdi yedekle’ye bas.</p>
       <p className="muted small">
         {cloud.syncing ? 'Yedekleniyor…' : `Google Drive'ına ${zaman(cloud.lastSync)}`}
       </p>

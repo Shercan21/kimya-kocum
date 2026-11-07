@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import Icon from './Icon'
 import {
   localDate,
   updateStudyTasks,
@@ -140,9 +141,6 @@ export default function SmartStudyPlan({
   const progress = weekly.length
     ? Math.round(completed / weekly.length * 100)
     : 0
-
-  const weeklyMinutes =
-    preferences.days.length * preferences.dailyMinutes
 
   function refreshData() {
     setPreferences(loadPreferences())
@@ -321,328 +319,232 @@ export default function SmartStudyPlan({
     setMessage(`${addedCount} görev haftalık programa kaydedildi.`)
   }
 
+  const topicCount = topics.filter(topic =>
+    topic.grade === selectedGrade
+  ).length
+  const todayKey = localDate(new Date())
+
+  function changeWeek(offset: number | null) {
+    setWeekOffset(value => offset === null ? 0 : value + offset)
+    setPreview([])
+  }
+
   return (
-    <section
-      className="dashboard-card"
-      style={{ marginBottom: 24 }}
-    >
-      <div className="card-icon">📅</div>
-      <h2>Akıllı Çalışma Programım</h2>
+    <section className="card">
+      <h3 className="card-title">
+        <Icon name="calendar" />
+        Haftalık programım
+        {selectedGrade !== null && (
+          <span className="card-link week-nav">
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => changeWeek(-1)}
+              aria-label="Önceki hafta"
+            >
+              <Icon name="chevronLeft" size={18} />
+            </button>
+            <button
+              type="button"
+              className="btn-ghost week-label"
+              onClick={() => changeWeek(null)}
+              title="Bu haftaya dön"
+            >
+              {days[0].dateLabel} – {days[6].dateLabel}
+            </button>
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => changeWeek(1)}
+              aria-label="Sonraki hafta"
+            >
+              <Icon name="chevronRight" size={18} />
+            </button>
+          </span>
+        )}
+      </h3>
 
       {selectedGrade === null ? (
-        <p>Program oluşturmak için önce sınıfını seç.</p>
+        <p className="muted">Program oluşturmak için önce sınıfını seç.</p>
       ) : (
         <>
-          <p>📚 {selectedGrade}. Sınıf</p>
-
-          <div style={{
-            background: '#e8f7f4',
-            borderRadius: 12,
-            padding: 16,
-            marginTop: 16,
-          }}>
-            <h3>🎯 Kişisel Çalışma Düzenim</h3>
-            <p>
-              Haftada {preferences.days.length} gün ·
-              Günlük {preferences.dailyMinutes} dakika
-            </p>
-            <strong>
-              Haftalık hedef: {Math.floor(weeklyMinutes / 60)}
-              {' '}saat {weeklyMinutes % 60} dakika
-            </strong>
-            <p>
-              Kayıtlı konu sayısı:{' '}
-              {topics.filter(topic =>
-                topic.grade === selectedGrade
-              ).length}
-            </p>
-
-            <button
-              type="button"
-              onClick={refreshData}
-            >
-              🔄 Tercihleri ve Konuları Yenile
-            </button>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 10,
-            marginTop: 20,
-          }}>
-            <input
-              type="text"
-              value={title}
-              onChange={event => setTitle(event.target.value)}
-              onKeyDown={event => {
-                if (event.key === 'Enter') add()
-              }}
-              placeholder="Çalışılacak konu veya görev"
-              aria-label="Çalışma görevi"
-              style={{
-                flex: '1 1 220px',
-                padding: 12,
-                border: '1px solid #d9d2ec',
-                borderRadius: 10,
-              }}
-            />
-
-            <input
-              type="date"
-              value={date}
-              onChange={event => setDate(event.target.value)}
-              aria-label="Çalışma tarihi"
-            />
-
-            <button
-              type="button"
-              className="primary-button"
-              onClick={add}
-              disabled={!title.trim() || !date}
-            >
-              + Programa Ekle
-            </button>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            gap: 10,
-            flexWrap: 'wrap',
-            marginTop: 24,
-          }}>
-            <button
-              type="button"
-              onClick={() => {
-                setWeekOffset(value => value - 1)
-                setPreview([])
-              }}
-            >
-              ← Önceki Hafta
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setWeekOffset(0)
-                setPreview([])
-              }}
-            >
-              Bu Hafta
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setWeekOffset(value => value + 1)
-                setPreview([])
-              }}
-            >
-              Sonraki Hafta →
-            </button>
-          </div>
-
-          <div style={{
-            marginTop: 20,
-            padding: 16,
-            background: '#f3f0ff',
-            borderRadius: 12,
-          }}>
-            <h3>✨ Otomatik Program Oluşturucu</h3>
-
-            <p>
-              Kayıtlı konularını seçtiğin çalışma günlerine
-              otomatik olarak dağıt.
-            </p>
-
-            <p>
-              Günlük hedef süre: {preferences.dailyMinutes} dakika
-            </p>
+          <div className="plan-head">
+            <div className="plan-progress">
+              <div className="plan-progress-text">
+                <b>{completed} / {weekly.length}</b>
+                <span className="muted small">görev tamam · %{progress}</span>
+              </div>
+              <div className="progress-track">
+                <div
+                  className="progress-fill"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <p className="small muted">
+                Haftada {preferences.days.length} gün · günde {preferences.dailyMinutes} dk ·
+                {' '}{topicCount} konu
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={refreshData}
+                >
+                  Yenile
+                </button>
+              </p>
+            </div>
 
             <button
               type="button"
               className="primary-button"
               onClick={generatePreview}
             >
-              ✨ Haftalık Programımı Oluştur
+              <Icon name="sparkles" size={18} />
+              Programımı oluştur
             </button>
+          </div>
 
-            {message && (
-              <p style={{ marginTop: 12 }}>
-                {message}
-              </p>
-            )}
+          {message && (
+            <p className="small muted" role="status">{message}</p>
+          )}
 
-            {preview.length > 0 && (
-              <div style={{ marginTop: 20 }}>
-                <h3>📋 Program Önizlemesi</h3>
-
+          {preview.length > 0 && (
+            <div className="preview">
+              <p className="field-label">Program önizlemesi</p>
+              <ul className="row-list">
                 {preview.map(item => (
-                  <div
-                    key={`${item.date}-${item.title}`}
-                    style={{
-                      padding: 12,
-                      marginBottom: 8,
-                      background: '#ffffff',
-                      borderRadius: 10,
-                    }}
-                  >
-                    <strong>{item.title}</strong>
-                    <p style={{ margin: '6px 0' }}>
-                      📅 {new Date(`${item.date}T12:00:00`)
+                  <li key={`${item.date}-${item.title}`}>
+                    <span className="row-title">{item.title}</span>
+                    <span className="muted small">
+                      {new Date(`${item.date}T12:00:00`)
                         .toLocaleDateString('tr-TR', {
                           weekday: 'long',
                           day: 'numeric',
-                          month: 'long',
-                        })}
-                    </p>
-                    <small>
-                      ⏱️ {preferences.dailyMinutes} dakika
-                    </small>
-                  </div>
+                          month: 'short',
+                        })} · {preferences.dailyMinutes} dk
+                    </span>
+                  </li>
                 ))}
+              </ul>
 
-                <div style={{
-                  display: 'flex',
-                  gap: 10,
-                  flexWrap: 'wrap',
-                }}>
-                  <button
-                    type="button"
-                    className="primary-button"
-                    onClick={confirmPlan}
-                  >
-                    ✓ Programı Onayla ve Kaydet
-                  </button>
+              <div className="card-actions">
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={confirmPlan}
+                >
+                  Onayla ve kaydet
+                </button>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPreview([])
-                      setMessage('Önizleme iptal edildi.')
-                    }}
-                  >
-                    İptal
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => {
+                    setPreview([])
+                    setMessage('Önizleme iptal edildi.')
+                  }}
+                >
+                  İptal
+                </button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
-          <h3 style={{ marginTop: 24 }}>
-            Haftalık Takvim
-          </h3>
-
-          <p>
-            {days[0].dateLabel} – {days[6].dateLabel}
-          </p>
-
-          <div className="stat-value">
-            {completed} / {weekly.length}
-          </div>
-
-          <p>Haftalık görev ilerlemesi: %{progress}</p>
-
-          <div className="progress-track">
-            <div
-              className="progress-fill"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: 12,
-            marginTop: 20,
-          }}>
+          <div className="week-cal">
             {days.map(day => {
               const dayTasks = weekly.filter(
                 task => task.date === day.key
               )
 
+              const classes = [
+                'day',
+                day.isStudyDay ? '' : 'is-rest',
+                day.key === todayKey ? 'is-today' : '',
+              ].filter(Boolean).join(' ')
+
               return (
-                <div
-                  key={day.key}
-                  style={{
-                    background: day.isStudyDay
-                      ? '#e8f7f4'
-                      : '#f3f0ff',
-                    border: '1px solid #ddd5ee',
-                    padding: 12,
-                    borderRadius: 12,
-                    minHeight: 130,
-                  }}
-                >
-                  <strong>{day.label}</strong>
-                  <small style={{ display: 'block' }}>
-                    {day.dateLabel}
+                <div key={day.key} className={classes}>
+                  <div className="day-head">
+                    <b>{day.label}</b>
+                    <span>{day.dateLabel}</span>
+                  </div>
+
+                  <small className="day-meta">
+                    {day.isStudyDay
+                      ? `${preferences.dailyMinutes} dk çalışma`
+                      : 'Dinlenme'}
                   </small>
 
-                  <p style={{ fontSize: 12 }}>
-                    {day.isStudyDay
-                      ? `📚 Çalışma günü · ${preferences.dailyMinutes} dk`
-                      : '🌿 Dinlenme günü'}
-                  </p>
+                  {dayTasks.length > 0 && (
+                    <ul className="task-list day-tasks">
+                      {dayTasks.map(task => (
+                        <li
+                          key={task.id}
+                          className={task.completed ? 'is-done' : ''}
+                        >
+                          <button
+                            type="button"
+                            className="task-check"
+                            onClick={() => toggle(task.id, !task.completed)}
+                            aria-pressed={task.completed}
+                            aria-label={`${task.title} tamamlandı`}
+                          >
+                            <Icon name={task.completed ? 'circleCheck' : 'circle'} size={18} />
+                          </button>
 
-                  {dayTasks.length === 0 && (
-                    <p style={{ fontSize: 12 }}>
-                      Görev yok
-                    </p>
+                          <span className="task-title">{task.title}</span>
+
+                          <span className="task-actions">
+                            <button
+                              type="button"
+                              className="btn-ghost"
+                              onClick={() =>
+                                remove(task.id, task.title)
+                              }
+                              aria-label={`${task.title} görevini sil`}
+                            >
+                              <Icon name="trash" size={15} />
+                            </button>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-
-                  {dayTasks.map(task => (
-                    <div
-                      key={task.id}
-                      style={{
-                        borderTop: '1px solid #ddd5ee',
-                        paddingTop: 8,
-                        marginTop: 10,
-                      }}
-                    >
-                      <label style={{
-                        display: 'flex',
-                        gap: 6,
-                        alignItems: 'flex-start',
-                      }}>
-                        <input
-                          type="checkbox"
-                          checked={task.completed}
-                          onChange={event =>
-                            toggle(
-                              task.id,
-                              event.target.checked
-                            )
-                          }
-                        />
-
-                        <span style={{
-                          fontSize: 13,
-                          overflowWrap: 'anywhere',
-                          textDecoration: task.completed
-                            ? 'line-through'
-                            : 'none',
-                        }}>
-                          {task.title}
-                        </span>
-                      </label>
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          remove(task.id, task.title)
-                        }
-                        style={{ marginTop: 8 }}
-                      >
-                        🗑️ Sil
-                      </button>
-                    </div>
-                  ))}
                 </div>
               )
             })}
           </div>
+
+          <form
+            className="task-add plan-add"
+            onSubmit={event => {
+              event.preventDefault()
+              add()
+            }}
+          >
+            <input
+              type="text"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+              placeholder="Programa görev ekle"
+              aria-label="Çalışma görevi"
+            />
+
+            <input
+              type="date"
+              className="date-input"
+              value={date}
+              onChange={event => setDate(event.target.value)}
+              aria-label="Çalışma tarihi"
+            />
+
+            <button
+              type="submit"
+              className="btn-secondary"
+              disabled={!title.trim() || !date}
+            >
+              Ekle
+            </button>
+          </form>
         </>
       )}
     </section>

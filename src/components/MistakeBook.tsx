@@ -1,3 +1,4 @@
+import { tamGorselSoru, soruGorunumHtml } from '../data/questionDisplay'
 import { useEffect, useState } from 'react'
 import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
@@ -39,10 +40,11 @@ function Practice({ keys, onDone }: { keys: string[]; onDone: () => void }) {
   useEffect(() => {
     let active = true
     if (!kayit) return
+    if (kayit.soru) { setSoru(kayit.soru); return }
     testDosyasi(kayit.grade, kayit.testId)
       .then(dosya => {
         if (!active) return
-        const item = dosya.testler[kayit.testIndex]?.sorular[kayit.soruIndex]
+        const item = (dosya.legacyTestler ?? dosya.testler)[kayit.testIndex]?.sorular[kayit.soruIndex]
         if (item) setSoru(item)
         else setHata('Soru bulunamadı.')
       })
@@ -105,14 +107,14 @@ function Practice({ keys, onDone }: { keys: string[]; onDone: () => void }) {
 
       {soru && (
         <>
-          <Html className="soru-metni" html={soru.s} />
-          <ol className={secim === null ? 'siklar' : 'siklar readonly'}>
+          <Html className="soru-metni" html={soruGorunumHtml(soru)} />
+          <ol className={`${secim === null ? 'siklar' : 'siklar readonly'}${tamGorselSoru(soru) ? ' gorsel-siklar' : ''}`}>
             {soru.sik.map((sik, j) =>
               secim === null ? (
                 <li key={j}>
                   <button type="button" onClick={() => sec(j)}>
                     <span className="harf">{harf[j]}</span>
-                    <Html html={sik} />
+                    {!tamGorselSoru(soru) && <Html html={sik} />}
                   </button>
                 </li>
               ) : (
@@ -121,7 +123,7 @@ function Practice({ keys, onDone }: { keys: string[]; onDone: () => void }) {
                   className={[j === soru.d ? 'is-correct' : '', j === secim && j !== soru.d ? 'is-wrong' : ''].join(' ')}
                 >
                   <span className="harf">{harf[j]}</span>
-                  <Html html={sik} />
+                  {!tamGorselSoru(soru) && <Html html={sik} />}
                 </li>
               )
             )}

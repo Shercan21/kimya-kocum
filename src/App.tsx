@@ -1,5 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import './App.css'
+import './student.css'
+import './student-polish.css'
+import OfflineCard from './components/OfflineCard'
+import LocalBackupCard from './components/LocalBackupCard'
+import ResourceLibrary from './components/ResourceLibrary'
 import Icon, { type IconName } from './components/Icon'
 import TodayPage from './components/TodayPage'
 import TopicMap from './components/TopicMap'
@@ -120,7 +125,7 @@ function App() {
 
   const [storedProfile, setProfile] = useState<StudentProfile | null>(loadProfile)
   const [editingProfile, setEditingProfile] = useState(false)
-  const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab } | null>(null)
+  const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab; level?: 'Kolay' | 'Orta' | 'Zor'; short?: boolean } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
 
   // 12. sınıf / mezun Derslerim'de TYT (9+10), AYT (11) ve 12 arasında geçer.
@@ -150,7 +155,7 @@ function App() {
       return null
     }
   })
-  const previewing = teacherReal && !!onizleme
+  const previewing = !!onizleme
   const teacherView = teacherReal && !onizleme
   const profile: StudentProfile | null =
     storedProfile && previewing && onizleme ? { ...storedProfile, ...onizleme } : storedProfile
@@ -254,6 +259,18 @@ function App() {
   }
 
   // Koçun önerdiği eyleme git.
+  function openStudyTopic(grade: number, topicId: string, tab: TopicTab = 'anlatim') {
+    const kod = topicId.startsWith(grade + '-') ? topicId.slice(String(grade).length + 1) : topicId
+    const key = grade + '|' + kod
+    if (mod === 'konu' && seciliKonu !== key) { konuSec(grade, kod); changePage('lessons'); setOpenTopic({ grade, kod, tab }); return }
+    const blocked = mod === 'tam' && !teacherView && kilitliKonular([grade], bilinen).has(key)
+    if (blocked) { changePage('lessons'); return }
+    changePage('lessons')
+    if (grade === 12) setGorunum(12)
+    else if (profile?.grade === 12) setGorunum(grade === 11 ? 'AYT' : 'TYT')
+    if (konuBul(grade, kod)) setOpenTopic({ grade, kod, tab })
+  }
+
   function coachAction(eylem: Eylem) {
     if (eylem.tur === 'hata') {
       changePage('progress')
@@ -264,9 +281,9 @@ function App() {
     if (eylem.tur === 'dersler') return
     const key = `${eylem.grade}|${eylem.kod}`
     const kilitli =
-      (mod === 'tam' && !teacherView && kilitliKonular([eylem.grade]).has(key)) ||
+      (mod === 'tam' && !teacherView && kilitliKonular([eylem.grade], bilinen).has(key)) ||
       (mod === 'konu' && localStorage.getItem(SECILI_KONU_KEY) !== key)
-    if (!kilitli) setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur })
+    if (!kilitli) setOpenTopic({ grade: eylem.grade, kod: eylem.kod, tab: eylem.tur, level: eylem.seviye, short: eylem.kisa })
   }
 
   function updateStudentGoal(goal: string) {
@@ -308,7 +325,7 @@ function App() {
     const base = pages.find(item => item.id === m.id)!
     return { ...base, label: m.label ?? base.label, short: m.short ?? base.short }
   })
-  const shown: PageId = navPages.some(item => item.id === page) ? page : navPages[0].id
+  const shown: PageId = openTopic && page === 'lessons' ? 'lessons' : navPages.some(item => item.id === page) ? page : navPages[0].id
   const current = navPages.find(item => item.id === shown)!
   const labelOf = (item: (typeof navPages)[number]) =>
     item.id === 'exams' && isSenior && !teacherView ? 'TYT / AYT testleri' : item.label
@@ -391,6 +408,9 @@ function App() {
             selectedGrade={profile.grade}
             grades={activeGrades}
             gradeLabel={activeLabel}
+            onOpenTopic={openStudyTopic}
+            onOpenProgram={() => changePage('program')}
+            knownTopics={bilinen}
             studentGoal={studentGoal}
             onGoalChange={updateStudentGoal}
             onOpenLessons={() => changePage('lessons')}
@@ -412,10 +432,12 @@ function App() {
 
         {shown === 'lessons' && openTopic && (
           <TopicPage
-            key={`${openTopic.grade}-${openTopic.kod}-${openTopic.tab ?? ""}`}
+            key={`${openTopic.grade}-${openTopic.kod}-${openTopic.tab ?? ""}-${openTopic.level ?? ""}-${openTopic.short ?? false}`}
             grade={openTopic.grade}
             kod={openTopic.kod}
             initialTab={openTopic.tab}
+            initialTestLevel={openTopic.level}
+            initialShort={openTopic.short}
             onBack={() => {
               setOpenTopic(null)
               window.scrollTo({ top: 0 })
@@ -425,6 +447,8 @@ function App() {
 
         {shown === 'lessons' && !openTopic && (
           <div className="stack">
+            <details className="card classroom-preview"><summary>9, 10, 11, 12. sınıf öğrenci görünümünü dene</summary><StudentPreviewCard onStart={startPreview} /></details>
+            <ResourceLibrary grades={viewGrades} />
             {teacherView && (
               <section className="card teacher-view">
                 <h3 className="card-title">
@@ -598,11 +622,12 @@ function App() {
         )}
 
         {shown === 'coach' && (
-          <CoachPage grades={teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades} onAction={coachAction} />
+          <CoachPage grades={teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades} profile={profile} goal={studentGoal} known={bilinen} canSchedule={mod === 'tam' && !teacherView} allowed={new Set((teacherView ? SINAV_SINIFLARI.TYT_AYT : activeGrades).flatMap(grade => tumKonular(grade).filter(({konu}) => (mod !== 'tam' || teacherView || !kilitliKonular([grade], bilinen).has(`${grade}|${konu.kod}`)) && (mod !== 'konu' || seciliKonu === `${grade}|${konu.kod}`)).map(({konu}) => `${grade}|${konu.kod}`)))} onAction={coachAction} />
         )}
 
         {shown === 'program' && (
           <ProgramPage
+            onOpenTopic={openStudyTopic}
             profile={profile}
             onProfileChange={next => {
               // Yalnızca çalışma düzeni kaydedilir; önizlemedeki sınıf/amaç gerçek profile yazılmaz.
@@ -628,7 +653,7 @@ function App() {
               setMistakesOpen(true)
               window.scrollTo({ top: 0 })
             }}
-            onPreview={teacherReal && !previewing ? startPreview : undefined}
+            onPreview={!previewing ? startPreview : undefined}
           />
         )}
 
@@ -765,6 +790,8 @@ function ProgressPage({
       <div className="col">
         {onPreview && <StudentPreviewCard onStart={onPreview} />}
         <AccountCard />
+        <LocalBackupCard />
+        <OfflineCard grades={grades} />
         <TopicMap grades={grades} label={label} onOpenLessons={onOpenLessons} />
       </div>
     </div>

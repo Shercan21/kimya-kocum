@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { tamGorselSoru, soruGorunumHtml } from '../data/questionDisplay'
+import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import { icerikHtml } from '../data/content'
 import { purposes, type StudyPurpose } from '../data/profile'
@@ -144,74 +145,24 @@ function Sonuc({
   )
 }
 
-// 12. sınıf / mezun: önce TYT (9 ya da 10. sınıf) veya AYT (11. sınıf) seçilir.
-export default function ScreeningPage({ grade: profilSinifi, onChoosePlan }: Props) {
-  const [secim, setSecim] = useState<number | null>(profilSinifi === 12 ? null : profilSinifi)
-  if (secim === null) {
-    return <SinavSecimi onSec={setSecim} />
-  }
-  return (
-    <ScreeningForGrade
-      key={secim}
-      grade={secim}
-      onChoosePlan={onChoosePlan}
-      onChangeGrade={profilSinifi === 12 ? () => setSecim(null) : undefined}
-    />
-  )
-}
-
-function SinavSecimi({ onSec }: { onSec: (grade: number) => void }) {
-  const t9 = useTaramaSonucu(9)
-  const t10 = useTaramaSonucu(10)
-  const t11 = useTaramaSonucu(11)
-  const durum = (t: TaramaSonucu | null) =>
-    t ? `Tarandı · %${t.toplam ? Math.round((t.dogru / t.toplam) * 100) : 0}` : 'Henüz taranmadı'
-  const secenek = (grade: number, baslik: string, t: TaramaSonucu | null) => (
-    <button key={grade} type="button" className="ob-option" onClick={() => onSec(grade)}>
-      <span>
-        {baslik}
-        <small>{durum(t)}</small>
-      </span>
-    </button>
-  )
-  return (
-    <div className="stack">
-      <section className="card">
-        <h3 className="card-title"><Icon name="target" /> Hangi sınav için taramak istersin?</h3>
-        <p className="muted small">Her sınıf ayrı taranır; her kazanımdan 2 soru gelir. İstediğin kadarını tarayabilirsin.</p>
-        <h4 className="coach-sub">TYT</h4>
-        <div className="ob-options">
-          {secenek(9, '9. sınıf konuları', t9)}
-          {secenek(10, '10. sınıf konuları', t10)}
-        </div>
-        <h4 className="coach-sub">AYT</h4>
-        <div className="ob-options">
-          {secenek(11, '11. sınıf konuları', t11)}
-        </div>
-        <p className="muted small">AYT'nin 12. sınıf konuları yeni Maarif programı yayımlanınca eklenecek.</p>
-      </section>
-    </div>
-  )
-}
-
-function ScreeningForGrade({
-  grade,
-  onChoosePlan,
-  onChangeGrade,
-}: {
-  grade: number
-  onChoosePlan: (purpose: StudyPurpose) => void
-  onChangeGrade?: () => void
-}) {
+export default function ScreeningPage({ grade, onChoosePlan }: Props) {
   const kayitli = useTaramaSonucu(grade)
-  const [sorular, setSorular] = useState<TaramaSorusu[] | null>(null)
+  const draftKey = 'kimya-kocum-screening-draft-v1:' + grade
+  const [draft] = useState(() => {
+    try { const d = JSON.parse(localStorage.getItem(draftKey) ?? 'null'); return d && Array.isArray(d.sorular) && d.sorular.length && d.cevaplar && typeof d.cevaplar === 'object' ? d as { sorular: TaramaSorusu[]; cevaplar: Record<number,number>; index: number } : null } catch { return null }
+  })
+  const [sorular, setSorular] = useState<TaramaSorusu[] | null>(draft?.sorular ?? null)
   const [yukleniyor, setYukleniyor] = useState(false)
   const [hata, setHata] = useState('')
-  const [index, setIndex] = useState(0)
-  const [cevaplar, setCevaplar] = useState<Record<number, number>>({})
+  const [index, setIndex] = useState(draft?.index ?? 0)
+  const [cevaplar, setCevaplar] = useState<Record<number, number>>(draft?.cevaplar ?? {})
   const [onay, setOnay] = useState(false)
 
   const [cikisSor, setCikisSor] = useState(false)
+  useEffect(() => {
+    if (!sorular) return
+    try { localStorage.setItem(draftKey, JSON.stringify({ sorular, cevaplar, index })) } catch { setHata('Tarama taslağı kaydedilemedi. Kapatmadan tamamlamanı öneririz.') }
+  }, [sorular, cevaplar, index, draftKey])
   function kapat() {
     setSorular(null)
     setCevaplar({})
@@ -233,6 +184,7 @@ function ScreeningForGrade({
     try {
       const list = await taramaHazirla(grade)
       if (!list.length) throw new Error('bos')
+      localStorage.removeItem(draftKey)
       setSorular(list)
       setCevaplar({})
       setIndex(0)
@@ -248,6 +200,7 @@ function ScreeningForGrade({
   function bitir() {
     if (!sorular) return
     taramaKaydet(taramaDegerlendir(grade, sorular, cevaplar))
+    localStorage.removeItem(draftKey)
     setSorular(null)
     window.scrollTo({ top: 0 })
   }
@@ -262,7 +215,7 @@ function ScreeningForGrade({
             <div className="modal konu-onay" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
               <div className="modal-body">
                 <h3>Taramadan çıkmak istiyor musun?</h3>
-                <p>{cevaplanan} soruyu cevapladın. Bitirmeden çıkarsan cevapların kaydedilmez.</p>
+                <p>{cevaplanan} soruyu cevapladın. Cevapların bu cihazda taslak olarak saklanır; tarama sayfasını yeniden açarak devam edebilirsin.</p>
               </div>
               <div className="modal-foot">
                 <div className="row-actions">
@@ -295,8 +248,8 @@ function ScreeningForGrade({
               </button>
             ))}
           </div>
-          <Html className="soru-metni" html={soru.soru.s} />
-          <ol className="siklar">
+          <Html className="soru-metni" html={soruGorunumHtml(soru.soru)} />
+          <ol className={`siklar${tamGorselSoru(soru.soru) ? ' gorsel-siklar' : ''}`}>
             {soru.soru.sik.map((sik, j) => (
               <li key={j}>
                 <button
@@ -313,7 +266,7 @@ function ScreeningForGrade({
                   }
                 >
                   <span className="harf">{harf[j]}</span>
-                  <Html html={sik} />
+                  {!tamGorselSoru(soru.soru) && <Html html={sik} />}
                 </button>
               </li>
             ))}
@@ -341,14 +294,7 @@ function ScreeningForGrade({
   }
 
   if (kayitli) {
-    return (
-      <>
-        {onChangeGrade && (
-          <button type="button" className="btn-secondary tarama-geri" onClick={onChangeGrade}>‹ Başka sınıfı tara</button>
-        )}
-        <Sonuc sonuc={kayitli} onChoosePlan={onChoosePlan} onRestart={basla} />
-      </>
-    )
+    return <Sonuc sonuc={kayitli} onChoosePlan={onChoosePlan} onRestart={basla} />
   }
 
   return (
@@ -360,14 +306,9 @@ function ScreeningForGrade({
           Sonunda hangi konularda eksiğin olduğunu göreceksin ve ona göre planını seçeceksin.
         </p>
         {hata && <p className="form-error">{hata}</p>}
-        <div className="row-actions start">
-          <button type="button" className="primary-button" disabled={yukleniyor} onClick={basla}>
-            {yukleniyor ? 'Sorular hazırlanıyor…' : 'Taramaya başla'}
-          </button>
-          {onChangeGrade && (
-            <button type="button" className="btn-secondary" onClick={onChangeGrade}>Başka sınıf seç</button>
-          )}
-        </div>
+        <button type="button" className="primary-button" disabled={yukleniyor} onClick={basla}>
+          {yukleniyor ? 'Sorular hazırlanıyor…' : 'Taramaya başla'}
+        </button>
       </section>
     </div>
   )

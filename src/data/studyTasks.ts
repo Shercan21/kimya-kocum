@@ -11,6 +11,7 @@ export type StudyTask = {
   kind?: 'study' | 'quiz' | 'review' | 'custom'
   topicId?: string
   minutes?: number
+  reviewDue?: string
 }
 
 const KEY = 'kimya-kocum-tasks-v2'

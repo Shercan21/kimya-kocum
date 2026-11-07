@@ -1,261 +1,71 @@
 import { useState } from 'react'
 import Icon from './Icon'
 import DailyTasks from './DailyTasks'
-import TopicMap from './TopicMap'
-import { loadTopics } from '../data/topics'
+import { konuId, tumKonular } from '../data/content'
 import { getTopicProgress } from '../data/learningProgress'
-import { getQuestionCount } from '../data/questionBank'
+import { kilitliKonular } from '../data/locks'
 import { useHataDefteri } from '../data/mistakes'
-import {
-  localDate,
-  updateStudyTasks,
-  useStudyTasks,
-} from '../data/studyTasks'
+import { localDate, useStudyTasks } from '../data/studyTasks'
+import { basari, sonuclariYukle } from '../data/results'
+import type { TopicTab } from './TopicPage'
 
 type Props = {
-  selectedGrade: number | null
-  grades: number[]
-  gradeLabel?: string
-  studentGoal: string
-  onGoalChange: (goal: string) => void
-  onOpenLessons: () => void
-  onOpenMistakes: () => void
+  selectedGrade: number | null; grades: number[]; gradeLabel?: string
+  studentGoal: string; onGoalChange: (goal: string) => void
+  onOpenLessons: () => void; onOpenMistakes: () => void; onOpenProgram: () => void
+  onOpenTopic: (grade: number, topicId: string, tab?: TopicTab) => void
+  knownTopics: Set<string>
 }
-
-type NextStep = {
-  eyebrow: string
-  title: string
-  detail: string
-  action: string
-  onAction: () => void
-}
-
-const dayShort = ['Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct', 'Pz']
-
-function greeting(date: Date) {
-  const hour = date.getHours()
-  if (hour < 12) return 'Günaydın'
-  if (hour < 18) return 'İyi günler'
-  return 'İyi akşamlar'
-}
-
-export default function TodayPage({
-  selectedGrade,
-  grades,
-  gradeLabel,
-  studentGoal,
-  onGoalChange,
-  onOpenLessons,
-  onOpenMistakes,
-}: Props) {
-  const acikHatalar = useHataDefteri().filter(
-    item => item.durum === 'acik' && grades.includes(item.grade)
-  ).length
+export default function TodayPage({ selectedGrade, grades, gradeLabel, studentGoal, onGoalChange, onOpenLessons, onOpenMistakes, onOpenProgram, onOpenTopic, knownTopics }: Props) {
+  const [editing, setEditing] = useState(false)
   const tasks = useStudyTasks()
-  const [editingGoal, setEditingGoal] = useState(!studentGoal.trim())
   const now = new Date()
   const today = localDate(now)
-
-  const todayTasks = tasks.filter(
-    task =>
-      task.date === today &&
-      (selectedGrade === null ||
-        task.grade === selectedGrade ||
-        task.grade === undefined ||
-        grades.includes(task.grade))
-  )
-  const doneToday = todayTasks.filter(task => task.completed).length
-  const dailyRate = todayTasks.length
-    ? Math.round((doneToday / todayTasks.length) * 100)
-    : 0
-
-  // Son 7 günde tamamlanan görevler (gerçek kayıtlardan).
-  const week = Array.from({ length: 7 }, (_, offset) => {
-    const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6 + offset, 12)
-    const key = localDate(day)
-    return {
-      key,
-      label: offset === 6 ? 'Bugün' : dayShort[(day.getDay() + 6) % 7],
-      count: tasks.filter(task => task.date === key && task.completed).length,
-    }
-  })
-  const weekMax = Math.max(1, ...week.map(day => day.count))
-  const weekTotal = week.reduce((sum, day) => sum + day.count, 0)
-
-  function nextStep(): NextStep {
-    if (selectedGrade === null) {
-      return {
-        eyebrow: 'Başlamak için',
-        title: 'Sınıfını seç',
-        detail: 'Konuların, programın ve sınavların sınıfına göre hazırlanır.',
-        action: 'Sınıfımı seç',
-        onAction: onOpenLessons,
-      }
-    }
-
-    // Biriken hatalar varsa önce onları kapat (plan §7).
-    if (acikHatalar >= 3) {
-      return {
-        eyebrow: 'Hata defterin',
-        title: `${acikHatalar} soru seni bekliyor`,
-        detail: 'Yanlış yaptığın soruları tekrar çöz, hatalarını kapat.',
-        action: 'Tekrar çöz',
-        onAction: onOpenMistakes,
-      }
-    }
-
-    const topics = loadTopics().filter(topic => grades.includes(topic.grade))
-    const studied = topics.find(
-      topic => getTopicProgress(topic.grade, topic.id)?.status === 'studied'
-    )
-    if (studied) {
-      const count = getQuestionCount(studied.grade, studied.id)
-      return {
-        eyebrow: 'Sıradaki görevin',
-        title: `${studied.title} · mini sınav`,
-        detail: count > 0
-          ? 'Konuyu çalıştın. Öğrendiğini kısa bir sınavla göster.'
-          : 'Konuyu çalıştın. Bu konuya soru eklendiğinde mini sınav açılacak.',
-        action: 'Sınava git',
-        onAction: onOpenLessons,
-      }
-    }
-
-    const openTask = todayTasks.find(task => !task.completed)
-    if (openTask) {
-      return {
-        eyebrow: 'Sıradaki görevin',
-        title: openTask.title,
-        detail: `Bugün ${todayTasks.length} görevinden ${doneToday} tanesi tamam.`,
-        action: 'Tamamladım',
-        onAction: () =>
-          updateStudyTasks(previous =>
-            previous.map(task =>
-              task.id === openTask.id ? { ...task, completed: true } : task
-            )
-          ),
-      }
-    }
-
-    const notStarted = topics.find(
-      topic => (getTopicProgress(topic.grade, topic.id)?.status ?? 'not_started') === 'not_started'
-    )
-    if (notStarted) {
-      return {
-        eyebrow: 'Sıradaki konun',
-        title: notStarted.title,
-        detail: 'Bu konuya henüz başlamadın.',
-        action: 'Derse git',
-        onAction: onOpenLessons,
-      }
-    }
-
-    return {
-      eyebrow: 'Bugün',
-      title: todayTasks.length ? 'Bugünkü görevlerin tamam' : 'Bugün için görev yok',
-      detail: todayTasks.length
-        ? 'Harika gidiyorsun. Yeni bir konu ekleyebilir ya da tekrar yapabilirsin.'
-        : 'Aşağıdan bir görev ekle ya da Derslerim sayfasından program oluştur.',
-      action: 'Derslerime git',
-      onAction: onOpenLessons,
-    }
-  }
-
-  const step = nextStep()
-
-  return (
-    <>
-      <div className="page-head">
-        <div>
-          <small>
-            {now.toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' })}
-          </small>
-          <h1>{greeting(now)}</h1>
-        </div>
-
-        {editingGoal ? (
-          <form
-            className="goal goal-edit"
-            onSubmit={event => {
-              event.preventDefault()
-              if (studentGoal.trim()) setEditingGoal(false)
-            }}
-          >
-            <Icon name="target" size={18} />
-            <input
-              type="text"
-              value={studentGoal}
-              onChange={event => onGoalChange(event.target.value)}
-              placeholder="Hedefin: TYT kimyada 7 net"
-              aria-label="Kişisel kimya hedefim"
-            />
-            <button type="submit" className="goal-save" aria-label="Hedefi kaydet">
-              <Icon name="check" size={18} />
-            </button>
-          </form>
-        ) : (
-          <button type="button" className="goal" onClick={() => setEditingGoal(true)}>
-            <Icon name="target" size={18} />
-            <span>Hedef: {studentGoal}</span>
-            <Icon name="pencil" size={16} />
-          </button>
-        )}
+  const topics = grades.flatMap(grade => tumKonular(grade).map(({ konu }) => ({ ...konu, grade, id: konuId(grade, konu.kod) })))
+  const locked = kilitliKonular(grades, knownTopics)
+  const progress = topics.map(t => ({ ...t, progress: getTopicProgress(t.grade, t.id) }))
+  const learned = progress.filter(t => ['learned', 'permanent'].includes(t.progress?.status ?? '')).length
+  const due = progress.find(t => t.progress?.status === 'learned' && t.progress.learnedAt && now.getTime() - new Date(t.progress.learnedAt).getTime() >= 7 * 86400000)
+  const next = due ?? progress.find(t => t.progress?.status === 'studied' && !locked.has(t.grade + '|' + t.kod)) ?? progress.find(t => !t.progress && !locked.has(t.grade + '|' + t.kod) && !knownTopics.has(t.grade + '|' + t.kod))
+  const errors = useHataDefteri().filter(h => h.durum === 'acik' && grades.includes(h.grade)).length
+  const visibleTasks = tasks.filter(t => t.date === today && (t.grade === undefined || grades.includes(t.grade)))
+  const done = visibleTasks.filter(t => t.completed).length
+  const results = sonuclariYukle().filter(r => grades.includes(r.grade))
+  const recent = results.slice(-5)
+  const average = recent.length ? Math.round(recent.reduce((s,r) => s + basari(r), 0) / recent.length) : null
+  const rate = topics.length ? Math.round(learned / topics.length * 100) : 0
+  const hour = now.getHours()
+  const greeting = hour < 12 ? 'Günaydın' : hour < 18 ? 'Merhaba' : 'İyi akşamlar'
+  const isTest = !!due || next?.progress?.status === 'studied'
+  return <div className="student-home">
+    <header className="student-heading">
+      <div><span className="eyebrow">KÜÇÜK ADIMLAR, KALICI ÖĞRENME</span><h1>{greeting}, bugün kimya zamanı.</h1><p>{now.toLocaleDateString('tr-TR', { weekday:'long', day:'numeric', month:'long' })} <span>·</span> {gradeLabel ?? selectedGrade + '. sınıf'}</p></div>
+      <span className="student-edition"><Icon name="flask" /> Kendi hızında ilerle</span>
+    </header>
+    <div className="student-metrics">
+      <div><span className="metric-icon purple"><Icon name="book" /></span><div><small>Öğrendiğin konu</small><b>{learned}<em> / {topics.length}</em></b></div></div>
+      <div><span className="metric-icon teal"><Icon name="check" /></span><div><small>Bugünkü görevler</small><b>{done}<em> / {visibleTasks.length}</em></b></div></div>
+      <div><span className="metric-icon amber"><Icon name="chart" /></span><div><small>Son 5 test ortalaması</small><b>{average === null ? '—' : '%' + average}</b></div></div>
+      <div><span className="metric-icon coral"><Icon name="notebook" /></span><div><small>Üzerinde çalışılacak hata</small><b>{errors}</b></div></div>
+    </div>
+    <div className="student-dashboard">
+      <div className="student-main-column">
+        <section className="study-hero">
+          <div className="hero-copy"><span className="hero-kicker"><span /> {due ? 'TEKRAR ZAMANI' : 'SANA ÖNERİLEN SONRAKİ ADIM'}</span>
+            <h2>{next ? next.ad : 'Bugünkü yolunu sen seç.'}</h2>
+            <p>{due ? 'Bir hafta önce öğrendiklerini yeniden ölç. %70 ve üzeri başarıyla bu konuyu kalıcı öğrenmeye taşı.' : isTest ? 'Konuyu çalıştın. Şimdi bir kazanım testi çözerek öğrendiklerini kontrol et.' : 'Önce anlatımı keşfet, örnekleri kendin çöz. Hazır olduğunda testlerle kendini dene.'}</p>
+            <div className="hero-actions"><button className="primary-button" onClick={() => next ? onOpenTopic(next.grade, next.id, isTest ? 'test' : 'anlatim') : onOpenLessons()}><Icon name="play" size={18} />{isTest ? 'Teste devam et' : 'Çalışmaya başla'} <span>→</span></button><button className="hero-secondary" onClick={onOpenProgram}>Planımı gör</button></div>
+          </div>
+          <div className="chemistry-art" aria-hidden="true"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="orbit orbit-three"/><div className="atom-core">K<span>Kimya</span></div><i className="electron e-one"/><i className="electron e-two"/><i className="electron e-three"/><span className="art-label">merak et · keşfet · öğren</span></div>
+        </section>
+        <section className="learning-route"><div><span className="route-number">01</span><b>Konuyu keşfet</b><small>Anlatım ve örnekler</small></div><span className="route-arrow">→</span><div><span className="route-number">02</span><b>Kendini dene</b><small>Test ve etkinlikler</small></div><span className="route-arrow">→</span><div><span className="route-number">03</span><b>Kalıcı hâle getir</b><small>Yanlışlar ve tekrar</small></div></section>
+        <DailyTasks selectedGrade={selectedGrade} grades={grades} onOpenTopic={onOpenTopic} />
       </div>
-
-      <div className="today-grid">
-        <div className="col">
-          <section className="card next-card">
-            <div>
-              <small>{step.eyebrow}</small>
-              <h2>{step.title}</h2>
-              <p>{step.detail}</p>
-              <button type="button" className="btn-light" onClick={step.onAction}>
-                <Icon name="play" size={16} />
-                {step.action}
-              </button>
-            </div>
-            {todayTasks.length > 0 && (
-              <div
-                className="ring"
-                style={{ ['--p' as string]: `${dailyRate}%` }}
-                aria-label={`Günlük görevlerin yüzde ${dailyRate} tamam`}
-              >
-                <div>
-                  %{dailyRate}
-                  <span>bugün</span>
-                </div>
-              </div>
-            )}
-          </section>
-
-          <DailyTasks selectedGrade={selectedGrade} grades={grades} />
-
-          <section className="card">
-            <h3 className="card-title">
-              <Icon name="chart" />
-              Son 7 gün
-            </h3>
-            <div className="week">
-              <div className="bars">
-                {week.map(day => (
-                  <div key={day.key} className={day.label === 'Bugün' ? 'is-today' : ''}>
-                    <span style={{ height: `${Math.max(4, (day.count / weekMax) * 100)}%` }} />
-                    {day.label}
-                  </div>
-                ))}
-              </div>
-              <div className="stat">
-                <small>Tamamlanan görev</small>
-                <b>{weekTotal}</b>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div className="col">
-          <TopicMap grades={grades} label={gradeLabel} onOpenLessons={onOpenLessons} />
-        </div>
-      </div>
-    </>
-  )
+      <aside className="student-side-column">
+        <section className="card journey-card"><span className="eyebrow">ÖĞRENME YOLCULUĞUN</span><h3>Her konu bir adım.</h3><div className="journey-ring" style={{ '--progress': rate + '%' } as React.CSSProperties}><div><b>%{rate}</b><small>konu öğrenildi</small></div></div><p>{learned ? learned + ' konuyu öğrendin. Düzenli tekrarlarla bilgini güçlendir.' : 'İlk konuyla başla. İlerlemen burada adım adım büyüyecek.'}</p><button className="text-action" onClick={onOpenLessons}>Konu haritamı aç <span>→</span></button></section>
+        <section className="card reflection-card"><span className="eyebrow">YANLIŞLARIN YOL GÖSTERİR</span><h3>{errors ? errors + ' soru seni bekliyor' : 'Hata yapmak öğrenmenin parçası.'}</h3><p>{errors ? 'Yeni sorulardan önce bu sorulara bir şans daha ver. Hatanın nedenini bulmak, çözümün ilk adımı.' : 'Testlerde yanlış veya boş bıraktığın sorular hata defterinde toplanır.'}</p><button className="btn-secondary" onClick={onOpenMistakes}>Hata defterime git <span>→</span></button></section>
+        <section className="card personal-goal"><span className="eyebrow">BENİM HEDEFİM</span>{editing ? <form onSubmit={e => {e.preventDefault();setEditing(false)}}><label htmlFor="student-goal">Hedefini yaz</label><input id="student-goal" value={studentGoal} onChange={e => onGoalChange(e.target.value)} maxLength={160}/><button className="btn-secondary">Kaydet</button></form> : <><p>{studentGoal || 'Kendine küçük, ulaşılabilir bir hedef koy.'}</p><button className="text-action" onClick={() => setEditing(true)}>{studentGoal ? 'Hedefimi düzenle' : 'Hedefimi belirle'} <Icon name="pencil" size={15}/></button></>}</section>
+      </aside>
+    </div>
+  </div>
 }

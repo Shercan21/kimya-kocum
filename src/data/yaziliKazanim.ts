@@ -1,64 +1,42 @@
-// Yazılı modunda açılabilecek konular: öğrencinin Yazılı sayfasında seçtiği
-// dönem ve yazılının (ör. 1. dönem 2. yazılı) senaryolarında geçen
-// kazanımların konuları. Seçim yoksa yayındaki en son yazılı esas alınır.
-// Diğer konular kilitli kalır.
-
-const SECIM_KEY = 'kimya-kocum-yazili-secim' // WrittenExams: { [grade]: sinavId }
-
-function seciliSinavId(grade: number): string | null {
-  try {
-    const all = JSON.parse(localStorage.getItem(SECIM_KEY) ?? '{}') as Record<string, string>
-    return all[grade] ?? null
-  } catch {
-    return null
-  }
-}
+// Yazılı senaryolarında geçen kazanımlar ve bu kazanımları içeren konular.
 
 import { useEffect, useState } from 'react'
 import { tumKonular, yazililar } from './content'
 
-export type YaziliKapsam = { kodlar: Set<string>; donem: number; yazili: number } | null
-
-export function useYaziliKonulari(grades: number[], enabled: boolean): YaziliKapsam {
-  const [kapsam, setKapsam] = useState<YaziliKapsam>(null)
-  // Seçim değişince (Yazılı sayfasından dönüldüğünde) kapsam yeniden hesaplanır.
-  const key = grades.join(',') + '#' + grades.map(g => seciliSinavId(g) ?? '').join(',')
+export function useYaziliKonulari(grades: number[], enabled: boolean) {
+  const [kodlar, setKodlar] = useState<{kodlar:Set<string>;donem:number;yazili:number} | null>(null)
+  const key = grades.join(',')
 
   useEffect(() => {
     if (!enabled) return
     let active = true
-    const gradePart = key.split('#')[0]
-    const list = gradePart ? gradePart.split(',').map(Number) : []
-    Promise.all(list.map(grade => yazililar(grade).then(file => ({ grade, file })).catch(() => null))).then(results => {
+    const list = key ? key.split(',').map(Number) : []
+    Promise.all(
+      list.map(grade =>
+        yazililar(grade)
+          .then(file => {
+            let selection:Record<string,string>={}
+            try {selection=JSON.parse(localStorage.getItem('kimya-kocum-yazili-secim') ?? '{}')} catch { /* default */ }
+            const selected=file.sinavlar.find(s=>s.id===selection[grade]) ?? file.sinavlar[0]
+            const exams=selected?file.sinavlar.filter(s=>s.donem===selected.donem&&s.yazili===selected.yazili):[]
+            return {grade,codes:new Set(exams.flatMap(s=>s.sorular.map(q=>q.kazanim))),donem:selected?.donem??1,yazili:selected?.yazili??1}
+          })
+          .catch(() => ({ grade, codes: new Set<string>(), donem:1, yazili:1 }))
+      )
+    ).then(results => {
       if (!active) return
-      const ok = results.filter((r): r is NonNullable<typeof r> => !!r && r.file.sinavlar.length > 0)
-      if (!ok.length) {
-        setKapsam({ kodlar: new Set(), donem: 0, yazili: 0 })
-        return
-      }
-      // Seçilen yazılı; yoksa en son yazılı (en büyük dönem, sonra yazılı numarası)
-      const tum = ok.flatMap(r => r.file.sinavlar)
-      const secId = ok.map(r => seciliSinavId(r.grade)).find(Boolean)
-      const son =
-        tum.find(s => s.id === secId) ??
-        tum.reduce((a, b) => (b.donem * 10 + b.yazili > a.donem * 10 + a.yazili ? b : a))
-      const kodlar = new Set<string>()
-      for (const { grade, file } of ok) {
-        const codes = new Set(
-          file.sinavlar
-            .filter(s => s.donem === son.donem && s.yazili === son.yazili)
-            .flatMap(s => s.sorular.map(q => q.kazanim))
-        )
+      const out = new Set<string>()
+      for (const { grade, codes } of results) {
         for (const { konu } of tumKonular(grade)) {
-          if (konu.kazanimlar.some(code => codes.has(code))) kodlar.add(`${grade}|${konu.kod}`)
+          if (konu.kazanimlar.some(code => codes.has(code))) out.add(`${grade}|${konu.kod}`)
         }
       }
-      setKapsam({ kodlar, donem: son.donem, yazili: son.yazili })
+      setKodlar({kodlar:out,donem:results[0]?.donem??1,yazili:results[0]?.yazili??1})
     })
     return () => {
       active = false
     }
   }, [key, enabled])
 
-  return kapsam
+  return kodlar
 }

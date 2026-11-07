@@ -10,20 +10,13 @@
 //   geçerlidir. Süre dolunca yedekleme, öğrencinin bir sonraki dokunuşunda
 //   kısa bir Google penceresiyle yenilenir.
 
-import { getState, HESAP_KEY, readSync, setState, SYNC_KEY, type CloudUser } from './cloud'
+import { captureStore, mergeStores, replaceStore, snapshot, validateStore, type Store } from './backup'
+import { getState, HESAP_KEY, setState, SYNC_KEY, type CloudUser } from './cloud'
 
 const CLIENT_ID = '1085307341925-pjrjdt4pv38t0soh3peglvq3hae3rre0.apps.googleusercontent.com'
 const SCOPES = 'openid email profile https://www.googleapis.com/auth/drive.appdata'
 const DOSYA = 'kimya-kocum.json'
-const PREFIX = 'kimya-kocum-'
 // Cihaza özel anahtarlar yedeğe girmez.
-const LOCAL_ONLY = new Set([
-  'kimya-kocum-page',
-  'kimya-kocum-ders-gorunum',
-  'kimya-kocum-sync',
-  'kimya-kocum-hesap',
-  'kimya-kocum-ogretmen-sinif',
-])
 const OTOMATIK_ARALIK = 12 * 60 * 60 * 1000 // 12 saatten eski yedek, ilk dokunuşta yenilenir
 
 type TokenResponse = { access_token?: string; expires_in?: number; error?: string }
@@ -111,16 +104,7 @@ async function api(path: string, init: RequestInit = {}, tekrar = true): Promise
   return r
 }
 
-function localStore(): Record<string, string> {
-  const out: Record<string, string> = {}
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i)
-    if (!key || !key.startsWith(PREFIX) || LOCAL_ONLY.has(key)) continue
-    const value = localStorage.getItem(key)
-    if (value !== null) out[key] = value
-  }
-  return out
-}
+const localStore = captureStore
 
 function hashOf(store: Record<string, string>) {
   const text = Object.keys(store).sort().map(k => `${k}=${store[k]}`).join('\n')
@@ -142,7 +126,7 @@ async function indir(): Promise<Record<string, string> | null> {
   const r = await api(`/drive/v3/files/${id}?alt=media`)
   if (r.status === 404) return null
   const data = (await r.json()) as { store?: Record<string, string> }
-  return data.store ?? null
+  return data.store ? validateStore(data.store) : null
 }
 
 async function yukle(store: Record<string, string>) {
@@ -168,47 +152,64 @@ async function yukle(store: Record<string, string>) {
   })
 }
 
-async function gonder(zorla = false) {
-  const user = getState().user
-  if (!user) return
-  const store = localStore()
-  const hash = hashOf(store)
-  const info = readSync()
-  if (!zorla && info?.email === user.email && info.hash === hash) return
-  setState({ syncing: true })
-  await yukle(store)
-  const at = new Date().toISOString()
-  localStorage.setItem(SYNC_KEY, JSON.stringify({ email: user.email, hash, at }))
-  setState({ syncing: false, lastSync: at, error: null })
-}
-
-// Girişten sonra: Drive'daki yedek bu cihaza alınır, sonra birleşik hali yüklenir.
-async function cek(user: CloudUser) {
-  setState({ syncing: true })
-  const remote = await indir()
-  const local = localStore()
-  const info = readSync()
-  let changed = false
-  if (remote) {
-    const ilkKez = info?.email !== user.email
-    const yerelProfil = !!local['kimya-kocum-profile-v1']
-    const yerelDegismedi = !ilkKez && info?.hash === hashOf(local)
-    for (const [key, value] of Object.entries(remote)) {
-      // Bu cihazda ilk kez: yedek esastır; cihazda profil varsa yalnız eksikler tamamlanır.
-      // Daha önce eşitlenmiş ve değişmemiş cihaz yedeği olduğu gibi alır.
-      const al = ilkKez ? !yerelProfil || !(key in local) : yerelDegismedi || !(key in local)
-      if (al && local[key] !== value) {
-        localStorage.setItem(key, value)
-        changed = true
-      }
-    }
-  }
-  await gonder(true)
+let pendingGuest:Store|null=null
+let syncingWork: Promise<boolean> | null = null
+async function syncData(zorla: boolean): Promise<boolean> {
+ const user=getState().user
+ if(!user)return false
+ setState({syncing:true})
+ try {
+  const remote=await indir()
+  let local=localStore()
+  if(!remote && pendingGuest && !Object.keys(local).length) { local=pendingGuest; replaceStore(local) }
+  pendingGuest=null
+  let base:Store={}
+  try { base=validateStore(JSON.parse(localStorage.getItem('kimya-kocum-sync-base') ?? '{}')) } catch { /* older backup */ }
+  const merged=remote ? mergeStores(base,local,remote) : local
+  const changed=hashOf(merged)!==hashOf(local)
+  if(changed) snapshot(local)
+  // Preserve the remote version before merging or replacing a backup.
+  if(remote && hashOf(remote)!==hashOf(merged)) snapshot(remote)
+  if(zorla || !remote || hashOf(remote)!==hashOf(merged)) await yukle(merged)
+  if(changed) replaceStore(mergeStores(local,localStore(),merged))
+  const at=new Date().toISOString()
+  localStorage.setItem('kimya-kocum-sync-base',JSON.stringify(merged))
+  localStorage.setItem(SYNC_KEY,JSON.stringify({email:user.email,hash:hashOf(merged),at}))
+  setState({syncing:false,lastSync:at,error:null})
   return changed
+ } catch(e) { setState({syncing:false,error:hataMesaji(e)});throw e }
+}
+function gonder(zorla=false):Promise<boolean> {
+ if(syncingWork)return syncingWork
+ syncingWork=syncData(zorla).finally(()=>{syncingWork=null})
+ return syncingWork
+}
+async function cek(_user: CloudUser) { return gonder(true) }
+function archiveKey(email:string) { return 'kk-kocum-account:' + email.toLowerCase() }
+function saveAccount(email:string) {
+ localStorage.setItem(archiveKey(email),JSON.stringify({store:localStore(),base:localStorage.getItem('kimya-kocum-sync-base')}))
+}
+function switchAccount(user:CloudUser) {
+ const previous=getState().user
+ if(previous?.email===user.email)return
+ pendingGuest=!previous ? localStore() : null
+ if(previous) saveAccount(previous.email)
+ else if(Object.keys(localStore()).length) {
+  // Guest progress is kept separately and never silently assigned to a Google account.
+  localStorage.setItem('kk-kocum-guest-store',JSON.stringify(localStore()))
+  snapshot(localStore())
+ }
+ let saved: {store:Store;base:string|null}|null=null
+ try { const raw=localStorage.getItem(archiveKey(user.email));if(raw)saved=JSON.parse(raw) } catch { throw Error('Yerel hesap yedeği okunamadı.') }
+ replaceStore(saved?validateStore(saved.store):{})
+ localStorage.removeItem('kimya-kocum-sync-base')
+ if(saved?.base)localStorage.setItem('kimya-kocum-sync-base',saved.base)
+ localStorage.removeItem(SYNC_KEY)
 }
 
 function hataMesaji(e: unknown) {
   const m = e instanceof Error ? e.message : ''
+  if (m === 'hesap') return 'Seçilen Google hesabı bu öğrencinin hesabıyla eşleşmiyor. Doğru hesapla tekrar giriş yap.'
   if (m === 'iptal' || m === 'access_denied') return 'Google penceresi kapatıldı; yedekleme yapılmadı.'
   if (m === 'gsi' || /Failed to fetch|NetworkError/i.test(m)) return 'İnternet bağlantısı yok; ilerlemen bu cihazda duruyor.'
   return 'Yedekleme sırasında bir sorun oldu. "Şimdi yedekle" ile tekrar deneyebilirsin.'
@@ -232,7 +233,7 @@ export function start(dataChanged: () => void) {
     if (document.visibilityState === 'hidden' && gecerli()) void gonder().catch(() => undefined)
   })
   window.setInterval(() => {
-    if (gecerli()) void gonder().catch(() => undefined)
+    if (gecerli()) void gonder().then(changed => { if(changed)onChanged() }).catch(() => undefined)
   }, 60_000)
 }
 
@@ -242,15 +243,20 @@ export async function syncNow(interactive = false) {
   try {
     if (!gecerli()) {
       if (!interactive) return
-      await anahtarIste('', user.email)
+      const t=await anahtarIste('', user.email)
+      const check=await fetch('https://www.googleapis.com/oauth2/v3/userinfo',{headers:{Authorization:'Bearer '+t}})
+      if(!check.ok || (await check.json()).email!==user.email) {token=null;throw Error('hesap')}
     }
-    await gonder()
+    if(await gonder()) onChanged()
   } catch (e) {
     setState({ syncing: false, error: hataMesaji(e) })
   }
 }
 
 export async function googleIleGiris() {
+  const before=localStore(), previousUser=getState().user
+  const previousSync=localStorage.getItem(SYNC_KEY),previousBase=localStorage.getItem('kimya-kocum-sync-base')
+  let switched=false
   try {
     const t = await anahtarIste('select_account')
     const r = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', { headers: { Authorization: `Bearer ${t}` } })
@@ -261,16 +267,27 @@ export async function googleIleGiris() {
       photoURL: u.picture ?? null,
       emailVerified: !!u.email_verified,
     }
+    switchAccount(user)
+    switched=true
     localStorage.setItem(HESAP_KEY, JSON.stringify(user))
     setState({ user, error: null })
-    const changed = await cek(user)
-    if (changed) onChanged()
+    await cek(user)
+    onChanged()
   } catch (e) {
+    token=null
+    if(switched) {
+      replaceStore(before)
+      if(previousUser)localStorage.setItem(HESAP_KEY,JSON.stringify(previousUser));else localStorage.removeItem(HESAP_KEY)
+      if(previousSync)localStorage.setItem(SYNC_KEY,previousSync);else localStorage.removeItem(SYNC_KEY)
+      if(previousBase)localStorage.setItem('kimya-kocum-sync-base',previousBase);else localStorage.removeItem('kimya-kocum-sync-base')
+      setState({user:previousUser})
+    }
     setState({ syncing: false, error: hataMesaji(e) })
   }
 }
 
 export async function cikisYap() {
+  if(syncingWork) await syncingWork.catch(()=>undefined)
   try {
     if (gecerli()) await gonder()
   } catch {
@@ -278,31 +295,34 @@ export async function cikisYap() {
   }
   const t = gecerli()
   if (t) window.google?.accounts.oauth2.revoke(t)
+  const activeUser=getState().user
+  if(activeUser) saveAccount(activeUser.email)
+  replaceStore({})
+  localStorage.removeItem('kimya-kocum-sync-base')
+  const guest=localStorage.getItem('kk-kocum-guest-store')
+  if(guest) replaceStore(validateStore(JSON.parse(guest)))
   token = null
   localStorage.removeItem(HESAP_KEY)
   localStorage.removeItem(SYNC_KEY)
   setState({ user: null, lastSync: null, error: null, syncing: false })
+  onChanged()
 }
 
 // Drive'daki yedeği siler, uygulamanın izinlerini geri alır.
 export async function hesabiSil(cihazdakiniDeSil: boolean) {
-  const user = getState().user
-  if (!user) return
-  if (!gecerli()) await anahtarIste('', user.email)
-  const id = await dosyaBul()
-  if (id) await api(`/drive/v3/files/${id}`, { method: 'DELETE' })
-  const t = gecerli()
-  if (t) window.google?.accounts.oauth2.revoke(t)
-  token = null
-  localStorage.removeItem(HESAP_KEY)
-  localStorage.removeItem(SYNC_KEY)
-  if (cihazdakiniDeSil) {
-    const keys: string[] = []
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i)
-      if (key?.startsWith(PREFIX)) keys.push(key)
-    }
-    keys.forEach(key => localStorage.removeItem(key))
-  }
-  setState({ user: null, lastSync: null, error: null, syncing: false })
+ const user=getState().user
+ if(!user)return
+ if(syncingWork)await syncingWork.catch(()=>undefined)
+ if(!gecerli())await anahtarIste('',user.email)
+ const id=await dosyaBul()
+ if(id)await api('/drive/v3/files/'+id,{method:'DELETE'})
+ const t=gecerli();if(t)window.google?.accounts.oauth2.revoke(t)
+ localStorage.removeItem(archiveKey(user.email))
+ localStorage.removeItem('kimya-kocum-sync-base')
+ if(cihazdakiniDeSil) { replaceStore({}); localStorage.removeItem('kk-kocum-safety-snapshots') }
+ else localStorage.setItem('kk-kocum-guest-store',JSON.stringify(localStore()))
+ token=null
+ localStorage.removeItem(HESAP_KEY);localStorage.removeItem(SYNC_KEY)
+ setState({user:null,lastSync:null,error:null,syncing:false})
+ onChanged()
 }
