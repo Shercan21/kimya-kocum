@@ -1,9 +1,8 @@
+import ExamPractice from './ExamPractice'
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import {
   icerikHtml,
-  icerikYolu,
-  yaziliPdfAdi,
   yazililar,
   type YaziliDosyasi,
 } from '../data/content'
@@ -160,6 +159,8 @@ export default function WrittenExams({ grades }: Props) {
             </div>
           </div>
 
+          <ExamPractice key={`${grade}-${secili.id}`} grade={grade} exam={secili} />
+          <details><summary>Serbest çalışma · sorular ve cevap anahtarı</summary>
           <article className="ykagit">
             <header className="ykbas">
               <b>{grade}. Sınıf Kimya · {secili.donem}. Dönem {secili.yazili}. Ortak Yazılı</b>
@@ -167,25 +168,6 @@ export default function WrittenExams({ grades }: Props) {
                 {secili.tarih && `${secili.tarih} · `} Senaryo {secili.senaryo} · {secili.sorular.length} soru · 100 puan · {secili.sure} dakika
               </span>
             </header>
-
-            <div className="yindir">
-              {secili.pdfAvailable !== false && <>
-              <a
-                className="primary-button"
-                href={icerikYolu(`pdf/${grade}/${yaziliPdfAdi(grade, secili)}.pdf`)}
-                download={`${yaziliPdfAdi(grade, secili)}.pdf`}
-              >
-                Sınav kâğıdını indir (PDF)
-              </a>
-              <a
-                className="btn-secondary"
-                href={icerikYolu(`pdf/${grade}/${yaziliPdfAdi(grade, secili)}-cevap-anahtari.pdf`)}
-                download={`${yaziliPdfAdi(grade, secili)}-cevap-anahtari.pdf`}
-              >
-                Cevap anahtarını indir (PDF)
-              </a></>}
-              {secili.pdfAvailable === false && <button className="btn-secondary" onClick={() => window.print()}>Yazdır / PDF olarak kaydet</button>}
-            </div>
 
             {secili.sorular.map((soru, i) => (
               <section key={`${secili.id}-${i}`} className="ysoru">
@@ -228,7 +210,7 @@ export default function WrittenExams({ grades }: Props) {
             >
               {allOpen ? 'Bütün cevapları gizle' : 'Bütün cevapları göster'}
             </button>
-          </article>
+          </article></details>
         </>
       )}
     </section>

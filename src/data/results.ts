@@ -15,6 +15,7 @@ export type TestSonucu = {
   bos: number
   toplam: number
   yanlisSorular: number[] // test içindeki soru sıraları (Hata Defteri için)
+  beceriler?: import('./skillReport').Evidence[]
   kazanimlar?: Record<string, [number, number]> // kazanım → [doğru, toplam]
   tarih: string
 }

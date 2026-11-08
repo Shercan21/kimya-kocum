@@ -119,12 +119,14 @@ function TestAttempt({ grade, testId, testIndex, konuKod, konuBaslik, baslik, on
     let dogru = 0
     let bos = 0
     const varsayilan = testKazanimi(grade, testId)
+    const beceriler: import('../data/skillReport').Evidence[] = []
     const kazanimlar: Record<string, [number, number]> = {}
     const kaynakCevaplar = canonicalAnswers(order, cevaplar)
     kaynakSorular.forEach((item, i) => {
       if (kaynakCevaplar[i] === undefined) bos++
       else if (kaynakCevaplar[i] === item.d) dogru++
       else yanlisSorular.push(i)
+      for (const skill of item.beceriler ?? []) beceriler.push({ skill, earned: kaynakCevaplar[i] === item.d ? 1 : 0, possible: 1 })
       const k = item.k ?? varsayilan
       if (k) {
         const c = kazanimlar[k] ?? [0, 0]
@@ -146,6 +148,7 @@ function TestAttempt({ grade, testId, testIndex, konuKod, konuBaslik, baslik, on
           bos,
           toplam: sorular.length,
           yanlisSorular,
+          beceriler,
           kazanimlar: Object.keys(kazanimlar).length ? kazanimlar : undefined,
         },
         konuBaslik

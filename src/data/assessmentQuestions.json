@@ -1,0 +1,1217 @@
+[
+  {
+    "id": "bd9-1",
+    "grade": 9,
+    "skill": "kavram",
+    "outcome": "KİM.9.1.3",
+    "question": "İzotop iki nötr atom için hangisi kesinlikle aynıdır?",
+    "options": [
+      "Nötron sayısı",
+      "Kütle numarası",
+      "Proton sayısı",
+      "Atom kütlesi"
+    ],
+    "correct": 2,
+    "explanation": "İzotoplar aynı elementin atomlarıdır; proton sayıları aynı, nötron sayıları farklıdır."
+  },
+  {
+    "id": "bd9-2",
+    "grade": 9,
+    "skill": "hesaplama",
+    "outcome": "KİM.9.1.3",
+    "question": "Kütle numarası 27, atom numarası 13 olan nötr atomun nötron sayısı kaçtır?",
+    "options": [
+      "13",
+      "14",
+      "27",
+      "40"
+    ],
+    "correct": 1,
+    "explanation": "Nötron sayısı = kütle numarası − proton sayısı = 27 − 13 = 14."
+  },
+  {
+    "id": "bd9-3",
+    "grade": 9,
+    "skill": "cikarim",
+    "outcome": "KİM.9.1.3",
+    "question": "Rutherford deneyinde alfa taneciklerinin çoğu levhadan geçerken çok azı büyük açılarla sapar. İki gözlemi birlikte açıklayan çıkarım hangisidir?",
+    "options": [
+      "Atom tamamen doludur.",
+      "Pozitif yük her yere eşit dağılmıştır.",
+      "Elektronlar çekirdeğin içindedir.",
+      "Atomun büyük bölümü boşluktur; pozitif yük küçük bir bölgede yoğunlaşır."
+    ],
+    "correct": 3,
+    "explanation": "Çoğunun geçmesi boşluklu yapıyı, az sayıdaki büyük sapma küçük ve yoğun pozitif çekirdeği destekler."
+  },
+  {
+    "id": "bd9-4",
+    "grade": 9,
+    "skill": "hipotez",
+    "outcome": "KİM.9.1.1",
+    "question": "Aynı miktar şekerin suda çözünme süresine sıcaklığın etkisi araştırılacaktır. Hangisi bu araştırmaya uygun, sınanabilir bir hipotezdir?",
+    "options": [
+      "Şeker güzeldir.",
+      "Diğer koşullar sabitken suyun sıcaklığı arttıkça şekerin çözünme süresi kısalır.",
+      "Bütün maddeler aynıdır.",
+      "Deney yapmak her zaman eğlencelidir."
+    ],
+    "correct": 1,
+    "explanation": "Hipotez, değiştirilen sıcaklık ile ölçülen çözünme süresi arasında deneyle sınanabilir bir ilişki kurar."
+  },
+  {
+    "id": "bd9-5",
+    "grade": 9,
+    "skill": "modelleme",
+    "outcome": "KİM.9.1.3",
+    "question": "Bir atom modeli, küçük pozitif çekirdek ve çekirdek dışında elektronlar göstermektedir. Modelin sınırı hakkında hangisi doğrudur?",
+    "options": [
+      "Çizimdeki boyut oranları gerçek atomla mutlaka aynıdır.",
+      "Model atomun tüm özelliklerini eksiksiz gösterir.",
+      "Model bazı yapısal özellikleri temsil eder; ölçek ve hareket bakımından sınırlı olabilir.",
+      "Modelde gösterilmeyen hiçbir şey doğada bulunamaz."
+    ],
+    "correct": 2,
+    "explanation": "Modeller amaca yönelik temsillerdir. Bir çizim tüm ölçekleri ve hareketleri gerçekçi biçimde aynı anda göstermez."
+  },
+  {
+    "id": "bd9-6",
+    "grade": 9,
+    "skill": "tumdengelim",
+    "outcome": "KİM.9.1.4",
+    "question": "Çok elektronlu atomlarda n + ℓ değeri küçük orbital daha düşük enerjilidir; eşitlikte n değeri küçük olan önceliklidir. 3p için n=3, ℓ=1; 4s için n=4, ℓ=0 ise hangisi beklenir?",
+    "options": [
+      "3p daha düşük enerjilidir.",
+      "4s daha düşük enerjilidir.",
+      "Kesinlikle eşit enerjilidirler.",
+      "Bu kuralla karşılaştırılamazlar."
+    ],
+    "correct": 0,
+    "explanation": "İki toplam da 4'tür. Eşitlikte n değeri küçük olan 3p daha düşük enerjilidir; genel kural özel duruma uygulanır."
+  },
+  {
+    "id": "bd9-7",
+    "grade": 9,
+    "skill": "tumevarim",
+    "outcome": "KİM.9.1.6",
+    "question": "Li, Na ve K atomlarının temel hâl elektron dizilimleri incelendiğinde her birinin en dış katmanında bir elektron olduğu görülüyor. Gözlemlerden çıkarılabilecek sınırlı genelleme hangisidir?",
+    "options": [
+      "Bütün elementlerde bir elektron vardır.",
+      "Bu üç elementin dış katman elektron sayıları ortak olduğundan aynı grupta yer almaları beklenir.",
+      "Bütün atomların kütlesi aynıdır.",
+      "Bu üç element aynı elementtir."
+    ],
+    "correct": 1,
+    "explanation": "Birden çok özel örnekteki ortak özellikten sınırlı bir genellemeye gidilir. Tüm elementleri kapsayan iddia veriyi aşar."
+  },
+  {
+    "id": "bd9-8",
+    "grade": 9,
+    "skill": "veri",
+    "outcome": "KİM.9.1.4",
+    "question": "Çok elektronlu bir atomda göreli orbital enerjileri 2s: −30, 2p: −20 ve 3s: −10 birim olarak verilmiştir. En düşük enerjili orbital hangisidir?",
+    "options": [
+      "3s",
+      "2p",
+      "Hepsi eşit",
+      "2s"
+    ],
+    "correct": 3,
+    "explanation": "Aynı ölçekte −30, −20 ve −10'un en küçüğü −30'dur; bu değer 2s orbitaline aittir."
+  },
+  {
+    "id": "bd9-9",
+    "grade": 9,
+    "skill": "onerme",
+    "outcome": "KİM.9.1.3",
+    "question": "Hangisi atom yapısıyla ilgili doğruluğu ya da yanlışlığı değerlendirilebilen bir önermedir?",
+    "options": [
+      "Bir nötr atomun proton ve elektron sayıları eşittir.",
+      "Atomu çiziniz.",
+      "Keşke daha çok deney olsa!",
+      "Atomları sever misin?"
+    ],
+    "correct": 0,
+    "explanation": "Bildirme cümlesi doğruluk değeri taşır. Emir, dilek ve soru cümleleri bu anlamda önerme değildir."
+  },
+  {
+    "id": "bd10-1",
+    "grade": 10,
+    "skill": "kavram",
+    "outcome": "KİM.10.1.4",
+    "question": "Bir mol tanecik için hangisi doğrudur?",
+    "options": [
+      "Her zaman 1 gramdır.",
+      "Her zaman aynı hacmi kaplar.",
+      "Yaklaşık 6,02 × 10²³ tanecik içerir.",
+      "Yalnız gazlar için kullanılır."
+    ],
+    "correct": 2,
+    "explanation": "Mol bir tanecik sayısı birimidir. Bir mol yaklaşık 6,02 × 10²³ tanecik içerir; kütle ve hacim maddeye ve koşullara bağlıdır."
+  },
+  {
+    "id": "bd10-2",
+    "grade": 10,
+    "skill": "hesaplama",
+    "outcome": "KİM.10.1.5",
+    "question": "Molar kütlesi 18 g/mol olan saf sudan 36 g alınıyor. Madde miktarı kaç moldür?",
+    "options": [
+      "0,5",
+      "2",
+      "18",
+      "648"
+    ],
+    "correct": 1,
+    "explanation": "n = m / M = 36 / 18 = 2 mol."
+  },
+  {
+    "id": "bd10-3",
+    "grade": 10,
+    "skill": "cikarim",
+    "outcome": "KİM.10.1.1",
+    "question": "İki renksiz çözelti karıştırılınca çözünmeyen beyaz bir katı oluşuyor. En uygun çıkarım hangisidir?",
+    "options": [
+      "Yalnızca hacim değişmiştir.",
+      "Atomların türü değişmiştir.",
+      "Kesinlikle yalnız fiziksel değişim vardır.",
+      "Çökelek oluşumu kimyasal değişimi destekleyen bir kanıttır."
+    ],
+    "correct": 3,
+    "explanation": "Başlangıçta bulunmayan, çözünmeyen bir katının oluşması yeni madde oluşumuna ilişkin kanıt sağlar."
+  },
+  {
+    "id": "bd10-4",
+    "grade": 10,
+    "skill": "hipotez",
+    "outcome": "KİM.10.1.8",
+    "question": "Sabit sıcaklıkta kapalı bir gaz örneğinin hacmi ile basıncı araştırılıyor. Hangi hipotez bu düzenekte sınanabilir?",
+    "options": [
+      "Gaz miktarı ve sıcaklığı sabitken hacim azaltılırsa basınç artar.",
+      "Gazlar ilginçtir.",
+      "Hacim yalnız katılarda bulunur.",
+      "Ölçüm yapmaya gerek yoktur."
+    ],
+    "correct": 0,
+    "explanation": "Hipotez hacim ile ölçülebilir basınç arasında ilişki kurar; gaz miktarı ve sıcaklık kontrol edilir."
+  },
+  {
+    "id": "bd10-5",
+    "grade": 10,
+    "skill": "modelleme",
+    "outcome": "KİM.10.1.2",
+    "question": "2 H₂ + O₂ → 2 H₂O tepkimesi için hangi tanecik modeli atom sayısını korur?",
+    "options": [
+      "Bir H₂ ve bir O₂'den iki H₂O oluşması",
+      "İki H₂ ve bir O₂'den iki H₂O oluşması",
+      "İki H₂ ve iki O₂'den bir H₂O oluşması",
+      "Bir H₂'den bir O₂ oluşması"
+    ],
+    "correct": 1,
+    "explanation": "Girenlerde 4 H ve 2 O atomu, iki su molekülünde de 4 H ve 2 O atomu vardır."
+  },
+  {
+    "id": "bd10-6",
+    "grade": 10,
+    "skill": "tumdengelim",
+    "outcome": "KİM.10.1.7",
+    "question": "N₂ + 3 H₂ → 2 NH₃ tepkimesinde N₂ yeterince fazladır. 6 mol H₂ tam tepkimeye girerse kaç mol NH₃ oluşur?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 2,
+    "explanation": "Denkleme göre 3 mol H₂, 2 mol NH₃ oluşturur. 6 mol H₂ için 6 × 2/3 = 4 mol NH₃ oluşur."
+  },
+  {
+    "id": "bd10-7",
+    "grade": 10,
+    "skill": "tumevarim",
+    "outcome": "KİM.10.1.4",
+    "question": "12 yumurta bir düzine, 12 kalem bir düzine olarak sayılıyor. Bu örüntü mol kavramıyla nasıl ilişkilendirilebilir?",
+    "options": [
+      "Bir düzine ile bir mol aynı sayıdır.",
+      "Aynı sayıda nesnenin kütlesi her zaman aynıdır.",
+      "Mol nesnenin rengini belirtir.",
+      "Düzine gibi mol de nesne türünden bağımsız belirli bir sayıyı ifade eder."
+    ],
+    "correct": 3,
+    "explanation": "Ortak nokta sayma birimi olmalarıdır. Bir düzine 12, bir mol ise yaklaşık 6,02 × 10²³ taneciği ifade eder."
+  },
+  {
+    "id": "bd10-8",
+    "grade": 10,
+    "skill": "veri",
+    "outcome": "KİM.10.1.5",
+    "question": "Aynı saf madde için ölçümler: 0,5 mol → 10 g; 1 mol → 20 g; 1,5 mol → 30 g. Bu madde için 2 molün kütlesi kaç gramdır?",
+    "options": [
+      "20",
+      "40",
+      "30",
+      "60"
+    ],
+    "correct": 1,
+    "explanation": "Her 1 mol 20 g olduğundan 2 mol 40 g'dır. Tabloda kütle ile mol sayısı doğru orantılıdır."
+  },
+  {
+    "id": "bd10-9",
+    "grade": 10,
+    "skill": "onerme",
+    "outcome": "KİM.10.1.4",
+    "question": "Bir öğrenci 'Eşit mol sayısındaki farklı maddelerin kütleleri mutlaka eşittir.' diyor. Bu önermeyi çürüten örnek hangisidir? (H₂: 2 g/mol, O₂: 32 g/mol)",
+    "options": [
+      "1 mol H₂'nin 2 g, 1 mol O₂'nin 32 g olması",
+      "İkisinin de gaz olması",
+      "İkisinin de molekül içermesi",
+      "Her ikisinde de atom bulunması"
+    ],
+    "correct": 0,
+    "explanation": "Mol sayıları eşitken kütlelerin farklı olması, 'mutlaka eşittir' iddiası için karşı örnektir."
+  },
+  {
+    "id": "bd11-1",
+    "grade": 11,
+    "skill": "kavram",
+    "outcome": "KİM.11.1.1",
+    "question": "Sabit basınçta çevresine ısı veren bir tepkimenin entalpi değişiminin işareti nedir?",
+    "options": [
+      "Her zaman sıfır",
+      "Her zaman pozitif",
+      "Negatif",
+      "Tanımsız"
+    ],
+    "correct": 2,
+    "explanation": "Ekzotermik tepkimede sistem çevreye ısı verir; sabit basınçta tepkime entalpisi negatiftir."
+  },
+  {
+    "id": "bd11-2",
+    "grade": 11,
+    "skill": "hesaplama",
+    "outcome": "KİM.11.1.4",
+    "question": "Bir tepkimenin girenlerinin toplam entalpisi 150 kJ, ürünlerininki 90 kJ olarak verilmiştir. ΔH kaç kJ'dür?",
+    "options": [
+      "+60",
+      "−60",
+      "+240",
+      "−240"
+    ],
+    "correct": 1,
+    "explanation": "ΔH = H(ürünler) − H(girenler) = 90 − 150 = −60 kJ."
+  },
+  {
+    "id": "bd11-3",
+    "grade": 11,
+    "skill": "cikarim",
+    "outcome": "KİM.11.1.1",
+    "question": "Isı kaybı ihmal edilen bir kalorimetrede tepkime olurken çevresindeki suyun sıcaklığı yükseliyor. Düzenek dışarıdan ısıtılmadığına göre hangi çıkarım desteklenir?",
+    "options": [
+      "Tepkime kesinlikle endotermiktir.",
+      "Enerji yok olmuştur.",
+      "Su kimyasal olarak mutlaka değişmiştir.",
+      "Tepkime çevresine ısı vermiştir."
+    ],
+    "correct": 3,
+    "explanation": "Suyun aldığı ısı tepkimeden gelir. Bu gözlem tepkimenin ekzotermik olduğunu destekler."
+  },
+  {
+    "id": "bd11-4",
+    "grade": 11,
+    "skill": "hipotez",
+    "outcome": "KİM.11.1.7",
+    "question": "Derişimin tepkime hızına etkisini araştıran bir öğrenci hangi sınanabilir hipotezi seçmelidir?",
+    "options": [
+      "Bütün tepkimeler aynı hızdadır.",
+      "Kimya zor bir derstir.",
+      "Diğer koşullar sabitken bu tepkimede reaktif derişimi artırılırsa başlangıç hızı artar.",
+      "Ölçümler her zaman kusursuzdur."
+    ],
+    "correct": 2,
+    "explanation": "Belirli bir tepkimede derişim ve başlangıç hızı arasındaki ilişki ölçülerek sınanabilir. Bu iddia bütün tepkimeler için zorunlu bir yasa olarak sunulmaz."
+  },
+  {
+    "id": "bd11-5",
+    "grade": 11,
+    "skill": "modelleme",
+    "outcome": "KİM.11.1.7",
+    "question": "Çarpışma modeline göre katalizörün etkisini hangi açıklama en uygun temsil eder?",
+    "options": [
+      "Tepkime entalpisini mutlaka sıfırlar.",
+      "Daha düşük etkinleşme enerjili bir tepkime yolu sağlar.",
+      "Atomları yok eder.",
+      "Ürünlerin kimliğini her zaman değiştirir."
+    ],
+    "correct": 1,
+    "explanation": "Katalizör alternatif ve daha düşük etkinleşme enerjili yol sağlar; aynı tepkimenin ΔH değerini değiştirmez."
+  },
+  {
+    "id": "bd11-6",
+    "grade": 11,
+    "skill": "tumdengelim",
+    "outcome": "KİM.11.1.4",
+    "question": "Bir tepkimenin denklemi ters çevrildiğinde ΔH'nin işareti değişir. A → B için ΔH = −80 kJ ise B → A için ΔH nedir?",
+    "options": [
+      "−160 kJ",
+      "−80 kJ",
+      "0 kJ",
+      "+80 kJ"
+    ],
+    "correct": 3,
+    "explanation": "Genel entalpi kuralı ters tepkimeye uygulandığında büyüklük korunur, işaret değişir: +80 kJ."
+  },
+  {
+    "id": "bd11-7",
+    "grade": 11,
+    "skill": "tumevarim",
+    "outcome": "KİM.11.1.3",
+    "question": "Bir öğrenci üç farklı gaz taneciğinde bağları koparmak için enerji verilmesi gerektiğini gözlüyor. Bu gözlemlerden hangi genellemeye ulaşması uygundur?",
+    "options": [
+      "Bağ koparmak enerji gerektirir.",
+      "Bağ koparmak her zaman çevreye enerji verir.",
+      "Bütün bağların enerjisi aynıdır.",
+      "Her tepkimenin toplam entalpisi pozitiftir."
+    ],
+    "correct": 0,
+    "explanation": "Özel bağ koparma örneklerinden ortak bir ilkeye gidilir. Tepkimenin toplam enerji değişimi için oluşan bağlar da dikkate alınmalıdır."
+  },
+  {
+    "id": "bd11-8",
+    "grade": 11,
+    "skill": "veri",
+    "outcome": "KİM.11.1.6",
+    "question": "Bir reaktifin derişimi t=0 s'de 0,80 mol/L; t=10 s'de 0,60 mol/L; t=20 s'de 0,50 mol/L'dir. Hangi zaman aralığında ortalama tüketilme hızı daha büyüktür?",
+    "options": [
+      "10–20 s",
+      "İki aralıkta eşit",
+      "0–10 s",
+      "Veri yetersiz"
+    ],
+    "correct": 2,
+    "explanation": "0–10 s'de 0,20/10 = 0,020 mol/(L·s); 10–20 s'de 0,10/10 = 0,010 mol/(L·s). İlk aralık daha hızlıdır."
+  },
+  {
+    "id": "bd11-9",
+    "grade": 11,
+    "skill": "onerme",
+    "outcome": "KİM.11.1.7",
+    "question": "'Katalizör eklenen her tepkimenin ΔH değeri değişir.' önermesi hakkında hangisi doğrudur?",
+    "options": [
+      "Doğrudur; katalizör atom sayısını artırır.",
+      "Yanlıştır; katalizör tepkime yolunu değiştirir, aynı başlangıç ve son hâller arasındaki ΔH'yi değiştirmez.",
+      "Doğrudur; bütün tepkimeler endotermik olur.",
+      "Doğruluk değeri yoktur; bu bir soru cümlesidir."
+    ],
+    "correct": 1,
+    "explanation": "ΔH başlangıç ve son hâllere bağlıdır. Katalizör etkinleşme enerjisini değiştirebilir; aynı tepkimenin entalpi değişimini değiştirmez."
+  },
+  {
+    "id": "bd9-10",
+    "grade": 9,
+    "skill": "kavram",
+    "outcome": "KİM.9.1.7",
+    "question": "Nötr atom katyon olurken hangisi değişmeden kalır?",
+    "options": [
+      "Proton sayısı",
+      "Elektron sayısı",
+      "Net yük",
+      "Toplam elektron yükü"
+    ],
+    "correct": 0,
+    "explanation": "İyonlaşma çekirdeği değiştirmez; proton sayısı korunur."
+  },
+  {
+    "id": "bd9-11",
+    "grade": 9,
+    "skill": "kavram",
+    "outcome": "KİM.9.1.5",
+    "question": "Pauli ilkesine göre bir orbital en fazla kaç elektron alır?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "explanation": "Bir orbital zıt spinli en fazla iki elektron alır."
+  },
+  {
+    "id": "bd9-12",
+    "grade": 9,
+    "skill": "hesaplama",
+    "outcome": "KİM.9.1.7",
+    "question": "17 protonlu nötr atom bir elektron alırsa kaç elektronu olur?",
+    "options": [
+      "16",
+      "17",
+      "18",
+      "19"
+    ],
+    "correct": 2,
+    "explanation": "Nötr durumda 17 olan elektron sayısı bir artarak 18 olur."
+  },
+  {
+    "id": "bd9-13",
+    "grade": 9,
+    "skill": "hesaplama",
+    "outcome": "KİM.9.1.3",
+    "question": "12 protonu ve 10 elektronu olan iyonun yükü nedir?",
+    "options": [
+      "2−",
+      "1−",
+      "1+",
+      "2+"
+    ],
+    "correct": 3,
+    "explanation": "Net yük 12 − 10 = +2 olur."
+  },
+  {
+    "id": "bd9-14",
+    "grade": 9,
+    "skill": "cikarim",
+    "outcome": "KİM.9.1.3",
+    "question": "Elektrik alanında negatif levhaya sapan tanecik demetinin yükü için ne söylenebilir?",
+    "options": [
+      "Pozitiftir.",
+      "Negatiftir.",
+      "Kesinlikle sıfırdır.",
+      "Yük taşımak zorunda değildir."
+    ],
+    "correct": 0,
+    "explanation": "Zıt yükler birbirini çeker; sapma pozitif yükü destekler."
+  },
+  {
+    "id": "bd9-15",
+    "grade": 9,
+    "skill": "cikarim",
+    "outcome": "KİM.9.1.3",
+    "question": "İki nötr atomun proton sayısı aynı, kütle numarası farklıdır. Hangisi zorunludur?",
+    "options": [
+      "Elektron sayıları farklıdır.",
+      "Nötron sayıları farklıdır.",
+      "Biri katyondur.",
+      "Element türleri farklıdır."
+    ],
+    "correct": 1,
+    "explanation": "Kütle numarası proton ve nötron toplamıdır; protonlar aynıysa fark nötrondadır."
+  },
+  {
+    "id": "bd9-16",
+    "grade": 9,
+    "skill": "hipotez",
+    "outcome": "KİM.9.1.1",
+    "question": "Karıştırmanın şekerin çözünme süresine etkisi araştırılacak. Sınanabilir hipotez hangisidir?",
+    "options": [
+      "Şeker tatlıdır.",
+      "Deneyler güzeldir.",
+      "Diğer koşullar sabitken karıştırmak çözünme süresini kısaltır.",
+      "Her sonuç doğrudur."
+    ],
+    "correct": 2,
+    "explanation": "Karıştırma değişkeni ölçülen çözünme süresiyle ilişkilendirilmiştir."
+  },
+  {
+    "id": "bd9-17",
+    "grade": 9,
+    "skill": "hipotez",
+    "outcome": "KİM.9.1.1",
+    "question": "Toz ve küp şekerin çözünmesi karşılaştırılacak. Uygun hipotez hangisidir?",
+    "options": [
+      "Küp şeker daha güzeldir.",
+      "Bütün katılar aynıdır.",
+      "Süre ölçülmez.",
+      "Eşit kütle ve aynı su koşullarında toz şeker daha kısa sürede çözünür."
+    ],
+    "correct": 3,
+    "explanation": "Hipotez, biçim ve yüzey alanı farkını ölçülebilir süreyle ilişkilendirir."
+  },
+  {
+    "id": "bd9-18",
+    "grade": 9,
+    "skill": "modelleme",
+    "outcome": "KİM.9.1.3",
+    "question": "İki izotopun modelinde hangisi uygun olur?",
+    "options": [
+      "Proton sayısı aynı, nötron sayısı farklı",
+      "Proton farklı, nötron aynı",
+      "İki sayı da mutlaka aynı",
+      "Çekirdekler boş"
+    ],
+    "correct": 0,
+    "explanation": "İzotoplarda element kimliği korunur; nötron sayısı farklıdır."
+  },
+  {
+    "id": "bd9-19",
+    "grade": 9,
+    "skill": "modelleme",
+    "outcome": "KİM.9.1.7",
+    "question": "Na atomundan Na+ oluşum modeli nasıl değiştirilmelidir?",
+    "options": [
+      "Bir proton çıkarılmalı.",
+      "Bir elektron çıkarılmalı; çekirdek korunmalı.",
+      "Bir proton eklenmeli.",
+      "Bir nötron çıkarılmalı."
+    ],
+    "correct": 1,
+    "explanation": "Na+ bir elektron kaybıyla oluşur; çekirdek değişmez."
+  },
+  {
+    "id": "bd9-20",
+    "grade": 9,
+    "skill": "tumdengelim",
+    "outcome": "KİM.9.1.5",
+    "question": "Hund kuralı eş enerjili orbitallerin önce tek tek dolduğunu belirtir. p³ için hangi yerleşim uygundur?",
+    "options": [
+      "Bir orbitalde üç elektron",
+      "Bir çift ve bir tek elektron",
+      "Üç orbitalde paralel spinli birer elektron",
+      "Üçü de boş"
+    ],
+    "correct": 2,
+    "explanation": "Genel kural üç elektronun üç eş enerjili orbitale tek tek yerleşmesini gerektirir."
+  },
+  {
+    "id": "bd9-21",
+    "grade": 9,
+    "skill": "tumdengelim",
+    "outcome": "KİM.9.1.6",
+    "question": "Ana grupta en büyük n periyodu verir. Dizilimi 1s² 2s² 2p⁶ 3s² olan nötr atomun periyodu kaçtır?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "3"
+    ],
+    "correct": 3,
+    "explanation": "Dizilimde en büyük baş kuantum sayısı 3 olduğundan üçüncü periyottadır."
+  },
+  {
+    "id": "bd9-22",
+    "grade": 9,
+    "skill": "tumevarim",
+    "outcome": "KİM.9.1.6",
+    "question": "Ne ve Ar için dış katmanda sekiz elektron gözleniyor. Veriye uygun sınırlı genelleme hangisidir?",
+    "options": [
+      "İncelenen bu iki soy gazın dış katmanı sekiz elektronludur.",
+      "Her element sekiz elektronludur.",
+      "He de sekiz elektronludur.",
+      "Her atomun kütlesi aynıdır."
+    ],
+    "correct": 0,
+    "explanation": "Gözlenen ortak özellik yalnızca desteklenen örneklere genellenir."
+  },
+  {
+    "id": "bd9-23",
+    "grade": 9,
+    "skill": "tumevarim",
+    "outcome": "KİM.9.1.7",
+    "question": "Na, Mg ve Al sırasıyla 1, 2, 3 elektron verdiğinde +1, +2, +3 yükleniyor. Hangi ilişki desteklenir?",
+    "options": [
+      "Proton sayısı azalır.",
+      "Verilen elektron sayısı kadar pozitif yük oluşur.",
+      "Elektron vermek negatif yük oluşturur.",
+      "Element türü değişir."
+    ],
+    "correct": 1,
+    "explanation": "Özel örneklerden elektron kaybı ile pozitif yük artışı arasındaki örüntü çıkarılır."
+  },
+  {
+    "id": "bd9-24",
+    "grade": 9,
+    "skill": "veri",
+    "outcome": "KİM.9.1.3",
+    "question": "Tablo: X 8 proton 8 nötron; Y 8 proton 10 nötron; Z 10 proton 10 nötron. İzotop çifti hangisidir?",
+    "options": [
+      "X–Z",
+      "Y–Z",
+      "X–Y",
+      "Üçü"
+    ],
+    "correct": 2,
+    "explanation": "X ve Y aynı proton, farklı nötron sayısına sahiptir."
+  },
+  {
+    "id": "bd9-25",
+    "grade": 9,
+    "skill": "veri",
+    "outcome": "KİM.9.1.5",
+    "question": "Katman dağılımları X: 2,8,1; Y: 2,8,7; Z: 2,8,8. Dış katman elektron sayısı en fazla olan hangisidir?",
+    "options": [
+      "X",
+      "Y",
+      "Hepsi eşit",
+      "Z"
+    ],
+    "correct": 3,
+    "explanation": "Son katman sayıları 1, 7, 8 olduğundan en büyük Z atomundadır."
+  },
+  {
+    "id": "bd9-26",
+    "grade": 9,
+    "skill": "onerme",
+    "outcome": "KİM.9.1.3",
+    "question": "Bütün atomlar nötron içerir iddiasını hangi örnek çürütür?",
+    "options": [
+      "1 proton, 0 nötronlu hidrojen-1",
+      "6 proton, 6 nötronlu karbon-12",
+      "8 proton, 8 nötronlu oksijen-16",
+      "10 proton, 10 nötronlu neon-20"
+    ],
+    "correct": 0,
+    "explanation": "Nötronsuz hidrojen-1 evrensel iddiaya karşı örnektir."
+  },
+  {
+    "id": "bd9-27",
+    "grade": 9,
+    "skill": "onerme",
+    "outcome": "KİM.9.1.7",
+    "question": "Elektron alan nötr atom negatif iyon olur önermesinin gerekçesi hangisidir?",
+    "options": [
+      "Protonlar kaybolur.",
+      "Elektron sayısı proton sayısını aşar.",
+      "Elektron pozitiftir.",
+      "Nötron sayısı azalır."
+    ],
+    "correct": 1,
+    "explanation": "Çekirdek sabitken alınan elektron negatif yük fazlası oluşturur."
+  },
+  {
+    "id": "bd10-10",
+    "grade": 10,
+    "skill": "kavram",
+    "outcome": "KİM.10.1.6",
+    "question": "Kimyasal denklem denkleştirilirken ne değiştirilmelidir?",
+    "options": [
+      "Alt indisler",
+      "Element sembolleri",
+      "Katsayılar",
+      "Atom türleri"
+    ],
+    "correct": 2,
+    "explanation": "Madde formülleri korunur; atom sayıları katsayılarla eşitlenir."
+  },
+  {
+    "id": "bd10-11",
+    "grade": 10,
+    "skill": "kavram",
+    "outcome": "KİM.10.1.1",
+    "question": "Hangisinde yeni madde oluşur?",
+    "options": [
+      "Buzun erimesi",
+      "Camın kırılması",
+      "Suyun buharlaşması",
+      "Demirin paslanması"
+    ],
+    "correct": 3,
+    "explanation": "Paslanmada demir yeni bileşiklere dönüşür."
+  },
+  {
+    "id": "bd10-12",
+    "grade": 10,
+    "skill": "hesaplama",
+    "outcome": "KİM.10.1.4",
+    "question": "0,5 mol molekül kaç molekül içerir? (Nₐ = 6,02 × 10²³ mol⁻¹)",
+    "options": [
+      "3,01 × 10²³",
+      "6,02 × 10²³",
+      "1,204 × 10²⁴",
+      "0,5"
+    ],
+    "correct": 0,
+    "explanation": "N = n × Nₐ = 0,5 × 6,02 × 10²³ olur."
+  },
+  {
+    "id": "bd10-13",
+    "grade": 10,
+    "skill": "hesaplama",
+    "outcome": "KİM.10.1.5",
+    "question": "Molar kütlesi 44 g/mol olan CO₂ gazının 0,25 molü kaç gramdır?",
+    "options": [
+      "44",
+      "11",
+      "22",
+      "176"
+    ],
+    "correct": 1,
+    "explanation": "m = n × M = 0,25 × 44 = 11 g."
+  },
+  {
+    "id": "bd10-14",
+    "grade": 10,
+    "skill": "cikarim",
+    "outcome": "KİM.10.1.1",
+    "question": "Kapalı kapta tepkime öncesi ve sonrası toplam kütle aynıdır. En uygun çıkarım hangisidir?",
+    "options": [
+      "Değişim yoktur.",
+      "Madde türleri aynı kalmıştır.",
+      "Atomlar yeniden düzenlenirken toplam kütle korunmuştur.",
+      "Tepkime mutlaka ısı almıştır."
+    ],
+    "correct": 2,
+    "explanation": "Kütlenin korunması yeni madde oluşumuyla uyumludur; atomlar kaybolmaz."
+  },
+  {
+    "id": "bd10-15",
+    "grade": 10,
+    "skill": "cikarim",
+    "outcome": "KİM.10.1.8",
+    "question": "Gaz miktarı ve sıcaklık sabitken hacim azaltılınca basınç artıyor. Hangi açıklama desteklenir?",
+    "options": [
+      "Tanecikler büyümüştür.",
+      "Tanecik sayısı artmıştır.",
+      "Molar kütle artmıştır.",
+      "Taneciklerin duvarlarla çarpışmaları sıklaşmıştır."
+    ],
+    "correct": 3,
+    "explanation": "Daha dar hacimde aynı sayıdaki tanecik duvarlara daha sık çarpar."
+  },
+  {
+    "id": "bd10-16",
+    "grade": 10,
+    "skill": "hipotez",
+    "outcome": "KİM.10.1.8",
+    "question": "Sabit basınçta gazın sıcaklık-hacim ilişkisi için hangi hipotez sınanabilir?",
+    "options": [
+      "Gaz miktarı sabitken mutlak sıcaklık artarsa hacim artar.",
+      "Gazlar hep mavidir.",
+      "Sıcaklığın birimi yoktur.",
+      "Her kap aynıdır."
+    ],
+    "correct": 0,
+    "explanation": "Sabit miktar ve basınçta ölçülebilir iki değişken ilişkilendirilir."
+  },
+  {
+    "id": "bd10-17",
+    "grade": 10,
+    "skill": "hipotez",
+    "outcome": "KİM.10.1.1",
+    "question": "İki çözeltide çökelek oluşumu araştırılacak. Sınanabilir hipotez hangisidir?",
+    "options": [
+      "Karıştırmak güzeldir.",
+      "Bu iki çözelti karıştırılırsa başlangıçta bulunmayan çözünmeyen katı oluşur.",
+      "Maddeler hep beyazdır.",
+      "Ölçüm gereksizdir."
+    ],
+    "correct": 1,
+    "explanation": "Yeni katının oluşması gözlenerek iddia sınanabilir."
+  },
+  {
+    "id": "bd10-18",
+    "grade": 10,
+    "skill": "modelleme",
+    "outcome": "KİM.10.1.6",
+    "question": "Amonyak oluşumunun atomları koruyan modeli hangisidir?",
+    "options": [
+      "N₂ + H₂ → NH₃",
+      "2 N₂ + H₂ → 2 NH₃",
+      "N₂ + 3 H₂ → 2 NH₃",
+      "N₂ + 2 H₂ → 3 NH₃"
+    ],
+    "correct": 2,
+    "explanation": "İki tarafta 2 azot ve 6 hidrojen atomu bulunur."
+  },
+  {
+    "id": "bd10-19",
+    "grade": 10,
+    "skill": "modelleme",
+    "outcome": "KİM.10.1.2",
+    "question": "A₂ + B₂ → 2 AB tanecik modelinde hangisi doğrudur?",
+    "options": [
+      "A, B atomuna dönüşür.",
+      "Atomların yarısı kaybolur.",
+      "Ürünler yalnız A₂ içerir.",
+      "Bağ düzeni değişir; atom türleri ve sayıları korunur."
+    ],
+    "correct": 3,
+    "explanation": "Kimyasal model atomları koruyup bağların yeniden düzenlenmesini gösterir."
+  },
+  {
+    "id": "bd10-20",
+    "grade": 10,
+    "skill": "tumdengelim",
+    "outcome": "KİM.10.1.7",
+    "question": "2 CO + O₂ → 2 CO₂ için O₂ fazladır. 3 mol CO tam tepkimeye girerse kaç mol CO₂ oluşur?",
+    "options": [
+      "3",
+      "1,5",
+      "2",
+      "6"
+    ],
+    "correct": 0,
+    "explanation": "CO ve CO₂ katsayıları eşit olduğundan mol oranı 1:1 olur."
+  },
+  {
+    "id": "bd10-21",
+    "grade": 10,
+    "skill": "tumdengelim",
+    "outcome": "KİM.10.1.5",
+    "question": "Aynı saf madde için m = n × M bağıntısında n üç katına çıkarsa m nasıl değişir?",
+    "options": [
+      "Üçte birine iner.",
+      "Üç katına çıkar.",
+      "Sabit kalır.",
+      "Dokuz katına çıkar."
+    ],
+    "correct": 1,
+    "explanation": "Molar kütle sabit olduğundan kütle mol sayısıyla doğru orantılıdır."
+  },
+  {
+    "id": "bd10-22",
+    "grade": 10,
+    "skill": "tumevarim",
+    "outcome": "KİM.10.1.5",
+    "question": "Saf madde ölçümleri: 0,2 mol 8 g; 0,4 mol 16 g; 0,6 mol 24 g. Hangi genelleme desteklenir?",
+    "options": [
+      "Kütle mol sayısından bağımsızdır.",
+      "Molar kütle her ölçümde değişir.",
+      "Bu maddede kütle mol sayısıyla doğru orantılıdır.",
+      "Her maddenin molar kütlesi 40 olur."
+    ],
+    "correct": 2,
+    "explanation": "Her ölçümde m/n = 40 g/mol sabittir; sonuç bu maddeye aittir."
+  },
+  {
+    "id": "bd10-23",
+    "grade": 10,
+    "skill": "tumevarim",
+    "outcome": "KİM.10.1.8",
+    "question": "Aynı gaz sabit sıcaklıkta 1 L için 4 bar, 2 L için 2 bar, 4 L için 1 bar veriyor. Hangi örüntü vardır?",
+    "options": [
+      "P/V sabit",
+      "P ile V doğru orantılı",
+      "P sabit",
+      "P × V sabit"
+    ],
+    "correct": 3,
+    "explanation": "Her ölçümde P × V = 4 bar·L olduğundan ters orantı desteklenir."
+  },
+  {
+    "id": "bd10-24",
+    "grade": 10,
+    "skill": "veri",
+    "outcome": "KİM.10.1.5",
+    "question": "Örnekler: X 1 mol 10 g; Y 0,5 mol 15 g; Z 2 mol 40 g. Molar kütlesi en büyük hangisidir?",
+    "options": [
+      "Y",
+      "X",
+      "Z",
+      "Hepsi eşit"
+    ],
+    "correct": 0,
+    "explanation": "Molar kütleler X için 10, Y için 30 ve Z için 20 g/mol olur."
+  },
+  {
+    "id": "bd10-25",
+    "grade": 10,
+    "skill": "veri",
+    "outcome": "KİM.10.1.7",
+    "question": "2 H₂ + O₂ → 2 H₂O için 4 mol H₂ ve 3 mol O₂ tam tepkimeye bırakılıyor. Sonuç hangisidir?",
+    "options": [
+      "2 mol su ve 2 mol O₂",
+      "4 mol su ve 1 mol O₂",
+      "6 mol su ve sıfır O₂",
+      "3 mol su ve 1 mol H₂"
+    ],
+    "correct": 1,
+    "explanation": "H₂ sınırlayıcıdır; 2 mol O₂ tüketilir, 4 mol su oluşur, 1 mol O₂ artar."
+  },
+  {
+    "id": "bd10-26",
+    "grade": 10,
+    "skill": "onerme",
+    "outcome": "KİM.10.1.4",
+    "question": "Bir mol farklı molekül türleri eşit sayıda molekül içerir önermesinin gerekçesi hangisidir?",
+    "options": [
+      "Kütleler aynıdır.",
+      "Hacimler aynıdır.",
+      "Mol belirtilen tanecik türünün sayısını ifade eder.",
+      "Fiziksel hâller aynıdır."
+    ],
+    "correct": 2,
+    "explanation": "Mol sayısı tanecik sayısını belirler; eşit kütle veya hacim gerektirmez."
+  },
+  {
+    "id": "bd10-27",
+    "grade": 10,
+    "skill": "onerme",
+    "outcome": "KİM.10.1.6",
+    "question": "Kimyasal tepkimede atom türü değişir iddiasına hangi yanıt uygundur?",
+    "options": [
+      "Atomlar elektrona dönüşür.",
+      "Atomlar yok olur.",
+      "Her zaman başka element çekirdeği oluşur.",
+      "Olağan kimyasal tepkimede atomlar yeniden düzenlenir; element türü korunur."
+    ],
+    "correct": 3,
+    "explanation": "Kimyasal tepkimeler çekirdek dönüşümü değildir."
+  },
+  {
+    "id": "bd11-10",
+    "grade": 11,
+    "skill": "kavram",
+    "outcome": "KİM.11.1.3",
+    "question": "Gaz hâlindeki atomlar arasında bir bağ oluşurken enerji açısından ne olur?",
+    "options": [
+      "Enerji açığa çıkar.",
+      "Zorunlu olarak enerji alınır.",
+      "Enerji hiç değişmez.",
+      "Çekirdekler yok olur."
+    ],
+    "correct": 0,
+    "explanation": "Bağ oluşumu enerji verir; aynı bağı koparmak enerji gerektirir."
+  },
+  {
+    "id": "bd11-11",
+    "grade": 11,
+    "skill": "kavram",
+    "outcome": "KİM.11.1.7",
+    "question": "Hızı artıran ve toplam tepkimede tüketilmeyen madde nedir?",
+    "options": [
+      "Ürün",
+      "Katalizör",
+      "Çökelek",
+      "Çözücü"
+    ],
+    "correct": 1,
+    "explanation": "Katalizör mekanizmada tüketilse bile sonraki adımlarda yeniden oluşur."
+  },
+  {
+    "id": "bd11-12",
+    "grade": 11,
+    "skill": "hesaplama",
+    "outcome": "KİM.11.1.3",
+    "question": "H₂ + Cl₂ → 2 HCl için H–H 436, Cl–Cl 243, H–Cl 431 kJ/mol ise yaklaşık ΔH kaç kJ olur?",
+    "options": [
+      "+183",
+      "+679",
+      "−183",
+      "−862"
+    ],
+    "correct": 2,
+    "explanation": "Kopan bağlar eksi oluşan bağlar: 436 + 243 − 2×431 = −183 kJ."
+  },
+  {
+    "id": "bd11-13",
+    "grade": 11,
+    "skill": "hesaplama",
+    "outcome": "KİM.11.1.6",
+    "question": "Reaktif derişimi 20 s içinde 0,60 mol/L değerinden 0,20 mol/L değerine düşüyor. Ortalama tüketilme hızı kaç mol/(L·s) olur?",
+    "options": [
+      "0,40",
+      "0,20",
+      "0,01",
+      "0,02"
+    ],
+    "correct": 3,
+    "explanation": "Pozitif tüketilme hızı (0,60 − 0,20)/20 = 0,02 olur."
+  },
+  {
+    "id": "bd11-14",
+    "grade": 11,
+    "skill": "cikarim",
+    "outcome": "KİM.11.1.7",
+    "question": "Katalizör hızı artırıyor, başlangıç ve son enerji düzeyleri değişmiyor. Uygun çıkarım hangisidir?",
+    "options": [
+      "Yol değişmiş olabilir; ΔH değişmemiştir.",
+      "ΔH zorunlu olarak artmıştır.",
+      "Ürünler başka elementlerdir.",
+      "Enerji korunmaz."
+    ],
+    "correct": 0,
+    "explanation": "Alternatif yol mümkündür; aynı başlangıç ve son hâller arasındaki enerji farkı korunur."
+  },
+  {
+    "id": "bd11-15",
+    "grade": 11,
+    "skill": "cikarim",
+    "outcome": "KİM.11.1.1",
+    "question": "Dışarıdan ısıtılmayan yalıtılmış düzende çözünme sırasında çevredeki su soğuyor. Uygun çıkarım hangisidir?",
+    "options": [
+      "Olay çevreye ısı vermiştir.",
+      "Çözünme çevreden ısı almıştır.",
+      "Enerji yok olmuştur.",
+      "Su kütlesi sıfırlanmıştır."
+    ],
+    "correct": 1,
+    "explanation": "Çevrenin soğuması olayın çevreden enerji aldığını destekler."
+  },
+  {
+    "id": "bd11-16",
+    "grade": 11,
+    "skill": "hipotez",
+    "outcome": "KİM.11.1.7",
+    "question": "Yüzey alanının hıza etkisi için uygun hipotez hangisidir?",
+    "options": [
+      "Tozlar hep renklidir.",
+      "Her katı gazdır.",
+      "Diğer koşullar sabitken aynı reaktifin eşit kütlesi toz hâline getirilirse başlangıç hızı artar.",
+      "Ölçüm gereksizdir."
+    ],
+    "correct": 2,
+    "explanation": "Katı boyutu üzerinden yüzey alanı değiştirilir; başlangıç hızı ölçülür."
+  },
+  {
+    "id": "bd11-17",
+    "grade": 11,
+    "skill": "hipotez",
+    "outcome": "KİM.11.1.2",
+    "question": "İki yakıtın ısıtma potansiyeli için hangi hipotez sınanabilir?",
+    "options": [
+      "A daha güzeldir.",
+      "Yakıtlar aynı moleküldür.",
+      "Yakıtlar yalnız katıdır.",
+      "Eşit yakıt kütlesi, tam yanma ve aynı ısı aktarımında A, aynı su kütlesini B yakıtından fazla ısıtır."
+    ],
+    "correct": 3,
+    "explanation": "Kontrollü koşullarda suyun sıcaklık artışı ölçülerek karşılaştırma yapılır."
+  },
+  {
+    "id": "bd11-18",
+    "grade": 11,
+    "skill": "modelleme",
+    "outcome": "KİM.11.1.1",
+    "question": "Ekzotermik tepkimenin enerji diyagramında ürün düzeyi girenlere göre nerededir?",
+    "options": [
+      "Daha aşağıda",
+      "Daha yukarıda",
+      "Her zaman aynı",
+      "Diyagram dışında"
+    ],
+    "correct": 0,
+    "explanation": "Ürünlerin entalpisi daha düşük olduğundan ΔH negatiftir."
+  },
+  {
+    "id": "bd11-19",
+    "grade": 11,
+    "skill": "modelleme",
+    "outcome": "KİM.11.1.7",
+    "question": "Aynı tepkimenin katalizörlü enerji diyagramı nasıl olmalıdır?",
+    "options": [
+      "Ürün enerjisi mutlaka daha düşük",
+      "Başlangıç ve son düzeyler aynı; aşılması gereken en yüksek engel daha düşük",
+      "Etkinleşme engeli daha yüksek",
+      "Giren atomlar başka elementler"
+    ],
+    "correct": 1,
+    "explanation": "Katalizör aynı toplam tepkimede enerji farkını değiştirmez; daha düşük engelli yol sağlar."
+  },
+  {
+    "id": "bd11-20",
+    "grade": 11,
+    "skill": "tumdengelim",
+    "outcome": "KİM.11.1.4",
+    "question": "Denklem ikiyle çarpılınca ΔH de ikiyle çarpılır. A → B için +35 kJ ise 2 A → 2 B için nedir?",
+    "options": [
+      "−70 kJ",
+      "+35 kJ",
+      "+70 kJ",
+      "−35 kJ"
+    ],
+    "correct": 2,
+    "explanation": "Entalpi değişimi tepkime miktarıyla iki katına çıkar."
+  },
+  {
+    "id": "bd11-21",
+    "grade": 11,
+    "skill": "tumdengelim",
+    "outcome": "KİM.11.1.8",
+    "question": "v = k[A]² olan tepkimede sıcaklık sabitken [A] iki katına çıkarsa hız kaç katına çıkar?",
+    "options": [
+      "2",
+      "8",
+      "1",
+      "4"
+    ],
+    "correct": 3,
+    "explanation": "Derişim çarpanı karesiyle etki eder: 2² = 4."
+  },
+  {
+    "id": "bd11-22",
+    "grade": 11,
+    "skill": "tumevarim",
+    "outcome": "KİM.11.1.8",
+    "question": "Sabit sıcaklıkta [A]=0,10 için hız 0,02; 0,20 için 0,04; 0,30 için 0,06. Uyumlu bağıntı hangisidir?",
+    "options": [
+      "v = k[A]",
+      "v = k[A]²",
+      "v = k/[A]",
+      "v = k"
+    ],
+    "correct": 0,
+    "explanation": "Hız derişimle aynı oranda arttığından birinci derece bağıntı desteklenir."
+  },
+  {
+    "id": "bd11-23",
+    "grade": 11,
+    "skill": "tumevarim",
+    "outcome": "KİM.11.1.3",
+    "question": "Gaz atomları arasında bağ oluşan üç örnekte enerji verildiği görülüyor. Uygun genelleme hangisidir?",
+    "options": [
+      "Her tepkime ekzotermiktir.",
+      "Bağ oluşumu enerji açığa çıkarır.",
+      "Bütün bağ enerjileri eşittir.",
+      "Bağ kopması enerji gerektirmez."
+    ],
+    "correct": 1,
+    "explanation": "Gözlemler bağ oluşumunun ortak niteliğini destekler; toplam tepkimeye genellenmez."
+  },
+  {
+    "id": "bd11-24",
+    "grade": 11,
+    "skill": "veri",
+    "outcome": "KİM.11.1.1",
+    "question": "Entalpi tablosu: I giren 80 ürün 30; II giren 20 ürün 50; III giren 40 ürün 40 kJ. Hangisi endotermiktir?",
+    "options": [
+      "Yalnız I",
+      "I ve III",
+      "Yalnız II",
+      "II ve III"
+    ],
+    "correct": 2,
+    "explanation": "ΔH değerleri −50, +30, 0 olur; yalnız II pozitiftir."
+  },
+  {
+    "id": "bd11-25",
+    "grade": 11,
+    "skill": "veri",
+    "outcome": "KİM.11.1.7",
+    "question": "Etkinleşme enerjileri katalizörsüz 90, katalizörlü 55 kJ/mol olarak verilmiştir. Engeldeki azalma kaç kJ/mol olur?",
+    "options": [
+      "145",
+      "55",
+      "90",
+      "35"
+    ],
+    "correct": 3,
+    "explanation": "Azalma 90 − 55 = 35 kJ/mol olur; tepkime entalpisiyle karıştırılmaz."
+  },
+  {
+    "id": "bd11-26",
+    "grade": 11,
+    "skill": "onerme",
+    "outcome": "KİM.11.1.1",
+    "question": "Ekzotermik tepkimede ürün entalpisi daha küçüktür önermesinin karşılığı hangisidir?",
+    "options": [
+      "ΔH = H(ürünler) − H(girenler) < 0",
+      "ΔH her zaman +1",
+      "Ürünler daha yüksek entalpili",
+      "ΔH tanımsız"
+    ],
+    "correct": 0,
+    "explanation": "Ürünler eksi girenler farkı negatiftir."
+  },
+  {
+    "id": "bd11-27",
+    "grade": 11,
+    "skill": "onerme",
+    "outcome": "KİM.11.1.7",
+    "question": "Hızlı gerçekleşen her tepkime ekzotermiktir iddiasına doğru yanıt hangisidir?",
+    "options": [
+      "Doğru; hız ve ΔH aynıdır.",
+      "Genel olarak doğru değildir; hız kinetikle, ΔH başlangıç ve son enerjilerle ilgilidir.",
+      "Doğru; endotermik olay gerçekleşmez.",
+      "İfade bir emir cümlesidir."
+    ],
+    "correct": 1,
+    "explanation": "Yalnız hızdan entalpi değişiminin işareti belirlenemez."
+  }
+]

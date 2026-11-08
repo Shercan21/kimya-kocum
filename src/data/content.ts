@@ -42,6 +42,7 @@ export type SinifMufredat = {
 }
 
 export type Soru = {
+  beceriler?: string[]
   gorselTamSoru?: boolean // Soru ve şıklar görselin içinde; yanıtta yalnız harfler gösterilir.
   id?: string
   s: string // HTML soru metni
@@ -158,7 +159,7 @@ export function etkinlikler(grade: number, kod: string) {
 
 // ---------- Yazılıya hazırlık ----------
 
-export type YaziliMadde = { h: string; p: number; s: string; c: string }
+export type YaziliMadde = { h: string; p: number; s: string; c: string; beceriler?: string[] }
 export type YaziliSoru = { baglam: string; maddeler: YaziliMadde[]; kazanim: string; puan: number }
 export type YaziliSinav = {
   id: string

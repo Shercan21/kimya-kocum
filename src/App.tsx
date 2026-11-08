@@ -1,3 +1,4 @@
+import SkillReport from './components/SkillReport'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import './App.css'
 import './student.css'
@@ -654,6 +655,8 @@ function App() {
               setMistakesOpen(true)
               window.scrollTo({ top: 0 })
             }}
+            blockedTopics={kilitler}
+            onOpenTopic={openStudyTopic}
             onPreview={teacherView ? startPreview : undefined}
           />
         )}
@@ -738,12 +741,16 @@ function ProgressPage({
   label,
   onOpenLessons,
   onOpenMistakes,
+  blockedTopics,
+  onOpenTopic,
   onPreview,
 }: {
   grades: number[]
   label?: string
   onOpenLessons: () => void
   onOpenMistakes: () => void
+  blockedTopics?: Set<string>
+  onOpenTopic: (grade: number, topic: string, tab: TopicTab) => void
   onPreview?: (next: Onizleme) => void
 }) {
   const hatalar = useHataDefteri().filter(item => grades.includes(item.grade))
@@ -785,6 +792,7 @@ function ProgressPage({
             Hata defterini aç
           </button>
         </section>
+        <SkillReport grades={grades} blocked={blockedTopics} onOpen={onOpenTopic} />
         <KazanimRaporu grades={grades} />
         <ReviewPage grades={grades} onOpenLessons={onOpenLessons} />
       </div>
