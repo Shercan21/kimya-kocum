@@ -798,6 +798,12 @@ function ProgressPage({
       </div>
       <div className="col">
         {onPreview && <StudentPreviewCard onStart={onPreview} />}
+        <section className="card">
+          <h3 className="card-title">İletişim ve geri bildirim</h3>
+          <p className="muted">Hatalı soruları, teknik sorunları ve önerilerini Hasan Hoca’ya iletebilirsin.</p>
+          <a className="primary-button" href={'mailto:ercanseyithasan@gmail.com?subject=' + encodeURIComponent('Kimya Koçum geri bildirimi')}>E-posta gönder</a>
+          <p className="small">ercanseyithasan@gmail.com</p>
+        </section>
         <AccountCard />
         <LocalBackupCard />
         <OfflineCard grades={grades} />
