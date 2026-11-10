@@ -157,6 +157,24 @@ export function etkinlikler(grade: number, kod: string) {
   return load<Record<string, EtkinlikKitabi>>(`${grade}/etkinlikler.json`, 'json').then(data => pick(data, kod))
 }
 
+// ---------- Laboratuvar deneyi föyleri ----------
+
+export type DeneyFoyu = {
+  ad: string
+  amac: string
+  sure?: string
+  malzemeler: string[]
+  guvenlik: string[]
+  adimlar: string[]
+  tablo?: { basliklar: string[]; satirlar: string[][] } // boş hücreler "" — öğrenci doldurur
+  sorular: { s: string; c: string }[]
+  ipucu?: string
+}
+
+export function deneyFoyleri(grade: number, kod: string): Promise<DeneyFoyu[]> {
+  return load<Record<string, DeneyFoyu[]>>(`${grade}/deney-foyleri.json`, 'json').then(data => data[kod] ?? [])
+}
+
 // ---------- Yazılıya hazırlık ----------
 
 export type YaziliMadde = { h: string; p: number; s: string; c: string; beceriler?: string[] }

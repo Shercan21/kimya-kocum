@@ -1,11 +1,11 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
 import ListenBar from './ListenBar'
-import { konuDeneyleri } from '../data/deneyler'
-const GasSim = lazy(() => import('./sims/GasSim'))
-const DiffusionSim = lazy(() => import('./sims/DiffusionSim'))
+import { konuDeneyleri, konudaFoyVar } from '../data/deneyler'
+import { SIMLER } from './sims'
+import DeneyFoyuKart from './DeneyFoyuKart'
 import {
   etkinlikler,
   konuAnlatimi,
@@ -14,6 +14,8 @@ import {
   konuId,
   sinifMufredati,
   type EtkinlikKitabi,
+  deneyFoyleri,
+  type DeneyFoyu,
 } from '../data/content'
 import { getTopicProgress, setTopicProgress } from '../data/learningProgress'
 import { basari, testSonuclari } from '../data/results'
@@ -59,6 +61,8 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
   const [, refresh] = useState(0)
   const anlatimKutusu = useRef<HTMLDivElement>(null)
   const deneyler = konuDeneyleri(grade, kod)
+  const foyVar = konudaFoyVar(grade, kod)
+  const [foyler, setFoyler] = useState<DeneyFoyu[] | null>(null)
 
   useEffect(() => {
     let active = true
@@ -70,6 +74,11 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
         .then(text => active && setHtml(text))
         .catch(() => active && setError('Konu anlatımı yüklenemedi.'))
     }
+    if (tab === 'deney' && foyVar && foyler === null) {
+      deneyFoyleri(grade, kod)
+        .then(data => active && setFoyler(data))
+        .catch(() => active && setError('Deney föyleri yüklenemedi.'))
+    }
     if (tab === 'etkinlik' && found?.konu.etkinlik && kit === null) {
       etkinlikler(grade, kod)
         .then(data => active && setKit(data))
@@ -78,7 +87,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
     return () => {
       active = false
     }
-  }, [tab, grade, kod, found, html, kit, detail, detailError])
+  }, [tab, grade, kod, found, html, kit, detail, detailError, foyVar, foyler])
 
   if (!found || !mufredat) {
     return (
@@ -130,7 +139,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
         <div className="tabs" role="tablist">
           {([
             ['anlatim', 'Anlatım', konu.anlatim],
-            ['deney', 'Sanal deney', deneyler.length > 0],
+            ['deney', 'Deneyler', deneyler.length > 0 || foyVar],
             ['test', `Testler (${konu.seviyeler.length + konu.baglam.length})`, true],
             ['etkinlik', `Etkinlikler (${konu.etkinlik})`, konu.etkinlik > 0],
           ] as const).map(([id, label, enabled]) =>
@@ -187,14 +196,28 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
         </section>
       )}
 
-      {tab === 'deney' && deneyler.map(d => (
-        <section key={d.baslik} className="card">
-          <h3 className="card-title">🧪 {d.baslik}</h3>
-          <Suspense fallback={<p className="muted">Deney yükleniyor…</p>}>
-            {d.tur === 'gaz' ? <GasSim modlar={d.modlar} /> : <DiffusionSim />}
-          </Suspense>
-        </section>
-      ))}
+      {tab === 'deney' && (
+        <>
+          {deneyler.map(d => {
+            const Sim = SIMLER[d.tur]
+            return Sim ? (
+              <section key={d.baslik} className="card">
+                <span className="badge">Sanal deney</span>
+                <h3 className="card-title">🧪 {d.baslik}</h3>
+                <Suspense fallback={<p className="muted">Deney yükleniyor…</p>}>
+                  <Sim modlar={d.modlar} />
+                </Suspense>
+              </section>
+            ) : null
+          })}
+          {foyVar && foyler === null && <section className="card"><p className="muted">Deney föyü yükleniyor…</p></section>}
+          {foyler?.map((foy, i) => (
+            <section key={foy.ad} className="card">
+              <DeneyFoyuKart foy={foy} no={i + 1} />
+            </section>
+          ))}
+        </>
+      )}
 
       {tab === 'test' && (
         <section className="card">

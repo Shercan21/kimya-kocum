@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 
 export type GazModu = 'serbest' | 'boyle' | 'charles' | 'gaylussac' | 'avogadro' | 'ideal'
 
-type Props = { modlar: GazModu[] }
+type Props = { modlar?: string[] }
 
 const R = 0.082
 const V_MIN = 4
@@ -53,7 +53,8 @@ type Olcum = { P: number; V: number; T: number; n: number }
 
 const yuvarla = (x: number, b = 2) => x.toLocaleString('tr-TR', { maximumFractionDigits: b, minimumFractionDigits: b })
 
-export default function GasSim({ modlar }: Props) {
+export default function GasSim(props: Props) {
+  const modlar = (props.modlar?.length ? props.modlar : ['serbest']) as GazModu[]
   const [mod, setMod] = useState<GazModu>(modlar[0])
   const [V, setV] = useState(12)
   const [T, setT] = useState(300)
