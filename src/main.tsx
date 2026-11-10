@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import DomainMigration from './components/DomainMigration'
 import { loadPublishedCurriculum } from './data/content'
 import { startCloud } from './data/cloud'
 
@@ -10,6 +11,7 @@ startCloud(() => window.location.reload())
 
 void loadPublishedCurriculum().then(() => createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <DomainMigration />
     <App />
   </StrictMode>,
 ))
