@@ -14,4 +14,12 @@ export const SIMLER: Record<string, LazyExoticComponent<ComponentType<SimProps>>
   kalorimetre: lazy(() => import('./KalorimetreSim')),
   entalpi: lazy(() => import('./EntalpiSim')),
   elektroliz: lazy(() => import('./ElektrolizSim')),
+  karistir: lazy(() => import('./KaristirSim')),
+  mol: lazy(() => import('./MolSim')),
+  denklem: lazy(() => import('./DenklemSim')),
+  cozunme: lazy(() => import('./CozunmeSim')),
+  cozunurluk: lazy(() => import('./CozunurlukSim')),
+  derisim: lazy(() => import('./DerisimSim')),
+  koligatif: lazy(() => import('./KoligatifSim')),
+  sera: lazy(() => import('./SeraSim')),
 }

@@ -4,11 +4,26 @@ import { FOYLU_KONULAR } from './foyIndex'
 export type SimTanim = { tur: string; baslik: string; modlar?: string[] }
 
 const DENEYLER: Record<string, SimTanim[]> = {
+  '10:1.1.1': [{ tur: 'karistir', baslik: 'Sanal laboratuvar: karıştır ve gözle' }],
+  '10:1.1.2': [{ tur: 'karistir', baslik: 'Tepkime türlerini keşfet' }],
+  '10:1.1.3-A': [{ tur: 'mol', baslik: 'Tartarak sayma: mol' }],
+  '10:1.1.3-B': [{ tur: 'mol', baslik: 'Kütle, mol ve tanecik sayısı' }],
+  '10:1.1.4': [{ tur: 'denklem', baslik: 'Denklem denkleştirme atölyesi', modlar: ['denklestir'] }],
+  '10:1.1.5': [{ tur: 'denklem', baslik: 'Sınırlayıcı bileşen', modlar: ['sinirlayici', 'denklestir'] }],
   '10:1.2.1': [{ tur: 'gaz', baslik: 'Kaptaki gaz tanecikleri', modlar: ['serbest'] }],
   '10:1.2.2-A': [{ tur: 'gaz', baslik: 'Gaz yasaları laboratuvarı', modlar: ['boyle', 'charles', 'avogadro'] }],
   '10:1.2.2-B': [{ tur: 'gaz', baslik: 'Basınç–sıcaklık ve birleşik gaz yasası', modlar: ['gaylussac', 'serbest'] }],
   '10:1.2.3': [{ tur: 'gaz', baslik: 'İdeal gaz denklemi', modlar: ['ideal', 'boyle', 'charles', 'gaylussac', 'avogadro'] }],
   '10:1.2.4': [{ tur: 'difuzyon', baslik: 'Cam boruda difüzyon (NH₃ – HCl)' }],
+  '10:2.1.1': [{ tur: 'cozunme', baslik: 'Çözünme tanecik düzeyinde' }],
+  '10:2.1.2': [{ tur: 'cozunme', baslik: 'Benzer benzeri çözer' }],
+  '10:2.1.3': [{ tur: 'cozunme', baslik: 'İyonik ve moleküler çözünme' }],
+  '10:2.1.4': [{ tur: 'cozunurluk', baslik: 'Çözünürlük laboratuvarı' }],
+  '10:2.1.5': [{ tur: 'cozunurluk', baslik: 'Sıcaklık ve çözünürlük' }],
+  '10:2.1.6': [{ tur: 'cozunurluk', baslik: 'Doymamış, doymuş, aşırı doymuş' }],
+  '10:2.1.7': [{ tur: 'derisim', baslik: 'Derişim ve seyreltme' }],
+  '10:2.1.8': [{ tur: 'koligatif', baslik: 'Kaynama ve donma noktası' }],
+  '10:3.1.2': [{ tur: 'sera', baslik: 'Sera etkisi' }],
 
   '11:1.1.1': [{ tur: 'kalorimetre', baslik: 'Kalorimetre: çözünme ısısı', modlar: ['cozunme', 'yakit'] }],
   '11:1.1.2': [{ tur: 'kalorimetre', baslik: 'Kalorimetre: yakıtların enerjisi', modlar: ['yakit', 'cozunme'] }],
