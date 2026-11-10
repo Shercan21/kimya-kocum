@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
 import ListenBar from './ListenBar'
+import { konuDeneyleri } from '../data/deneyler'
+const GasSim = lazy(() => import('./sims/GasSim'))
+const DiffusionSim = lazy(() => import('./sims/DiffusionSim'))
 import {
   etkinlikler,
   konuAnlatimi,
@@ -24,7 +27,7 @@ type Props = {
   onBack: () => void
 }
 
-export type TopicTab = 'anlatim' | 'test' | 'etkinlik'
+export type TopicTab = 'anlatim' | 'deney' | 'test' | 'etkinlik'
 type Tab = TopicTab
 
 type ActiveTest = { id: string; index: number; baslik: string }
@@ -55,6 +58,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
   const [activeTest, setActiveTest] = useState<ActiveTest | null>(() => { const k = found?.konu; if (!k?.test || !initialTestLevel) return null; const index = k.seviyeler.indexOf(initialTestLevel); return index < 0 ? null : {id: k.test, index, baslik: `${k.ad} · ${initialTestLevel}`}; })
   const [, refresh] = useState(0)
   const anlatimKutusu = useRef<HTMLDivElement>(null)
+  const deneyler = konuDeneyleri(grade, kod)
 
   useEffect(() => {
     let active = true
@@ -126,6 +130,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
         <div className="tabs" role="tablist">
           {([
             ['anlatim', 'Anlatım', konu.anlatim],
+            ['deney', 'Sanal deney', deneyler.length > 0],
             ['test', `Testler (${konu.seviyeler.length + konu.baglam.length})`, true],
             ['etkinlik', `Etkinlikler (${konu.etkinlik})`, konu.etkinlik > 0],
           ] as const).map(([id, label, enabled]) =>
@@ -181,6 +186,15 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
           )}
         </section>
       )}
+
+      {tab === 'deney' && deneyler.map(d => (
+        <section key={d.baslik} className="card">
+          <h3 className="card-title">🧪 {d.baslik}</h3>
+          <Suspense fallback={<p className="muted">Deney yükleniyor…</p>}>
+            {d.tur === 'gaz' ? <GasSim modlar={d.modlar} /> : <DiffusionSim />}
+          </Suspense>
+        </section>
+      ))}
 
       {tab === 'test' && (
         <section className="card">
