@@ -2537,3 +2537,13 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .siklar.gorsel-siklar { display:flex; flex-wrap:wrap; gap:10px; }
 .siklar.gorsel-siklar > li { flex:0 0 auto; }
 .siklar.gorsel-siklar button, .siklar.gorsel-siklar.readonly li { justify-content:center; align-items:center; width:auto; min-width:56px; padding:10px; }
+
+/* Sesli anlatım */
+.listen-bar { position: sticky; top: 8px; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 14px; padding: 8px 10px; background: var(--purple-50); border: 1px solid var(--purple-100); border-radius: 14px; box-shadow: 0 4px 14px rgb(38 33 92 / 8%); }
+.listen-main { display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 8px 16px; background: var(--purple-600); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; }
+.listen-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--purple-100); background: #fff; color: var(--purple-600); font-size: 16px; cursor: pointer; }
+.listen-btn.is-main { background: var(--purple-600); color: #fff; border-color: var(--purple-600); }
+.listen-progress { font-size: 13px; color: var(--purple-600); min-width: 44px; }
+.listen-speed { margin-left: auto; border: 1px solid var(--purple-100); background: #fff; color: var(--purple-600); border-radius: 999px; padding: 6px 12px; font-weight: 600; cursor: pointer; }
+.listen-hint { flex-basis: 100%; margin: 2px 2px 0; font-size: 12px; color: var(--text-muted, #666); }
+.konu .tts-aktif { background: #fff4c2; border-radius: 6px; box-shadow: 0 0 0 4px #fff4c2; transition: background .2s; }

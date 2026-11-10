@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 import TestRunner from './TestRunner'
 import ActivityRunner from './ActivityRunner'
+import ListenBar from './ListenBar'
 import {
   etkinlikler,
   konuAnlatimi,
@@ -53,6 +54,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
   const [error, setError] = useState('')
   const [activeTest, setActiveTest] = useState<ActiveTest | null>(() => { const k = found?.konu; if (!k?.test || !initialTestLevel) return null; const index = k.seviyeler.indexOf(initialTestLevel); return index < 0 ? null : {id: k.test, index, baslik: `${k.ad} · ${initialTestLevel}`}; })
   const [, refresh] = useState(0)
+  const anlatimKutusu = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let active = true
@@ -156,7 +158,8 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
             <p className="muted">Yükleniyor…</p>
           ) : (
             <>
-              <div className="konu" dangerouslySetInnerHTML={{ __html: (reading === 'detail' ? detail : html) ?? '' }} />
+              <ListenBar key={`${grade}-${kod}-${reading}`} target={anlatimKutusu} />
+              <div ref={anlatimKutusu} className="konu" dangerouslySetInnerHTML={{ __html: (reading === 'detail' ? detail : html) ?? '' }} />
               <div className="row-actions start">
                 {status === 'not_started' ? (
                   <button
