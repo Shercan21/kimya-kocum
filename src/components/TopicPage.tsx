@@ -6,6 +6,7 @@ import ListenBar from './ListenBar'
 import { konuDeneyleri, konudaFoyVar } from '../data/deneyler'
 import { SIMLER } from './sims'
 import DeneyFoyuKart from './DeneyFoyuKart'
+import DeneyKontrol from './DeneyKontrol'
 import {
   etkinlikler,
   konuAnlatimi,
@@ -207,6 +208,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
                 <Suspense fallback={<p className="muted">Deney yükleniyor…</p>}>
                   <Sim modlar={d.modlar} />
                 </Suspense>
+                <DeneyKontrol tur={d.tur} anahtar={`${grade}:${kod}:${d.tur}`} />
               </section>
             ) : null
           })}
