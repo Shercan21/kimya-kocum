@@ -6,14 +6,14 @@ import { kvkkOnayla } from '../data/kvkk'
 export function AydinlatmaMetni() {
   return (
     <div className="privacy-text">
-      <p className="muted small">Son güncelleme: 3 Kasım 2026</p>
+      <p className="muted small">Son güncelleme: 10 Kasım 2026</p>
 
       <h4>Kısaca</h4>
       <ul>
-        <li>Kimya Koçum'un bir sunucusu ya da veritabanı yok. Çalışma bilgilerin <b>yalnızca kendi cihazında</b> tutulur.</li>
+        <li>Çalışma bilgilerin <b>kendi cihazında</b> tutulur. Reklam başvuruları için ayrı bir hizmet bulunur; çalışma kayıtların bu hizmete gönderilmez.</li>
         <li><b>Google ile giriş yaparsan</b> bu bilgilerin yedeği <b>senin kendi Google Drive'ına</b>, uygulamaya ayrılmış gizli bir klasöre kaydedilir. Böylece telefon değiştirsen de kaldığın yerden devam edersin.</li>
         <li>Yedeğini <b>öğretmen dahil kimse göremez</b>; uygulama yalnızca kendi klasörüne erişebilir, Drive'ındaki diğer dosyalarını göremez.</li>
-        <li>Reklam yok, bilgilerin satılmaz ve kimseyle paylaşılmaz.</li>
+        <li>Reklam ve sponsorluk alanları yalnızca ana sayfada kullanılabilir; test, soru çözümü, anlatım ve değerlendirme ekranlarında reklam gösterilmez. Çalışma kayıtların reklamverenlere verilmez.</li>
         <li>Yedeğini istediğin zaman uygulamadan silebilirsin.</li>
       </ul>
 
@@ -39,9 +39,12 @@ export function AydinlatmaMetni() {
       <p>
         Cihazında (tarayıcının uygulama deposunda) ve giriş yaptıysan kendi Google Drive hesabında. Drive'daki yedek
         Google'ın sunucularındadır ve Google'ın kendi gizlilik kurallarına tabidir; Drive kotandan çok az yer kaplar.
-        Uygulamanın kendisi hiçbir yerde senin bilgilerini toplamaz.
+        Çalışma kayıtların reklam hizmetine aktarılmaz. Reklam başvurusu yaparsan, yalnızca formda yazdığın firma, e-posta ve talep bilgileri ayrı hizmette saklanır.
       </p>
 
+      <h4>Reklam ve iletişim</h4>
+      <p>Reklamlar başlangıçta kapalıdır. Yayın açıldığında yalnızca ana sayfadaki etiketli alanlarda gösterilir. Görünür gösterim ve tıklamalar kampanya bazında sayılır; adın, e-postan, öğrenci kimliğin veya çalışma sonuçların gönderilmez. Bu sayımlar tekil kullanıcı ölçümü değildir. Kötüye kullanımı sınırlamak için saatlik IP özeti kullanılır; ham IP uygulama veritabanına kaydedilmez. Ölçüm olayları en fazla 180 gün saklanır.</p>
+      <p>Hata bildir / Öneri gönder düğmesi e-posta uygulamanda taslak açar. Mesajı sen gönderirsin; sonuçların otomatik eklenmez. Kişisel veya hassas bilgileri mesajına eklememeye dikkat et.</p>
       <h4>Ne zaman silinir?</h4>
       <p>
         "Yedeğimi sil ve hesaptan çık" ile Drive'daki yedeğin silinir ve uygulamanın Drive iznini geri alırız. İstersen

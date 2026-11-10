@@ -8,7 +8,7 @@ export default function OfflineCard({grades}:{grades:number[]}) {
   setBusy(true);setMessage('Ders paketlerin indiriliyor…')
   try {
    if(!('caches' in window))throw Error('Önbellek bu tarayıcıda kullanılamıyor.')
-   const cache=await caches.open('kimya-kocum-upgrade-20261108-v4')
+   const cache=await caches.open('kimya-kocum-upgrade-20261110-v11-reklam-iletisim')
    for(const grade of grades) {
     for(const file of ['konular.json','testler.json','etkinlikler.json','yazili.json','anlatim-detay.json']) {
      const url=import.meta.env.BASE_URL+'icerik/'+grade+'/'+file

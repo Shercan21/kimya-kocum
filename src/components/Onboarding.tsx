@@ -1,3 +1,5 @@
+import StudentFeedback from './StudentFeedback'
+import { SponsorshipLink } from './Advertising'
 import { useState } from 'react'
 import { useBackStep } from '../data/backNav'
 import SignInButton from './SignInButton'
@@ -338,6 +340,8 @@ export default function Onboarding({ initial, onDone, onCancel }: Props) {
             </>
           )}
         </div>
+        <StudentFeedback />
+        {teacherMode && <SponsorshipLink />}
       </div>
     </div>
   )

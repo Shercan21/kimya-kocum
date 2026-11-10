@@ -1,3 +1,5 @@
+import StudentFeedback from './components/StudentFeedback'
+import { AdvertisingArea, SponsorshipLink } from './components/Advertising'
 import SkillReport from './components/SkillReport'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import './App.css'
@@ -405,6 +407,7 @@ function App() {
           {avatar}
         </button>
 
+        {shown === 'today' && !openTopic && !mistakesOpen && <AdvertisingArea placement="home" />}
         {shown === 'today' && (
           <TodayPage
             selectedGrade={profile.grade}
@@ -670,6 +673,13 @@ function App() {
             <QuestionBankManager />
           </details>
         )}
+        {shown === 'today' && !openTopic && !mistakesOpen && <>
+          <AdvertisingArea placement="sponsor" />
+          <AdvertisingArea placement="content" />
+          <AdvertisingArea placement="banner" />
+        </>}
+        {teacherView && !openTopic && !mistakesOpen && (shown === 'today' || shown === 'progress') && <SponsorshipLink />}
+        <StudentFeedback />
       </Suspense>
       </main>
 
@@ -798,12 +808,6 @@ function ProgressPage({
       </div>
       <div className="col">
         {onPreview && <StudentPreviewCard onStart={onPreview} />}
-        <section className="card">
-          <h3 className="card-title">İletişim ve geri bildirim</h3>
-          <p className="muted">Hatalı soruları, teknik sorunları ve önerilerini Hasan Hoca’ya iletebilirsin.</p>
-          <a className="primary-button" href={'mailto:ercanseyithasan@gmail.com?subject=' + encodeURIComponent('Kimya Koçum geri bildirimi')}>E-posta gönder</a>
-          <p className="small">ercanseyithasan@gmail.com</p>
-        </section>
         <AccountCard />
         <LocalBackupCard />
         <OfflineCard grades={grades} />
