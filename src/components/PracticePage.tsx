@@ -61,7 +61,7 @@ export default function PracticePage({ grade: profileGrade }: Props) {
     if (t === 'genel') return d.karma.map((test, i) => ({ grade: g, id: test.id, baslik: `${g}. sınıf · Karma test ${i + 1}` }))
     return d.temalar
       .filter(x => x.no === tema)
-      .flatMap(x => x.bolumler.flatMap(b => b.sarmal.map(test => ({ grade: g, id: test.id, baslik: `${g}. sınıf · Sarmal · ${b.kod} ${b.ad}` }))))
+      .flatMap(x => x.bolumler.flatMap(b => b.sarmal.map(test => ({ grade: g, id: test.id, baslik: `${g}. sınıf · ${b.kod} ${b.ad} · ${test.baslik}` }))))
   }
 
   // Rastgele test: önce hiç çözülmemişler, aynı test arka arkaya gelmez.

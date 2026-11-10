@@ -125,7 +125,7 @@ export default function ExamsPage({ grades, label, showWritten = true, onlyWritt
                 data.temalar.flatMap(tema => {
                   const onEk = multi ? `${grade}. sınıf · ` : ''
                   const items = tema.bolumler.flatMap(bolum =>
-                    bolum.sarmal.map(test => ({ id: test.id, baslik: `${onEk}${bolum.kod} ${bolum.ad}`, alt: `${tema.no}. tema · ${test.soru} soru` }))
+                    bolum.sarmal.map(test => ({ id: test.id, baslik: `${onEk}${bolum.kod} ${bolum.ad}`, alt: `${tema.no}. tema · ${test.baslik} · ${test.soru} soru` }))
                   )
                   if (!items.length) return []
                   const temaBitti = tema.bolumler.every(b => b.konular.every(k => konuTamam(grade, k)))

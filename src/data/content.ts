@@ -132,10 +132,15 @@ export type Etkinlik = {
   no: number
   tur: 'dy' | 'es' | 'bo' | 'au' | 'ta' | 'kh'
   yonerge: string
+  ad?: string // etkinlik başlığı
+  k?: string // kazanım kodu
+  sb?: string | null // süreç bileşeni harfi
+  giris?: string // HTML giriş metni
+  ek_gorsel?: string // HTML/SVG şekil, grafik ya da veri tablosu
   [key: string]: unknown
 }
 
-export type EtkinlikKitabi = { kod: string; ad: string; amac: string; etkinlikler: Etkinlik[] }
+export type EtkinlikKitabi = { kod: string; ad: string; amac: string; kazanimlar?: string[]; etkinlikler: Etkinlik[] }
 
 export function etkinlikler(grade: number, kod: string) {
   return load<Record<string, EtkinlikKitabi>>(`${grade}/etkinlikler.json`, 'json').then(data => pick(data, kod))

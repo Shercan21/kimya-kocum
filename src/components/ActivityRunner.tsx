@@ -22,7 +22,14 @@ function plain(html: string) {
 
 function normalize(text: string) {
   // "1s2 2s2" ile "1s<sup>2</sup> 2s<sup>2</sup>" aynı kabul edilir.
-  return text.toLocaleLowerCase('tr-TR').replace(/[\s^]+/g, '').replace(/[.,;:]$/, '')
+  return text.toLocaleLowerCase('tr-TR').replace(/[—–]/g, '-').replace(/[\s^]+/g, '').replace(/[.,;:]$/, '')
+}
+
+// Uzun ya da üslü/çarpımlı cevaplar yazarak birebir tutturulamaz;
+// bunlar puanlanmaz, öğrenci örnek cevapla kendisi karşılaştırır.
+function otomatik(expected: string) {
+  const t = plain(expected)
+  return t.length <= 24 && !/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]|·10|;/.test(t)
 }
 
 // "Eczacılık / ilaç kimyası" gibi seçenekli cevapları da kabul eder.
@@ -200,7 +207,7 @@ function Eslestirme({ data }: { data: Etkinlik }) {
 }
 
 function BoslukDoldurma({ data }: { data: Etkinlik }) {
-  const kelimeler = data.kelimeler as string[]
+  const kelimeler = [...new Set(data.kelimeler as string[])]
   const cumleler = data.cumleler as string[]
   const cevap = data.cevap as Record<string, string>
   const [values, setValues] = useState<Record<string, string>>({})
@@ -333,7 +340,9 @@ function KavramHaritasi({ data }: { data: Etkinlik }) {
 
   return (
     <>
-      <img className="kh-image" src={icerikYolu(data.gorsel as string)} alt="Kavram haritası" loading="lazy" />
+      {typeof data.svg === 'string' && data.svg
+        ? <div className="kh-image act-figure" dangerouslySetInnerHTML={{ __html: data.svg }} />
+        : <img className="kh-image" src={icerikYolu(data.gorsel as string)} alt="Kavram haritası" loading="lazy" />}
       <Bosluklar
         keys={keys}
         cevap={cevap}
@@ -363,8 +372,9 @@ function Tablo({ data }: { data: Etkinlik }) {
   const [values, setValues] = useState<Record<string, string>>({})
   const [checked, setChecked] = useState(false)
   const [revealed, setRevealed] = useState(false)
-  const keys = Object.keys(cevap)
+  const keys = Object.keys(cevap).filter(key => otomatik(cevap[key]))
   const score = keys.filter(key => matches(values[key] ?? '', cevap[key])).length
+  const kendin = Object.keys(cevap).length - keys.length
 
   return (
     <>
@@ -378,7 +388,7 @@ function Tablo({ data }: { data: Etkinlik }) {
                   if (r === 0) return <th key={c}><H html={cell} /></th>
                   if (!m) return <td key={c}><H html={cell} /></td>
                   const key = m[1]
-                  const mark: Mark = checked ? (matches(values[key] ?? '', cevap[key] ?? '') ? 'ok' : 'bad') : null
+                  const mark: Mark = checked && otomatik(cevap[key] ?? '') ? (matches(values[key] ?? '', cevap[key] ?? '') ? 'ok' : 'bad') : null
                   return (
                     <td key={c} className={markClass(mark)}>
                       <input
@@ -399,6 +409,9 @@ function Tablo({ data }: { data: Etkinlik }) {
           </tbody>
         </table>
       </div>
+      {kendin > 0 && (
+        <p className="muted small">Uzun cevaplı {kendin} hücre puanlanmaz; "Kontrol et" ya da "Cevapları göster" ile örnek cevapla karşılaştır.</p>
+      )}
       <Footer
         checked={checked}
         revealed={revealed}
@@ -422,8 +435,12 @@ export default function ActivityRunner({ etkinlik, grade, kod }: { etkinlik: Etk
     <section className="card activity">
       <div className="act-head">
         <span className="badge">{etkinlik.no}. etkinlik · {TUR_AD[etkinlik.tur]}</span>
+        {etkinlik.k && <span className="act-kz">{etkinlik.k}{etkinlik.sb ? `-${etkinlik.sb}` : ''}</span>}
       </div>
+      {etkinlik.ad && <h3 className="act-title">{etkinlik.ad}</h3>}
       <p className="act-instruction"><H html={etkinlik.yonerge} /></p>
+      {etkinlik.giris && <div className="act-giris" dangerouslySetInnerHTML={{ __html: etkinlik.giris }} />}
+      {etkinlik.ek_gorsel && <div className="act-figure" dangerouslySetInnerHTML={{ __html: etkinlik.ek_gorsel }} />}
       {etkinlik.tur === 'dy' && <DogruYanlis data={etkinlik} />}
       {etkinlik.tur === 'es' && <Eslestirme data={etkinlik} />}
       {etkinlik.tur === 'bo' && <BoslukDoldurma data={etkinlik} />}

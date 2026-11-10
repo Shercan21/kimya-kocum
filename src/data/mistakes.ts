@@ -50,7 +50,8 @@ function read(): HataKaydi[] {
   try {
     const raw = localStorage.getItem(KEY)
     const data: unknown = raw ? JSON.parse(raw) : []
-    cache = Array.isArray(data) ? (data as HataKaydi[]) : []
+    // Kasım 2026'da eski (bkq…) testler kaldırıldı; onların sorularına ait kayıtlar açılamaz.
+    cache = Array.isArray(data) ? (data as HataKaydi[]).filter(item => !item.testId.startsWith('bkq')) : []
   } catch {
     cache = []
   }
