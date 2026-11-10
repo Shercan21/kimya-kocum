@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { UsagePreference } from './UsageMetrics'
 import { useBackStep } from '../data/backNav'
 import { TEACHER_EMAIL } from '../data/cloud'
 import { kvkkOnayla } from '../data/kvkk'
@@ -45,6 +46,9 @@ export function AydinlatmaMetni() {
       <h4>Reklam ve iletişim</h4>
       <p>Reklamlar başlangıçta kapalıdır. Yayın açıldığında yalnızca ana sayfadaki etiketli alanlarda gösterilir. Görünür gösterim ve tıklamalar kampanya bazında sayılır; adın, e-postan, öğrenci kimliğin veya çalışma sonuçların gönderilmez. Bu sayımlar tekil kullanıcı ölçümü değildir. Kötüye kullanımı sınırlamak için saatlik IP özeti kullanılır; ham IP uygulama veritabanına kaydedilmez. Ölçüm olayları en fazla 180 gün saklanır.</p>
       <p>Hata bildir / Öneri gönder düğmesi e-posta uygulamanda taslak açar. Mesajı sen gönderirsin; sonuçların otomatik eklenmez. Kişisel veya hassas bilgileri mesajına eklememeye dikkat et.</p>
+      <h4>Kayıtlı ve günlük aktif kullanım sayımı</h4>
+      <p>Uygulamayı kaç hesap ve tarayıcının kullandığını saymak için bu tarayıcıya rastgele bir ölçüm kodu verilir. Google ile giriş yapıldığında Google hesap numarası cihazında tek yönlü özetlenir. Ölçüm hizmetine yalnızca bu kodların özetleri gönderilir; adın, e-postan, erişim anahtarın, soruların, cevapların ve kaldığın yer gönderilmez. Google hesabınla kullandığın cihazlar sayımda birleştirilir. Girişsiz kullanım cihaz veya tarayıcı bazında sayılır. Ham günlük kayıtlar 90 gün, hesapların özet kimlikleri toplam hesabı saymak için saklanır. Ölçüm hizmeti uygulamanın ders deposundan ayrıdır. İlk kez ölçüme katılan mevcut kullanıcılar da ancak bu güncellemeden sonraki kullanımlarıyla sayılır.</p>
+      <UsagePreference />
       <h4>Ne zaman silinir?</h4>
       <p>
         "Yedeğimi sil ve hesaptan çık" ile Drive'daki yedeğin silinir ve uygulamanın Drive iznini geri alırız. İstersen

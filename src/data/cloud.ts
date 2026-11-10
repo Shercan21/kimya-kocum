@@ -12,6 +12,7 @@ export const SYNC_KEY = 'kimya-kocum-sync' // { email, hash, at }
 export const HESAP_KEY = 'kimya-kocum-hesap' // giriş yapan Google hesabının adı/e-postası (yalnız bu cihazda)
 
 export type CloudUser = {
+  googleId?: string
   email: string
   displayName: string | null
   photoURL: string | null

@@ -245,7 +245,9 @@ export async function syncNow(interactive = false) {
       if (!interactive) return
       const t=await anahtarIste('', user.email)
       const check=await fetch('https://www.googleapis.com/oauth2/v3/userinfo',{headers:{Authorization:'Bearer '+t}})
-      if(!check.ok || (await check.json()).email!==user.email) {token=null;throw Error('hesap')}
+      const identity=check.ok?await check.json():null
+      if(!identity || identity.email!==user.email) {token=null;throw Error('hesap')}
+      if(typeof identity.sub==='string' && identity.sub!==user.googleId){const next={...user,googleId:identity.sub};localStorage.setItem(HESAP_KEY,JSON.stringify(next));setState({user:next})}
     }
     if(await gonder()) onChanged()
   } catch (e) {
@@ -260,8 +262,9 @@ export async function googleIleGiris() {
   try {
     const t = await anahtarIste('select_account')
     const r = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', { headers: { Authorization: `Bearer ${t}` } })
-    const u = (await r.json()) as { email: string; name?: string; picture?: string; email_verified?: boolean }
+    const u = (await r.json()) as { email: string; sub?: string; name?: string; picture?: string; email_verified?: boolean }
     const user: CloudUser = {
+      googleId: u.sub,
       email: u.email,
       displayName: u.name ?? null,
       photoURL: u.picture ?? null,

@@ -1,4 +1,5 @@
 import StudentFeedback from './components/StudentFeedback'
+import { useUsageMetrics } from './components/UsageMetrics'
 import { AdvertisingArea, SponsorshipLink } from './components/Advertising'
 import SkillReport from './components/SkillReport'
 import { lazy, Suspense, useEffect, useState } from 'react'
@@ -142,6 +143,7 @@ function App() {
   // Öğretmen görünümü: yalnızca öğretmen Google hesabıyla giriş yapınca
   // bütün sınıfların dersleri ve yazılıları açılır.
   const cloud = useCloud()
+  useUsageMetrics(cloud.user)
   const [ogretmenSinif, setOgretmenSinif] = useState<number>(() => {
     const saved = Number(localStorage.getItem(TEACHER_GRADE_KEY))
     return ALL_GRADES.includes(saved as 9) ? saved : 9
