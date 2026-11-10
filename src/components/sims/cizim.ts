@@ -86,3 +86,7 @@ export function beher(ctx: CanvasRenderingContext2D, x: number, y: number, w: nu
   ctx.lineTo(x + w + 4, y)
   ctx.stroke()
 }
+
+// Animasyon karelerinde kullanılan rastgele sayı ve zaman (yalnızca çizim fonksiyonlarında)
+export const rastgele = () => Math.random()
+export const simdi = () => performance.now()
