@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 // Sanal deneylerin canvas yardımcıları
 
-export type CizimFn = (ctx: CanvasRenderingContext2D, W: number, H: number, dt: number) => void
+export type CizimFn = (ctx: CanvasRenderingContext2D, W: number, H: number, dt: number, zaman: number) => void
 
 // Canvas'ı cihaz piksel oranına göre kurar ve her karede `ciz` fonksiyonunu çağırır.
 // `ciz` her render'da güncellenebilir; döngü yeniden başlamaz.
@@ -36,7 +36,7 @@ export function useAnimasyon(ciz: CizimFn) {
       const dt = Math.min(50, simdi - son) / 16.7
       son = simdi
       ctx.clearRect(0, 0, W, H)
-      cizRef.current(ctx, W, H, dt)
+      cizRef.current(ctx, W, H, dt, simdi / 1000)
       kare = requestAnimationFrame(dongu)
     }
     kare = requestAnimationFrame(dongu)
