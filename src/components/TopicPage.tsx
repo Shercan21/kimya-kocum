@@ -7,6 +7,7 @@ import { konuDeneyleri, konudaFoyVar } from '../data/deneyler'
 import { SIMLER } from './sims'
 import DeneyFoyuKart from './DeneyFoyuKart'
 import DeneyKontrol from './DeneyKontrol'
+import VideoLesson from './VideoLesson'
 import {
   etkinlikler,
   konuAnlatimi,
@@ -17,6 +18,8 @@ import {
   type EtkinlikKitabi,
   deneyFoyleri,
   type DeneyFoyu,
+  dersVideolari,
+  type DersVideosu,
 } from '../data/content'
 import { getTopicProgress, setTopicProgress } from '../data/learningProgress'
 import { basari, testSonuclari } from '../data/results'
@@ -30,7 +33,7 @@ type Props = {
   onBack: () => void
 }
 
-export type TopicTab = 'anlatim' | 'deney' | 'test' | 'etkinlik'
+export type TopicTab = 'video' | 'anlatim' | 'deney' | 'test' | 'etkinlik'
 type Tab = TopicTab
 
 type ActiveTest = { id: string; index: number; baslik: string }
@@ -64,6 +67,20 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
   const deneyler = konuDeneyleri(grade, kod)
   const foyVar = konudaFoyVar(grade, kod)
   const [foyler, setFoyler] = useState<DeneyFoyu[] | null>(null)
+  const [video, setVideo] = useState<DersVideosu | null>(null)
+
+  useEffect(() => {
+    let active = true
+    dersVideolari(grade).then(list => {
+      if (!active) return
+      const v = list[kod] ?? null
+      setVideo(v)
+      if (!v) setTab(t => (t === 'video' ? 'anlatim' : t))
+    })
+    return () => {
+      active = false
+    }
+  }, [grade, kod])
 
   useEffect(() => {
     let active = true
@@ -139,6 +156,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
         )}
         <div className="tabs" role="tablist">
           {([
+            ['video', 'Video', !!video],
             ['anlatim', 'Anlatım', konu.anlatim],
             ['deney', 'Deneyler', deneyler.length > 0 || foyVar],
             ['test', `Testler (${konu.seviyeler.length + konu.baglam.length})`, true],
@@ -161,6 +179,25 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
       </section>
 
       {error && <p className="program-message">{error}</p>}
+
+      {tab === 'video' && video && (
+        <section className="card">
+          <VideoLesson
+            key={video.src}
+            video={video}
+            onEnded={() => {
+              if (status === 'not_started') {
+                setTopicProgress(grade, topicId, konu.ad, 'studied')
+                refresh(value => value + 1)
+              }
+            }}
+          />
+          <div className="row-actions start">
+            {konu.anlatim && <button type="button" className="btn-secondary" onClick={() => { setTab('anlatim'); window.scrollTo({ top: 0 }) }}>Yazılı anlatımı aç</button>}
+            <button type="button" className="primary-button" onClick={() => { setTab('test'); window.scrollTo({ top: 0 }) }}>Testlere geç ›</button>
+          </div>
+        </section>
+      )}
 
       {tab === 'anlatim' && (
         <section className="card">

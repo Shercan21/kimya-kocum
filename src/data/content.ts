@@ -20,6 +20,7 @@ export type Konu = {
   baglam: BaglamTest[]
   anlatim: boolean
   etkinlik: number
+  video?: DersVideosu // Yönetim panelinden yayımlanan ders videosu
 }
 
 export type Bolum = {
@@ -213,4 +214,41 @@ export function testKazanimi(grade: number, testId: string): string | null {
     if (konu.test === testId) return konu.kazanimlar.length === 1 ? konu.kazanimlar[0] : null
   }
   return null
+}
+
+// ---------- Videolu anlatım ----------
+// public/icerik/<sınıf>/videolar.json: konu kodu → video bilgisi.
+// src: "video/9/1.1.1.mp4" gibi icerik/ altına göre yol ya da tam https adresi.
+
+export type VideoBolum = { t: number; ad: string }
+export type VideoSoru = { t: number; s: string; sik: string[]; d: number; c?: string }
+export type DersVideosu = {
+  src: string
+  sure: number
+  baslik?: string
+  poster?: string
+  bolumler?: VideoBolum[]
+  sorular?: VideoSoru[]
+  guncel?: string
+}
+
+// Videolar iki yerden gelir: müfredattaki konu kaydı (yönetim panelinin "Kaydet ve yayınla"sı)
+// ve isteğe bağlı icerik/<sınıf>/videolar.json. Müfredattaki kayıt önceliklidir.
+export function dersVideolari(grade: number): Promise<Record<string, DersVideosu>> {
+  return load<Record<string, DersVideosu>>(`${grade}/videolar.json`, 'json')
+    .catch(() => ({} as Record<string, DersVideosu>))
+    .then(dosya => {
+      const out: Record<string, DersVideosu> = { ...dosya }
+      for (const { konu } of tumKonular(grade)) if (konu.video?.src) out[konu.kod] = konu.video
+      return out
+    })
+}
+
+export function videoAdresi(src: string): string {
+  return /^https?:\/\//.test(src) ? src : icerikYolu(src.replace(/^\/+/, ''))
+}
+
+export function sureYazi(saniye: number): string {
+  const s = Math.max(0, Math.round(saniye))
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
 }
