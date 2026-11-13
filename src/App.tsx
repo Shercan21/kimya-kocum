@@ -47,6 +47,7 @@ import {
 
 // Sayfalar ilk açılışı hızlandırmak için ayrı parçalar halinde yüklenir.
 const TopicPage = lazy(() => import('./components/TopicPage'))
+const VideoLibrary = lazy(() => import('./components/VideoLibrary'))
 const ProgramPage = lazy(() => import('./components/ProgramPage'))
 const CoachPage = lazy(() => import('./components/CoachPage'))
 const ExamsPage = lazy(() => import('./components/ExamsPage'))
@@ -131,6 +132,7 @@ function App() {
   const [editingProfile, setEditingProfile] = useState(false)
   const [openTopic, setOpenTopic] = useState<{ grade: number; kod: string; tab?: TopicTab; level?: 'Kolay' | 'Orta' | 'Zor'; short?: boolean } | null>(null)
   const [mistakesOpen, setMistakesOpen] = useState(false)
+  const [videoList, setVideoList] = useState(false)
 
   // 12. sınıf / mezun Derslerim'de TYT (9+10), AYT (11) ve 12 arasında geçer.
   // 9, 10 ve 11. sınıflar yalnızca kendi sınıflarını görür; seçici gösterilmez.
@@ -259,6 +261,7 @@ function App() {
   function changePage(next: PageId) {
     setPage(next)
     setOpenTopic(null)
+    setVideoList(false)
     setMistakesOpen(false)
     localStorage.setItem(PAGE_KEY, next)
     window.scrollTo({ top: 0 })
@@ -452,7 +455,23 @@ function App() {
           />
         )}
 
-        {shown === 'lessons' && !openTopic && (
+        {shown === 'lessons' && !openTopic && videoList && (
+          <VideoLibrary
+            grades={contentGrades}
+            locked={kilitler}
+            lockReason={mod === 'konu' ? 'Planını değiştirince açılır' : mod === 'yazili' ? 'Bu yazılının kapsamında değil' : undefined}
+            onOpen={(grade, kod) => {
+              setOpenTopic({ grade, kod, tab: 'video' })
+              window.scrollTo({ top: 0 })
+            }}
+            onBack={() => {
+              setVideoList(false)
+              window.scrollTo({ top: 0 })
+            }}
+          />
+        )}
+
+        {shown === 'lessons' && !openTopic && !videoList && (
           <div className="stack">
             {teacherView && <details className="card classroom-preview"><summary>9, 10, 11, 12. sınıf öğrenci görünümünü dene</summary><StudentPreviewCard onStart={startPreview} /></details>}
             {teacherView && import.meta.env.DEV && <ResourceLibrary grades={viewGrades} />}
@@ -569,6 +588,18 @@ function App() {
                   </div>
                 </div>
               </div>
+            )}
+
+            {contentGrades.length > 0 && (
+              <section className="card video-entry">
+                <div>
+                  <h3 className="card-title" style={{ margin: 0 }}><Icon name="play" /> Videolu anlatım</h3>
+                  <p className="muted small">Konuları beyaz tahtada, sesli ve adım adım izle. Kilidi açık konuların videoları açılır.</p>
+                </div>
+                <button type="button" className="primary-button" onClick={() => { setVideoList(true); window.scrollTo({ top: 0 }) }}>
+                  <Icon name="play" size={16} /> Videolu anlatım
+                </button>
+              </section>
             )}
 
             {mod === 'tam' && kilitler && kilitler.size > 0 && (

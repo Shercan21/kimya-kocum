@@ -1,0 +1,42 @@
+/* Videolu anlatım: oynatıcı, Kendini dene durakları ve video listesi */
+.video-lesson { display: grid; gap: 12px; }
+.video-frame { position: relative; border-radius: 14px; overflow: hidden; background: #111; aspect-ratio: 16 / 9; }
+.video-frame video { width: 100%; height: 100%; display: block; background: #111; }
+
+.video-quiz { position: fixed; inset: 0; z-index: 1000; background: #1d1840cc; display: grid; place-items: center; padding: 12px; overflow: auto; }
+.video-quiz-card { background: var(--surface); border-radius: 14px; padding: 16px 18px; width: min(560px, 100%); max-height: 100%; overflow: auto; box-shadow: 0 10px 30px #0006; }
+.video-quiz-tag { color: #5540c1; font-weight: 800; letter-spacing: .06em; font-size: 11px; }
+.video-quiz-q { white-space: pre-line; font-weight: 700; margin: 6px 0 12px; line-height: 1.4; }
+.video-quiz-options { display: grid; gap: 8px; }
+.video-quiz-option { text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 9px 12px; font: inherit; color: var(--text); cursor: pointer; line-height: 1.35; }
+.video-quiz-option b { color: #5540c1; margin-right: 6px; }
+.video-quiz-option:hover:not(:disabled) { border-color: #745be4; background: #f4f1ff; }
+.video-quiz-option:disabled { cursor: default; }
+.video-quiz-option.is-correct { border-color: #1f9d6b; background: #e8f7f0; }
+.video-quiz-option.is-wrong { border-color: #d64545; background: #fdeeee; }
+.video-quiz-option.is-dim { opacity: .55; }
+.video-quiz-result { margin-top: 10px; border-radius: 10px; padding: 9px 12px; font-size: 14px; }
+.video-quiz-result p { margin: 4px 0 0; }
+.video-quiz-result.ok { background: #e8f7f0; color: #14684a; }
+.video-quiz-result.no { background: #fff5e6; color: #8a5300; }
+.video-quiz-card .row-actions { margin-top: 12px; justify-content: flex-end; }
+
+.video-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.video-chapters { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.video-chapters button { width: 100%; display: flex; gap: 10px; align-items: baseline; text-align: left; border: 0; background: transparent; padding: 7px 10px; border-radius: 9px; font: inherit; color: var(--text); cursor: pointer; }
+.video-chapters button:hover { background: #f4f1ff; }
+.video-chapters button.is-active { background: #ece8ff; font-weight: 700; }
+.video-chapter-time { font-variant-numeric: tabular-nums; color: #5540c1; min-width: 42px; font-size: 13px; }
+
+.video-entry { display: flex; align-items: center; gap: 14px; justify-content: space-between; flex-wrap: wrap; }
+.video-entry p { margin: 2px 0 0; }
+.video-entry .primary-button { display: inline-flex; align-items: center; gap: 8px; margin-top: 0; }
+.video-lib-head { display: flex; align-items: center; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+.video-badge { font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+.video-badge.ready { background: #ece8ff; color: #4b338c; }
+.video-badge.soon { background: #f1f0ec; color: #807d74; }
+
+.video-chapters-box summary { cursor: pointer; font-weight: 700; padding: 4px 2px; }
+.video-chapters-box[open] summary { margin-bottom: 6px; }
+.video-watch-btn { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; padding: 9px 16px; border-radius: 12px; border: 1px solid #745be4; background: #f4f1ff; color: #4b338c; font: inherit; font-weight: 700; cursor: pointer; }
+.video-watch-btn:hover { background: #ece8ff; }

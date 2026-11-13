@@ -3,7 +3,7 @@
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocum-upgrade-20261110-v12-usage'
+const CACHE = 'kimya-kocum-upgrade-20261113-v13-video'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname
@@ -59,6 +59,9 @@ self.addEventListener('fetch', event => {
     )
     return
   }
+
+  // Ders videoları önbelleğe alınmaz (büyük dosya, parça parça yüklenir).
+  if (url.pathname.startsWith(BASE + 'icerik/video/') || request.headers.has('range')) return
 
   // Konu anlatımı, test ve etkinlikler: önbellekten hemen göster,
   // arkada ağdan güncelle (çevrimdışıyken daha önce açılanlar çalışır).
