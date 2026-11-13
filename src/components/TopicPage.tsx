@@ -8,6 +8,7 @@ import { SIMLER } from './sims'
 import DeneyFoyuKart from './DeneyFoyuKart'
 import DeneyKontrol from './DeneyKontrol'
 import VideoLesson from './VideoLesson'
+import './video.css'
 import {
   etkinlikler,
   konuAnlatimi,
@@ -210,6 +211,11 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
             <p className="muted">Yükleniyor…</p>
           ) : (
             <>
+              {video && (
+                <button type="button" className="video-watch-btn" onClick={() => { setTab('video'); window.scrollTo({ top: 0 }) }}>
+                  <Icon name="play" size={16} /> Ders videosunu izle
+                </button>
+              )}
               <ListenBar key={`${grade}-${kod}-${reading}`} target={anlatimKutusu} />
               <div ref={anlatimKutusu} className="konu" dangerouslySetInnerHTML={{ __html: (reading === 'detail' ? detail : html) ?? '' }} />
               <div className="row-actions start">
