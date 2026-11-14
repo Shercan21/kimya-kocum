@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 import { sureYazi, videoAdresi, type DersVideosu, type VideoSoru } from '../data/content'
 import './video.css'
@@ -6,6 +6,17 @@ import './video.css'
 type Props = {
   video: DersVideosu
   onEnded?: () => void
+}
+
+const VIDEO_SUBTITLE_KEY = 'kimya-kocum-video-subtitle-language'
+const EMPTY_SUBTITLES: NonNullable<DersVideosu['subtitles']> = []
+
+function readSubtitlePreference() {
+  try { return localStorage.getItem(VIDEO_SUBTITLE_KEY) || 'off' } catch { return 'off' }
+}
+
+function saveSubtitlePreference(language: string) {
+  try { localStorage.setItem(VIDEO_SUBTITLE_KEY, language) } catch { /* Captions still work if storage is unavailable. */ }
 }
 
 // Videolu anlatım oynatıcısı: bölümlere atlama ve "Kendini dene" durakları.
@@ -17,6 +28,10 @@ export default function VideoLesson({ video, onEnded }: Props) {
   const [secim, setSecim] = useState<number | null>(null)
   const [cevaplanan, setCevaplanan] = useState<Set<number>>(() => new Set())
   const [hata, setHata] = useState(false)
+  const subtitles = video.subtitles ?? EMPTY_SUBTITLES
+  // Müfredat yayımlanmış içerik hizmetinden asenkron gelir. İlk render'da
+  // altyazı listesi henüz yokken kaydedilmiş dili silme; track yüklenince uygula.
+  const [subtitleLanguage, setSubtitleLanguage] = useState(readSubtitlePreference)
   const bolumler = video.bolumler ?? []
   const sorular = [...(video.sorular ?? [])].sort((a, b) => a.t - b.t)
 
@@ -51,6 +66,30 @@ export default function VideoLesson({ video, onEnded }: Props) {
     ref.current?.play().catch(() => undefined)
   }
 
+  useEffect(() => {
+    const media = ref.current
+    if (!media) return
+    const applySelection = () => Array.from(media.textTracks).forEach(track => {
+      track.mode = subtitleLanguage !== 'off' && track.language === subtitleLanguage ? 'showing' : 'disabled'
+    })
+    const rememberNativeSelection = () => {
+      const showing = Array.from(media.textTracks).find(track => track.mode === 'showing')
+      const language = showing?.language || 'off'
+      setSubtitleLanguage(language)
+      saveSubtitlePreference(language)
+    }
+    applySelection()
+    media.textTracks.addEventListener('change', rememberNativeSelection)
+    return () => media.textTracks.removeEventListener('change', rememberNativeSelection)
+  }, [subtitleLanguage, video.src, subtitles])
+
+  useEffect(() => {
+    if (subtitles.length > 0 && subtitleLanguage !== 'off' && !subtitles.some(track => track.lang === subtitleLanguage)) {
+      setSubtitleLanguage('off')
+      saveSubtitlePreference('off')
+    }
+  }, [subtitleLanguage, subtitles])
+
   const aktifBolum = bolumler.reduce((acc, b, i) => (b.t <= now + 0.3 ? i : acc), -1)
   const dogru = secim !== null && soru !== null && secim === soru.d
 
@@ -61,6 +100,7 @@ export default function VideoLesson({ video, onEnded }: Props) {
           ref={ref}
           src={videoAdresi(video.src)}
           poster={video.poster ? videoAdresi(video.poster) : undefined}
+          crossOrigin={subtitles.length ? 'anonymous' : undefined}
           controls
           playsInline
           preload="metadata"
@@ -69,7 +109,21 @@ export default function VideoLesson({ video, onEnded }: Props) {
           onSeeked={() => ref.current && setNow(ref.current.currentTime)}
           onEnded={onEnded}
           onError={() => setHata(true)}
-        />
+        >
+          {subtitles.map((track, i) => (
+            <track
+              key={`${track.lang}-${track.url}-${i}`}
+              kind="subtitles"
+              src={track.url}
+              srcLang={track.lang}
+              label={track.label}
+              onLoad={() => {
+                const textTrack = ref.current?.textTracks[i]
+                if (textTrack) textTrack.mode = subtitleLanguage !== 'off' && textTrack.language === subtitleLanguage ? 'showing' : 'disabled'
+              }}
+            />
+          ))}
+        </video>
         {soru && (
           <div className="video-quiz" role="dialog" aria-modal="true" aria-label="Kendini dene">
             <div className="video-quiz-card">
@@ -142,3 +196,4 @@ export default function VideoLesson({ video, onEnded }: Props) {
     </div>
   )
 }
+

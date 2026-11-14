@@ -3,7 +3,7 @@
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocum-upgrade-20261113-v13-video'
+const CACHE = 'kimya-kocum-domain-20261113-v14-video'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname
@@ -42,6 +42,21 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return
 
   const url = new URL(request.url)
+  // Media streams must reach the content service unchanged so the browser can
+  // seek with byte ranges; never store whole videos in the app cache.
+  if (url.origin === 'https://kimya-kocun-reklam.dependablepin4.chatgpt.site' &&
+      (url.pathname.startsWith('/content/icerik/video/') || request.headers.has('Range'))) {
+    event.respondWith(fetch(request))
+    return
+  }
+  // Yeni bağımsız yayın hizmetindeki sürümlü ders dosyalarını çevrimdışı koru.
+  if (url.origin === 'https://kimya-kocun-reklam.dependablepin4.chatgpt.site' && url.pathname.startsWith('/content/')) {
+    event.respondWith(fetch(request).then(response => {
+      if (response.ok) { const copy=response.clone(); event.waitUntil(caches.open(CACHE).then(cache=>cache.put(request,copy))) }
+      return response
+    }).catch(()=>caches.open(CACHE).then(cache=>cache.match(request)).then(saved=>saved||Response.error())))
+    return
+  }
   if (url.origin !== self.location.origin) return
 
   // Sayfa açılışları
@@ -59,9 +74,6 @@ self.addEventListener('fetch', event => {
     )
     return
   }
-
-  // Ders videoları önbelleğe alınmaz (büyük dosya, parça parça yüklenir).
-  if (url.pathname.startsWith(BASE + 'icerik/video/') || request.headers.has('range')) return
 
   // Konu anlatımı, test ve etkinlikler: önbellekten hemen göster,
   // arkada ağdan güncelle (çevrimdışıyken daha önce açılanlar çalışır).
@@ -88,6 +100,8 @@ self.addEventListener('fetch', event => {
     )
   )
 })
+
+
 
 
 

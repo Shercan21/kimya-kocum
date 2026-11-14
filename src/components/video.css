@@ -40,3 +40,9 @@
 .video-chapters-box[open] summary { margin-bottom: 6px; }
 .video-watch-btn { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; padding: 9px 16px; border-radius: 12px; border: 1px solid #745be4; background: #f4f1ff; color: #4b338c; font: inherit; font-weight: 700; cursor: pointer; }
 .video-watch-btn:hover { background: #ece8ff; }
+.video-library-entry { display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap; }
+.video-library-entry .card-title { margin:0; }
+.video-library-entry p { margin:5px 0 0; }
+.video-watch-button { display:inline-flex;align-items:center;gap:8px;margin:0 0 12px;padding:9px 16px;border-radius:12px;border:1px solid #745be4;background:#f4f1ff;color:#4b338c;font:inherit;font-weight:700;cursor:pointer; }
+.video-watch-button:hover { background:#ece8ff; }
+

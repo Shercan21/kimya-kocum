@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
+import { publishedContentUrl } from '../data/publishedContent'
 export default function OfflineCard({grades}:{grades:number[]}) {
  const [online,setOnline]=useState(navigator.onLine),[busy,setBusy]=useState(false),[message,setMessage]=useState('')
  const [ready,setReady]=useState(()=>grades.every(g=>localStorage.getItem('kk-kocum-offline:'+g)))
@@ -8,10 +9,10 @@ export default function OfflineCard({grades}:{grades:number[]}) {
   setBusy(true);setMessage('Ders paketlerin indiriliyor…')
   try {
    if(!('caches' in window))throw Error('Önbellek bu tarayıcıda kullanılamıyor.')
-   const cache=await caches.open('kimya-kocum-upgrade-20261110-v12-usage')
+   const cache=await caches.open('kimya-kocum-domain-20261110-v13')
    for(const grade of grades) {
     for(const file of ['konular.json','testler.json','etkinlikler.json','yazili.json','anlatim-detay.json']) {
-     const url=import.meta.env.BASE_URL+'icerik/'+grade+'/'+file
+     const url=publishedContentUrl(grade+'/'+file)
      const response=await fetch(url);if(!response.ok)throw Error('Paket indirilemedi; tekrar dene.')
      const text=await response.clone().text();const data:unknown=JSON.parse(text)
      await cache.put(url,response)
@@ -19,7 +20,7 @@ export default function OfflineCard({grades}:{grades:number[]}) {
      const visit=(v:unknown):void=>{if(typeof v==='string')strings.push(v);else if(Array.isArray(v))v.forEach(visit);else if(v&&typeof v==='object')Object.values(v).forEach(visit)}
      visit(data)
      const images=new Set(strings.flatMap(v=>[...v.matchAll(/src=["'](?:[^"']*?\/icerik\/)?(img\/[^"'<> ]+)/g)].map(m=>m[1])))
-     for(const image of images){const imageUrl=import.meta.env.BASE_URL+'icerik/'+image;const r=await fetch(imageUrl);if(!r.ok)throw Error('Bir ders görseli indirilemedi. Tekrar dene.');await cache.put(imageUrl,r)}
+     for(const image of images){const imageUrl=publishedContentUrl(image);const r=await fetch(imageUrl);if(!r.ok)throw Error('Bir ders görseli indirilemedi. Tekrar dene.');await cache.put(imageUrl,r)}
     }
     localStorage.setItem('kk-kocum-offline:'+grade,new Date().toISOString())
    }
@@ -28,6 +29,8 @@ export default function OfflineCard({grades}:{grades:number[]}) {
  }
  return <section className="card"><h3 className="card-title"><Icon name="book"/>İnternetsiz çalış</h3><p className="muted">{online?'İnternete bağlısın. Ders paketini önceden indirerek bağlantın yokken de çalışabilirsin.':'Şu an çevrimdışısın. Önceden indirdiğin içerikleri kullanabilirsin.'}</p><span className={'offline-badge '+(ready?'ready':'')}>{ready?'Ders paketi daha önce indirildi':'Ders paketi henüz indirilmedi'}</span><button className="btn-secondary" disabled={!online||busy} onClick={()=>void prepare()}>{busy?'İndiriliyor…':ready?'Ders paketini güncelle':'Ders paketini indir'}</button>{message&&<p className="small" role="status">{message}</p>}<p className="muted small">Tarayıcı verileri temizlenirse paketleri yeniden indirmen gerekir.</p></section>
 }
+
+
 
 
 

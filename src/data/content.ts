@@ -3,11 +3,28 @@
 // ihtiyaç olduğunda public/icerik altından yüklenir.
 
 import mufredatData from './mufredat.json'
+import { preparePublishedContent, publishedContentUrl } from './publishedContent'
 
 export type Seviye = 'Kolay' | 'Orta' | 'Zor' | null
 
 export type BaglamTest = { id: string; baslik: string; kazanim: string | null; soru: number }
 export type GenelTest = { id: string; baslik: string; soru: number }
+
+export type VideoBolumu = { t: number; ad: string }
+export type VideoSoru = { t: number; s: string; sik: string[]; d: number; c?: string }
+export type VideoAltyazisi = { lang: string; label: string; url: string }
+type EskiVideoAltyazisi = { lang?: string; label?: string; url?: string; dil?: string; ad?: string; src?: string }
+export type DersVideosu = {
+  src: string
+  sure: number
+  baslik?: string
+  poster?: string
+  bolumler?: VideoBolumu[]
+  sorular?: VideoSoru[]
+  subtitles?: VideoAltyazisi[]
+  altyazi?: EskiVideoAltyazisi[]
+  guncel?: string
+}
 
 export type Konu = {
   kod: string
@@ -20,7 +37,7 @@ export type Konu = {
   baglam: BaglamTest[]
   anlatim: boolean
   etkinlik: number
-  video?: DersVideosu // Yönetim panelinden yayımlanan ders videosu
+  video?: DersVideosu
 }
 
 export type Bolum = {
@@ -65,14 +82,43 @@ export type TestDosyasi = {
 
 let mufredat = mufredatData as unknown as Record<string, SinifMufredat>
 
+function altyazilariEsle(data: Record<string, SinifMufredat>) {
+  for (const sinif of Object.values(data)) {
+    for (const tema of sinif.temalar ?? []) {
+      for (const bolum of tema.bolumler ?? []) {
+        for (const konu of bolum.konular ?? []) {
+          if (!konu.video || konu.video.subtitles?.length || !konu.video.altyazi?.length) continue
+          const subtitles = konu.video.altyazi.flatMap(track => {
+            const source = track.url || track.src
+            if (!source) return []
+            const lang = track.lang || track.dil || 'tr'
+            // Eski müfredat altyazıyı `video/9/1.1.1.tr.vtt` olarak
+            // işaretliyordu. Yayın hizmetinin sakladığı dosya adı
+            // `video/9/1.1.1.altyazi.tr.vtt`; eski kaydı bu adrese eşle.
+            const correctedSource = source.replace(/\.tr\.vtt(?=([?#]|$))/i, '.altyazi.tr.vtt')
+            return [{
+              lang,
+              label: track.label || track.ad || (lang === 'tr' ? 'Türkçe' : lang),
+              url: /^https?:\/\//i.test(correctedSource) ? correctedSource : publishedContentUrl(correctedSource),
+            }]
+          })
+          if (subtitles.length) konu.video = { ...konu.video, subtitles }
+        }
+      }
+    }
+  }
+  return data
+}
+
 export async function loadPublishedCurriculum() {
+  await preparePublishedContent()
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), 5000)
   try {
-    const response = await fetch(import.meta.env.BASE_URL + 'icerik/mufredat.json', { cache: 'no-cache', signal: controller.signal })
+    const response = await fetch(publishedContentUrl('mufredat.json'), { cache: 'no-cache', signal: controller.signal })
     if (!response.ok) return
     const data = await response.json() as Record<string, SinifMufredat>
-    if (Object.values(data).every(g => Array.isArray(g.temalar) && g.kazanimlar && Array.isArray(g.karma))) mufredat = data
+    if (Object.values(data).every(g => Array.isArray(g.temalar) && g.kazanimlar && Array.isArray(g.karma))) mufredat = altyazilariEsle(data)
   } catch { /* Offline: use bundled curriculum. */ } finally { clearTimeout(timer) }
 }
 
@@ -102,15 +148,29 @@ export function konuBul(grade: number, kod: string) {
   return tumKonular(grade).find(item => item.konu.kod === kod) ?? null
 }
 
-const base = import.meta.env.BASE_URL
+export function videoAdresi(src: string): string {
+  return icerikYolu(src)
+}
+
+export function sureYazi(seconds: number): string {
+  const total = Math.max(0, Math.floor(Number(seconds) || 0))
+  const h = Math.floor(total / 3600)
+  const m = Math.floor((total % 3600) / 60)
+  const s = total % 60
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${String(s).padStart(2, '0')}`
+}
+
+export function dersVideolari(grade: number): Promise<Record<string, DersVideosu>> {
+  return Promise.resolve(Object.fromEntries(tumKonular(grade).flatMap(({ konu }) => konu.video ? [[konu.kod, konu.video] as const] : [])))
+}
 
 // İçerikteki img/... yollarını uygulamanın adresine çevirir.
 export function icerikHtml(html: string): string {
-  return html.replace(/(src=["'])(img\/)/g, `$1${base}icerik/$2`)
+  return html.replace(/(src=["'])(img\/[^"'<> ]+)/g, (_match, quote: string, path: string) => quote + publishedContentUrl(path))
 }
 
 export function icerikYolu(path: string): string {
-  return `${base}icerik/${path}`
+  return publishedContentUrl(path)
 }
 
 const cache = new Map<string, Promise<unknown>>()
@@ -216,39 +276,3 @@ export function testKazanimi(grade: number, testId: string): string | null {
   return null
 }
 
-// ---------- Videolu anlatım ----------
-// public/icerik/<sınıf>/videolar.json: konu kodu → video bilgisi.
-// src: "video/9/1.1.1.mp4" gibi icerik/ altına göre yol ya da tam https adresi.
-
-export type VideoBolum = { t: number; ad: string }
-export type VideoSoru = { t: number; s: string; sik: string[]; d: number; c?: string }
-export type DersVideosu = {
-  src: string
-  sure: number
-  baslik?: string
-  poster?: string
-  bolumler?: VideoBolum[]
-  sorular?: VideoSoru[]
-  guncel?: string
-}
-
-// Videolar iki yerden gelir: müfredattaki konu kaydı (yönetim panelinin "Kaydet ve yayınla"sı)
-// ve isteğe bağlı icerik/<sınıf>/videolar.json. Müfredattaki kayıt önceliklidir.
-export function dersVideolari(grade: number): Promise<Record<string, DersVideosu>> {
-  return load<Record<string, DersVideosu>>(`${grade}/videolar.json`, 'json')
-    .catch(() => ({} as Record<string, DersVideosu>))
-    .then(dosya => {
-      const out: Record<string, DersVideosu> = { ...dosya }
-      for (const { konu } of tumKonular(grade)) if (konu.video?.src) out[konu.kod] = konu.video
-      return out
-    })
-}
-
-export function videoAdresi(src: string): string {
-  return /^https?:\/\//.test(src) ? src : icerikYolu(src.replace(/^\/+/, ''))
-}
-
-export function sureYazi(saniye: number): string {
-  const s = Math.max(0, Math.round(saniye))
-  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
-}
