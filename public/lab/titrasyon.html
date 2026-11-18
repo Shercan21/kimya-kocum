@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanal Lab · Titrasyon (11. sınıf 2.2.6)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--ink:#1d2b44;--mut:#64748b;--line:#dfe6f0;--blue:#2563eb;--blue2:#e8efff;--org:#ea7a1a;--grn:#1f9d55;--red:#c62828;--pink:#e7569a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#1e3a8a,#2563eb);color:#fff;padding:16px 20px}
+header h1{margin:0;font-size:22px;font-weight:800}
+header p{margin:4px 0 0;opacity:.9;font-size:14px}
+.tabs{display:flex;gap:8px;padding:12px 20px 0;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 18px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+.tab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+main{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:16px;padding:14px 20px 28px;max-width:1280px;margin:0 auto}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.card h2{margin:0 0 8px;font-size:16px}
+.bench{position:relative}
+#svg{width:100%;height:auto;display:block;background:linear-gradient(#eef3fa 0 82%,#d9c3a1 82% 100%);border-radius:10px}
+.readouts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ro{background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:7px 8px}
+.ro small{display:block;color:var(--mut);font-size:11px;font-weight:700}
+.ro b{font-size:18px}
+.caption{min-height:64px;background:#fff8ec;border:1px solid #f6d7a8;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:15px;line-height:1.45}
+.caption .n{display:inline-block;background:var(--org);color:#fff;border-radius:999px;font-size:12px;padding:1px 9px;margin-right:6px;font-weight:800}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button.b{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+button.b:disabled{opacity:.45;cursor:default}
+button.p{background:var(--blue);border-color:var(--blue);color:#fff}
+button.g{background:var(--grn);border-color:var(--grn);color:#fff}
+button.o{background:var(--org);border-color:var(--org);color:#fff}
+.steps{margin:10px 0 0;padding-left:20px;font-size:14px;color:var(--mut)}
+.steps li{margin:3px 0}.steps li.on{color:var(--ink);font-weight:800}.steps li.ok{color:var(--grn)}
+canvas{width:100%;height:240px;display:block;background:#fbfcfe;border:1px solid var(--line);border-radius:10px}
+.calc{background:#eefaf2;border:1px solid #bfe7cc;border-radius:10px;padding:10px 12px;font-size:15px;margin-top:10px;display:none}
+.calc.show{display:block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-bottom:3px}
+select,input[type=number]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font:inherit;background:#fff}
+.vars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+@media(max-width:560px){.vars{grid-template-columns:1fr}}
+.vbox{border-radius:10px;padding:8px 10px;font-size:13px}
+.vbox h4{margin:0 0 4px;font-size:12px;letter-spacing:.03em}
+.v1{background:#e8efff}.v2{background:#fff1d6}.v3{background:#eef2f7}
+.warn{color:var(--red);font-weight:700;font-size:13px;margin-top:6px;min-height:18px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{border-bottom:1px solid var(--line);padding:6px 5px;text-align:left}
+th{color:var(--mut);font-size:12px}
+.hidden{display:none}
+.tip{font-size:13px;color:var(--mut);margin:6px 0 0}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{font-size:12px;background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+.safety{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.safety span{font-size:12px;border:2px solid #f59e0b;border-radius:8px;padding:2px 7px;background:#fffbeb;font-weight:700}
+.rep table{font-size:14px}.rep th{width:30%;color:#1d2b44;font-size:13px;vertical-align:top}.rep td{vertical-align:top}
+.q{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}.q p{margin:0 0 6px;font-weight:700}
+.q button{display:block;width:100%;text-align:left;margin:4px 0;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;font:inherit;cursor:pointer}
+.q button.ok{background:#e7f8ee;border-color:#34a853}.q button.no{background:#fdecec;border-color:#e57373}.q .ex{font-size:13px;color:#475569;margin-top:4px}
+body.video header,body.video .tabs,body.video #mKitap,body.video #mDene,body.video .safety,body.video #quizCard,body.video #repCard,body.video .tip{display:none!important}
+body.video main{grid-template-columns:480px 1fr;max-width:none;padding:16px;align-items:start}
+body.video canvas{height:420px}
+body.video .readouts{grid-template-columns:repeat(4,1fr)}
+body.gomulu{background:transparent}body.gomulu header{display:none}body.gomulu main{padding:10px 0 12px}body.gomulu .tabs{padding:4px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧪 Sanal Laboratuvar · Titrasyon</h1>
+  <p>11. sınıf · 2.2.6 Kuvvetli Asit–Kuvvetli Baz Titrasyonları · Derişimi bilinmeyen HCl çözeltisinin derişimini belirleme</p>
+</header>
+<div class="tabs">
+  <button class="tab on" data-m="kitap">📘 Kitaptaki deney</button>
+  <button class="tab" data-m="dene">🧑‍🔬 Kendin dene</button>
+</div>
+<main>
+  <section class="card bench">
+    <svg id="svg" viewBox="0 0 400 560" aria-label="Titrasyon düzeneği"></svg>
+    <div class="readouts">
+      <div class="ro"><small>Harcanan büret çöz.</small><b id="rV">0,00</b> mL</div>
+      <div class="ro"><small>pH metre</small><b id="rpH">–</b></div>
+      <div class="ro"><small>İletkenlik</small><b id="rK">–</b> mS/cm</div>
+      <div class="ro"><small>Renk</small><b id="rC">–</b></div>
+    </div>
+    <div class="safety"><span>⚠ Koruyucu gözlük</span><span>🧤 Eldiven</span><span>☣ Aşındırıcı (HCl, NaOH)</span><span>🧪 Cam malzeme</span></div>
+  </section>
+
+  <section>
+    <!-- KİTAP MODU -->
+    <div id="mKitap" class="card">
+      <h2>📘 Kitaptaki deney · Başlat'a bas, izle</h2>
+      <div class="caption" id="cap"><span class="n">Hazır</span>Malzemeler tezgâhta. <b>Başlat</b>'a basınca deney adım adım yapılır.</div>
+      <div class="row">
+        <button class="b p" id="kStart">▶ Başlat</button>
+        <button class="b" id="kPause" disabled>⏸ Duraklat</button>
+        <button class="b" id="kReset">⟲ Baştan</button>
+        <label class="row" style="gap:6px;font-weight:700;font-size:14px">Hız
+          <select id="kSpeed" style="width:auto"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+      </div>
+      <div class="chips"><span class="chip">Mezür</span><span class="chip">100 mL büret</span><span class="chip">Huni</span><span class="chip">100 mL erlenmayer</span><span class="chip">Spor düzeneği</span><span class="chip">Fenolftalein</span><span class="chip">0,1 M NaOH</span><span class="chip">Derişimi bilinmeyen HCl</span></div>
+      <ol class="steps" id="stepList"></ol>
+      <div class="calc" id="kCalc"></div>
+    </div>
+
+    <!-- DENE MODU -->
+    <div id="mDene" class="card hidden">
+      <h2>🧑‍🔬 Kendin dene · Deneyini tasarla</h2>
+      <div class="grid2">
+        <div>
+          <label class="f">Erlenmayere konan çözelti</label>
+          <select id="dA"><option value="HCl">HCl (kuvvetli asit)</option><option value="HNO3">HNO₃ (kuvvetli asit)</option><option value="NaOH">NaOH (kuvvetli baz)</option><option value="KOH">KOH (kuvvetli baz)</option></select>
+        </div>
+        <div>
+          <label class="f">Erlenmayerdeki derişim</label>
+          <select id="dAM"><option value="?">Bilinmeyen (sonuçta açılır)</option><option>0.05</option><option selected>0.1</option><option>0.15</option><option>0.2</option><option>0.3</option></select>
+        </div>
+        <div>
+          <label class="f">Erlenmayere konan hacim (mL)</label>
+          <select id="dAV"><option>10</option><option selected>20</option><option>25</option><option>30</option><option>40</option></select>
+        </div>
+        <div>
+          <label class="f">Bürete konan çözelti</label>
+          <select id="dB"><option value="NaOH">NaOH</option><option value="KOH">KOH</option><option value="HCl">HCl</option><option value="HNO3">HNO₃</option></select>
+        </div>
+        <div>
+          <label class="f">Büretteki derişim (M)</label>
+          <select id="dBM"><option>0.05</option><option selected>0.1</option><option>0.2</option></select>
+        </div>
+        <div>
+          <label class="f">İndikatör</label>
+          <select id="dI"><option value="fenol">Fenolftalein (renksiz → pembe, pH 8,2–10)</option><option value="metil">Metil oranj (kırmızı → sarı, pH 3,1–4,4)</option><option value="brom">Bromtimol mavisi (sarı → mavi, pH 6,0–7,6)</option><option value="yok">İndikatör yok</option></select>
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <label class="row" style="gap:6px;font-size:14px;font-weight:700"><input type="checkbox" id="dpH" checked> pH metre</label>
+        <label class="row" style="gap:6px;font-size:14px;font-weight:700"><input type="checkbox" id="dK"> İletkenlik ölçer</label>
+      </div>
+
+      <h2 style="margin-top:12px">Değişkenlerin</h2>
+      <div class="grid2">
+        <div><label class="f">Bağımsız değişken (ben değiştiriyorum)</label>
+          <select id="vInd"><option value="AV">Erlenmayerdeki hacim</option><option value="AM">Erlenmayerdeki derişim</option><option value="BM">Büretteki derişim</option><option value="I">İndikatör türü</option></select></div>
+        <div><label class="f">Bağımlı değişken (ölçüyorum)</label>
+          <select id="vDep"><option value="VB">Harcanan büret çözeltisi hacmi</option><option value="pHd">Dönüm noktasındaki pH</option></select></div>
+      </div>
+      <div class="vars">
+        <div class="vbox v1"><h4>BAĞIMSIZ</h4><div id="vbI"></div></div>
+        <div class="vbox v2"><h4>BAĞIMLI</h4><div id="vbD"></div></div>
+        <div class="vbox v3"><h4>KONTROL (sabit tut)</h4><div id="vbK"></div></div>
+      </div>
+      <div class="warn" id="dWarn"></div>
+
+      <div class="row" style="margin-top:8px">
+        <button class="b p" id="dSetup">🧰 Düzeneği kur ve doldur</button>
+        <button class="b o" id="dFlow" disabled>⏬ Musluğu aç (akış)</button>
+        <button class="b" id="dDrop" disabled>💧 Bir damla</button>
+        <button class="b" id="dStop" disabled>⏹ Musluğu kapat</button>
+        <button class="b g" id="dRec" disabled>✔ Dönüm noktası: kaydet</button>
+      </div>
+      <p class="tip" id="dTip">Önce çözeltileri ve değişkenlerini seç, sonra “Düzeneği kur”a bas. Renk değişince musluğu kapatıp kaydet.</p>
+      <table id="dTable"><thead><tr><th>#</th><th id="thInd">Bağımsız</th><th>Harcanan (mL)</th><th>Dönüm pH</th><th>Bulunan derişim</th><th>Gerçek</th></tr></thead><tbody></tbody></table>
+      <div class="calc" id="dCalc"></div>
+    </div>
+
+    <div class="card hidden" id="quizCard" style="margin-top:14px">
+      <h2>❓ Sonuç soruları</h2>
+      <div id="quiz"></div>
+    </div>
+    <div class="card hidden" id="repCard" style="margin-top:14px">
+      <h2>📝 Deney raporu</h2>
+      <div id="rep" class="rep"></div>
+      <div class="row" style="margin-top:8px"><button class="b" id="repCopy">📋 Raporu kopyala</button><span class="tip" id="repMsg"></span></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>📈 Titrasyon eğrisi (pH – eklenen hacim)</h2>
+      <canvas id="cv" width="760" height="300"></canvas>
+      <p class="tip">Grafik pH metrenin okuduğu değerlerle canlı çizilir. Eş değerlik noktasında eğri dikleşir.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const svg=$('#svg');const NS='http://www.w3.org/2000/svg';
+const el=(t,a={},p=svg)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const fmt=(x,d=2)=>Number(x).toFixed(d).replace('.',',');
+
+/* ---------- Kimya ---------- */
+const ACID={HCl:1,HNO3:1},BASE={NaOH:1,KOH:1};
+const LAM={H:350,OH:198,Na:50,K:74,Cl:76,NO3:71}; // S·cm²/mol (yaklaşık)
+const IONS={HCl:['H','Cl'],HNO3:['H','NO3'],NaOH:['Na','OH'],KOH:['K','OH']};
+function chem(S,vB){ // S: {a,aM,aV,b,bM}; vB mL
+  const nA=S.aM*S.aV/1000, nB=S.bM*vB/1000, Vt=(S.aV+vB)/1000;
+  const aIsAcid=!!ACID[S.a];
+  const nH=aIsAcid?nA:nB, nOH=aIsAcid?nB:nA;
+  let pH;const ex=nH-nOH;
+  if(Math.abs(ex)<1e-12)pH=7;
+  else if(ex>0){const h=ex/Vt;pH=-Math.log10(h/2+Math.sqrt(h*h/4+1e-14));}
+  else{const o=-ex/Vt;const oh=o/2+Math.sqrt(o*o/4+1e-14);pH=14+Math.log10(oh);}
+  // iletkenlik
+  const [ac,an]=IONS[S.a],[bc,bn]=IONS[S.b];
+  const c={};const add=(k,v)=>c[k]=(c[k]||0)+v;
+  // seyirci iyonlar
+  add(aIsAcid?an:ac,nA); add(aIsAcid?bc:bn,nB);
+  if(ex>0)add('H',ex);else if(ex<0)add('OH',-ex);
+  let k=0;for(const i in c)k+=LAM[i]*(c[i]/Vt);
+  return {pH,k}; // Σλ(S·cm²/mol)·c(mol/L) sayısal olarak mS/cm verir
+}
+// not: Σλ(S cm²/mol)·c(mol/L) /1000 = S/cm → ×1000 = mS/cm ⇒ sayısal olarak Σλ·c
+function cond(S,vB){const r=chem(S,vB);return r;}
+const IND={
+  fenol:{ad:'Fenolftalein',lo:8.2,hi:11.5,c1:[255,255,255,0],c2:[231,86,154,.85],n1:'renksiz',n2:'pembe'},
+  metil:{ad:'Metil oranj',lo:3.1,hi:4.4,c1:[214,48,49,.8],c2:[244,180,20,.8],n1:'kırmızı',n2:'sarı'},
+  brom:{ad:'Bromtimol mavisi',lo:6.0,hi:7.6,c1:[230,200,40,.75],c2:[40,90,200,.8],n1:'sarı',n2:'mavi'},
+  yok:{ad:'—',lo:0,hi:0,c1:[255,255,255,0],c2:[255,255,255,0],n1:'renksiz',n2:'renksiz'}};
+function indColor(ind,pH){const I=IND[ind];if(ind==='yok')return {rgba:'rgba(196,226,255,.82)',name:'renksiz'};
+  let t=(pH-I.lo)/(I.hi-I.lo);t=Math.max(0,Math.min(1,t));
+  const m=I.c1.map((v,i)=>v+(I.c2[i]-v)*t);
+  const base=[196,226,255,.82];const a=m[3];
+  const mix=base.map((v,i)=>i<3?Math.round(v*(1-a)+m[i]*a):Math.max(.5,a));
+  const name=t<.08?I.n1:t>.75?I.n2:(ind==='fenol'?'açık pembe':'ara renk');
+  return {rgba:`rgba(${mix[0]},${mix[1]},${mix[2]},${mix[3]})`,name};
+}
+
+/* ---------- Çizim ---------- */
+const g={};
+function draw(){
+  svg.innerHTML='';
+  const defs=el('defs');
+  const lg=(id,stops,x2=1,y2=0)=>{const g0=el('linearGradient',{id,x1:0,y1:0,x2,y2},defs);stops.forEach(([o,c])=>el('stop',{offset:o,'stop-color':c},g0));};
+  // cam: kenarlarda koyu, ortada parlak şerit
+  lg('glass',[[0,'rgba(120,150,190,.55)'],[.12,'rgba(255,255,255,.55)'],[.22,'rgba(235,244,255,.18)'],[.75,'rgba(225,238,252,.12)'],[.9,'rgba(255,255,255,.45)'],[1,'rgba(110,140,180,.55)']]);
+  lg('metal',[[0,'#6b7280'],[.35,'#e5e7eb'],[.55,'#f9fafb'],[1,'#4b5563']]);
+  lg('metalV',[[0,'#9ca3af'],[.5,'#d1d5db'],[1,'#6b7280']],0,1);
+  lg('base',[[0,'#1f2937'],[.5,'#374151'],[1,'#111827']],0,1);
+  lg('wood',[[0,'#e2c9a0'],[1,'#c9a878']],0,1);
+  lg('tile',[[0,'#ffffff'],[1,'#e5e7eb']],0,1);
+  lg('teflon',[[0,'#1e3a8a'],[.5,'#3b82f6'],[1,'#1e3a8a']],0,1);
+  lg('meter',[[0,'#374151'],[1,'#111827']],0,1);
+  const sh=el('filter',{id:'sh',x:'-20%',y:'-20%',width:'140%',height:'140%'},defs);
+  el('feDropShadow',{dx:0,dy:3,stdDeviation:3,'flood-color':'#000','flood-opacity':.18},sh);
+  const cp=el('clipPath',{id:'fl'},defs);el('path',{d:FLASK},cp);
+  const cb=el('clipPath',{id:'bu'},defs);el('rect',{x:193.5,y:44,width:13,height:262},cb);
+  const cm=el('clipPath',{id:'mz'},defs);el('rect',{x:46,y:330,width:26,height:180},cm);
+  // duvar ve tezgâh
+  el('rect',{x:0,y:0,width:400,height:462,fill:'#eef3f9'});
+  for(let i=0;i<8;i++)el('line',{x1:0,y1:60*i+20,x2:400,y2:60*i+20,stroke:'#e3eaf3','stroke-width':1});
+  el('rect',{x:0,y:462,width:400,height:98,fill:'url(#wood)'});
+  el('rect',{x:0,y:460,width:400,height:4,fill:'#b8946a'});
+  // ---- SPOR DÜZENEĞİ ----
+  g.stand=el('g',{filter:'url(#sh)'});
+  el('rect',{x:56,y:524,width:212,height:18,rx:5,fill:'url(#base)'},g.stand);
+  el('rect',{x:60,y:524,width:204,height:4,rx:2,fill:'rgba(255,255,255,.18)'},g.stand);
+  el('rect',{x:96,y:26,width:10,height:500,rx:5,fill:'url(#metal)'},g.stand);
+  el('circle',{cx:101,cy:27,r:5,fill:'#9ca3af'},g.stand);
+  // bağlantı parçası (boss) + kelebek büret kıskacı
+  el('rect',{x:90,y:230,width:22,height:20,rx:4,fill:'#374151'},g.stand);
+  el('circle',{cx:86,cy:240,r:5,fill:'#111827'},g.stand);el('rect',{x:74,y:237,width:12,height:6,rx:3,fill:'#111827'},g.stand);
+  el('rect',{x:112,y:236,width:62,height:8,rx:3,fill:'url(#metalV)'},g.stand);
+  el('path',{d:'M172 233 L188 234 L188 246 L172 247 Z',fill:'#1f2937'},g.stand);
+  el('path',{d:'M188 235 Q200 231 212 235 L212 245 Q200 249 188 245 Z',fill:'none',stroke:'#1f2937','stroke-width':3.5},g.stand);
+  el('rect',{x:212,y:236,width:8,height:8,rx:2,fill:'#1f2937'},g.stand);
+  // beyaz fayans (renk değişimini görmek için)
+  el('rect',{x:126,y:516,width:148,height:10,rx:2,fill:'url(#tile)',stroke:'#cbd5e1'},g.stand);
+  // ---- BÜRET ----
+  g.bur=el('g',{opacity:0});
+  g.burLiq=el('rect',{x:193.5,y:306,width:13,height:0,fill:'rgba(80,140,225,.55)','clip-path':'url(#bu)'},g.bur);
+  el('rect',{x:192,y:38,width:16,height:270,rx:2,fill:'url(#glass)',stroke:'rgba(90,115,150,.8)','stroke-width':1.2},g.bur);
+  el('ellipse',{cx:200,cy:38,rx:8.5,ry:2.2,fill:'rgba(255,255,255,.6)',stroke:'rgba(90,115,150,.8)','stroke-width':1},g.bur);
+  for(let v=0;v<=100;v+=1){const y=Y0+v*PX;const big=v%10===0,mid=v%5===0;if(!mid&&v%1)continue;
+    el('line',{x1:big?192.5:mid?196:199,y1:y,x2:205,y2:y,stroke:'#0f172a','stroke-width':big?1:.55,opacity:big?.9:.6},g.bur);
+    if(big)el('text',{x:210,y:y+3,'font-size':8,fill:'#0f172a','font-family':'Nunito','font-weight':700},g.bur).textContent=v;}
+  el('text',{x:200,y:34,'font-size':6.5,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g.bur).textContent='mL  20 °C';
+  // konik alt + teflon musluk
+  el('path',{d:'M192 308 L208 308 L205 318 L195 318 Z',fill:'url(#glass)',stroke:'rgba(90,115,150,.8)','stroke-width':1},g.bur);
+  el('rect',{x:195,y:318,width:10,height:10,fill:'url(#glass)',stroke:'rgba(90,115,150,.8)','stroke-width':1},g.bur);
+  el('ellipse',{cx:200,cy:323,rx:9,ry:5,fill:'url(#teflon)'},g.bur);
+  g.cock=el('g',{},g.bur);
+  el('rect',{x:204,y:320,width:20,height:6,rx:3,fill:'#1e40af'},g.cock);
+  el('circle',{cx:225,cy:323,r:4,fill:'#1e3a8a'},g.cock);
+  el('path',{d:'M196.5 328 L203.5 328 L201.2 352 L198.8 352 Z',fill:'url(#glass)',stroke:'rgba(90,115,150,.8)','stroke-width':1},g.bur);
+  g.meniscus=el('text',{x:134,y:60,'font-size':10,fill:'#1e3a8a','font-family':'Nunito','font-weight':800},g.bur);
+  // ---- HUNİ ----
+  g.fun=el('g',{opacity:0});
+  el('path',{d:'M176 6 L224 6 L205 32 L205 50 L195 50 L195 32 Z',fill:'url(#glass)',stroke:'rgba(90,115,150,.85)','stroke-width':1.3},g.fun);
+  el('ellipse',{cx:200,cy:6,rx:24,ry:3,fill:'rgba(255,255,255,.6)',stroke:'rgba(90,115,150,.85)'},g.fun);
+  // ---- ERLENMAYER ----
+  g.fl=el('g',{opacity:0});
+  g.flLiq=el('rect',{x:120,y:520,width:160,height:0,fill:'rgba(196,226,255,.82)','clip-path':'url(#fl)'},g.fl);
+  g.cloud=el('circle',{cx:200,cy:470,r:0,fill:'rgba(231,86,154,0)','clip-path':'url(#fl)'},g.fl);
+  el('path',{d:FLASK,fill:'url(#glass)',stroke:'rgba(90,115,150,.85)','stroke-width':1.6},g.fl);
+  el('rect',{x:183,y:400,width:34,height:6,rx:3,fill:'rgba(255,255,255,.55)',stroke:'rgba(90,115,150,.85)','stroke-width':1.2},g.fl);
+  el('path',{d:'M140 506 Q170 472 190 448',fill:'none',stroke:'rgba(255,255,255,.7)','stroke-width':3,'stroke-linecap':'round'},g.fl);
+  el('text',{x:200,y:430,'font-size':7,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g.fl).textContent='100 mL';
+  g.flLbl=el('text',{x:200,y:556,'font-size':11,fill:'#1d2b44','text-anchor':'middle','font-family':'Nunito','font-weight':800},g.fl);
+  // ---- MEZÜR (dereceli silindir) ----
+  g.mz=el('g',{opacity:0,filter:'url(#sh)'});
+  g.mzLiq=el('rect',{x:46,y:510,width:26,height:0,fill:'rgba(205,228,250,.85)','clip-path':'url(#mz)'},g.mz);
+  el('path',{d:'M44 322 L70 322 L76 316 L76 322 L74 326 L74 512 L44 512 Z',fill:'url(#glass)',stroke:'rgba(90,115,150,.85)','stroke-width':1.3},g.mz);
+  el('path',{d:'M30 512 L88 512 L92 522 L26 522 Z',fill:'rgba(59,130,246,.8)'},g.mz);
+  for(let v=0;v<=50;v+=2){const y=510-v*3.4,big=v%10===0;el('line',{x1:big?58:63,y1:y,x2:73,y2:y,stroke:'#0f172a','stroke-width':big?.9:.5},g.mz);
+    if(big)el('text',{x:47,y:y+3,'font-size':6.5,fill:'#0f172a','font-family':'Nunito','font-weight':700},g.mz).textContent=v;}
+  el('text',{x:59,y:313,'font-size':8,fill:'#475569','text-anchor':'middle','font-family':'Nunito','font-weight':700},g.mz).textContent='mezür (50 mL)';
+  // ---- İNDİKATÖR DAMLALIKLI ŞİŞE ----
+  g.dr=el('g',{opacity:0,filter:'url(#sh)'});
+  el('rect',{x:300,y:400,width:34,height:52,rx:6,fill:'rgba(120,70,30,.65)',stroke:'#5b3a1a'},g.dr);
+  el('rect',{x:308,y:388,width:18,height:14,rx:3,fill:'#1f2937'},g.dr);
+  el('path',{d:'M312 388 L312 360 Q317 350 322 360 L322 388 Z',fill:'#e11d48'},g.dr);
+  el('rect',{x:303,y:418,width:28,height:18,rx:2,fill:'#fff'},g.dr);
+  el('text',{x:317,y:430,'font-size':6.5,fill:'#111827','text-anchor':'middle','font-family':'Nunito','font-weight':800},g.dr).textContent='İNDİKATÖR';
+  // ---- pH METRE ----
+  g.ph=el('g',{opacity:0,filter:'url(#sh)'});
+  el('rect',{x:298,y:236,width:90,height:66,rx:9,fill:'url(#meter)'},g.ph);
+  el('rect',{x:306,y:244,width:74,height:30,rx:4,fill:'#0b1f14'},g.ph);
+  g.phTxt=el('text',{x:343,y:266,'font-size':19,fill:'#4ade80','text-anchor':'middle','font-family':'monospace','font-weight':700},g.ph);
+  el('text',{x:343,y:292,'font-size':8,fill:'#9ca3af','text-anchor':'middle','font-family':'Nunito','font-weight':700},g.ph).textContent='pH METRE';
+  el('circle',{cx:310,cy:288,r:3,fill:'#ef4444'},g.ph);
+  el('path',{d:'M343 302 C343 350 262 360 240 430',fill:'none',stroke:'#111827','stroke-width':2.2},g.ph);
+  el('rect',{x:234,y:426,width:9,height:72,rx:4,fill:'url(#glass)',stroke:'#475569'},g.ph);
+  el('rect',{x:234,y:426,width:9,height:14,rx:3,fill:'#111827'},g.ph);
+  el('circle',{cx:238.5,cy:496,r:4,fill:'rgba(200,220,240,.9)',stroke:'#475569'},g.ph);
+  // damlalar
+  g.drops=el('g');g.stream=el('rect',{x:199.2,y:352,width:1.6,height:0,fill:'rgba(80,140,225,.75)'});
+}
+const FLASK='M185 404 L215 404 L215 446 C215 452 218 456 222 462 L270 510 C278 518 274 524 264 524 L136 524 C126 524 122 518 130 510 L178 462 C182 456 185 452 185 446 Z';
+const Y0=60,PX=2.4; // büret: 0 mL çizgisi y=60, 1 mL = 2.4 px
+function flaskLevel(mL){ // erlenmayer sıvı yüksekliği (yaklaşık koni)
+  const h=Math.min(78,Math.sqrt(mL)*10.5);return 524-h;}
+
+/* ---------- Durum ---------- */
+let S=null, vB=0, burStart=0, curve=[], showPH=true, showK=false, ind='fenol', flashT=0, persistent=false;
+function setState(s){S=s;vB=0;curve=[];persistent=false;}
+function render(){
+  if(!S)return;
+  const level=Y0+(burStart+vB)*PX; // büretteki sıvı üst seviyesi
+  g.burLiq.setAttribute('y',level);g.burLiq.setAttribute('height',Math.max(0,306-level));
+  g.meniscus.textContent=g.bur.getAttribute('opacity')>0&&S.filled?'▸ '+fmt(burStart+vB,2)+' mL':'';g.meniscus.setAttribute('y',level+4);g.meniscus.setAttribute('x',134);
+  const vol=(S.inFlask||0)+vB;
+  const ly=flaskLevel(vol);g.flLiq.setAttribute('y',ly);g.flLiq.setAttribute('height',524-ly);
+  const r=S.inFlask?chem(S,vB):null;
+  const col=S.inFlask?(S.indAdded?indColor(ind,r.pH):{rgba:'rgba(196,226,255,.82)',name:'renksiz'}):{rgba:'rgba(0,0,0,0)',name:'–'};
+  g.flLiq.setAttribute('fill',col.rgba);
+  $('#rV').textContent=fmt(vB,2);
+  $('#rpH').textContent=r&&showPH?fmt(r.pH,2):'–';
+  g.phTxt.textContent=r?fmt(r.pH,2):'';
+  $('#rK').textContent=r&&showK?fmt(r.k,1):'–';
+  $('#rC').textContent=col.name;
+  if(r&&S.titrating){const last=curve[curve.length-1];if(!last||Math.abs(last[0]-vB)>0.02)curve.push([vB,r.pH]);}
+  plot();
+}
+/* ---------- Grafik ---------- */
+const cv=$('#cv'),cx=cv.getContext('2d');let ghost=[];
+function plot(){
+  const W=cv.width,H=cv.height,L=48,R=14,T=14,B=36;cx.clearRect(0,0,W,H);
+  const vmax=Math.max(10,Math.ceil(((S&&S.vmax)||50)/10)*10);
+  cx.strokeStyle='#e2e8f0';cx.fillStyle='#64748b';cx.font='13px Nunito';cx.lineWidth=1;
+  for(let p=0;p<=14;p+=2){const y=T+(H-T-B)*(1-p/14);cx.beginPath();cx.moveTo(L,y);cx.lineTo(W-R,y);cx.stroke();cx.fillText(p,L-24,y+4);}
+  for(let v=0;v<=vmax;v+=vmax/5){const x=L+(W-L-R)*v/vmax;cx.fillText(Math.round(v),x-6,H-14);}
+  cx.fillText('pH',6,T+24);cx.fillText('Eklenen hacim (mL)',W-R-130,H-1);
+  cx.strokeStyle='#cbd5e1';cx.setLineDash([5,4]);const y7=T+(H-T-B)/2;cx.beginPath();cx.moveTo(L,y7);cx.lineTo(W-R,y7);cx.stroke();cx.setLineDash([]);
+  const line=(pts,c,w)=>{if(pts.length<2)return;cx.strokeStyle=c;cx.lineWidth=w;cx.beginPath();pts.forEach(([v,p],i)=>{const x=L+(W-L-R)*Math.min(v,vmax)/vmax,y=T+(H-T-B)*(1-p/14);i?cx.lineTo(x,y):cx.moveTo(x,y);});cx.stroke();};
+  ghost.forEach((gp,i)=>line(gp,['#93c5fd','#fcd34d','#86efac','#f9a8d4','#c4b5fd'][i%5],2));
+  line(curve,'#2563eb',3);
+}
+
+/* ---------- Damla animasyonu ---------- */
+let anims=[];
+function dropAnim(){const c=el('circle',{cx:200,cy:354,r:2.4,fill:'rgba(170,205,248,.95)'},g.drops);anims.push({e:c,y:352,vy:0});}
+function tick(){
+  const lvl=flaskLevel((S&&S.inFlask||0)+vB);
+  anims=anims.filter(a=>{a.vy+=0.6;a.y+=a.vy;a.e.setAttribute('cy',a.y);if(a.y>=lvl){a.e.remove();return false;}return true;});
+  if(flashT>0){flashT-=1;const a=Math.max(0,flashT/40)*.8;g.cloud.setAttribute('cy',lvl+10);g.cloud.setAttribute('r',8+ (40-flashT)*0.9);g.cloud.setAttribute('fill',`rgba(231,86,154,${a})`);}
+  else g.cloud.setAttribute('r',0);
+  requestAnimationFrame(tick);
+}
+const fade=(e,to,ms=500)=>new Promise(r=>{const from=+(e.getAttribute('opacity')||0);const t0=performance.now();const f=t=>{const k=Math.min(1,(t-t0)*speed()/ms);e.setAttribute('opacity',from+(to-from)*k);k<1?requestAnimationFrame(f):r();};requestAnimationFrame(f);});
+let paused=false,abort=false;
+const speed=()=>mode==='kitap'?+$('#kSpeed').value:1;
+// Gerçek geçen süreye göre (hız çarpanı ve duraklatma dahil)
+const clock=(ms,cb)=>new Promise((r,j)=>{let t=0,last=performance.now();const f=()=>{if(abort)return j('abort');const now=performance.now();if(!paused)t+=(now-last)*speed();last=now;const k=Math.min(1,t/ms);cb&&cb(k);k<1?setTimeout(f,16):r();};f();});
+const sleep=ms=>clock(ms);
+const tween=(ms,cb)=>clock(ms,cb);
+
+/* ---------- Kitap modu ---------- */
+const KS={a:'HCl',aM:0.15,aV:20,b:'NaOH',bM:0.1,vmax:50};
+const STEPS=[
+ ['Düzeneği kur','Spor düzeneğine kıskaçla 100 mL’lik büreti dik olarak yerleştir. Altına 100 mL’lik erlenmayeri koy.'],
+ ['Bürete NaOH doldur','Huni ile büreti derişimi bilinen 0,1 M NaOH çözeltisiyle doldur, seviyeyi 0 çizgisine ayarla ve huniyi çıkar. (Huni kalırsa damlayan çözelti ölçümü bozar.)'],
+ ['HCl’yi ölç','Mezürle derişimi bilinmeyen HCl çözeltisinden 20 mL ölç ve erlenmayere aktar.'],
+ ['İndikatör ekle','Erlenmayere 2–3 damla fenolftalein damlat. Ortam asidik olduğu için çözelti renksiz kalır.'],
+ ['Titrasyona başla','Musluğu aç, erlenmayeri hafifçe çalkalayarak NaOH ekle. pH metre ve grafik değişimi gösterir.'],
+ ['Damla damla ekle','Dönüm noktasına yaklaştıkça damla damla ekle. Damlanın düştüğü yerde oluşan pembe renk çalkalayınca kayboluyor.'],
+ ['Dönüm noktası','Bir damla daha: açık pembe renk çalkalayınca kaybolmuyor. Dönüm noktası! Musluğu kapat ve hacmi büretten oku.'],
+ ['Hesapla','zₐ·Vₐ·Mₐ = z_b·V_b·M_b formülüyle HCl’nin derişimini hesapla.']];
+function stepUI(i){window.__step=i;$('#stepList').innerHTML=STEPS.map((s,k)=>`<li class="${k<i?'ok':k===i?'on':''}">${s[0]}</li>`).join('');
+  if(i>=0&&i<STEPS.length)$('#cap').innerHTML=`<span class="n">${i+1}/${STEPS.length}</span><b>${STEPS[i][0]}.</b> ${STEPS[i][1]}`;}
+async function runKitap(){
+  resetBench(KS);abort=false;paused=false;$('#kCalc').classList.remove('show');ghost=[];hideEnd();
+  $('#kStart').disabled=true;$('#kPause').disabled=false;
+  try{
+    stepUI(0);await fade(g.stand,1);await fade(g.bur,1);await fade(g.fl,1);g.flLbl.textContent='Erlenmayer';await sleep(1500);
+    stepUI(1);await fade(g.fun,1,400);S.filled=true;burStart=0;
+    await tween(2200,k=>{g.burLiq.setAttribute('y',306-(306-Y0)*k);g.burLiq.setAttribute('height',(306-Y0)*k);});render();
+    await sleep(500);await fade(g.fun,0,400);await sleep(900);
+    stepUI(2);await fade(g.mz,1);await tween(1400,k=>{g.mzLiq.setAttribute('y',510-20*3.4*k);g.mzLiq.setAttribute('height',20*3.4*k);});
+    await sleep(500);g.flLbl.textContent='20 mL HCl';
+    await tween(1600,k=>{g.mzLiq.setAttribute('y',510-20*3.4*(1-k));g.mzLiq.setAttribute('height',20*3.4*(1-k));S.inFlask=20*k;render();});
+    S.inFlask=20;await fade(g.mz,0);render();await sleep(600);
+    stepUI(3);await fade(g.dr,1,400);for(let i=0;i<3;i++){await sleep(450);}
+    S.indAdded=true;render();await sleep(700);await fade(g.dr,0,400);
+    await fade(g.ph,1,400);showPH=true;showK=true;S.titrating=true;render();await sleep(900);
+    stepUI(4);g.cock.setAttribute('transform','rotate(90 200 323)');
+    g.stream.setAttribute('height',lvlGap());
+    const veq=KS.aM*KS.aV/KS.bM; // 30 mL
+    await tween(9000,k=>{vB=(veq-2.5)*k;g.stream.setAttribute('height',lvlGap());render();});
+    g.stream.setAttribute('height',0);
+    stepUI(5);
+    while(vB<veq-0.05){dropAnim();await sleep(500);vB=Math.min(veq-0.05,vB+0.25);if(vB>veq-1.6)flashT=40;render();await sleep(200);}
+    await sleep(500);
+    stepUI(6);dropAnim();await sleep(500);vB=veq+0.05;persistent=true;render();g.cock.removeAttribute('transform');await sleep(1800);
+    stepUI(7);
+    $('#kCalc').innerHTML=`<b>Okunan hacim:</b> V<sub>NaOH</sub> = ${fmt(vB,2)} mL (dönüm noktası)<br>
+    HCl ve NaOH tek değerli (z = 1): &nbsp; M<sub>HCl</sub> · V<sub>HCl</sub> = M<sub>NaOH</sub> · V<sub>NaOH</sub><br>
+    M<sub>HCl</sub> · 20 = 0,1 · ${fmt(vB,2)} &nbsp;⇒&nbsp; <b>M<sub>HCl</sub> ≈ ${fmt(0.1*vB/20,3)} M</b><br>
+    <span style="color:#64748b">Dönüm noktası eş değerlik noktasından (30,00 mL, pH 7) bir damla sonradır; fark çok küçük olduğu için sonuç 0,15 M kabul edilir.</span>`;
+    $('#kCalc').classList.add('show');kitapEnd();
+    $('#cap').innerHTML='<span class="n">Bitti</span>Derişimi bilinmeyen HCl çözeltisinin derişimi <b>0,15 M</b> bulundu. Grafikte pH’ın 30 mL civarında birden 3’ten 11’e sıçradığına dikkat et.';
+    $('#stepList').querySelectorAll('li').forEach(l=>l.className='ok');
+  }catch(e){}
+  $('#kStart').disabled=false;$('#kPause').disabled=true;$('#kPause').textContent='⏸ Duraklat';
+}
+function lvlGap(){return Math.max(0,flaskLevel((S.inFlask||0)+vB)-352);}
+
+function resetBench(st){
+  abort=true;draw();anims=[];setState({...st,inFlask:0,indAdded:false,filled:false,titrating:false});
+  ind=st.ind||'fenol';burStart=0;showPH=true;showK=!!st.showK;
+  g.burLiq.setAttribute('height',0);render();
+}
+
+/* ---------- Kendin dene ---------- */
+let trials=[],hidden={};
+const NAMES={HCl:'HCl',HNO3:'HNO₃',NaOH:'NaOH',KOH:'KOH'};
+const IND_LBL={AV:'Erlenmayerdeki hacim',AM:'Erlenmayerdeki derişim',BM:'Büretteki derişim',I:'İndikatör'};
+function cfg(){return{a:$('#dA').value,aMsel:$('#dAM').value,aV:+$('#dAV').value,b:$('#dB').value,bM:+$('#dBM').value,ind:$('#dI').value};}
+function varsUI(){
+  const c=cfg(),vi=$('#vInd').value,vd=$('#vDep').value;
+  const tr=x=>String(x).replace('.',',');const all={AV:`Erlenmayerdeki hacim: ${c.aV} mL`,AM:`Erlenmayerdeki derişim: ${c.aMsel==='?'?'bilinmeyen':tr(c.aMsel)+' M'}`,BM:`Büretteki derişim: ${tr(c.bM)} M`,I:`İndikatör: ${IND[c.ind].ad}`};
+  $('#vbI').textContent=all[vi];
+  $('#vbD').textContent=vd==='VB'?'Dönüm noktasına kadar harcanan büret çözeltisi (mL)':'Dönüm noktasındaki pH';
+  $('#vbK').innerHTML=Object.keys(all).filter(k=>k!==vi).map(k=>'• '+all[k]).join('<br>')+'<br>• Sıcaklık: 25 °C';
+  $('#thInd').textContent=IND_LBL[vi];
+  let w='';
+  if(!!ACID[c.a]===!!ACID[c.b])w='Erlenmayerde ve bürette ikisi de '+(ACID[c.a]?'asit':'baz')+' var: nötralleşme olmaz. Biri asit, biri baz olmalı.';
+  else if(trials.length){const t0=trials[0].cfg;const ch=Object.keys(all).filter(k=>val(t0,k)!==val(c,k));
+    const bad=ch.filter(k=>k!==vi);
+    if(bad.length)w='Dikkat: sadece bağımsız değişkeni değiştirmelisin. Şunlar da değişti: '+bad.map(k=>IND_LBL[k].toLowerCase()).join(', ')+'. Bu deneme karşılaştırmayı bozar.';}
+  if(c.aMsel==='?'&&vi==='AM')w='Bağımsız değişken derişimse, derişimi “bilinmeyen” değil bir değer olarak seç.';
+  $('#dWarn').textContent=w;return !w.startsWith('Erlenmayerde')&&!w.startsWith('Bağımsız');
+}
+const val=(c,k)=>k==='AV'?c.aV:k==='AM'?c.aMsel:k==='BM'?c.bM:c.ind;
+['#dA','#dAM','#dAV','#dB','#dBM','#dI','#vInd','#vDep'].forEach(s=>$(s).addEventListener('change',varsUI));
+$('#dpH').onchange=()=>{showPH=$('#dpH').checked;g.ph&&g.ph.setAttribute('opacity',showPH?1:0);render();};
+$('#dK').onchange=()=>{showK=$('#dK').checked;render();};
+let flowing=false,flowTimer=0;
+$('#dSetup').onclick=async()=>{
+  if(!varsUI())return;
+  const c=cfg();
+  const aM=c.aMsel==='?'?(hidden.key===c.a?hidden.m:(hidden={key:c.a,m:+(0.06+Math.random()*0.2).toFixed(3)}).m):+c.aMsel;
+  resetBench({a:c.a,aM,aV:c.aV,b:c.b,bM:c.bM,ind:c.ind,showK:$('#dK').checked,vmax:Math.min(100,Math.max(20,aM*c.aV/c.bM*1.6))});
+  abort=false;S.cfg=c;
+  for(const k of ['stand','bur','fl','fun'])g[k].setAttribute('opacity',1);
+  S.filled=true;g.fun.setAttribute('opacity',0);
+  S.inFlask=c.aV;g.flLbl.textContent=`${c.aV} mL ${NAMES[c.a]}`;S.indAdded=c.ind!=='yok';
+  g.ph.setAttribute('opacity',$('#dpH').checked?1:0);showPH=$('#dpH').checked;
+  S.titrating=true;render();
+  ['#dFlow','#dDrop','#dStop','#dRec'].forEach(s=>$(s).disabled=false);
+  $('#dTip').textContent=`Büret ${c.bM} M ${NAMES[c.b]} ile 0 çizgisine dolduruldu. Erlenmayerde ${c.aV} mL ${NAMES[c.a]}${c.ind!=='yok'?' ve '+IND[c.ind].ad:''} var. Musluğu aç; renge ve pH’a dikkat et.`;
+};
+function addVol(d){if(!S||!S.titrating)return;if(burStart+vB+d>100){stopFlow();$('#dTip').textContent='Büret boşaldı. Kaydet ya da düzeneği yeniden kur.';return;}
+  vB+=d;const r=chem(S,vB);const I=IND[S.ind];
+  if(S.ind!=='yok'){const before=r.pH; if(ACID[S.a]&&before<I.lo&&before>I.lo-3)flashT=40;}
+  render();}
+function stopFlow(){flowing=false;clearInterval(flowTimer);g.stream.setAttribute('height',0);g.cock.removeAttribute('transform');}
+$('#dFlow').onclick=()=>{if(flowing)return;flowing=true;g.cock.setAttribute('transform','rotate(90 200 323)');flowTimer=setInterval(()=>{addVol(0.1);g.stream.setAttribute('height',lvlGap());},40);};
+$('#dStop').onclick=stopFlow;
+$('#dDrop').onclick=()=>{stopFlow();dropAnim();setTimeout(()=>addVol(0.05),350);};
+$('#dRec').onclick=()=>{
+  stopFlow();if(!S||!S.titrating)return;const c=S.cfg,vi=$('#vInd').value;
+  const r=chem(S,vB);const found=S.bM*vB/S.aV;
+  const veq=S.aM*S.aV/S.bM;
+  trials.push({cfg:c,vB,pH:r.pH,found,real:S.aM,veq});
+  ghost.push(curve.slice());if(ghost.length>5)ghost.shift();
+  const tb=$('#dTable tbody');tb.innerHTML=trials.map((t,i)=>`<tr><td>${i+1}</td><td>${fmtInd(t.cfg,vi)}</td><td>${fmt(t.vB,2)}</td><td>${fmt(t.pH,2)}</td><td>${fmt(t.found,3)} M</td><td>${fmt(t.real,3)} M</td></tr>`).join('');
+  const err=Math.abs(vB-veq);
+  let msg=`<b>Deneme ${trials.length}:</b> ${fmt(vB,2)} mL ${NAMES[S.b]} harcandı. Erlenmayerdeki ${NAMES[S.a]} derişimi: M·${S.aV} = ${fmt(S.bM,2)}·${fmt(vB,2)} ⇒ <b>${fmt(found,3)} M</b> (gerçek: ${fmt(S.aM,3)} M).<br>`;
+  msg+=err<0.15?'✅ Çok iyi! Dönüm noktasını tam yakaladın.':vB<veq?`⚠ Erken durdun: eş değerlik ${fmt(veq,2)} mL’de. Renk değişimini bekle.`:`⚠ Fazla ekledin: eş değerlik ${fmt(veq,2)} mL’deydi. Sona yaklaşınca damla damla ekle.`;
+  if(S.ind==='metil'&&ACID[S.a])msg+='<br>ℹ Metil oranj asidik bölgede (pH 3,1–4,4) renk değiştirir; kuvvetli asit–kuvvetli baz titrasyonunda dönüm noktası eş değerlik noktasından biraz önce gelir ama eğri çok dik olduğu için hata küçüktür.';
+  if(trials.length>=2)msg+=`<br><b>Sonuç için:</b> ${IND_LBL[vi].toLowerCase()} değişince ${$('#vDep').value==='VB'?'harcanan hacim':'dönüm noktası pH’ı'} nasıl değişti? Tabloya bak ve bir cümleyle yaz.`;
+  $('#dCalc').innerHTML=msg;$('#dCalc').classList.add('show');deneEnd();
+  ['#dFlow','#dDrop','#dStop','#dRec'].forEach(s=>$(s).disabled=true);S.titrating=false;varsUI();
+  $('#dTip').textContent='Yeni deneme için sadece bağımsız değişkeni değiştir ve “Düzeneği kur”a bas.';
+};
+const fmtInd=(c,vi)=>vi==='AV'?c.aV+' mL':vi==='AM'?(c.aMsel==='?'?'?':String(c.aMsel).replace('.',',')+' M'):vi==='BM'?String(c.bM).replace('.',',')+' M':IND[c.ind].ad;
+
+/* ---------- Sonuç soruları ve rapor ---------- */
+const QK=[
+ {q:'Titrasyonda dönüm noktası nasıl anlaşıldı?',o:['pH metre 7’yi gösterdiğinde','Erlenmayerdeki çözelti çalkalanınca kaybolmayan açık pembe renk aldığında','Büretteki çözelti bittiğinde','Erlenmayerde gaz çıkışı başladığında'],a:1,e:'Fenolftalein bazik ortamda pembedir. Bir damla fazla NaOH ortamı bazik yapar ve kalıcı açık pembe renk görülür; bu dönüm noktasıdır.'},
+ {q:'Dönüm noktasına yaklaşırken NaOH neden damla damla eklenir?',o:['Tepkime yavaşladığı için','Isınmayı önlemek için','pH eş değerlik noktası çevresinde birden değiştiği için; fazla eklenen hacim sonucu bozar','Fenolftaleinin bozulmaması için'],a:2,e:'Grafikte 30 mL civarında pH 3’ten 11’e sıçrıyor. Bu bölgede tek damla bile rengi değiştirir; fazla eklenen her damla hesaplanan derişimi büyütür.'},
+ {q:'25 mL HCl çözeltisi 0,2 M NaOH ile titre ediliyor ve dönüm noktasına kadar 15 mL NaOH harcanıyor. HCl çözeltisinin derişimi kaç M’dir?',o:['0,08','0,12','0,20','0,33'],a:1,e:'M·25 = 0,2·15 ⇒ M = 3/25 = 0,12 M.'},
+ {q:'Eş değerlik noktası ile ilgili hangisi doğrudur?',o:['Kuvvetli asit–kuvvetli baz titrasyonunda pH 7’dir; doğrudan gözlemlenemez','Her zaman dönüm noktasından sonra gelir','İndikatörün renk değiştirdiği noktadır','Büretin boşaldığı andır'],a:0,e:'Eş değerlik noktasında H⁺ ve OH⁻ mol sayıları eşittir (pH 7). Teorik bir noktadır; indikatörün renk değiştirdiği dönüm noktası onu yaklaşık gösterir.'}];
+const QD=[
+ {q:'Kendi deneyinde bağımsız değişkeni neden tek başına değiştirmen gerekir?',o:['Deney daha kısa sürsün diye','Bağımlı değişkendeki değişimin yalnızca bağımsız değişkenden kaynaklandığını söyleyebilmek için','Kimyasallar karışmasın diye','Grafik düzgün çıksın diye'],a:1,e:'Birden çok değişken birlikte değişirse sonuçtaki farkın hangisinden geldiği bilinemez. Bu yüzden diğerleri kontrol değişkeni olarak sabit tutulur.'},
+ {q:'Erlenmayerdeki HCl hacmini iki katına çıkarırsan (derişim aynı), harcanan NaOH hacmi ne olur?',o:['Yarıya iner','Değişmez','İki katına çıkar','Dört katına çıkar'],a:2,e:'HCl’nin mol sayısı iki katına çıkar; nötralleştirmek için iki kat NaOH gerekir: M·V = M·V.'},
+ {q:'Büretteki NaOH derişimini 0,1 M’den 0,2 M’ye çıkarırsan harcanan hacim ne olur?',o:['İki katına çıkar','Yarıya iner','Değişmez','Sıfır olur'],a:1,e:'Aynı mol NaOH daha az hacimde bulunur: V = n/M. Derişim iki katı ⇒ hacim yarısı.'}];
+function quiz(list){
+  const box=$('#quiz');box.innerHTML='';
+  list.forEach((it,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${it.q}</p>`;
+    it.o.forEach((o,k)=>{const b=document.createElement('button');b.textContent=String.fromCharCode(65+k)+') '+o;b.onclick=()=>{
+      if(d.dataset.done)return;d.dataset.done=1;b.classList.add(k===it.a?'ok':'no');d.querySelectorAll('button')[it.a].classList.add('ok');
+      const ex=document.createElement('div');ex.className='ex';ex.textContent=(k===it.a?'✅ Doğru. ':'❌ Doğru cevap '+String.fromCharCode(65+it.a)+'. ')+it.e;d.append(ex);};d.append(b);});
+    box.append(d);});
+  $('#quizCard').classList.remove('hidden');
+}
+let repText='';
+function report(rows){
+  const h=rows.map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('');
+  $('#rep').innerHTML=`<table>${h}</table>`;$('#repCard').classList.remove('hidden');
+  repText=rows.map(([k,v])=>k+': '+v.replace(/<br>/g,'\n  ').replace(/<[^>]+>/g,'')).join('\n');
+}
+$('#repCopy').onclick=async()=>{try{await navigator.clipboard.writeText(repText);$('#repMsg').textContent='Kopyalandı.';}catch{$('#repMsg').textContent='Kopyalanamadı; metni seçip kopyalayabilirsin.';}};
+function hideEnd(){$('#quizCard').classList.add('hidden');$('#repCard').classList.add('hidden');}
+function kitapEnd(){
+  const today=new Date().toLocaleDateString('tr-TR');
+  report([['Deneyin Adı','Titrasyon Deneyi'],['Deneyin Amacı','Derişimi bilinmeyen HCl çözeltisinin derişimini belirlemek'],['Tarih',today],
+   ['Malzemeler','Mezür, 100 mL’lik büret, huni, 100 mL’lik erlenmayer, spor düzeneği, fenolftalein, 0,1 M NaOH çözeltisi, derişimi bilinmeyen HCl çözeltisi'],
+   ['Deneyin Yapılışı',STEPS.map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+   ['Gözlemler',`Başlangıçta pH = ${fmt(-Math.log10(0.15),2)}, çözelti renksiz.<br>NaOH eklendikçe pH yavaş arttı; 28–30 mL arasında damlanın düştüğü yerde pembe renk oluşup kayboldu.<br>${fmt(vB,2)} mL’de kalıcı açık pembe renk görüldü (pH ≈ ${fmt(chem(S,vB).pH,1)}). İletkenlik eş değerlik noktasına kadar azaldı, sonra arttı.`],
+   ['Hesaplama',`M<sub>HCl</sub> · 20 = 0,1 · ${fmt(vB,2)} ⇒ M<sub>HCl</sub> = ${fmt(0.1*vB/20,3)} M`],
+   ['Sonuç','Derişimi bilinmeyen HCl çözeltisinin derişimi yaklaşık 0,15 M’dir. Kuvvetli asit–kuvvetli baz titrasyonunda eş değerlik noktasında pH 7’dir; fenolftaleinin renk değiştirdiği dönüm noktası bu noktaya çok yakındır.']]);
+  quiz(QK);
+}
+function deneEnd(){
+  const vi=$('#vInd').value,vd=$('#vDep').value,c=trials[trials.length-1].cfg;
+  const tr=trials.map((t,i)=>`${i+1}) ${IND_LBL[vi]}: ${fmtInd(t.cfg,vi)} → harcanan ${fmt(t.vB,2)} mL, dönüm pH ${fmt(t.pH,2)}, bulunan derişim ${fmt(t.found,3)} M`).join('<br>');
+  report([['Deneyin Adı','Titrasyon (kendi tasarımım)'],['Deneyin Amacı',`${IND_LBL[vi]} değişince ${vd==='VB'?'harcanan büret çözeltisi hacminin':'dönüm noktasındaki pH’ın'} nasıl değiştiğini incelemek`],
+   ['Bağımsız değişken',IND_LBL[vi]],['Bağımlı değişken',vd==='VB'?'Harcanan büret çözeltisi hacmi (mL)':'Dönüm noktasındaki pH'],
+   ['Kontrol değişkenleri',$('#vbK').innerHTML.replace(/• /g,'')],
+   ['Malzemeler',`Spor düzeneği, büret, erlenmayer, mezür, ${NAMES[c.a]} ve ${NAMES[c.b]} çözeltileri, ${IND[c.ind].ad}${$('#dpH').checked?', pH metre':''}${$('#dK').checked?', iletkenlik ölçer':''}`],
+   ['Ölçümler',tr],['Sonuç (sen yaz)','Tablodaki değerlere bakarak bağımsız değişken ile bağımlı değişken arasındaki ilişkiyi bir cümleyle yaz.']]);
+  if(trials.length>=2)quiz(QD);
+}
+
+/* ---------- Mod ---------- */
+let mode='kitap';
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));mode=t.dataset.m;
+  stopFlow();abort=true;
+  $('#mKitap').classList.toggle('hidden',mode!=='kitap');$('#mDene').classList.toggle('hidden',mode!=='dene');
+  ghost=[];hideEnd();if(mode==='kitap'){resetBench(KS);idleKitap();}else{resetBench({a:'HCl',aM:0.1,aV:20,b:'NaOH',bM:0.1,vmax:50});['stand','bur','fl'].forEach(k=>g[k].setAttribute('opacity',1));varsUI();render();}
+});
+function idleKitap(){['stand'].forEach(k=>g[k].setAttribute('opacity',1));stepUI(-1);$('#cap').innerHTML='<span class="n">Hazır</span>Malzemeler tezgâhta. <b>Başlat</b>’a basınca kitaptaki deney adım adım yapılır.';$('#kStart').disabled=false;$('#kPause').disabled=true;}
+$('#kStart').onclick=()=>{abort=true;setTimeout(runKitap,30);};
+$('#kPause').onclick=()=>{paused=!paused;$('#kPause').textContent=paused?'▶ Devam':'⏸ Duraklat';};
+$('#kReset').onclick=()=>{abort=true;setTimeout(()=>{resetBench(KS);idleKitap();$('#kCalc').classList.remove('show');},40);};
+
+draw();resetBench(KS);idleKitap();tick();
+if(location.hash==='#gomulu'||window.self!==window.top&&location.hash!=='#video'){document.body.classList.add('gomulu');
+  // Kimya Koçum içinde: yüksekliği üst sayfaya bildir
+  const bildir=()=>{try{parent.postMessage({tur:'kk-lab-yukseklik',ad:'titrasyon',h:document.documentElement.scrollHeight},'*')}catch{}};
+  try{new ResizeObserver(bildir).observe(document.body)}catch{setInterval(bildir,800)};bildir();}
+if(location.hash==='#video'){document.body.classList.add('video');const rc=document.querySelector('.readouts');document.querySelector('#cv').parentNode.prepend(rc);}
+})();
+</script>
+</body>
+</html>

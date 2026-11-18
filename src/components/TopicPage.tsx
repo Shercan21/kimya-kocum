@@ -246,7 +246,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
             const Sim = SIMLER[d.tur]
             return Sim ? (
               <section key={d.baslik} className="card">
-                <span className="badge">Sanal deney</span>
+                <span className="badge">{d.tur === 'lab' ? 'Laboratuvar' : 'Sanal deney'}</span>
                 <h3 className="card-title">🧪 {d.baslik}</h3>
                 <Suspense fallback={<p className="muted">Deney yükleniyor…</p>}>
                   <Sim modlar={d.modlar} />

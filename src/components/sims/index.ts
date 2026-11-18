@@ -42,4 +42,5 @@ export const SIMLER: Record<string, LazyExoticComponent<ComponentType<SimProps>>
   kromatografi: lazy(() => import('./KromatografiSim')),
   mermer: lazy(() => import('./MermerSim')),
   tampon: lazy(() => import('./TamponSim')),
+  lab: lazy(() => import('./LabCerceve')),
 }

@@ -75,7 +75,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '11:2.2.3': [{ tur: 'ph', baslik: 'Kuvvetli ve zayıf asit–baz', modlar: ['cozelti'] }],
   '11:2.2.4': [{ tur: 'ph', baslik: 'pH laboratuvarı', modlar: ['cozelti', 'su', 'urun'] }],
   '11:2.2.5': [{ tur: 'titrasyon', baslik: 'Nötralleşme ve indikatörler' }, { tur: 'tampon', baslik: 'Konuyu genişlet: tampon çözelti' }],
-  '11:2.2.6': [{ tur: 'titrasyon', baslik: 'Sanal titrasyon' }],
+  '11:2.2.6': [{ tur: 'lab', baslik: 'Laboratuvar: Titrasyon deneyi (MEB 2.2.6)', modlar: ['titrasyon'] }, { tur: 'titrasyon', baslik: 'Konuyu genişlet: zayıf asit titrasyonu' }],
   '11:2.2.7': [{ tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
   '11:2.3.1': [{ tur: 'kcc', baslik: 'Az çözünen tuzlar ve Kçç' }],
   '11:2.3.2': [{ tur: 'kcc', baslik: 'Ortak iyon ve sıcaklık etkisi' }],
