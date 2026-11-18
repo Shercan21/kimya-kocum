@@ -301,6 +301,7 @@ function page(cfg){
   // kitabın soruları (kitapsorular.js)
   P.showKS=()=>{if(P.ks)$('#ksCard').classList.remove('hidden');};
   const ksMount=()=>{if(!window.KS)return;P.ks=window.KS.mount($('#ksCard'),cfg.ad,()=>{if(P.lastRows&&!$('#repCard').classList.contains('hidden'))report(P,P.lastRows);});};
+  if(LKBASE&&!window.__lkYatay){const y=document.createElement('script');y.src=LKBASE+'yatay.js';document.head.appendChild(y);}
   if(window.KS)ksMount();else if(LKBASE){const s=document.createElement('script');s.src=LKBASE+'kitapsorular.js';s.onload=ksMount;document.head.appendChild(s);}
   window.LAB=P;return P;
 }

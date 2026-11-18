@@ -25,6 +25,8 @@ export default function LabCerceve({ modlar }: SimProps) {
       src={`${import.meta.env.BASE_URL}lab/${ad}.html#gomulu`}
       style={{ width: '100%', height: h, border: 0, display: 'block' }}
       loading="lazy"
+      allow="fullscreen"
+      allowFullScreen
     />
   )
 }
