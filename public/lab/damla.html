@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Yüzey Gerilimi</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;const MOD='d';
+// γ (mN/m, 20 °C), ρ (g/mL), renk, dγ/dT
+const L={su:['Su',72.8,1.0,'rgba(196,226,255,.85)',-.155],gliserin:['Gliserin',63.4,1.26,'rgba(240,240,225,.92)',-.06],zeytin:['Zeytinyağı',32,.91,'rgba(214,190,60,.8)',-.07],surup:['Mısır şurubu',76,1.38,'rgba(230,200,140,.9)',-.1],etanol:['Etil alkol',22.3,.79,'rgba(225,235,250,.85)',-.085],
+ deterjan:['Deterjanlı su',30,1.0,'rgba(200,230,250,.85)',-.1],tuzlu:['Tuzlu su (%10)',75.5,1.07,'rgba(205,228,255,.85)',-.155]};
+const gam=(k,T)=>L[k][1]+L[k][4]*(T-20);const nDrop=(k,T)=>Math.round(1000/(0.694*gam(k,T)/L[k][2]));
+// yüzeyde temas açısı (derece)
+const ACI={cam:{su:20,gliserin:25,zeytin:10,surup:30,etanol:5},yagli:{su:110,gliserin:100,zeytin:20,surup:105,etanol:15},plastik:{su:85,gliserin:80,zeytin:15,surup:85,etanol:10},metal:{su:70,gliserin:65,zeytin:12,surup:70,etanol:8}};
+let BU,BK,CNT,PAN,TH;
+const SIRA=MOD==='y'?[['su',20],['etanol',20],['gliserin',20],['su',50],['su',80],['deterjan',20],['tuzlu',20]]:[['su',20],['gliserin',20],['zeytin',20],['surup',20]];
+function panel(S){const g=el('g',{},S.top);el('rect',{x:240,y:30,width:150,height:110,rx:10,fill:'#fff',stroke:'#cbd5e1'},g);const t=el('text',{x:315,y:46,'font-size':8.5,'font-weight':800,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g);
+  const yz=el('rect',{x:252,y:110,width:126,height:10,fill:'#cbd5e1'},g);const d=el('path',{d:'',fill:'rgba(96,165,250,.8)'},g);const a=el('text',{x:315,y:134,'font-size':8,fill:'#475569','text-anchor':'middle','font-family':'Nunito'},g);
+  return {g,set(ad,yuz,aci,col){t.textContent=`${ad} damlası · ${yuz}`;yz.setAttribute('fill',{cam:'#e0f2fe',yagli:'#fde68a',plastik:'#e9d5ff',metal:'#9ca3af'}[yuz]||'#cbd5e1');
+    const th=aci*Math.PI/180,V=420;const R=Math.sqrt(V/(th-Math.sin(th)*Math.cos(th)+1e-3));const w=R*Math.sin(th),h=R*(1-Math.cos(th));
+    d.setAttribute('d',`M${315-w} 110 A${R} ${R} 0 ${th>Math.PI/2?1:0} 1 ${315+w} 110 Z`);d.setAttribute('fill',col);a.textContent=`temas açısı ≈ ${aci}° · ${aci>90?'boncuklanır':aci>40?'yarım küre':'yayılır'}`;}};}
+const cfg={ad:MOD==='y'?'yuzeygerilim':'damla',baslik:MOD==='y'?'Yüzey Gerilimini Etkileyen Faktörler':'Damlalar Büyükse Göl Kısa Sürede Oluşur',alt:'9. sınıf · 2.2.3 Sıvılar ve Özellikleri · '+(MOD==='y'?'Sıvı cinsi, sıcaklık ve çözünen maddenin yüzey gerilimine etkisi':'Damlaların boyutu ve şeklinden yüzey gerilimini tahmin etme'),
+ malzemeler:MOD==='y'?['Büret','Spor ve kıskaç','Beherglas','Su','Etil alkol','Gliserin','Bulaşık deterjanı','Yemek tuzu','Isıtıcı','Termometre','Mezür']:['2 büret','2 spor ve kıskaç','2 beherglas','Gliserin (10 mL)','Zeytinyağı (10 mL)','Su (10 mL)','Mısır şurubu (10 mL)','Pipet','Kronometre','Mezür','Yağlı kâğıt, cam, pleksi, plastik ve metal yüzeyler'],
+ guvenlik:['⚠ Koruyucu gözlük','🧪 Cam malzeme','🔥 Etil alkol yanıcıdır','🧽 Dökülen yağı hemen sil'],
+ olcumler:[['s','Sıvı',''],['n','1 mL’deki damla','damla'],['g','Yüzey gerilimi','mN/m']],
+ grafik:{baslik:'1 mL’deki damla sayısı',xmax:SIRA.length+1,ymax:60,xl:SIRA.map((s,i)=>`${i+1} ${L[s[0]][0].split(' ')[0]}${MOD==='y'&&s[1]!==20?' '+s[1]+'°':''}`).join(' · '),yl:'damla',not:'Damla sayısı fazlaysa damlalar küçüktür: yüzey gerilimi (γ/ρ) küçüktür.'},
+ adimlar:MOD==='y'?[['Yöntem','Büretten 1 mL sıvı damlatıp damlaları say. Damla sayısı arttıkça damla küçüktür; yüzey gerilimi küçüktür.'],
+   ['Sıvı cinsi','Su, etil alkol ve gliserin için 1 mL’deki damla sayısını ölç (20 °C).'],
+   ['Sıcaklık','Suyu 50 °C ve 80 °C’a ısıtıp ölçümü tekrarla.'],
+   ['Çözünen madde','Suya deterjan ve tuz ekleyerek ölçümü tekrarla.'],
+   ['Sonuç','Etkileşimi güçlü sıvının yüzey gerilimi büyüktür. Sıcaklık arttıkça yüzey gerilimi azalır. Deterjan (yüzey aktif madde) yüzey gerilimini çok azaltır; tuz biraz artırır.']]
+  :[['Değişkenler','Bağımsız: sıvının cinsi · Bağımlı: 1 mL’deki damla sayısı (damla boyutu) · Kontrol: büret ucu, damlatma hızı, sıcaklık.'],
+   ['Büretleri doldur','Büretleri sporlara tuttur, 10’ar mL sıvıyla doldur.'],
+   ['Damlaları say','Her sıvıdan 1 mL’yi damla damla akıt ve damla sayısını kaydet: su 20, gliserin 29, zeytinyağı 41, mısır şurubu 26.'],
+   ['Damla şekilleri','Damlaları yağlı kâğıt, cam, pleksi, plastik ve metal yüzeylere damlat; şekillerini karşılaştır.'],
+   ['Sonuç','Damla sayısı az (damla büyük) olan sıvıların yüzey gerilimi büyüktür. Yüzey gerilimi kohezyon kuvvetlerinden kaynaklanır.']],
+ async kur(P,m){const S=P.S;S.stand(101,240,190).setAttribute('opacity',1);BU=S.burette(200,38,270,10);BU.g.setAttribute('opacity',1);BU.set(0);BK=S.beaker(200,520,90,90,100,'');BK.g.setAttribute('opacity',1);
+  CNT=S.G(1);el('rect',{x:20,y:30,width:110,height:52,rx:8,fill:'#0b1f14'},CNT);CNT.t=el('text',{x:75,y:66,'font-size':26,fill:'#4ade80','text-anchor':'middle','font-family':'monospace'},CNT);CNT.t.textContent='0';S.txt(CNT,75,94,'damla sayacı',8);
+  PAN=panel(S);if(MOD==='y'){TH=S.thermo(300,320,190,0,100);TH.g.setAttribute('opacity',1);TH.set(20);PAN.g.setAttribute('opacity',0);}},
+ async say(P,k,T,ms,yuz){const n=nDrop(k,T);P.set('s',L[k][0]+(T!==20?` (${T} °C)`:''));BU.set(0);const col=L[k][3];BU.g.querySelector('rect').setAttribute('fill',col.replace(/[\d.]+\)$/,'.6)'));BK.set(0,col);
+  BU.open(1);const step=ms/n;for(let i=1;i<=n;i++){if(i%Math.max(1,Math.round(n/18))===0||i===n)P.S.drop(200,BU.tip[1],BK.level(BK.vol),col);await sleep(step);CNT.t.textContent=i;BU.set(i/n);BK.set(i/n*8,col);}
+  BU.open(0);P.set('n',String(n));P.set('g',fmt(gam(k,T),1));if(yuz&&MOD!=='y'&&ACI[yuz][k]!=null)PAN.set(L[k][0],yuz,ACI[yuz][k],col);return n;},
+ async calistir(P){P.graph.clear();const G=P.graph.add('#2563eb',3,true);P.rows=[];
+  P.stepUI(0);await sleep(2600);let st=1;
+  if(MOD!=='y'){P.stepUI(1);await sleep(1500);P.stepUI(2);for(let i=0;i<SIRA.length;i++){const [k,T]=SIRA[i];const n=await cfg.say(P,k,T,2200,'cam');P.rows.push([L[k][0],n,fmt(gam(k,T),1)]);G.pts.push([i+1,n]);P.graph.draw();await sleep(400);}
+   P.stepUI(3);for(const y of ['yagli','cam','plastik','metal']){PAN.set('Su',{yagli:'yağlı kâğıt',cam:'cam',plastik:'plastik',metal:'metal'}[y],ACI[y].su,L.su[3]);await sleep(900);}
+   P.stepUI(4);}
+  else{for(let i=0;i<SIRA.length;i++){const [k,T]=SIRA[i];const s=i<3?1:i<5?2:3;if(s!==st){st=s;}P.stepUI(st);if(TH)TH.set(T);const n=await cfg.say(P,k,T,1800);P.rows.push([L[k][0]+(T!==20?` ${T} °C`:''),n,fmt(gam(k,T),1)]);G.pts.push([i+1,n]);P.graph.draw();await sleep(300);}P.stepUI(4);}
+  await sleep(800);
+  P.calc('<b>Ölçümler</b><table><tr><th>Sıvı</th><th>1 mL’deki damla</th><th>Yüzey gerilimi (mN/m, literatür)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Damla hacmi ∝ γ/ρ (Tate yasası): yoğunluğu büyük sıvılarda damla sayısı yoğunlukla da değişir.</p>');
+  P.done(MOD==='y'?'Yüzey gerilimi: sıvı cinsine bağlıdır, sıcaklık arttıkça azalır, deterjanla çok azalır.':'Büyük damla veren (az damla) sıvıların yüzey gerilimi büyüktür; su yağlı kâğıtta boncuklanır, camda yayılır.');},
+ rapor:P=>[['Deneyin Adı',cfg.baslik],['Deneyin Amacı',MOD==='y'?'Sıvı cinsi, sıcaklık ve çözünen maddenin yüzey gerilimine etkisini belirleyebilme':'Damlaların boyutu ve şeklinden yararlanarak sıvıların yüzey gerilimlerini tahmin edebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,-1).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]} damla/mL`).join('<br>')],
+  ['Sonuç','Yüzey gerilimi kohezyon kuvvetlerinden kaynaklanır; moleküller arası etkileşimi güçlü sıvılarda büyüktür. Sıcaklık artınca azalır; yüzey aktif maddeler (deterjan) yüzey gerilimini düşürür. Kohezyon > adezyon ise sıvı yüzeyde boncuklanır, adezyon > kohezyon ise yayılır.']],
+ sorular:[{q:'1 mL’de en az damla veren sıvının yüzey gerilimi için ne söylenebilir?',o:['En küçüktür','Damlaları büyüktür, yüzey gerilimi büyüktür','Sıfırdır','Yoğunluğu sıfırdır'],a:1,e:'Büyük damla oluşturabilen sıvının yüzey gerilimi büyüktür.'},{q:'Su yağlı kâğıtta neden boncuklanır?',o:['Kohezyon > adezyon','Adezyon > kohezyon','Su yağda çözünür','Kâğıt ıslaktır'],a:0,e:'Su molekülleri birbirini, yağlı yüzeyden daha güçlü çeker.'},{q:'Deterjan suyun yüzey gerilimini nasıl etkiler?',o:['Artırır','Azaltır','Değiştirmez','Sıfırlar'],a:1,e:'Yüzey aktif moleküller yüzeye dizilip su molekülleri arasındaki çekimi azaltır.'}],
+ dene:{alanlar:[{id:'k',ad:'Sıvı',secenek:Object.keys(L).map(k=>[k,L[k][0]]),deger:MOD==='y'?'deterjan':'zeytin'},{id:'T',ad:'Sıcaklık',secenek:[[20,'20 °C'],[50,'50 °C'],[80,'80 °C']],deger:20},{id:'y',ad:'Damlatılan yüzey',secenek:[['cam','Cam'],['yagli','Yağlı kâğıt'],['plastik','Plastik'],['metal','Metal']],deger:'yagli'}],
+  bagimli:[['n','1 mL’deki damla sayısı'],['a','Damla şekli']],sabitler:['Aynı büret ucu','Aynı damlatma hızı'],varsayilanBagimsiz:'k',tablo:[['n','Damla/mL'],['g','γ (mN/m)'],['a','Şekil']],
+  dugmeler:[['go','💧 1 mL damlat ve say','p'],['kay','✔ Kaydet','g']],ipucu:'Sıvıyı, sıcaklığı ya da yüzeyi değiştir; damla sayısını ve damla şeklini karşılaştır.',
+  baslangic(P){P.enable(['kay'],false);PAN.g.setAttribute('opacity',1);},
+  async on(id,P){const c=P.cfgNow();if(id==='go'){if(TH)TH.set(+c.T);P.graph.clear();const n=await cfg.say(P,c.k,+c.T,2000);const ac=(ACI[c.y][c.k]??(c.k==='deterjan'?10:ACI[c.y].su));PAN.set(L[c.k][0],c.y,ac,L[c.k][3]);
+    P.cur={n:String(n),g:fmt(gam(c.k,+c.T),1),a:ac>90?'boncuk':ac>40?'yarım küre':'yayıldı'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Damla sayısı arttıkça damla küçülür, yüzey gerilimi küçüktür. Yüzeye göre şekil adezyon–kohezyon dengesine bağlıdır.');P.enable(['kay'],false);}},
+  sorular:[{q:'Suyu ısıtınca 1 mL’deki damla sayısı?',o:['Azalır','Artar (yüzey gerilimi azalır)','Değişmez','Sıfır olur'],a:1,e:'Sıcaklık arttıkça yüzey gerilimi azalır, damlalar küçülür.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

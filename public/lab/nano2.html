@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Nanoparçacık</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;const MOD='e';
+// indirgen gücü (hız), Ag rengi, Cu rengi
+const IND={sitrat:['Sodyum sitrat',1],askorbik:['Askorbik asit (C vitamini)',1.3],portakal:['Portakal kabuğu özütü',.8],limon:['Limon kabuğu özütü',.75],kivi:['Kivi kabuğu özütü',.6],cimen:['Kuru çimen özütü',.5],yesillik:['Kuru maydanoz/roka özütü',.7],kuruyemis:['Kuru yemiş kabuğu özütü',.9],su:['Saf su (kontrol)',0]};
+const SON={Ag:[[196,226,255],[245,222,120],[214,150,50]],Cu:[[120,200,190],[240,230,170],[150,90,40]]};
+const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+function renk(M,f){const S=SON[M];const c=f<.5?mix(S[0],S[1],f*2):mix(S[1],S[2],(f-.5)*2);return `rgba(${c[0]},${c[1]},${c[2]},.88)`;}
+let T1,T2,BB,HT,TH,BKOZ,LS;
+const cfg={ad:MOD==='e'?'nano2':'nano',baslik:MOD==='e'?'Evsel Atıklardan Nanoparçacık Eldesi':'Gümüş ve Bakır Nanoparçacık Eldesi',alt:MOD==='e'?'9. sınıf · 3.1.2 Yeşil Kimyanın Atık Önleme İlkesi · Atık kabuk özütleriyle AgNP/CuNP':'9. sınıf · 3.1.1 Metal Nanoparçacıklar · AgNP (sitrat) ve CuNP (askorbik asit)',
+ malzemeler:MOD==='e'?['AgNO₃ çözeltisi','Doymuş CuCl₂ çözeltisi','Portakal, limon, kivi kabukları','Kuru yemiş kabukları','Kurumuş çimen ve yeşillikler','Beherglas','Isıtıcı','Süzgeç kâğıdı','Huni','Havan','Damlalık','Mezür']:['AgNO₃ (0,17 g → 1 L)','Sodyum sitrat (1 g → 100 mL)','CuCl₂ (2 g)','Askorbik asit (3 g)','Balon joje','Deney tüpü','Damlalık','Termometre','Isıtıcı ve su banyosu','Beherglas'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','🖐 AgNO₃ deride leke bırakır','♻ Nanoparçacık atığını lavaboya dökme'],
+ olcumler:[['a','Ag tüpü',''],['c','Cu tüpü',''],['t','Süre','dk']],
+ grafik:{baslik:'Renk değişimi (oluşum) – zaman',xmax:MOD==='e'?30:120,ymax:100,xl:'Zaman (dk)',yl:'Oluşum (%)',not:'Mavi: AgNP · Turuncu: CuNP. Renk koyulaştıkça oluşan nanoparçacık miktarı artar.'},
+ adimlar:MOD==='e'?[['Özüt hazırla','Yıkanıp kurutulmuş 20 g portakal kabuğunu 50 mL suyla kaynat, süz ve süzüntüyü soğut.'],
+   ['Metal tuzu çözeltileri','Bir tüpe 2 mL AgNO₃, diğerine 2 mL doymuş CuCl₂ çözeltisi koy; tüpleri sıcak su banyosuna yerleştir.'],
+   ['Özütü ekle','İki tüpe de birkaç damla portakal kabuğu özütü ekle.'],
+   ['Renk değişimini izle','AgNO₃’lü tüp sarıdan kahverengiye (AgNP), CuCl₂’li tüp sarı-kahverengiye (CuNP) döndü.'],
+   ['Sonuç','Kabuklardaki polifenoller ve C vitamini metal iyonlarını indirger: atıklar kimyasal indirgen yerine kullanılabilir (atık önleme ilkesi).']]
+  :[['Çözeltileri hazırla','0,17 g AgNO₃’ı 1 L’ye, 1 g sodyum sitratı 100 mL’ye tamamla. 2 g CuCl₂’yi 5 mL, 3 g askorbik asidi 10 mL suda çöz.'],
+   ['AgNO₃’ı ısıt','Tüpteki 2 mL AgNO₃’ı kaynar su banyosunda 10 dakika ısıt.'],
+   ['Sitrat ekle','7 damla (0,45 mL) sodyum sitrat ekle ve 5–15 dakika ısıtmaya devam et: renksiz çözelti açık sarı oldu (AgNP).'],
+   ['CuCl₂ + askorbik asit','Askorbik asit çözeltisini CuCl₂ çözeltisine ekleyip karıştır ve birkaç saat beklet: renk beyazdan sarıya, sonra kahverengiye döndü (CuNP).'],
+   ['Sonuç','Sitrat Ag⁺’yı, askorbik asit Cu²⁺’yı indirger; 1–100 nm boyutundaki metal tanecikleri renkli koloidal çözelti oluşturur.']],
+ async kur(P,m){const S=P.S;HT=S.heater(130,556,140);HT.g.setAttribute('opacity',1);BB=S.beaker(130,520,110,110,250,'');BB.set(160,'rgba(205,228,255,.7)');BB.g.setAttribute('opacity',1);
+  T1=S.tube(130,500,150,10,'');T1.g.setAttribute('opacity',1);T1.l=S.txt(T1.g,130,338,'AgNO₃',10);S.rack(255,325,440);T2=S.tube(290,500,150,10,'');T2.g.setAttribute('opacity',1);T2.l=S.txt(T2.g,290,338,'CuCl₂',10);
+  TH=S.thermo(175,280,220,0,100);TH.g.setAttribute('opacity',1);TH.set(20);LS=el('g',{opacity:0},S.top);el('rect',{x:20,y:30,width:180,height:60,rx:8,fill:'#fff',stroke:'#cbd5e1'},LS);const t=el('text',{x:110,y:52,'font-size':9,'text-anchor':'middle','font-weight':800,fill:'#334155','font-family':'Nunito'},LS);t.textContent='Lazer ışını testi (Tyndall)';
+  LS.r=el('line',{x1:30,y1:72,x2:190,y2:72,stroke:'#ef4444','stroke-width':0},LS);LS.t=el('text',{x:110,y:85,'font-size':8,'text-anchor':'middle',fill:'#475569','font-family':'Nunito'},LS);},
+ async calistir(P){P.graph.clear();const GA=P.graph.add('#2563eb',3),GC=P.graph.add('#ea580c',3);
+  P.stepUI(0);await sleep(2500);
+  P.stepUI(1);await tween(900,k=>{T1.set(2*k*2,renk('Ag',0));T2.set(2*k*2,MOD==='e'?renk('Cu',0):'rgba(120,200,190,.85)');});if(MOD==='e'){T2.l.textContent='CuCl₂';}HT.on(1);await tween(2200,k=>TH.set(20+78*k));P.set('a','renksiz');P.set('c',MOD==='e'?'mavi-yeşil':'mavi-yeşil');
+  P.stepUI(2);for(let i=0;i<7;i++){P.S.drop(130,320,T1.level(T1.vol),'rgba(255,255,255,.95)');if(MOD==='e')P.S.drop(290,320,T2.level(T2.vol),'rgba(230,180,80,.95)');await sleep(250);}
+  const tm=MOD==='e'?30:120;
+  await tween(5000,k=>{const t=k*(MOD==='e'?30:15);const fa=Math.min(1,t/(MOD==='e'?12:12));T1.set(4.4,renk('Ag',fa*.55));P.set('a',fa<.2?'renksiz':fa<.6?'açık sarı':'sarı');P.set('t',fmt(t,0));GA.pts.push([t,fa*100]);if(MOD==='e'){const fc=Math.min(1,t/22);T2.set(4.4,renk('Cu',fc*.8));P.set('c',fc<.3?'yeşilimsi':fc<.7?'sarı':'kahverengi');GC.pts.push([t,fc*100]);}P.graph.draw();});
+  P.stepUI(3);if(MOD!=='e'){T2.set(4,'rgba(245,245,240,.9)');P.set('c','beyaz');await tween(5000,k=>{const t=15+k*105;const fc=Math.min(1,(t-15)/90);T2.set(4,renk('Cu',.5+fc*.5));P.set('c',fc<.3?'sarı':'kahverengi');P.set('t',fmt(t,0));GC.pts.push([t,fc*100]);P.graph.draw();});}else{await tween(3500,k=>{T1.set(4.4,renk('Ag',.55+.4*k));P.set('a','kahverengi');});}
+  HT.on(0);LS.setAttribute('opacity',1);LS.r.setAttribute('stroke-width',3);LS.t.textContent='ışın yolu görünür → koloidal çözelti';await sleep(1200);
+  P.stepUI(4);await sleep(800);
+  P.calc('<b>Gözlemler</b><table><tr><th>Tüp</th><th>Başlangıç</th><th>Son renk</th><th>Sonuç</th></tr><tr><td>AgNO₃ + '+(MOD==='e'?'kabuk özütü':'sitrat')+'</td><td>renksiz</td><td>'+(MOD==='e'?'kahverengi':'açık sarı')+'</td><td>AgNP oluştu</td></tr><tr><td>CuCl₂ + '+(MOD==='e'?'kabuk özütü':'askorbik asit')+'</td><td>'+(MOD==='e'?'mavi-yeşil':'beyaz')+'</td><td>kahverengi</td><td>CuNP oluştu</td></tr></table><p style="margin:.5em 0 0">Ag⁺ + e⁻ → Ag(0) · Cu²⁺ + 2e⁻ → Cu(0) · Lazer ışınının yolunun görünmesi koloidal tanecikleri gösterir.</p>');
+  P.done(MOD==='e'?'Atık kabuk özütleri metal iyonlarını indirgeyerek AgNP ve CuNP oluşturdu.':'Sitratla AgNP (açık sarı), askorbik asitle CuNP (kahverengi) elde edildi.');},
+ rapor:P=>[['Deneyin Adı',cfg.baslik],['Deneyin Amacı',MOD==='e'?'Evsel atıklardan gümüş veya bakır nanoparçacık elde edebilme':'Gümüş ve bakır nanoparçacık elde edebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,4).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',MOD==='e'?'AgNO₃’lü tüp sarı → kahverengi, CuCl₂’li tüp mavi-yeşil → kahverengi; lazer ışınının yolu görünür oldu.':'AgNO₃ + sitrat: renksiz → açık sarı. CuCl₂ + askorbik asit: beyaz → sarı → kahverengi. Lazer ışınının yolu görünür oldu.'],
+  ['Sonuç','Metal iyonları uygun indirgenlerle metal atomlarına indirgenir ve 1–100 nm boyutunda nanoparçacıklar oluşur; renk değişimi ve Tyndall etkisi oluşumu gösterir. '+(MOD==='e'?'Evsel atıkların indirgen olarak kullanılması yeşil kimyanın atık önleme ilkesine uygundur.':'Nanoparçacıkların rengi boyutlarına bağlıdır.')]],
+ sorular:[{q:'Nanoparçacık oluştuğunu hangi gözlem gösterir?',o:['Gaz çıkışı','Renk değişimi ve ışın yolunun görünmesi','Sıcaklığın düşmesi','Kokunun değişmesi'],a:1,e:'Koloidal metal tanecikleri ışığı saçar ve renk oluşturur.'},{q:'Sodyum sitrat bu deneyde ne işe yarar?',o:['Yükseltgen','İndirgen ve dengeleyici','Katalizör','Çözücü'],a:1,e:'Sitrat Ag⁺’yı indirger ve tanecikleri kaplayarak büyümelerini sınırlar.'},{q:'Nanoparçacık boyutu hangi aralıktadır?',o:['1–100 nm','1–100 µm','1–100 mm','1–100 pm'],a:0,e:'Nano ölçek 1–100 nanometredir.'}],
+ dene:{alanlar:[{id:'M',ad:'Metal tuzu',secenek:[['Ag','AgNO₃'],['Cu','CuCl₂']],deger:'Ag'},{id:'i',ad:'İndirgen',secenek:Object.keys(IND).map(k=>[k,IND[k][0]]),deger:MOD==='e'?'portakal':'sitrat'},{id:'T',ad:'Sıcaklık',secenek:[[25,'Oda (25 °C)'],[60,'60 °C'],[100,'Kaynar su banyosu']],deger:100}],
+  bagimli:[['r','Renk değişimi (nanoparçacık oluşumu)'],['t','Renk değişim süresi']],sabitler:['Tuz çözeltisi: 2 mL','İndirgen: 7 damla'],varsayilanBagimsiz:'i',tablo:[['r','Son renk'],['t','Süre'],['ty','Tyndall']],
+  dugmeler:[['go','▶ Karıştır ve izle','p'],['kay','✔ Kaydet','g']],ipucu:'İndirgeni (atık türünü) ya da sıcaklığı değiştir; renk değişim süresini karşılaştır.',
+  baslangic(P){P.enable(['kay'],false);T2.g.setAttribute('opacity',0);},
+  async on(id,P){const c=P.cfgNow(),k=IND[c.i][1]*Math.pow(2,(+c.T-100)/20);
+   if(id==='go'){T1.l.textContent=c.M==='Ag'?'AgNO₃':'CuCl₂';TH.set(+c.T);HT.on(+c.T>30?.8:0);P.graph.clear();const G=P.graph.add(c.M==='Ag'?'#2563eb':'#ea580c',3);LS.setAttribute('opacity',0);
+     const t50=k>0?(c.M==='Ag'?8:40)/k:Infinity;const tm=Math.min(240,isFinite(t50)?t50*2.2:60);P.graph.o.xmax=Math.ceil(tm);
+     await tween(4000,q=>{const t=q*tm;const f=isFinite(t50)?1-Math.exp(-t/t50*.9):0;T1.set(4.4,renk(c.M,f*.9));G.pts.push([t,f*100]);P.graph.draw();P.set('t',fmt(t,0));P.set('a',f<.15?'değişmedi':f<.5?'sarımsı':'koyu');});HT.on(0);
+     const f=isFinite(t50)?1-Math.exp(-tm/t50*.9):0;LS.setAttribute('opacity',1);LS.r.setAttribute('stroke-width',f>.2?3:0);LS.t.textContent=f>.2?'ışın yolu görünür':'ışın yolu görünmez';
+     P.cur={r:f<.15?'değişmedi':c.M==='Ag'?'sarı-kahverengi':'kahverengi',t:isFinite(t50)?fmt(t50,0)+' dk (yarı oluşum)':'—',ty:f>.2?'var':'yok'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('İndirgen gücü yüksek özütler ve yüksek sıcaklık nanoparçacık oluşumunu hızlandırır. Saf su (kontrol) ile oluşum olmaz.');P.enable(['kay'],false);}},
+  sorular:[{q:'Kontrol deneyinde (saf su) renk değişmemesi neyi gösterir?',o:['Renk değişimine özütün neden olduğunu','Isının yeterli olmadığını','Tuzun bozuk olduğunu','Hiçbir şeyi'],a:0,e:'Kontrol grubu, değişimin indirgenden kaynaklandığını kanıtlar.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

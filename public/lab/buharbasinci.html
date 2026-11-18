@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Buhar Basıncı</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// Antoine benzeri: P(mmHg) = P25 * exp(-L*(1/T-1/298)), L = ΔHbuh/R
+const L={su:['Saf su',23.8,5300,'rgba(196,226,255,.85)'],etanol:['Etil alkol',59,4900,'rgba(225,235,250,.85)'],aseton:['Aseton',230,3700,'rgba(235,240,250,.85)'],metanol:['Metanol',127,4500,'rgba(225,235,250,.85)']};
+const pv=(k,T)=>L[k][1]*Math.exp(-L[k][2]*(1/(T+273)-1/298));
+let ER,MAN,SY,TH,ML,MR;const MX=300,MYB=470,MH=210;
+function manometre(S){const g=S.G(1);el('path',Object.assign({d:`M${MX-22} ${MYB-MH} L${MX-22} ${MYB} Q${MX-22} ${MYB+22} ${MX} ${MYB+22} Q${MX+22} ${MYB+22} ${MX+22} ${MYB} L${MX+22} ${MYB-MH}`,fill:'none','stroke-width':10,stroke:'rgba(200,215,235,.6)'}),g);
+  const l=el('rect',{x:MX-26,y:0,width:8,height:0,fill:'rgba(37,99,235,.75)'},g),r=el('rect',{x:MX+18,y:0,width:8,height:0,fill:'rgba(37,99,235,.75)'},g);el('path',{d:`M${MX-22} ${MYB} Q${MX-22} ${MYB+22} ${MX} ${MYB+22} Q${MX+22} ${MYB+22} ${MX+22} ${MYB}`,fill:'none',stroke:'rgba(37,99,235,.75)','stroke-width':8},g);
+  for(let i=0;i<=12;i++){const y=MYB-120+i*10;el('line',{x1:MX+30,y1:y,x2:MX+(i%2?34:40),y2:y,stroke:'#334155'},g);}S.txt(g,MX+50,MYB-130,'cetvel',8);
+  el('path',{d:`M${MX-22} ${MYB-MH} L${MX-22} ${MYB-MH-20} L200 ${MYB-MH-20} L200 ${MYB-MH+38}`,fill:'none',stroke:'rgba(250,204,150,.9)','stroke-width':5},g);
+  return {set(h){h=Math.max(-60,Math.min(60,h));const y0=MYB-60;l.setAttribute('y',y0+h);l.setAttribute('height',MYB-(y0+h));r.setAttribute('y',y0-h);r.setAttribute('height',MYB-(y0-h));}};}
+const cfg={ad:'buharbasinci',baslik:'Sıvıların Denge Buhar Basıncı',alt:'9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Buharlaşma ve denge buhar basıncı',
+ malzemeler:['Nuçe erlenmayeri','Delikli tıpa','Lastik boru','Pipetler (U-manometre)','Şırınga','Aseton','Etil alkol','Saf su','Cetvel'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Aseton ve etanol yanıcıdır','🌬 Havalandırma','🧪 Cam malzeme'],
+ olcumler:[['s','Sıvı',''],['h','Manometre farkı','cm'],['p','Buhar basıncı','mmHg']],
+ grafik:{baslik:'Manometre farkı – zaman',xmax:120,ymax:14,xl:'Zaman (s)',yl:'Seviye farkı (cm)',not:'Kırmızı: aseton · Yeşil: etil alkol · Mavi: su. Fark sabitlendiğinde buharlaşma hızı = yoğuşma hızı (denge).'},
+ adimlar:[['Araştırma sorusu ve değişkenler','Soru: “Sıvının cinsi denge buhar basıncını etkiler mi?” Bağımsız: sıvının cinsi · Bağımlı: manometredeki seviye farkı · Kontrol: sıcaklık (25 °C), sıvı miktarı (2 mL), kap.'],
+  ['Düzeneği kur','Nuçe erlenmayerinin yan koluna lastik boruyla renkli su içeren U-manometre bağla; ağzını delikli tıpayla kapat, tıpadan şırıngayı geçir.'],
+  ['Su enjekte et','Şırıngayla 2 mL saf su enjekte et: seviye farkı yavaşça artar ve ≈ 1,3 cm’de sabitlenir.'],
+  ['Etil alkolü dene','Düzeneği kurutup aynı işlemi 2 mL etil alkolle tekrarla: fark ≈ 3,2 cm.'],
+  ['Asetonu dene','Aynı işlemi 2 mL asetonla tekrarla: fark ≈ 12,5 cm.'],
+  ['Sonuç','Denge buhar basıncı: aseton > etil alkol > su. Moleküller arası etkileşimler zayıfladıkça buharlaşma kolaylaşır, denge buhar basıncı artar.']],
+ async kur(P,m){const S=P.S;ER=S.erlen(200,524,250,.9,'');ER.g.setAttribute('opacity',1);const st=S.stopper(200,524-108+2);st.setAttribute('opacity',1);
+  SY=S.G(1);el('rect',Object.assign({x:150,y:330,width:14,height:70,rx:3},S.glass),SY);el('rect',{x:153,y:318,width:8,height:16,fill:'#334155'},SY);el('line',{x1:157,y1:400,x2:190,y2:420,stroke:'#64748b','stroke-width':1.5},SY);
+  ML=el('rect',{x:152,y:360,width:10,height:38,fill:'rgba(196,226,255,.85)'},SY);MAN=manometre(S);MAN.set(0);TH=S.thermo(90,300,190,0,50);TH.g.setAttribute('opacity',1);TH.set(25);},
+ async enj(P,k,T,ms,G){ML.setAttribute('fill',L[k][3]);ER.set(0);await tween(800,q=>{ML.setAttribute('height',38*(1-q));ML.setAttribute('y',360+38*q);ER.set(3*q,L[k][3]);});
+  const p=pv(k,T),h=p/18;P.set('s',L[k][0]);
+  await tween(ms,q=>{const f=1-Math.exp(-q*5);MAN.set(h*f*4.5);P.set('h',fmt(h*f,1));P.set('p',fmt(p*f,0));if(G)G.pts.push([q*120,h*f]),P.graph.draw();ER.set(3-.3*f);});
+  ML.setAttribute('height',38);ML.setAttribute('y',360);return {p,h};},
+ async calistir(P){P.graph.clear();const C={aseton:'#dc2626',etanol:'#16a34a',su:'#2563eb'};P.rows=[];
+  P.stepUI(0);await sleep(3000);P.stepUI(1);await sleep(1800);
+  for(const [k,st] of [['su',2],['etanol',3],['aseton',4]]){P.stepUI(st);MAN.set(0);const r=await cfg.enj(P,k,25,3500,P.graph.add(C[k],3));P.rows.push([L[k][0],fmt(r.h,1),fmt(r.p,0)]);await sleep(700);}
+  P.stepUI(5);await sleep(900);
+  P.calc('<b>Ölçümler (25 °C)</b><table><tr><th>Sıvı</th><th>Seviye farkı (cm su)</th><th>Denge buhar basıncı (mmHg)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">1 mmHg ≈ 1,36 cm su. Manometre farkı ölçeklenmiştir (gösterim).</p>');
+  P.done('Denge buhar basıncı aseton > etil alkol > su; moleküller arası etkileşim ne kadar zayıfsa buhar basıncı o kadar büyüktür.');},
+ rapor:P=>[['Deneyin Adı','Sıvıların Denge Buhar Basıncı'],['Deneyin Amacı','Sıvının cinsinin denge buhar basıncına etkisini belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Değişkenler','Bağımsız: sıvının cinsi · Bağımlı: manometre seviye farkı · Kontrol: sıcaklık, sıvı miktarı, kap hacmi'],['Deneyin Yapılışı',cfg.adimlar.slice(1,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+  ['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[2]} mmHg`).join('<br>')],['Sonuç','Denge buhar basıncı sıvının cinsine ve sıcaklığa bağlıdır; sıvının miktarına ve kabın hacmine bağlı değildir. Etkileşimi zayıf (uçucu) sıvıların buhar basıncı yüksektir.']],
+ sorular:[{q:'Hangi sıvının denge buhar basıncı en yüksektir?',o:['Su','Etil alkol','Aseton','Hepsi eşit'],a:2,e:'Asetonda hidrojen bağı yoktur; molekülleri kolay buharlaşır.'},{q:'Denge buhar basıncı hangisine bağlı DEĞİLDİR?',o:['Sıvının cinsi','Sıcaklık','Sıvının miktarı','Moleküller arası etkileşim'],a:2,e:'Denge kurulduğunda buhar basıncı sıvı miktarından bağımsızdır.'},{q:'Manometre farkı neden bir süre sonra sabitlenir?',o:['Sıvı biter','Buharlaşma hızı yoğuşma hızına eşitlenir','Tıpa açılır','Sıcaklık düşer'],a:1,e:'Dinamik denge kurulur.'}],
+ dene:{alanlar:[{id:'k',ad:'Sıvı',secenek:Object.keys(L).map(k=>[k,L[k][0]]),deger:'etanol'},{id:'T',ad:'Sıcaklık',secenek:[[15,'15 °C'],[25,'25 °C'],[35,'35 °C'],[45,'45 °C']],deger:25},{id:'V',ad:'Enjekte edilen hacim',secenek:[[1,'1 mL'],[2,'2 mL'],[4,'4 mL']],deger:2}],
+  bagimli:[['p','Denge buhar basıncı']],sabitler:['Aynı nuçe erlenmayeri','Aynı manometre'],varsayilanBagimsiz:'T',tablo:[['h','Seviye farkı'],['p','Buhar basıncı']],
+  dugmeler:[['go','💉 Enjekte et ve bekle','p'],['kay','✔ Kaydet','g']],ipucu:'Sıvıyı, sıcaklığı ya da hacmi değiştir. Hangisi buhar basıncını değiştiriyor?',
+  baslangic(P){P.enable(['kay'],false);},
+  async on(id,P){const c=P.cfgNow();if(id==='go'){TH.set(+c.T);MAN.set(0);P.graph.clear();const r=await cfg.enj(P,c.k,+c.T,2500,P.graph.add('#7c3aed',3));P.cur={h:fmt(r.h,1)+' cm',p:fmt(r.p,0)+' mmHg'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Sıcaklık arttıkça buhar basıncı artar; enjekte edilen hacim (sıvı miktarı) denge buhar basıncını değiştirmez.');P.enable(['kay'],false);}},
+  sorular:[{q:'Enjekte edilen sıvı 1 mL’den 4 mL’ye çıkarılırsa denge buhar basıncı?',o:['4 katına çıkar','Değişmez','Azalır','Sıfır olur'],a:1,e:'Kapta yeterli sıvı kaldıkça denge buhar basıncı yalnızca sıcaklık ve sıvı cinsine bağlıdır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

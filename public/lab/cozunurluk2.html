@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Çözünürlük</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;const MOD='f';
+const SV={NaCl:['NaCl (yemek tuzu)',[[0,35.7],[20,35.9],[40,36.4],[60,37.1],[80,38]],'#fff'],KNO3:['KNO₃',[[0,13.3],[20,31.6],[40,63.9],[60,110],[80,169]],'#fff'],KBr:['KBr',[[0,53.5],[20,65.3],[40,75.5],[60,85.5],[80,94.9]],'#fff'],
+ NaNO3:['NaNO₃',[[0,73],[20,87.6],[40,102],[60,122],[80,148]],'#fff'],CuSO4:['CuSO₄·5H₂O',[[0,23],[20,32],[40,44.6],[60,61.8],[80,83.8]],'#38bdf8'],Ce:['Ce₂(SO₄)₃',[[0,20],[20,10],[40,5],[60,3.9],[80,2.3]],'#fde68a'],
+ seker:['Şeker',[[0,179],[20,204],[40,238],[60,287],[80,362]],'#fff'],iyot_su:['İyot (suda)',[[20,.03],[80,.1]],'#7c2d12'],iyot_et:['İyot (etanolde)',[[20,21],[80,30]],'#7c2d12'],tuz_yag:['Tuz (zeytinyağında)',[[20,0],[80,0]],'#fff']};
+function s(k,T){const t=SV[k][1];if(T<=t[0][0])return t[0][1];for(let i=0;i<t.length-1;i++)if(T<=t[i+1][0]){const [a,pa]=t[i],[b,pb]=t[i+1];return pa+(pb-pa)*(T-a)/(b-a);}return t[t.length-1][1];}
+let BK,BAL,TH,HT,PIL;
+const SIRA=MOD==='f'?[['KNO3',20],['KNO3',60],['Ce',20],['Ce',60]]:[['NaCl',20],['KNO3',20],['KBr',20]];
+const cfg={ad:MOD==='f'?'cozunurluk2':'cozunurluk',baslik:MOD==='f'?'Çözünürlüğe Etki Eden Faktörler (MiniLAB)':'Katıların 100 g Sudaki Çözünürlüğü',alt:'10. sınıf · '+(MOD==='f'?'2.1.5 Çözünürlüğe Etki Eden Faktörler':'2.1.4 Çözünürlük · Belirli sıcaklıkta 100 g suda çözünen en fazla madde miktarı'),
+ malzemeler:['Hassas terazi','Beherglas','100 g (100 mL) saf su','Baget','Spatül','Termometre','Isıtıcı','NaCl, KNO₃, KBr'+(MOD==='f'?', Ce₂(SO₄)₃':'')],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','🔥 Sıcak su: dikkat','☣ KNO₃ yükseltgendir'],
+ olcumler:[['m','Madde',''],['c','Çözünen','g'],['d','Durum','']],
+ grafik:{baslik:'Çözünürlük – sıcaklık (100 g su)',xmax:80,ymax:MOD==='f'?170:100,xl:'Sıcaklık (°C)',yl:'g / 100 g su',not:'Noktalar ölçümlerdir; çizgiler literatür eğrileridir.'},
+ adimlar:MOD==='f'?[['Araştırma sorusu','Soru: “Sıcaklık katıların çözünürlüğünü nasıl etkiler?” Bağımsız: sıcaklık · Bağımlı: 100 g suda çözünen en fazla kütle · Kontrol: su kütlesi, karıştırma süresi, madde cinsi.'],
+   ['KNO₃, 20 °C','100 g suya azar azar KNO₃ ekle ve karıştır; çözünme durunca eklenen kütleyi kaydet: ≈ 31,6 g.'],
+   ['KNO₃, 60 °C','Suyu 60 °C’a ısıt ve tekrarla: ≈ 110 g. Sıcaklık artınca KNO₃’ün çözünürlüğü çok arttı.'],
+   ['Ce₂(SO₄)₃, 20 °C ve 60 °C','Aynı deneyi Ce₂(SO₄)₃ ile yap: 20 °C’ta ≈ 10 g, 60 °C’ta ≈ 3,9 g. Bu tuzun çözünürlüğü sıcaklıkla azaldı.'],
+   ['Sonuç','Çözünmesi endotermik olan katıların çözünürlüğü sıcaklıkla artar, ekzotermik olanlarınki azalır. Çözünürlük ayrıca madde ve çözücü cinsine, gazlarda basınca bağlıdır.']]
+  :[['Değişkenler','Bağımsız: katının cinsi · Bağımlı: 100 g suda çözünen en fazla kütle · Kontrol: sıcaklık (20 °C), su kütlesi, karıştırma.'],
+   ['100 g su, 20 °C','Behere 100 g saf su koy ve terazide dara al.'],
+   ['NaCl ekle','Spatülle azar azar NaCl ekle, her eklemede karıştır. Dipte çözünmeyen katı kalınca dur: ≈ 35,9 g çözündü (doymuş çözelti).'],
+   ['KNO₃ ve KBr','Aynı işlemi KNO₃ (≈ 31,6 g) ve KBr (≈ 65,3 g) ile tekrarla.'],
+   ['Sonuç','Belirli sıcaklık ve basınçta 100 g suda çözünebilen en fazla madde miktarı çözünürlüktür. Farklı maddelerin çözünürlüğü farklıdır: çözünürlük ayırt edici bir özelliktir.']],
+ async kur(P,m){const S=P.S;HT=S.heater(170,556,180);HT.g.setAttribute('opacity',1);BK=S.beaker(170,520,120,140,250,'');BK.g.setAttribute('opacity',1);TH=S.thermo(205,250,250,0,100);TH.g.setAttribute('opacity',1);TH.set(20);
+  BAL=S.balance(330,524);BAL.g.setAttribute('opacity',1);BAL.set('0,00 g');PIL=el('path',{d:'',fill:'#fff',stroke:'#cbd5e1'},BK.g);},
+ async coz(P,k,T,ms,G){const sm=s(k,T),add=sm*1.08+0.6;BK.set(100,SV[k][2]==='#fff'?'rgba(196,226,255,.82)':'rgba(196,226,255,.82)');TH.set(T);HT.on(T>25?.7:0);P.set('m',SV[k][0]);P.set('d','çözünüyor');PIL.setAttribute('d','');
+  const n=24;for(let i=1;i<=n;i++){const m=add*i/n;P.S.drop(170,330,BK.level(BK.vol),SV[k][2]==='#fff'?'rgba(255,255,255,.95)':SV[k][2]);await sleep(ms/n);const c=Math.min(m,sm);BAL.set(fmt(m,1)+' g');P.set('c',fmt(c,1));
+   const col=k==='CuSO4'?`rgba(${Math.round(196-130*c/80)},${Math.round(226-40*c/80)},255,.85)`:k==='Ce'?'rgba(240,236,200,.85)':'rgba(196,226,255,.82)';BK.set(100+c*.35,col);
+   if(m>sm){const h=Math.min(14,(m-sm)*1.5+2);PIL.setAttribute('d',`M118 518 Q170 ${518-h} 222 518 Z`);PIL.setAttribute('fill',SV[k][2]);P.set('d','doymuş: dipte katı');}}
+  HT.on(0);if(G){G.pts.push([T,sm]);P.graph.draw();}return sm;},
+ async calistir(P){P.graph.clear();P.rows=[];const ks=[...new Set(SIRA.map(x=>x[0]))];const LN={};ks.forEach((k,i)=>{const c=['#2563eb','#dc2626','#16a34a'][i];const l=P.graph.add(c,1.5);for(let T=0;T<=80;T+=2)l.pts.push([T,s(k,T)]);LN[k]=P.graph.add(c,3,true);});P.graph.draw();
+  P.stepUI(0);await sleep(2600);
+  if(MOD==='f'){for(let i=0;i<SIRA.length;i++){const [k,T]=SIRA[i];P.stepUI(i<1?1:i<2?2:3);const sm=await cfg.coz(P,k,T,3000,LN[k]);P.rows.push([SV[k][0],T,fmt(sm,1)]);await sleep(500);}P.stepUI(4);}
+  else{P.stepUI(1);BK.set(100);await sleep(1500);for(let i=0;i<SIRA.length;i++){const [k,T]=SIRA[i];P.stepUI(i?3:2);const sm=await cfg.coz(P,k,T,3500,LN[k]);P.rows.push([SV[k][0],T,fmt(sm,1)]);await sleep(600);}P.stepUI(4);}
+  await sleep(800);
+  P.calc('<b>Ölçümler (100 g su)</b><table><tr><th>Madde</th><th>Sıcaklık (°C)</th><th>Çözünürlük (g / 100 g su)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table>');
+  P.done(MOD==='f'?'KNO₃’ün çözünürlüğü sıcaklıkla arttı, Ce₂(SO₄)₃’ünki azaldı.':'20 °C’ta 100 g suda NaCl ≈ 35,9 g, KNO₃ ≈ 31,6 g, KBr ≈ 65,3 g çözündü: çözünürlük maddeye özgüdür.');},
+ rapor:P=>[['Deneyin Adı',cfg.baslik],['Deneyin Amacı',MOD==='f'?'Sıcaklığın katıların çözünürlüğüne etkisini belirleyebilme':'Çeşitli katıların belirli sıcaklık ve basınçta 100 g sudaki en fazla çözünme miktarını belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,-1).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}, ${r[1]} °C: ${r[2]} g`).join('<br>')],
+  ['Sonuç',MOD==='f'?'Katıların çözünürlüğü sıcaklıkla değişir: çoğu katının (çözünmesi endotermik) çözünürlüğü artar, bazılarınınki (Ce₂(SO₄)₃) azalır. Gazların çözünürlüğü ise sıcaklık artınca azalır, basınç artınca artar. Çözücü-çözünen etkileşimleri benzerse çözünürlük fazladır.':'Çözünürlük belirli sıcaklık ve basınçta 100 g çözücüde çözünebilen en fazla madde miktarıdır ve maddeler için ayırt edici bir özelliktir. Çözücü-çözünen etkileşimleri güçlü olduğunda çözünürlük fazladır.']],
+ sorular:[{q:'Doymuş çözelti nedir?',o:['Çözebileceği en fazla maddeyi çözmüş çözelti','Renkli çözelti','Sıcak çözelti','Seyreltik çözelti'],a:0,e:'Daha fazla çözünen eklenirse dipte katı kalır.'},{q:'20 °C’ta 100 g suya 50 g KNO₃ eklenirse ne olur?',o:['Tamamı çözünür','≈ 31,6 g çözünür, ≈ 18,4 g dipte kalır','Hiç çözünmez','Su donar'],a:1,e:'KNO₃’ün 20 °C’taki çözünürlüğü 31,6 g/100 g su.'},{q:'Hangisinin çözünürlüğü sıcaklık artınca azalır?',o:['KNO₃','KBr','Ce₂(SO₄)₃','Şeker'],a:2,e:'Çözünmesi ekzotermik olan tuzların çözünürlüğü sıcaklıkla azalabilir.'}],
+ dene:{alanlar:[{id:'k',ad:'Çözünen',secenek:Object.keys(SV).map(k=>[k,SV[k][0]]),deger:MOD==='f'?'iyot_et':'NaNO3'},{id:'T',ad:'Sıcaklık',secenek:[[0,'0 °C'],[20,'20 °C'],[40,'40 °C'],[60,'60 °C'],[80,'80 °C']],deger:20}],
+  bagimli:[['c','100 g çözücüde çözünen en fazla kütle']],sabitler:['Çözücü: 100 g','Karıştırma süresi aynı','Basınç: 1 atm'],varsayilanBagimsiz:MOD==='f'?'T':'k',tablo:[['c','Çözünürlük']],
+  dugmeler:[['go','🥄 Doyana kadar ekle','p'],['kay','✔ Kaydet','g']],ipucu:'Bir madde ve sıcaklık seç, doyana kadar ekle. Önce sıcaklığı, sonra maddeyi (ya da çözücüyü) değiştir.',
+  baslangic(P){P.enable(['kay'],false);},
+  async on(id,P){const c=P.cfgNow();if(id==='go'){const sm=await cfg.coz(P,c.k,+c.T,2500,null);P.cur={c:fmt(sm,2)+' g'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Çözünürlük maddenin ve çözücünün cinsine ve sıcaklığa bağlıdır. “Benzer benzeri çözer”: iyot (apolar) etanolde, suya göre çok daha fazla çözünür; tuz yağda çözünmez.');P.enable(['kay'],false);}},
+  sorular:[{q:'İyotun etanolde suya göre çok daha fazla çözünmesinin nedeni nedir?',o:['Etanol daha sıcaktır','İyot–etanol etkileşimleri iyot–su etkileşimlerinden güçlüdür','İyot iyoniktir','Su apolardır'],a:1,e:'Çözücü-çözünen etkileşimi güçlü olunca çözünürlük artar.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

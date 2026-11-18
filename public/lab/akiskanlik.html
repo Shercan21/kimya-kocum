@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Akışkanlık</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;const MOD='e';
+// viskozite (mPa·s, 25 °C), B (K), renk, etkileşim
+const V={su:['Su',0.89,1900,'rgba(196,226,255,.85)','hidrojen bağı'],etanol:['Etil alkol',1.07,1630,'rgba(225,235,250,.85)','hidrojen bağı'],propanol:['Propil alkol',1.95,2560,'rgba(225,232,248,.85)','hidrojen bağı + daha güçlü London'],
+ glikol:['Etilen glikol',16.1,3200,'rgba(220,230,250,.9)','molekül başına 2 OH: çok hidrojen bağı'],gliserin:['Gliserin',934,7040,'rgba(240,240,225,.92)','molekül başına 3 OH: çok güçlü hidrojen bağı'],aseton:['Aseton',0.31,1000,'rgba(235,240,250,.8)','dipol-dipol'],ccl4:['Karbon tetraklorür',0.91,1350,'rgba(235,235,240,.8)','London'],bal:['Bal',6000,8850,'rgba(217,150,40,.92)','şeker molekülleri: çok hidrojen bağı']};
+const eta=(k,T)=>V[k][1]*Math.exp(V[k][2]*(1/(T+273)-1/298));const tfall=(k,T)=>0.25+0.018*eta(k,T);// s, 20 cm
+let C=[],B=[],TH,SW,HT;const XS=[80,200,320];
+const SIRA=MOD==='t'?['gliserin','glikol','bal']:['aseton','etanol','gliserin'];
+const cfg={ad:MOD==='t'?'akiskanlik2':'akiskanlik',baslik:MOD==='t'?'Akışkanlık – Sıcaklık İlişkisi':'Akışkanlık – Moleküller Arası Etkileşim',alt:'9. sınıf · 2.2.3 Sıvılar ve Özellikleri · '+(MOD==='t'?'Sıcaklığın sıvıların akışkanlığına etkisi':'Moleküller arası etkileşimlerin akışkanlığa etkisi'),
+ malzemeler:MOD==='t'?['Etilen glikol','Gliserin','Bal','Mezür','Kronometre','Çelik bilye','Termometre','Isıtıcı / su banyosu','Isıya dayanıklı eldiven','Tüp maşası']:['Su','Etil alkol','Propil alkol','Etilen glikol','Gliserin','Aseton','Mezür (dereceli silindir)','Kronometre','Çelik bilye','Termometre'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Aseton ve alkoller yanıcıdır','🧤 Sıcak sıvılarda eldiven','🧪 Cam malzeme'],
+ olcumler:[['a',V[SIRA[0]][0],'s'],['b',V[SIRA[1]][0],'s'],['c',V[SIRA[2]][0],'s']],
+ grafik:MOD==='t'?{baslik:'Bilyenin düşme süresi – sıcaklık',xmax:90,ymax:120,xl:'Sıcaklık (°C)',yl:'Süre (s)',not:'Sıcaklık arttıkça düşme süresi kısalır: akışkanlık artar.'}:null,
+ adimlar:MOD==='t'?[['Değişkenler','Bağımsız: sıcaklık · Bağımlı: çelik bilyenin 20 cm düşme süresi (akışkanlık) · Kontrol: sıvı cinsi, bilye, düşme mesafesi.'],
+   ['25 °C’ta ölç','Etilen glikol, gliserin ve bal dolu mezürlere aynı bilyeyi bırak, 20 cm’lik düşme süresini ölç.'],
+   ['50 °C’ta ölç','Mezürleri su banyosunda 50 °C’a ısıt ve ölçümü tekrarla.'],
+   ['80 °C’ta ölç','80 °C’ta ölçümü tekrarla.'],
+   ['Sonuç','Sıcaklık arttıkça moleküllerin kinetik enerjisi artar, etkileşimleri daha kolay yenilir: akışkanlık artar (viskozite azalır).']]
+  :[['Değişkenler','Bağımsız: sıvının cinsi (etkileşim türü ve gücü) · Bağımlı: çelik bilyenin 20 cm düşme süresi · Kontrol: sıcaklık (25 °C), bilye, mesafe, sıvı hacmi.'],
+   ['Mezürleri doldur','Üç mezüre eşit hacimde aseton, etil alkol ve gliserin koy; 20 cm’lik düşme mesafesini işaretle.'],
+   ['Bilyeleri bırak','Aynı çelik bilyeleri yüzeyden aynı anda bırak ve kronometreyi başlat.'],
+   ['Süreleri kaydet','Asetonda ve etil alkolde bilye bir anda düştü; gliserinde düşüş çok yavaş oldu.'],
+   ['Sonuç','Moleküller arası etkileşimler güçlendikçe sıvının akmaya karşı direnci (viskozite) artar, akışkanlık azalır. Gliserin molekül başına üç OH grubuyla çok sayıda hidrojen bağı yapar.']],
+ async kur(P,m){const S=P.S;C=XS.map((x,i)=>{const c=S.cylinder(x,520,250,300);c.set(240,V[SIRA[i]][3]);c.g.setAttribute('opacity',1);c.l=S.txt(c.g,x,545,V[SIRA[i]][0],9.5,{fill:'#1e293b'});return c;});
+  B=XS.map(x=>el('circle',{cx:x,cy:200,r:6,fill:'url(#metal)',stroke:'#374151',opacity:0},S.top));SW=S.stopwatch(200,70);SW.g.setAttribute('opacity',1);SW.set(0);
+  const g=S.G(1);[250,450].forEach(y=>el('line',{x1:40,y1:y,x2:360,y2:y,stroke:'#dc2626','stroke-dasharray':'4 4'},g));S.txt(g,30,252,'0',8,{fill:'#dc2626'});S.txt(g,24,452,'20 cm',8,{fill:'#dc2626'});
+  if(MOD==='t'){TH=S.thermo(372,240,200,0,100);TH.g.setAttribute('opacity',1);TH.set(25);}},
+ async dus(P,ks,T,cap){ks.forEach((k,i)=>{B[i].setAttribute('opacity',1);B[i].setAttribute('cy',222);C[i].set(240,V[k][3]);C[i].l.textContent=V[k][0];});const t=ks.map(k=>tfall(k,T)),tm=Math.min(cap,Math.max(...t)*1.08);const ms=Math.min(7000,1500+tm*60);
+  await tween(ms,q=>{const tt=q*tm;SW.set(tt);ks.forEach((k,i)=>{const f=Math.min(1,tt/t[i]);B[i].setAttribute('cy',250+200*f);P.set('abc'[i],f>=1?fmt(t[i],1):'…');});});return t;},
+ async calistir(P){P.rows=[];
+  if(MOD==='t'){P.graph.clear();const G=SIRA.map((k,i)=>P.graph.add(['#2563eb','#16a34a','#d97706'][i],3,true));
+   P.stepUI(0);await sleep(2800);for(const [T,st] of [[25,1],[50,2],[80,3]]){P.stepUI(st);TH.set(T);await sleep(600);const t=await cfg.dus(P,SIRA,T,150);P.rows.push([T,...t.map(x=>fmt(x,1))]);t.forEach((x,i)=>G[i].pts.push([T,Math.min(119,x)]));P.graph.draw();await sleep(600);}
+   P.stepUI(4);await sleep(800);
+   P.calc('<b>Düşme süreleri (s, 20 cm)</b><table><tr><th>Sıcaklık (°C)</th>'+SIRA.map(k=>`<th>${V[k][0]}</th>`).join('')+'</tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table>');
+   P.done('Sıcaklık arttıkça üç sıvının da akışkanlığı arttı (bilye daha hızlı düştü).');}
+  else{P.stepUI(0);await sleep(2800);P.stepUI(1);await sleep(1600);P.stepUI(2);await sleep(500);const t=await cfg.dus(P,SIRA,25,60);P.stepUI(3);SIRA.forEach((k,i)=>P.rows.push([V[k][0],V[k][4],fmt(t[i],1),fmt(V[k][1],2)]));await sleep(1500);
+   P.stepUI(4);await sleep(800);
+   P.calc('<b>Ölçümler (25 °C)</b><table><tr><th>Sıvı</th><th>Etkileşim</th><th>Düşme süresi (s)</th><th>Viskozite (mPa·s)</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table>');
+   P.done('Akışkanlık: aseton > etil alkol > gliserin. Etkileşim güçlendikçe akışkanlık azalır.');}},
+ rapor:P=>[['Deneyin Adı',cfg.baslik],['Deneyin Amacı',MOD==='t'?'Sıcaklığın sıvıların akışkanlığına etkisine ilişkin bilimsel gözlem yapabilme':'Moleküller arası etkileşimlerin sıvıların akışkanlığına etkisine ilişkin bilimsel gözlem yapabilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,-1).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>r.join(' · ')).join('<br>')],
+  ['Sonuç',MOD==='t'?'Sıcaklık arttıkça sıvıların akışkanlığı artar, viskozitesi azalır. Bal ve gliserin gibi viskoz sıvılarda etki çok belirgindir.':'Moleküller arası etkileşim kuvveti arttıkça akışkanlık azalır. Hidrojen bağı sayısı fazla olan gliserin ve etilen glikol, aseton ve etanole göre çok daha az akışkandır.']],
+ sorular:MOD==='t'?[{q:'Bal ısıtılınca neden daha kolay akar?',o:['Moleküllerin kinetik enerjisi artar, etkileşimler kolay yenilir','Bal buharlaşır','Bal kimyasal değişime uğrar','Yoğunluğu artar'],a:0,e:'Isınan moleküller birbirinin üzerinden daha kolay kayar.'},{q:'Motor yağlarının kışın daha zor akmasının nedeni nedir?',o:['Sıcaklık düşünce viskozite artar','Yağ donar','Yağ buharlaşır','Yağ incelir'],a:0,e:'Düşük sıcaklıkta akışkanlık azalır.'}]
+  :[{q:'Hangi sıvının akışkanlığı en azdır?',o:['Aseton','Etil alkol','Gliserin','Karbon tetraklorür'],a:2,e:'Gliserin üç OH grubuyla çok güçlü hidrojen bağları yapar.'},{q:'Akışkanlığı belirleyen başlıca etken nedir?',o:['Sıvının rengi','Moleküller arası etkileşimler','Kabın şekli','Sıvının miktarı'],a:1,e:'Etkileşim güçlendikçe akmaya karşı direnç artar.'},{q:'Etilen glikol neden etanolden daha az akışkandır?',o:['Molekül başına iki OH grubu vardır','Renksizdir','Uçucudur','Apolardır'],a:0,e:'Daha çok hidrojen bağı, daha yüksek viskozite.'}],
+ dene:{alanlar:[{id:'k',ad:'Sıvı',secenek:Object.keys(V).map(k=>[k,V[k][0]]),deger:MOD==='t'?'bal':'propanol'},{id:'T',ad:'Sıcaklık',secenek:[[10,'10 °C'],[25,'25 °C'],[50,'50 °C'],[80,'80 °C']],deger:25}],
+  bagimli:[['t','Bilyenin düşme süresi']],sabitler:['Aynı çelik bilye','Düşme mesafesi 20 cm','Aynı mezür'],varsayilanBagimsiz:MOD==='t'?'T':'k',tablo:[['t','Düşme süresi'],['v','Viskozite']],
+  dugmeler:[['go','⚪ Bilyeyi bırak','p'],['kay','✔ Kaydet','g']],ipucu:'Sıvıyı ya da sıcaklığı değiştir; düşme süresini karşılaştır.',
+  baslangic(P){P.enable(['kay'],false);[1,2].forEach(i=>{C[i].g.setAttribute('opacity',0);});},
+  async on(id,P){const c=P.cfgNow();if(id==='go'){if(TH)TH.set(+c.T);const t=await cfg.dus(P,[c.k],+c.T,150);P.cur={t:fmt(t[0],1)+' s',v:fmt(eta(c.k,+c.T),2)+' mPa·s'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`${V[c.k][0]}: ${V[c.k][4]}. Etkileşim güçlendikçe ve sıcaklık düştükçe viskozite artar, akışkanlık azalır.`);P.enable(['kay'],false);}},
+  sorular:[{q:'Aynı sıvıda sıcaklık artınca düşme süresi?',o:['Uzar','Kısalır','Değişmez','Sıfır olur'],a:1,e:'Viskozite sıcaklıkla azalır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

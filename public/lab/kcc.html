@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Çözünürlük Dengesi</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// s (mol/L) – T tablosu; iyon katsayıları [katyon, anyon]; mol kütlesi; ortak iyon önerisi
+const Z={caoh:['Ca(OH)₂',[[0,.025],[20,.0223],[40,.019],[60,.0157],[80,.0127],[100,.0104]],[1,2],74,'NaOH','OH⁻','rgba(255,255,255,.95)'],
+ pbcl:['PbCl₂',[[0,.024],[20,.0356],[40,.052],[60,.071],[80,.091],[100,.12]],[1,2],278,'NaCl','Cl⁻','rgba(255,255,255,.95)'],
+ agcl:['AgCl',[[0,5.5e-6],[25,1.33e-5],[50,3.6e-5],[100,1.5e-4]],[1,1],143.3,'NaCl','Cl⁻','rgba(250,250,250,.95)']};
+function sT(k,T){const t=Z[k][1];for(let i=0;i<t.length-1;i++)if(T<=t[i+1][0]){const [a,pa]=t[i],[b,pb]=t[i+1];return pa*Math.pow(pb/pa,(T-a)/(b-a));}return t[t.length-1][1];}
+function Ksp(k,T){const s=sT(k,T),[x,y]=Z[k][2];return Math.pow(x*s,x)*Math.pow(y*s,y);}
+function sOrtak(k,T,c){const K=Ksp(k,T),[x,y]=Z[k][2];let lo=0,hi=sT(k,T);for(let i=0;i<60;i++){const m=(lo+hi)/2;const q=Math.pow(x*m,x)*Math.pow(y*m+c,y);q>K?hi=m:lo=m;}return lo;}
+let B=[],TH,HT;
+const cfg={ad:'kcc',baslik:'Çözünürlüğe Sıcaklık ve Ortak İyon Etkisi',alt:'11. sınıf · 2.3.2 Çözünürlüğe Etki Eden Faktörler · Performans görevi',
+ malzemeler:['Doymuş Ca(OH)₂ çözeltisi (kireç suyu, süzülmüş)','0,5 M NaOH çözeltisi','Saf su','3 deney tüpü / beherglas','Isıtıcı','Termometre','Damlalık','Süzgeç kâğıdı'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ NaOH ve Ca(OH)₂ yakıcıdır','🔥 Sıcak su banyosu'],
+ olcumler:[['s','Çözünürlük','mol/L'],['k','Kçç',''],['g','Gözlem','']],
+ grafik:{baslik:'Ca(OH)₂ çözünürlüğü – sıcaklık',xmax:100,ymax:.03,xl:'Sıcaklık (°C)',yl:'s (mol/L)',not:'Ca(OH)₂’nin çözünmesi ekzotermiktir; sıcaklık arttıkça çözünürlüğü azalır.'},
+ adimlar:[['Hipotez','Hipotez 1: “Isıtılınca Ca(OH)₂ çözünürlüğü azalır.” Hipotez 2: “Ortak iyon (OH⁻) eklenince çözünürlük azalır.” Kontrol: çözelti hacmi, başlangıç derişimi.'],
+  ['Doymuş kireç suyu','Üç behere 25 °C’ta doymuş, berrak Ca(OH)₂ çözeltisi koy: s ≈ 0,021 mol/L.'],
+  ['Isıt','Birinci beheri 80 °C’a ısıt: berrak çözelti bulanıklaştı; Ca(OH)₂ çöktü (s ≈ 0,013 mol/L).'],
+  ['Ortak iyon ekle','İkinci behere birkaç mL 0,5 M NaOH ekle: hemen beyaz bulanıklık oluştu. OH⁻ derişimi arttığı için denge sola kaydı.'],
+  ['Kontrol','Üçüncü beher (25 °C, katkısız) berrak kaldı.'],
+  ['Sonuç','Ca(OH)₂(k) ⇌ Ca²⁺ + 2OH⁻ + ısı. Sıcaklık artınca (ekzotermik) ve ortak iyon eklenince çözünürlük azalır; Kçç yalnız sıcaklıkla değişir.']],
+ async kur(P,m){const S=P.S;HT=S.heater(80,556,120);HT.g.setAttribute('opacity',1);B=[80,200,320].map((x,i)=>{const b=S.beaker(x,520,90,110,250,'');b.g.setAttribute('opacity',1);b.l=S.txt(b.g,x,370,['ısıtılan','+ NaOH','kontrol'][i],10,{fill:'#1e293b'});return b;});
+  TH=S.thermo(104,300,200,0,100);TH.g.setAttribute('opacity',1);TH.set(25);},
+ async calistir(P){P.graph.clear();const L=P.graph.add('#2563eb',2);for(let T=0;T<=100;T+=2)L.pts.push([T,sT('caoh',T)]);const D=P.graph.add('#dc2626',3,true);P.graph.draw();P.rows=[];
+  P.stepUI(0);await sleep(3000);
+  P.stepUI(1);await tween(1500,k=>B.forEach(b=>b.set(150*k)));const s0=sT('caoh',25);P.set('s',fmt(s0,4));P.set('k',Ksp('caoh',25).toExponential(1).replace('.',','));P.set('g','berrak');D.pts.push([25,s0]);P.graph.draw();P.rows.push(['25 °C, katkısız',fmt(s0,4),'berrak']);await sleep(900);
+  P.stepUI(2);HT.on(1);await tween(4000,k=>{const T=25+55*k;TH.set(T);const s=sT('caoh',T);P.set('s',fmt(s,4));P.set('k',Ksp('caoh',T).toExponential(1).replace('.',','));B[0].cloudy(Math.min(.6,(s0-s)/s0*1.6),'rgba(255,255,255,1)');B[0].ppt(Math.min(.5,(s0-s)/s0*1.2),'rgba(250,250,250,.95)');});HT.on(0);
+  const s80=sT('caoh',80);D.pts.push([80,s80]);P.graph.draw();P.set('g','bulanıklaştı');P.rows.push(['80 °C',fmt(s80,4),'bulanık, çökelek']);await sleep(900);
+  P.stepUI(3);for(let i=0;i<10;i++){P.S.drop(200,330,B[1].level(B[1].vol),'rgba(220,230,255,.95)');await sleep(220);B[1].cloudy(.06*i,'rgba(255,255,255,1)');}const so=sOrtak('caoh',25,.05);B[1].ppt(.4,'rgba(250,250,250,.95)');P.set('s',fmt(so,4));P.set('k',Ksp('caoh',25).toExponential(1).replace('.',','));P.set('g','beyaz çökelek');
+  P.rows.push(['25 °C + 0,05 M OH⁻',fmt(so,4),'beyaz çökelek']);await sleep(900);
+  P.stepUI(4);P.set('g','kontrol berrak');await sleep(1500);
+  P.stepUI(5);await sleep(800);
+  P.calc('<b>Ölçümler</b><table><tr><th>Durum</th><th>s (mol/L)</th><th>Gözlem</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Kçç = [Ca²⁺][OH⁻]² = 4s³ · Ortak iyonda: Kçç = s·(2s + c)²</p>');
+  P.done('Isıtma ve ortak iyon eklenmesi Ca(OH)₂’nin çözünürlüğünü azalttı; Kçç yalnızca sıcaklıkla değişti.');},
+ rapor:P=>[['Deneyin Adı','Çözünürlüğe Sıcaklık ve Ortak İyon Etkisi'],['Deneyin Amacı','Sıcaklığın ve ortak iyonun az çözünen tuzların çözünürlüğüne etkisini belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: s = ${r[1]} mol/L (${r[2]})`).join('<br>')],
+  ['Sonuç','Ca(OH)₂’nin çözünmesi ekzotermik olduğu için sıcaklık artışı çözünürlüğü azaltır (Kçç küçülür). Ortamda ortak iyon (OH⁻) bulunması Le Chatelier ilkesine göre dengeyi çökelme yönüne kaydırır; çözünürlük azalır, Kçç değişmez.']],
+ sorular:[{q:'Ortak iyon eklenmesi Kçç’yi nasıl etkiler?',o:['Artırır','Azaltır','Değiştirmez; çözünürlük azalır','Sıfırlar'],a:2,e:'Kçç yalnızca sıcaklıkla değişir.'},{q:'Kireç suyu ısıtılınca neden bulanıklaşır?',o:['Ca(OH)₂’nin çözünürlüğü sıcaklıkla azalır','Su buharlaşır','CO₂ çıkar','Renk değişir'],a:0,e:'Çözünmesi ekzotermiktir.'},{q:'PbCl₂’nin sıcak sudaki çözünürlüğü için ne söylenebilir?',o:['Soğuk sudan azdır','Soğuk sudan fazladır','Sıfırdır','Değişmez'],a:1,e:'PbCl₂’nin çözünmesi endotermiktir; sıcaklık artınca çözünürlük artar.'}],
+ dene:{alanlar:[{id:'k',ad:'Az çözünen tuz',secenek:Object.keys(Z).map(k=>[k,Z[k][0]]),deger:'pbcl'},{id:'T',ad:'Sıcaklık',secenek:[[0,'0 °C'],[25,'25 °C'],[50,'50 °C'],[80,'80 °C']],deger:25},{id:'c',ad:'Eklenen ortak iyon derişimi',secenek:[[0,'Yok'],[.01,'0,01 M'],[.1,'0,1 M'],[.5,'0,5 M']],deger:0}],
+  bagimli:[['s','Çözünürlük (mol/L)']],sabitler:['Çözelti hacmi: 100 mL','Basınç: 1 atm'],varsayilanBagimsiz:'c',tablo:[['s','s (mol/L)'],['g','g/L'],['k','Kçç']],
+  dugmeler:[['go','▶ Doymuş çözeltiyi hazırla ve ölç','p'],['kay','✔ Kaydet','g']],ipucu:'Tuzu seç; önce sıcaklığı, sonra ortak iyon derişimini değiştir.',
+  baslangic(P){P.enable(['kay'],false);B.forEach((b,i)=>{if(i)b.g.setAttribute('opacity',0);});B[0].l.textContent='deneme';},
+  async on(id,P){const c=P.cfgNow(),k=c.k,T=+c.T,cc=+c.c;if(id==='go'){TH.set(T);HT.on(T>30?.7:0);B[0].set(150);B[0].cloudy(0);B[0].ppt(0);const s0=sT(k,T),s=cc?sOrtak(k,T,cc):s0;await tween(2000,q=>{B[0].ppt(.25+.25*(1-s/sT(k,25))*q,Z[k][6]);});
+    P.set('s',s.toExponential(2).replace('.',','));P.set('k',Ksp(k,T).toExponential(2).replace('.',','));P.set('g',cc?'ortak iyonlu':'saf su');HT.on(0);P.cur={s:s.toExponential(2).replace('.',','),g:fmt(s*Z[k][3],3),k:Ksp(k,T).toExponential(2).replace('.',',')};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`${Z[k][0]}: ortak iyon (${Z[k][5]}) derişimi arttıkça çözünürlük azalır; Kçç yalnızca sıcaklıkla değişir.`);P.enable(['kay'],false);}},
+  sorular:[{q:'AgCl’nin 0,1 M NaCl’deki çözünürlüğü saf sudakine göre?',o:['Daha fazla','Çok daha az','Aynı','Sıfır'],a:1,e:'s ≈ Kçç/0,1: yaklaşık 10⁴ kat azalır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>
