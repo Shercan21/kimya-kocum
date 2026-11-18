@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_madde',baslik:'Madde Cinsi ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.12',amac:'Tepkime hızına madde cinsinin etkisini belirleyebilme',
+ malzemeler:['4 deney tüpü','1 M HCl','Pipet','Dereceli silindir','Kronometre','Demir, çinko, magnezyum (ve bakır) parçaları','Maşa','Saf su'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ HCl aşındırıcıdır','🔥 H₂ yanıcıdır'],
+ kaplar:[{ad:'Fe',metal:'Fe'},{ad:'Zn',metal:'Zn'},{ad:'Mg',metal:'Mg'},{ad:'Cu',metal:'Cu'}],tmax:300,
+ degiskenler:'Bağımsız: metalin cinsi · Bağımlı: tepkimenin bitme süresi (gaz çıkış hızı) · Kontrol: HCl derişimi ve hacmi, metal kütlesi ve biçimi, sıcaklık',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “Aktifliği fazla olan metal asitle daha hızlı tepkime verir.” Bağımsız: metal cinsi · Bağımlı: tepkime süresi · Kontrol: HCl derişimi/hacmi, metal kütlesi, sıcaklık.'],
+  ['Tüplere HCl koy','Dört tüpe dereceli silindirle 10’ar mL 1 M HCl koy.'],
+  ['Metalleri aynı anda ekle','Maşayla eşit kütlede Fe, Zn, Mg ve Cu parçalarını tüplere aynı anda at ve kronometreyi başlat.'],
+  ['Gaz çıkışını izle','Mg’de çok hızlı, Zn’de orta, Fe’de yavaş gaz çıkışı görülür; Cu’da tepkime olmaz. Her metal tükenince süreyi kaydet.'],
+  ['Sonuç','Tepkime hızı: Mg > Zn > Fe; Cu tepkime vermez. Metalin cinsi (aktifliği) tepkime hızını belirler.']],
+ eklenen:'metaller eklendi',denklem:'Mg + 2HCl → MgCl₂ + H₂ · Zn + 2HCl → ZnCl₂ + H₂ · Fe + 2HCl → FeCl₂ + H₂',
+ sonucKisa:'Aktif metal (Mg) en hızlı, Fe en yavaş tepkime verdi; Cu hiç tepkime vermedi. Madde cinsi tepkime hızını etkiler.',
+ sonuc:'Aynı koşullarda farklı metallerin HCl ile tepkime hızları farklıdır: Mg > Zn > Fe, Cu tepkime vermez. Tepkimeye giren maddelerin bağ yapısı ve aktifliği, etkin çarpışma için gereken aktifleşme enerjisini belirler; aktifleşme enerjisi küçük olan tepkime hızlıdır.',
+ sorular:[{q:'En hızlı tepkime hangi metalde gözlenir?',o:['Fe','Zn','Mg','Cu'],a:2,e:'Mg en aktif metaldir; aktifleşme enerjisi en küçüktür.'},{q:'Bakırın HCl ile tepkime vermemesinin nedeni nedir?',o:['Cu, H’den daha az aktiftir','Cu çok ağırdır','HCl seyreltiktir','Cu sıvıdır'],a:0,e:'Cu, H⁺ iyonlarına elektron veremez.'},{q:'Bu deneyde kontrol değişkeni hangisidir?',o:['Metal cinsi','HCl derişimi','Tepkime süresi','Gaz çıkışı'],a:1,e:'Derişim, hacim, kütle ve sıcaklık sabit tutulur.'}],
+ dene:{alanlar:[{id:'m',ad:'Metal',secenek:[['Mg','Magnezyum'],['Al','Alüminyum'],['Zn','Çinko'],['Fe','Demir'],['Cu','Bakır']],deger:'Zn'},{id:'M',ad:'HCl derişimi',secenek:[[0.5,'0,5 M'],[1,'1 M'],[2,'2 M']],deger:1}],sabitler:['Metal kütlesi: 0,1 g parça','HCl: 10 mL','Sıcaklık: 25 °C'],bagimsiz:'m',
+  ipucu:'Metali değiştirip tepkime süresini karşılaştır. HCl derişimini sabit tut.',kap:c=>({ad:c.m,metal:c.m,M:+c.M}),yorum:'Metal aktifliği arttıkça tepkime hızlanır (süre kısalır): Mg > Al > Zn > Fe; Cu tepkime vermez.',
+  sorular:[{q:'Alüminyumun hızı hangi iki metal arasındadır?',o:['Mg ile Zn','Zn ile Fe','Fe ile Cu','Mg’den hızlı'],a:0,e:'Aktiflik sırası Mg > Al > Zn > Fe.'}]}});
+</script></body></html>

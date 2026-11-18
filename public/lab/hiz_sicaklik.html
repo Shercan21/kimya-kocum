@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_sicaklik',baslik:'Sıcaklık ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.15',amac:'Tepkime hızına sıcaklığın etkisini belirleyebilme',
+ malzemeler:['Demir parçaları','1 M HCl','2 deney tüpü','2 adet 500 mL beherglas','Pipet','Isıtıcı','Termometre','Kronometre','Etiket','Buz'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ HCl aşındırıcıdır','🔥 Sıcak su banyosu'],
+ kaplar:[{ad:'10 °C',metal:'Fe',T:10,tip:'banyo'},{ad:'50 °C',metal:'Fe',T:50,tip:'banyo'}],tmax:600,rack:false,
+ degiskenler:'Bağımsız: sıcaklık · Bağımlı: tepkimenin bitme süresi · Kontrol: Fe kütlesi/biçimi, HCl derişimi ve hacmi',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “Sıcaklık arttıkça Fe ile HCl arasındaki tepkime hızlanır.” Bağımsız: sıcaklık · Bağımlı: süre · Kontrol: Fe kütlesi, HCl derişimi/hacmi.'],
+  ['Tüplere HCl koy','İki tüpe 10’ar mL 1 M HCl koy ve etiketle.'],
+  ['Su banyolarını hazırla','Bir beheri buzlu suyla 10 °C’a, diğerini ısıtıcıda 50 °C’a getir; tüpleri banyolara yerleştir.'],
+  ['Fe parçalarını ekle','Eşit kütlede Fe parçalarını tüplere aynı anda ekle, kronometreyi başlat.'],
+  ['Gaz çıkışını izle','50 °C’taki tüpte kabarcıklar çok daha yoğun; Fe çok daha kısa sürede tükendi.'],
+  ['Sonuç','Sıcaklık arttıkça taneciklerin kinetik enerjisi artar, aktifleşme enerjisini aşan tanecik sayısı ve etkin çarpışmalar artar: tepkime hızlanır.']],
+ eklenen:'Fe eklendi',denklem:'Fe(k) + 2HCl(suda) → FeCl₂(suda) + H₂(g) · Kabaca her 10 °C artışta hız ≈ 2 katına çıkar.',
+ sonucKisa:'50 °C’taki tepkime 10 °C’takinden yaklaşık 16 kat hızlı oldu: sıcaklık arttıkça tepkime hızı artar.',
+ sonuc:'Sıcaklık artınca taneciklerin ortalama kinetik enerjisi artar; aktifleşme enerjisine sahip tanecik sayısı artar ve etkin çarpışma sayısı yükselir. Bu yüzden sıcak ortamda tepkime daha hızlıdır.',
+ sorular:[{q:'Sıcaklık artınca hangisi artar?',o:['Aktifleşme enerjisi','Etkin çarpışma sayısı','Tepkime ısısı','Ürün kütlesi'],a:1,e:'Ea değişmez; Ea’yı aşan taneciklerin oranı artar.'},{q:'Yiyecekler buzdolabında neden daha geç bozulur?',o:['Işık azdır','Düşük sıcaklıkta tepkimeler yavaşlar','Nem artar','Basınç artar'],a:1,e:'Bozulma tepkimelerinin hızı düşük sıcaklıkta azalır.'}],
+ dene:{alanlar:[{id:'T',ad:'Banyo sıcaklığı',secenek:[[0,'0 °C'],[10,'10 °C'],[25,'25 °C'],[40,'40 °C'],[60,'60 °C']],deger:25},{id:'m',ad:'Metal',secenek:[['Fe','Demir'],['Zn','Çinko']],deger:'Fe',bagimsiz:false}],sabitler:['1 M HCl, 10 mL','Metal: 0,1 g parça'],bagimsiz:'T',
+  ipucu:'Sıcaklığı değiştir, süreyi karşılaştır.',kap:c=>({ad:c.T+' °C',metal:c.m,T:+c.T,tip:'banyo'}),yorum:'Her 10 °C artışta hız yaklaşık iki katına çıkar (süre yarıya iner).',
+  sorular:[{q:'25 °C’tan 45 °C’a çıkınca hız yaklaşık kaç katına çıkar?',o:['2','4','8','20'],a:1,e:'İki kez 10 °C: 2 × 2 = 4 kat.'}]}});
+</script></body></html>

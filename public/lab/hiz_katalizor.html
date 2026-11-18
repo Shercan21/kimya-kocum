@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_katalizor',baslik:'Katalizör ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.16',amac:'Tepkime hızına katalizörün etkisini belirleyebilme',
+ malzemeler:['200 mL beherglas','Tahta çubuk','2 deney tüpü','Hidrojen peroksit (H₂O₂) çözeltisi','Mangan(IV) oksit (MnO₂) katısı','Kibrit'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ H₂O₂ cildi tahriş eder','🔥 Kor çubuk: dikkat'],
+ kaplar:[{ad:'H₂O₂',metal:'H2O2',r:.04,renk:'rgba(215,235,255,.85)'},{ad:'H₂O₂ + MnO₂',metal:'H2O2',kat:1,r:6,renk:'rgba(215,235,255,.85)'}],tmax:60,kibrit:true,
+ degiskenler:'Bağımsız: katalizör (MnO₂ var / yok) · Bağımlı: O₂ çıkış hızı (kor çubuğun alevlenmesi) · Kontrol: H₂O₂ derişimi ve hacmi, sıcaklık',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “MnO₂ eklenince H₂O₂’nin bozunması hızlanır.” Bağımsız: katalizör · Bağımlı: O₂ çıkış hızı · Kontrol: H₂O₂ miktarı, sıcaklık.'],
+  ['Tüplere H₂O₂ koy','İki tüpe eşit miktarda H₂O₂ çözeltisi koy. Kendi kendine bozunma çok yavaştır; kabarcık neredeyse yok.'],
+  ['MnO₂ ekle, kor çubuğu tut','İkinci tüpe bir spatül ucu MnO₂ ekle. Tahta çubuğu yakıp söndür ve kor hâlindeki ucu iki tüpün ağzına tut.'],
+  ['Gözle','MnO₂’li tüpte şiddetli gaz çıkışı oldu ve kor çubuk alevlendi (O₂). MnO₂’siz tüpte değişiklik olmadı. MnO₂ tepkimeden sonra değişmeden kaldı.'],
+  ['Sonuç','Katalizör, tepkimeye daha düşük aktifleşme enerjili yeni bir yol açarak hızı artırır; kendisi tepkimede harcanmaz.']],
+ eklenen:'MnO₂ eklendi',denklem:'2H₂O₂(suda) → 2H₂O(s) + O₂(g)   (MnO₂ katalizör)',
+ sonucKisa:'MnO₂ eklenen tüpte H₂O₂ hızla bozundu ve kor çubuk alevlendi: katalizör tepkimeyi hızlandırdı ve kendisi harcanmadı.',
+ sonuc:'MnO₂, H₂O₂’nin bozunmasında katalizördür. Aktifleşme enerjisi daha düşük bir mekanizma sağlar; etkin çarpışma oranı artar, tepkime hızlanır. Katalizör tepkimeden değişmeden çıkar; tepkime ısısını (ΔH) değiştirmez.',
+ sorular:[{q:'Kor hâlindeki çubuğun alevlenmesi hangi gazın varlığını gösterir?',o:['H₂','CO₂','O₂','N₂'],a:2,e:'O₂ yanmayı destekler; kor çubuk alevlenir.'},{q:'Katalizör hangisini değiştirir?',o:['ΔH','Aktifleşme enerjisi','Ürünlerin türü','Denge sabiti'],a:1,e:'Katalizör Ea’yı düşürür; ΔH ve ürünler aynıdır.'},{q:'Tepkime sonunda MnO₂ ne olur?',o:['Tükenir','Değişmeden kalır','O₂’ye dönüşür','Suda çözünür'],a:1,e:'Katalizör tepkimede harcanmaz.'}],
+ dene:{alanlar:[{id:'k',ad:'Eklenen katı',secenek:[['yok','Hiçbiri'],['mno2','MnO₂'],['kc','Patates parçası (katalaz enzimi)'],['kum','Kum (katalizör değil)']],deger:'mno2'},{id:'T',ad:'Sıcaklık',secenek:[[25,'25 °C'],[45,'45 °C']],deger:25}],sabitler:['H₂O₂: 10 mL, %3','Aynı tüp'],bagimsiz:'k',
+  ipucu:'Farklı katıları dene: hangisi katalizör?',kap:c=>({ad:{yok:'H₂O₂',mno2:'+ MnO₂',kc:'+ patates',kum:'+ kum'}[c.k],metal:'H2O2',kat:c.k==='mno2'||c.k==='kc'?1:0,r:{yok:.04,mno2:6,kc:3,kum:.05}[c.k]*Math.pow(2,(+c.T-25)/10),renk:'rgba(215,235,255,.85)'}),yorum:'MnO₂ ve patatesteki katalaz enzimi H₂O₂’nin bozunmasını hızlandırır; kum katalizör değildir.',
+  sorular:[{q:'Patates parçası neden H₂O₂’yi köpürtür?',o:['İçindeki katalaz enzimi biyolojik katalizördür','Patates asidiktir','Patates ısı verir','Nişasta gaz çıkarır'],a:0,e:'Enzimler canlılardaki katalizörlerdir.'}]}});
+</script></body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_derisim',baslik:'Derişim ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.14',amac:'Tepkime hızına derişimin etkisini belirleyebilme',
+ malzemeler:['Derişik HCl','Saf su','Çinko parçaları','Pipet','2 adet 100 mL erlenmayer','2 adet 500 mL beherglas','Kronometre','5 deney tüpü','Dereceli silindir','Maşa'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ Derişik HCl: suyu asite değil, asidi suya ekle','🌬 Havalandırma'],
+ kaplar:[{ad:'0,5 M',metal:'Zn',M:.5},{ad:'1 M',metal:'Zn',M:1},{ad:'2 M',metal:'Zn',M:2}],tmax:150,
+ degiskenler:'Bağımsız: HCl derişimi · Bağımlı: tepkimenin bitme süresi · Kontrol: Zn kütlesi ve biçimi, çözelti hacmi, sıcaklık',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “HCl derişimi arttıkça Zn ile tepkime hızlanır.” Bağımsız: derişim · Bağımlı: süre · Kontrol: Zn kütlesi/biçimi, hacim, sıcaklık.'],
+  ['Çözeltileri hazırla','Derişik HCl’yi suya ekleyerek 0,5 M, 1 M ve 2 M çözeltiler hazırla; tüplere 10’ar mL koy.'],
+  ['Zn parçalarını ekle','Eşit kütlede Zn parçalarını tüplere aynı anda at, kronometreyi başlat.'],
+  ['Gaz çıkışını izle','2 M HCl’de kabarcıklar en yoğun, 0,5 M’de en seyrek. Zn bitince süreleri kaydet.'],
+  ['Sonuç','Derişim arttıkça birim hacimdeki tanecik sayısı ve çarpışma sayısı artar; tepkime hızlanır.']],
+ eklenen:'Zn eklendi',denklem:'Zn(k) + 2HCl(suda) → ZnCl₂(suda) + H₂(g)',
+ sonucKisa:'HCl derişimi arttıkça Zn daha kısa sürede tükendi: derişim arttıkça tepkime hızı artar.',
+ sonuc:'Derişim arttıkça birim hacimdeki H⁺ iyonu sayısı artar; Zn yüzeyine çarpan tanecik ve etkin çarpışma sayısı artar, tepkime hızlanır.',
+ sorular:[{q:'Derişim artınca tepkime neden hızlanır?',o:['Aktifleşme enerjisi azalır','Birim hacimdeki tanecik ve çarpışma sayısı artar','Sıcaklık düşer','Ürün azalır'],a:1,e:'Çarpışma teorisi: daha çok çarpışma, daha çok etkin çarpışma.'},{q:'Derişik asit seyreltilirken ne yapılmalıdır?',o:['Asidin üzerine su dökülür','Asit yavaşça suya eklenir','Hızlıca karıştırılır','Isıtılır'],a:1,e:'Seyreltme çok ekzotermiktir; asit suya eklenir.'}],
+ dene:{alanlar:[{id:'M',ad:'HCl derişimi',secenek:[[0.25,'0,25 M'],[0.5,'0,5 M'],[1,'1 M'],[2,'2 M'],[3,'3 M']],deger:1},{id:'m',ad:'Metal',secenek:[['Zn','Çinko'],['Fe','Demir'],['Mg','Magnezyum']],deger:'Zn',bagimsiz:false}],sabitler:['Metal: 0,1 g parça','Çözelti: 10 mL','25 °C'],bagimsiz:'M',
+  ipucu:'Derişimi değiştir, süreyi karşılaştır.',kap:c=>({ad:LK.tr(+c.M)+' M',metal:c.m,M:+c.M}),yorum:'Derişim iki katına çıkınca bu tepkimede hız yaklaşık iki katına çıkar, süre yarıya iner.',
+  sorular:[{q:'Derişim 1 M’den 2 M’ye çıkınca bitme süresi?',o:['İki katına çıkar','Yaklaşık yarıya iner','Değişmez','Sıfır olur'],a:1,e:'Bu modelde hız derişimle doğru orantılıdır.'}]}});
+</script></body></html>

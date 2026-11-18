@@ -45,7 +45,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '10:1.2.2-A': [{ tur: 'gaz', baslik: 'Gaz yasaları laboratuvarı', modlar: ['boyle', 'charles', 'avogadro'] }],
   '10:1.2.2-B': [{ tur: 'gaz', baslik: 'Basınç–sıcaklık ve birleşik gaz yasası', modlar: ['gaylussac', 'serbest'] }],
   '10:1.2.3': [{ tur: 'gaz', baslik: 'İdeal gaz denklemi', modlar: ['ideal', 'boyle', 'charles', 'gaylussac', 'avogadro'] }],
-  '10:1.2.4': [{ tur: 'difuzyon', baslik: 'Cam boruda difüzyon (NH₃ – HCl)' }],
+  '10:1.2.4': [{ tur: 'lab', baslik: 'Laboratuvar: Gazların yolculuğu: Graham yasası (MEB 1.2.4)', modlar: ['graham'] }, { tur: 'difuzyon', baslik: 'Cam boruda difüzyon (NH₃ – HCl)' }],
   '10:2.1.1': [{ tur: 'cozunme', baslik: 'Çözünme tanecik düzeyinde' }],
   '10:2.1.2': [{ tur: 'cozunme', baslik: 'Benzer benzeri çözer' }, { tur: 'kromatografi', baslik: 'Konuyu genişlet: kâğıt kromatografisi' }],
   '10:2.1.3': [{ tur: 'cozunme', baslik: 'İyonik ve moleküler çözünme' }],
@@ -63,7 +63,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '11:1.1.4': [{ tur: 'entalpi', baslik: 'Enerji diyagramı ve tepkime entalpisi' }],
   '11:1.2.1': [{ tur: 'hiz', baslik: 'Çarpışma teorisi ve aktivasyon enerjisi' }],
   '11:1.2.2': [{ tur: 'hiz', baslik: 'Derişim–zaman grafiği ve ortalama hız' }],
-  '11:1.2.3': [{ tur: 'mermer', baslik: 'Temas yüzeyi yarışı: toz, parça, blok' }, { tur: 'hiz', baslik: 'Sıcaklık, derişim ve katalizörün hıza etkisi' }],
+  '11:1.2.3': [{ tur: 'lab', baslik: 'Laboratuvar: Madde cinsi ve hız (Etkinlik 1.12)', modlar: ['hiz_madde'] }, { tur: 'lab', baslik: 'Laboratuvar: Fiziksel hâl ve hız (Etkinlik 1.13)', modlar: ['hiz_hal'] }, { tur: 'lab', baslik: 'Laboratuvar: Derişim ve hız (Etkinlik 1.14)', modlar: ['hiz_derisim'] }, { tur: 'lab', baslik: 'Laboratuvar: Sıcaklık ve hız (Etkinlik 1.15)', modlar: ['hiz_sicaklik'] }, { tur: 'lab', baslik: 'Laboratuvar: Katalizör ve hız (Etkinlik 1.16)', modlar: ['hiz_katalizor'] }, { tur: 'lab', baslik: 'Laboratuvar: Temas yüzeyi ve hız (Etkinlik 1.17)', modlar: ['hiz_yuzey'] }, { tur: 'lab', baslik: 'Laboratuvar: Tüm hız faktörleri (performans görevi)', modlar: ['hiz_tum'] }, { tur: 'mermer', baslik: 'Temas yüzeyi yarışı: toz, parça, blok' }, { tur: 'hiz', baslik: 'Sıcaklık, derişim ve katalizörün hıza etkisi' }],
   '11:1.2.4': [{ tur: 'hiz', baslik: 'Derişim ve hız ilişkisi' }],
   '11:2.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Tersinir tepkime: kromat ⇌ dikromat (MEB 2.1.1)', modlar: ['kromat'] }, { tur: 'denge', baslik: 'N₂O₄ ⇌ 2NO₂ tersinir tepkimesi' }],
   '11:2.1.2': [{ tur: 'denge', baslik: 'Dinamik denge' }],
@@ -79,7 +79,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '11:2.2.7': [{ tur: 'lab', baslik: 'Laboratuvar: Ürünlerin pH haritası (MEB 2.2.7)', modlar: ['urunph'] }, { tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
   '11:2.3.1': [{ tur: 'kcc', baslik: 'Az çözünen tuzlar ve Kçç' }],
   '11:2.3.2': [{ tur: 'kcc', baslik: 'Ortak iyon ve sıcaklık etkisi' }],
-  '11:3.1.1': [{ tur: 'elektroliz', baslik: 'Suyun elektrolizi ve yeşil hidrojen' }],
+  '11:3.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Fermantasyonla yeşil hidrojen (MEB 3.1.1)', modlar: ['yesilh2'] }, { tur: 'elektroliz', baslik: 'Suyun elektrolizi ve yeşil hidrojen' }],
 }
 
 export function konuDeneyleri(grade: number, kod: string): SimTanim[] {

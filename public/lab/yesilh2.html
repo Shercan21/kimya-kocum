@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Yeşil Hidrojen</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// verim modeli: mL H2 / 48 saat (1 L karışım)
+function H2(c,T,pH){const fc=(c/5.5)*Math.exp(1-c/5.5);const fT=Math.exp(-Math.pow((T-35)/11,2));const fp=Math.exp(-Math.pow((pH-5.5)/1.4,2));return 900*fc*fT*fp;}
+const XS=[80,200,320];let E=[],BL=[],TH,HT;
+const cfg={ad:'yesilh2',baslik:'Fermantasyonla Yeşil Hidrojen',alt:'11. sınıf · 3.1.1 Yeşil Hidrojen Enerjisi · Sıcaklığın ya da evsel atık miktarının H₂ miktarına etkisi',
+ malzemeler:['3 adet 1 L şişe (biyoreaktör)','Evsel organik atık (karbonhidrat içeren)','Ön işlem görmüş çamur (bakteri kaynağı)','Su banyosu ve termometre','pH metre','Balon / gaz ölçer','Hassas terazi'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','🔥 H₂ yanıcıdır: alevden uzak tut','🦠 Hijyen: eldivenle çalış'],
+ olcumler:[['a','Şişe A','mL'],['b','Şişe B','mL'],['c','Şişe C','mL']],
+ grafik:{baslik:'Toplanan H₂ – zaman',xmax:48,ymax:1000,xl:'Zaman (saat)',yl:'H₂ (mL)',not:'Kırmızı: 2,2 g/L · Yeşil: 5,5 g/L · Mavi: 13,8 g/L karbonhidrat (35 °C, pH 5,5).'},
+ adimlar:[['Hipotez','Hipotez: “Atık miktarı arttıkça H₂ artar, ancak bir eşikten sonra azalır.” Bağımsız: atık (karbonhidrat) miktarı · Bağımlı: toplanan H₂ hacmi · Kontrol: sıcaklık 35 °C, pH 5,5, bakteri miktarı, süre.'],
+  ['Biyoreaktörleri hazırla','Üç şişeye 1’er L karışım koy: A’ya 2,2 g, B’ye 5,5 g, C’ye 13,8 g karbonhidrat içeren atık ekle. pH’ı 5,5’e ayarla.'],
+  ['Su banyosu: 35 °C','Şişeleri 35 °C’lik su banyosuna koy, ağızlarına gaz toplama balonlarını tak; oksijensiz (anaerobik) ortam sağla.'],
+  ['48 saat bekle, ölç','Karanlık fermantasyonda bakteriler karbonhidratı parçalayıp H₂ ve CO₂ üretir. Balonlar zamanla şişer.'],
+  ['Sonuç','En çok H₂ B şişesinde (5,5 g/L) toplandı. Atık eşiğin üstüne çıkınca verim düştü. Sıcaklık için 25–40 °C, pH için 5–7 aralığı en uygundur.']],
+ async kur(P,m){const S=P.S;const b=S.beaker(200,520,370,110,250,'');b.set(180,'rgba(200,225,255,.6)');b.g.setAttribute('opacity',1);S.txt(b.g,200,538,'su banyosu',9);
+  HT=S.heater(200,556,240);HT.g.setAttribute('opacity',1);TH=S.thermo(372,320,190,0,60);TH.g.setAttribute('opacity',1);TH.set(35);
+  E=XS.map((x,i)=>{const e=S.erlen(x,512,250,.75,'');e.set(170,'rgba(150,120,70,.7)');e.g.setAttribute('opacity',1);e.l=S.txt(e.g,x,280,['A','B','C'][i],12,{fill:'#7c2d12'});return e;});
+  BL=XS.map(x=>{const b=S.balloon(x,512-90+2,'#38bdf8');b.g.setAttribute('opacity',1);b.inflate(0);return b;});},
+ async calistir(P){P.graph.clear();const C=[2.2,5.5,13.8],G=['#dc2626','#16a34a','#2563eb'].map(c=>P.graph.add(c,3));P.rows=[];
+  P.stepUI(0);await sleep(3200);P.stepUI(1);E.forEach((e,i)=>e.l.textContent=['A · 2,2 g','B · 5,5 g','C · 13,8 g'][i]);await sleep(2200);
+  P.stepUI(2);HT.on(.5);await sleep(1800);
+  P.stepUI(3);const V=C.map(c=>H2(c,35,5.5));E.forEach(e=>e.bubbles(.25));
+  await tween(9000,k=>{const h=k*48;V.forEach((v,i)=>{const y=v*(1-Math.exp(-h/14))/(1-Math.exp(-48/14));BL[i].inflate(Math.min(1,y/900));P.set('abc'[i],fmt(y,0));G[i].pts.push([h,y]);});P.graph.draw();});
+  E.forEach(e=>e.bubbles(0));C.forEach((c,i)=>P.rows.push(['ABC'[i],fmt(c,1),fmt(V[i],0)]));
+  P.stepUI(4);await sleep(900);
+  P.calc('<b>48 saatte toplanan H₂ (35 °C, pH 5,5)</b><table><tr><th>Şişe</th><th>Karbonhidrat (g/L)</th><th>H₂ (mL)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Karanlık fermantasyon: C₆H₁₂O₆ + 2H₂O → 2CH₃COOH + 2CO₂ + 4H₂</p>');
+  P.done('En yüksek H₂ verimi 5,5 g/L atıkta elde edildi; daha fazla atık verimi düşürdü.');},
+ rapor:P=>[['Deneyin Adı','Hidrojen Verimi'],['Deneyin Amacı','Evsel atıklardan fermantasyonla yeşil hidrojen eldesinde sıcaklığın ya da atık miktarının H₂ miktarına etkisini belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Değişkenler','Bağımsız: atık miktarı · Bağımlı: H₂ hacmi · Kontrol: sıcaklık, pH, bakteri miktarı, süre'],['Deneyin Yapılışı',cfg.adimlar.slice(1,4).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+  ['Gözlemler',P.rows.map(r=>`Şişe ${r[0]} (${r[1]} g/L): ${r[2]} mL H₂`).join('<br>')],
+  ['Sonuç','Atık miktarı 5,5 g/L karbonhidrata kadar artırıldığında H₂ verimi arttı, bu eşikten sonra azaldı. Fermantasyonla H₂ üretimi için 25–40 °C sıcaklık ve pH 5–7 aralığı uygundur. Atıkların enerjiye dönüştürülmesi sürdürülebilirliğe katkı sağlar.']],
+ sorular:[
+  {q:'Kitaba göre en yüksek H₂ verimi hangi atık miktarında elde edilmiştir?',o:['2,2 g/L','5,5 g/L','13,8 g/L','23,1 g/L'],a:1,e:'5,5 g/L karbonhidrata kadar verim artar, sonra düşer.'},
+  {q:'Fermantasyonla H₂ üretimi için en uygun sıcaklık aralığı hangisidir?',o:['0–10 °C','25–40 °C','65–80 °C','80 °C üzeri'],a:1,e:'Bakteriler bu aralıkta en aktiftir.'},
+  {q:'Karanlık fermantasyonda hangi canlılar kullanılır?',o:['Fotosentetik bakteriler','Anaerobik bakteriler','Bitkiler','Mantarlar'],a:1,e:'Oksijensiz ortamda yaşayan bakteriler karbonhidratları parçalar.'}],
+ dene:{
+  alanlar:[{id:'c',ad:'Karbonhidrat (g/L)',secenek:[[2.2,'2,2'],[5.5,'5,5'],[8.3,'8,3'],[11,'11,0'],[13.8,'13,8'],[23.1,'23,1']],deger:5.5},{id:'T',ad:'Sıcaklık',secenek:[[20,'20 °C'],[30,'30 °C'],[35,'35 °C'],[50,'50 °C'],[70,'70 °C']],deger:35},{id:'pH',ad:'pH',secenek:[[4,'4'],[5.5,'5,5'],[7,'7'],[8.5,'8,5']],deger:5.5}],
+  bagimli:[['v','48 saatte H₂ hacmi']],sabitler:['Karışım: 1 L','Bakteri: aynı miktar','Süre: 48 saat'],varsayilanBagimsiz:'T',
+  tablo:[['v','H₂ (48 sa)']],
+  dugmeler:[['go','▶ 48 saat fermantasyon','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Sıcaklığı ya da atık miktarını değiştir (diğerlerini sabit tut) ve H₂ miktarını karşılaştır.',
+  baslangic(P){P.enable(['kay'],false);[1,2].forEach(i=>{E[i].g.setAttribute('opacity',0);BL[i].g.setAttribute('opacity',0);});},
+  async on(id,P){const c=P.cfgNow(),v=H2(+c.c,+c.T,+c.pH);
+   if(id==='go'){TH.set(+c.T);HT.on(+c.T>30?.6:0);E[0].l.textContent=`${tr(+c.c)} g · ${c.T} °C`;P.graph.clear();const g=P.graph.add('#16a34a',3);E[0].bubbles(.2);
+     await tween(4000,k=>{const h=k*48;const y=v*(1-Math.exp(-h/14))/(1-Math.exp(-48/14));BL[0].inflate(Math.min(1,y/900));P.set('a',fmt(y,0));g.pts.push([h,y]);P.graph.draw();});E[0].bubbles(0);
+     P.cur={v:fmt(v,0)+' mL'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('H₂ verimi 35 °C civarında, pH ≈ 5,5’te ve 5,5 g/L atıkta en yüksektir. Çok yüksek sıcaklık bakterileri öldürür, çok fazla atık ise ortamı asitleştirip verimi düşürür.');P.enable(['kay'],false);}},
+  sorular:[{q:'70 °C’ta H₂ veriminin düşmesinin nedeni nedir?',o:['Bakterilerin aktifliği azalır/ölürler','H₂ suda çözünür','Atık yanar','pH artar'],a:0,e:'Mezofilik bakteriler yüksek sıcaklıkta yaşayamaz.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Gazların Yolculuğu</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+const G={NH3:['NH₃',17,'rgba(59,130,246,.35)','NH₄OH'],HCl:['HCl',36.5,'rgba(234,179,8,.35)','HCl'],CH4:['CH₄',16,'rgba(16,185,129,.35)','CH₄'],SO2:['SO₂',64,'rgba(239,68,68,.35)','SO₂'],H2:['H₂',2,'rgba(14,165,233,.3)','H₂'],O2:['O₂',32,'rgba(168,85,247,.3)','O₂']};
+const L=80;let TB,F1,F2,RING,COT,LBL;
+function bul(a,b,T){const va=Math.sqrt(T/G[a][1]),vb=Math.sqrt(T/G[b][1]);const xa=L*va/(va+vb);const t=40*(48/xa)*Math.sqrt(298/T)*(xa/48);return {xa,t:40*Math.sqrt(298/T)*Math.sqrt(G[a][1]/17)*xa/48};}
+const X0=30,X1=370,Y=300,px=x=>X0+(X1-X0)*x/L;
+const cfg={ad:'graham',baslik:'Gazların Yolculuğu: Graham Difüzyon Yasası',alt:'10. sınıf · 1.2.4 Graham Difüzyon ve Efüzyon Yasası · Gazların farklı ortamlarda yayılması',
+ malzemeler:['80 cm uzunluğunda cam boru','Pamuk','Derişik NH₄OH (amonyak) çözeltisi','Derişik HCl çözeltisi','2 lastik tıpa','Pens','Cetvel','Kronometre'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','🌬 Çeker ocakta çalış','👃 NH₃ ve HCl buharını koklama'],
+ olcumler:[['t','Süre','s'],['x','NH₃ ucundan uzaklık','cm'],['g','Gözlem','']],
+ adimlar:[['Boruyu yerleştir','80 cm’lik cam boruyu yatay olarak sporlara tuttur. Cetvelle uzunluğu ölç.'],
+  ['Pamukları ıslat','Pensle bir pamuğu derişik NH₄OH’a, diğerini derişik HCl’ye batır.'],
+  ['Pamukları uçlara yerleştir','Pamukları aynı anda borunun iki ucuna (A ve C) yerleştir, uçları tıpayla kapat ve kronometreyi başlat.'],
+  ['Gazlar yayılıyor','NH₃ ve HCl gazları boru boyunca difüzyonla ilerler. NH₃ molekülleri daha hafif olduğu için daha hızlı ilerler.'],
+  ['Beyaz halka','≈ 40 saniyede borunun B noktasında beyaz NH₄Cl halkası oluşur: NH₃(g) + HCl(g) → NH₄Cl(k). AB = 48 cm, BC = 32 cm.'],
+  ['Graham yasası','Hızlar oranı: v(NH₃)/v(HCl) = √(M(HCl)/M(NH₃)) = √(36,5/17) ≈ 1,47 ≈ 48/32 = 1,5. Hafif gaz daha hızlı yayılır.']],
+ async kur(P,m){const S=P.S;const g=S.G(1);el('rect',Object.assign({x:X0-6,y:Y-16,width:X1-X0+12,height:32,rx:14},S.glass),g);
+  for(let x=0;x<=80;x+=10){el('line',{x1:px(x),y1:Y+22,x2:px(x),y2:Y+30,stroke:'#334155'},g);S.txt(g,px(x),Y+42,x,8);}
+  S.txt(g,px(0),Y-26,'A',11,{fill:'#1d4ed8'});S.txt(g,px(80),Y-26,'C',11,{fill:'#a16207'});LBL=[S.txt(g,px(4),Y+62,'NH₄OH pamuğu',9),S.txt(g,px(76),Y+62,'HCl pamuğu',9)];
+  F1=el('rect',{x:px(0),y:Y-12,width:0,height:24,fill:G.NH3[2]},g);F2=el('rect',{x:px(80),y:Y-12,width:0,height:24,fill:G.HCl[2]},g);
+  RING=el('rect',{x:0,y:Y-14,width:10,height:28,rx:3,fill:'rgba(255,255,255,.98)',stroke:'#cbd5e1',opacity:0},g);
+  COT=[el('ellipse',{cx:px(1.5),cy:Y,rx:9,ry:12,fill:'#fff',stroke:'#cbd5e1',opacity:0},g),el('ellipse',{cx:px(78.5),cy:Y,rx:9,ry:12,fill:'#fff',stroke:'#cbd5e1',opacity:0},g)];
+  const sw=S.stopwatch(200,120);sw.g.setAttribute('opacity',1);sw.set(0);P.sw=sw;},
+ async yay(P,a,b,T,ms){const r=bul(a,b,T);F1.setAttribute('fill',G[a][2]);F2.setAttribute('fill',G[b][2]);
+  await tween(ms,k=>{const xa=r.xa*k,xb=(L-r.xa)*k;F1.setAttribute('width',px(xa)-px(0));F2.setAttribute('x',px(L-xb));F2.setAttribute('width',px(L)-px(L-xb));P.sw.set(r.t*k);P.set('t',fmt(r.t*k,0));});
+  RING.setAttribute('x',px(r.xa)-5);RING.setAttribute('opacity',1);P.set('x',fmt(r.xa,1));return r;},
+ async calistir(P){P.rows=[];
+  P.stepUI(0);await sleep(1500);P.stepUI(1);await sleep(1500);
+  P.stepUI(2);COT.forEach(c=>c.setAttribute('opacity',1));P.set('g','pamuklar yerleştirildi');await sleep(1000);
+  P.stepUI(3);P.set('g','gazlar ilerliyor');const r=await cfg.yay(P,'NH3','HCl',298,8000);
+  P.stepUI(4);P.set('g','beyaz NH₄Cl halkası');P.rows.push(['NH₃ – HCl',fmt(r.xa,1),fmt(L-r.xa,1),fmt(r.t,0)]);await sleep(1600);
+  P.stepUI(5);await sleep(900);
+  P.calc('<b>Ölçümler</b><table><tr><th>Gaz çifti</th><th>AB (cm)</th><th>BC (cm)</th><th>Süre (s)</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table><p style="margin:.5em 0 0">v₁/v₂ = √(M₂/M₁) · √(36,5/17) = 1,47</p>');
+  P.done('Hafif NH₃ gazı daha hızlı yayıldığından NH₄Cl halkası HCl ucuna daha yakın oluştu (Graham yasası).');},
+ rapor:P=>[['Deneyin Adı','Gazların Yolculuğu'],['Deneyin Amacı','Gazların farklı ortamlarda yayılmasını açıklayabilme; difüzyon hızının mol kütlesi ve sıcaklıkla ilişkisini belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,3).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: halka NH₃ ucundan ${r[1]} cm uzakta, ${r[3]} s’de oluştu`).join('<br>')],
+  ['Sonuç','Aynı sıcaklıkta gazların difüzyon hızları mol kütlelerinin karekökü ile ters orantılıdır (Graham yasası). Halkanın tam ortada oluşması için mol kütleleri eşit gazlar kullanılmalı ya da hafif gazın bulunduğu uç soğutulmalıdır.']],
+ sorular:[
+  {q:'NH₄Cl halkası neden HCl ucuna daha yakın oluşur?',o:['HCl daha hızlıdır','NH₃ daha hafiftir ve daha hızlı yayılır','Pamuklar farklıdır','Boru eğiktir'],a:1,e:'M(NH₃) = 17 < M(HCl) = 36,5 g/mol.'},
+  {q:'CH₄ ve SO₂ 80 cm’lik borunun iki ucundan bırakılırsa nerede karşılaşırlar?',o:['Ortada (40 cm)','CH₄ ucundan ≈ 53 cm','CH₄ ucundan ≈ 27 cm','SO₂ ucunda'],a:1,e:'v(CH₄)/v(SO₂) = √(64/16) = 2 ⇒ 80·2/3 ≈ 53 cm.'},
+  {q:'SF₆ gibi ağır bir gazdan oluşan atmosferde ses nasıl duyulur?',o:['Daha ince','Daha kalın (yavaş yayılır)','Aynı','Hiç duyulmaz'],a:1,e:'Ağır gazda ses daha yavaş yayılır, ses daha kalın duyulur.'}],
+ dene:{
+  alanlar:[{id:'p',ad:'Gaz çifti',secenek:[['NH3-HCl','NH₃ – HCl'],['CH4-SO2','CH₄ – SO₂'],['H2-O2','H₂ – O₂']],deger:'CH4-SO2'},{id:'T',ad:'Sıcaklık',secenek:[[273,'0 °C'],[298,'25 °C'],[323,'50 °C']],deger:298}],
+  bagimli:[['x','Karşılaşma noktası'],['t','Karşılaşma süresi']],sabitler:['Boru uzunluğu: 80 cm','Uçlar aynı anda açılır'],varsayilanBagimsiz:'p',
+  tablo:[['x','1. gazın ucundan'],['t','Süre']],
+  dugmeler:[['go','▶ Gazları bırak','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Gaz çiftini değiştir ya da sıcaklığı değiştir. Karşılaşma noktası mol kütlesine, süre sıcaklığa nasıl bağlı?',
+  baslangic(P){P.enable(['kay'],false);},
+  async on(id,P){const c=P.cfgNow(),[a,b]=c.p.split('-');
+   if(id==='go'){RING.setAttribute('opacity',0);LBL[0].textContent=G[a][0];LBL[1].textContent=G[b][0];COT.forEach(x=>x.setAttribute('opacity',1));const r=await cfg.yay(P,a,b,+c.T,4000);P.set('g','karşılaştılar');P.cur={x:fmt(r.xa,1)+' cm',t:fmt(r.t,0)+' s'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`v(${G[a][0]})/v(${G[b][0]}) = √(${G[b][1]}/${G[a][1]}) = ${fmt(Math.sqrt(G[b][1]/G[a][1]),2)}. Sıcaklık artınca iki gaz da hızlanır; karşılaşma noktası değişmez, süre kısalır.`);P.enable(['kay'],false);}},
+  sorular:[{q:'Sıcaklık artınca karşılaşma noktası?',o:['Değişmez, süre kısalır','Ortaya kayar','Ağır gaz ucuna kayar','Değişir, süre uzar'],a:0,e:'İki gazın hızı aynı oranda artar.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

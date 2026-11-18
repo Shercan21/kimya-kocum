@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_yuzey',baslik:'Temas Yüzeyi ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.17',amac:'Tepkime hızına temas yüzeyinin etkisini belirleyebilme',
+ malzemeler:['0,5 M HCl','Magnezyum şerit','3 adet 250 mL beherglas','Dereceli silindir','Manyetik karıştırıcı','Kronometre','Hassas terazi','Makas','Maşa','Saf su'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ HCl aşındırıcıdır','✂ Makası dikkatli kullan'],
+ kaplar:[{ad:'bütün şerit',metal:'Mg',M:.5,yuzey:'serit',tip:'beher'},{ad:'küçük parçalar',metal:'Mg',M:.5,yuzey:'parca',tip:'beher'},{ad:'toz',metal:'Mg',M:.5,yuzey:'toz',tip:'beher'}],tmax:60,rack:false,
+ degiskenler:'Bağımsız: temas yüzeyi (şerit / parça / toz) · Bağımlı: tepkimenin bitme süresi · Kontrol: Mg kütlesi (0,1 g), HCl derişimi ve hacmi, karıştırma hızı, sıcaklık',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “Temas yüzeyi arttıkça Mg ile HCl arasındaki tepkime hızlanır.” Bağımsız: yüzey · Bağımlı: süre · Kontrol: kütle, derişim, hacim, karıştırma.'],
+  ['Beherlere HCl koy','Üç behere 100’er mL 0,5 M HCl koy; manyetik karıştırıcıyı aynı hızda çalıştır.'],
+  ['Mg’yi hazırla','Terazide 0,1’er g Mg tart: birini bütün bırak, birini makasla küçük parçalara kes, birini toz hâline getir.'],
+  ['Mg’leri ekle','Üç örneği beherlere aynı anda ekle, kronometreyi başlat.'],
+  ['Gaz çıkışını izle','Toz Mg birkaç saniyede tükendi; parçalar daha uzun, bütün şerit en uzun sürede tükendi.'],
+  ['Sonuç','Katı küçük parçalara ayrıldıkça yüzeyi artar; asitle temas eden tanecik ve çarpışma sayısı artar, tepkime hızlanır.']],
+ eklenen:'Mg eklendi',denklem:'Mg(k) + 2HCl(suda) → MgCl₂(suda) + H₂(g)',
+ sonucKisa:'Toz Mg en hızlı, bütün şerit en yavaş tepkime verdi: temas yüzeyi arttıkça tepkime hızı artar.',
+ sonuc:'Heterojen tepkimelerde tepkime katı yüzeyinde gerçekleşir. Katı küçük parçalara ayrıldıkça yüzey alanı büyür, çarpışma ve etkin çarpışma sayısı artar; tepkime hızlanır.',
+ sorular:[{q:'Toz hâlindeki Mg’nin daha hızlı tepkimesinin nedeni nedir?',o:['Kütlesi fazladır','Yüzey alanı büyüktür','Sıcaklığı yüksektir','Ea’sı yüksektir'],a:1,e:'Daha geniş yüzey, daha çok çarpışma demektir.'},{q:'Odunu tutuşturmak için neden çıra kullanılır?',o:['Yüzeyi büyük olduğu için hızlı yanar','Ağır olduğu için','Islak olduğu için','Renkli olduğu için'],a:0,e:'İnce parçaların hava ile temas yüzeyi büyüktür.'}],
+ dene:{alanlar:[{id:'y',ad:'Mg’nin biçimi',secenek:[['serit','Bütün şerit'],['parca','Küçük parçalar'],['toz','Toz']],deger:'parca'},{id:'M',ad:'HCl derişimi',secenek:[[0.5,'0,5 M'],[1,'1 M']],deger:.5}],sabitler:['Mg: 0,1 g','HCl: 100 mL','Karıştırma hızı sabit','25 °C'],bagimsiz:'y',
+  ipucu:'Mg’nin biçimini değiştirip süreleri karşılaştır.',kap:c=>({ad:{serit:'şerit',parca:'parçalar',toz:'toz'}[c.y],metal:'Mg',M:+c.M,yuzey:c.y,tip:'beher'}),yorum:'Temas yüzeyi büyüdükçe tepkime hızlanır; derişim de hızı artırır.',
+  sorular:[{q:'Bu deneyde kontrol değişkeni olmayan hangisidir?',o:['Mg kütlesi','HCl derişimi','Mg’nin biçimi','Sıcaklık'],a:2,e:'Mg’nin biçimi bağımsız değişkendir.'}]}});
+</script></body></html>

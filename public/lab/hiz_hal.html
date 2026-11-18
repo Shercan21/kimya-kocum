@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_hal',baslik:'Fiziksel Hâl ve Tepkime Hızı',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.13',amac:'Tepkime hızına maddenin fiziksel hâlinin etkisini belirleyebilme',
+ malzemeler:['Magnezyum şeritleri','2 adet 250 mL beherglas','Isıtıcı','Cam çubuk','Maşa','Kronometre','Termometre','Saf su','Fenolftalein'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Kaynar su ve buhar yakar','🧤 Isıya dayanıklı eldiven','👁 Parlak ışığa uzun süre bakma'],
+ kaplar:[{ad:'kaynar su (sıvı)',metal:'Mg',yuzey:'serit',r:.2,tip:'beher',renk:'rgba(205,228,255,.85)'},{ad:'su buharı (gaz)',metal:'Mg',yuzey:'serit',r:2.4,tip:'beher',renk:'rgba(255,255,255,.08)'}],tmax:300,rack:false,
+ kur(P,S,V){const h1=S.heater(130,556,110),h2=S.heater(280,556,110);[h1,h2].forEach(h=>{h.g.setAttribute('opacity',1);h.on(1);});},
+ ara:async(P,V)=>{V[1].cloudy(.55,'rgba(255,255,255,1)');await LK.sleep(1500);},
+ bitince(P,i){if(i===0)P.S.svg.querySelectorAll('rect').forEach(()=>{});},
+ degiskenler:'Bağımsız: suyun fiziksel hâli (sıvı / gaz) · Bağımlı: Mg şeridinin tükenme süresi · Kontrol: Mg kütlesi ve biçimi, sıcaklık (100 °C)',
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “Mg, su buharıyla kaynar sudan daha hızlı tepkime verir.” Bağımsız: suyun fiziksel hâli · Bağımlı: tepkime süresi · Kontrol: Mg kütlesi, sıcaklık.'],
+  ['Suyu kaynat','Birinci beherde suyu kaynat; ikinci beherdeki suyu buharlaşacak kadar ısıt, Mg şeridi buharın içinde tutulacak.'],
+  ['Buhar ortamı','İkinci beherin içi su buharıyla doldu.'],
+  ['Mg şeritlerini yerleştir','Maşayla birinci Mg şeridini kaynar suya daldır, ikincisini su buharının içine tut; kronometreyi başlat.'],
+  ['Gözle','Kaynar suda Mg yavaşça kabarcık verdi. Su buharındaki Mg parlak beyaz ışıkla hızla tepkimeye girdi ve tükendi.'],
+  ['Sonuç','Gaz hâlindeki tanecikler daha hareketlidir; çarpışma ve etkin çarpışma sayısı artar. Aynı sıcaklıkta gaz fazındaki tepkime sıvı fazdakinden hızlıdır.']],
+ eklenen:'Mg yerleştirildi',denklem:'Mg(k) + 2H₂O(s) → Mg(OH)₂(k) + H₂(g)  yavaş · Mg(k) + H₂O(g) → MgO(k) + H₂(g)  hızlı',
+ sonucKisa:'Su buharındaki Mg, kaynar sudakinden çok daha hızlı tepkime verdi: tepkenlerin fiziksel hâli tepkime hızını etkiler.',
+ sonuc:'Aynı sıcaklıkta Mg su buharıyla kaynar sudan çok daha hızlı tepkime verir. Gaz fazındaki moleküller daha hareketli olduğu için katı yüzeyine çarpma sıklığı fazladır; etkin çarpışma olasılığı artar. Genel olarak hız: gaz > sıvı > katı fazdaki tepkimeler.',
+ sorular:[{q:'Aynı sıcaklıkta hangisi daha hızlıdır?',o:['Mg + kaynar su','Mg + su buharı','İkisi eşit','Hiçbiri olmaz'],a:1,e:'Gaz fazındaki tanecikler daha hareketlidir.'},{q:'Etan (gaz) ve heptan (sıvı) aynı koşullarda yanarsa hangisi daha hızlı yanar?',o:['Heptan','Etan','Eşit','Hiçbiri yanmaz'],a:1,e:'Gaz hâlindeki etan oksijenle daha kolay karışır ve çarpışır.'}],
+ dene:{alanlar:[{id:'h',ad:'Suyun hâli',secenek:[['s','Sıvı (kaynar su)'],['g','Gaz (su buharı)'],['soguk','Sıvı (soğuk su, 20 °C)']],deger:'g'},{id:'y',ad:'Mg biçimi',secenek:[['serit','Şerit'],['toz','Toz']],deger:'serit'}],sabitler:['Mg: 0,1 g','Basınç: 1 atm'],bagimsiz:'h',
+  ipucu:'Suyun hâlini değiştir; Mg’nin tükenme süresini karşılaştır.',kap:c=>({ad:{s:'kaynar su',g:'su buharı',soguk:'soğuk su'}[c.h],metal:'Mg',yuzey:c.y,tip:'beher',r:{s:.2,g:2.4,soguk:.004}[c.h]*(c.y==='toz'?4:1),renk:c.h==='g'?'rgba(255,255,255,.08)':'rgba(205,228,255,.85)'}),yorum:'Gaz fazında tepkime en hızlıdır; soğuk suda Mg neredeyse hiç tepkime vermez (sıcaklık etkisi).',
+  sorular:[{q:'Mg’nin soğuk suyla tepkimesi neden çok yavaştır?',o:['Sıcaklık düşük, etkin çarpışma az','Su gazdır','Mg sıvıdır','Tepkime ekzotermiktir'],a:0,e:'Düşük sıcaklıkta Ea’yı aşan tanecik sayısı azdır.'}]}});
+</script></body></html>

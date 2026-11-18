@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="hizkit.js"></script><script>
+HZ.page({ad:'hiz_tum',baslik:'Tepkime Hızına Etki Eden Faktörler (Performans Görevi)',alt:'11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Tüm faktörler bir arada',amac:'Madde cinsi, derişim, sıcaklık, temas yüzeyi ve katalizörün tepkime hızına etkisini birlikte değerlendirebilme',
+ malzemeler:['Zn, Fe, Mg parçaları ve tozları','0,5 M – 2 M HCl','Deney tüpleri','Su banyosu ve ısıtıcı','Termometre','Kronometre','Hassas terazi'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ HCl aşındırıcıdır','🔥 H₂ yanıcıdır'],
+ kaplar:[{ad:'A (parça)',metal:'Zn',M:1,T:25,yuzey:'parca'},{ad:'B (toz)',metal:'Zn',M:1,T:25,yuzey:'toz'},{ad:'C (toz, 2 M, 45 °C)',metal:'Zn',M:2,T:45,yuzey:'toz'}],tmax:60,
+ degiskenler:'Her karşılaştırmada yalnızca bir değişken değiştirilir: A→B temas yüzeyi; B→C derişim ve sıcaklık (birlikte artırıldı).',
+ adimlar:[['Plan','Amaç: Zn + HCl tepkimesini en hızlı hâle getirmek. A standart koşul; B’de yalnızca yüzey, C’de ayrıca derişim ve sıcaklık artırıldı.'],
+  ['Tüpleri hazırla','A ve B’ye 10’ar mL 1 M HCl, C’ye 10 mL 2 M HCl koy; C’yi 45 °C banyoya yerleştir.'],
+  ['Zn ekle','Eşit kütlede Zn’yi (A’ya parça, B ve C’ye toz) aynı anda ekle, kronometreyi başlat.'],
+  ['Süreleri karşılaştır','A en yavaş; B yüzey artışıyla yaklaşık 3 kat hızlı; C derişim ve sıcaklık artışıyla en hızlı.'],
+  ['Sonuç','Temas yüzeyi, derişim ve sıcaklık arttıkça tepkime hızlanır. Bir faktörün etkisini görmek için yalnızca o değişken değiştirilmelidir.']],
+ eklenen:'Zn eklendi',denklem:'Zn(k) + 2HCl(suda) → ZnCl₂(suda) + H₂(g)',
+ sonucKisa:'C (toz, 2 M, 45 °C) en hızlı, A (parça, 1 M, 25 °C) en yavaş tepkime verdi.',
+ sonuc:'Madde cinsi, derişim, sıcaklık, temas yüzeyi ve katalizör tepkime hızını etkiler. Çarpışma sayısını ve etkin çarpışma oranını artıran her değişiklik tepkimeyi hızlandırır. Bilimsel bir karşılaştırmada her seferinde yalnızca bir bağımsız değişken değiştirilmelidir.',
+ sorular:[{q:'A ile C’yi karşılaştırmak neden tek bir faktör hakkında kesin bilgi vermez?',o:['Birden çok değişken birlikte değişti','Tüpler farklı','Zn farklı','Süre ölçülmedi'],a:0,e:'C’de yüzey, derişim ve sıcaklık birlikte değişti.'},{q:'Hangisi tepkime hızını artırmaz?',o:['Sıcaklığı artırmak','Derişimi artırmak','Katıyı toz hâline getirmek','Kabın rengini değiştirmek'],a:3,e:'Kabın rengi çarpışmaları etkilemez.'}],
+ dene:{alanlar:[{id:'m',ad:'Metal',secenek:[['Zn','Çinko'],['Fe','Demir'],['Mg','Magnezyum']],deger:'Zn'},{id:'M',ad:'HCl derişimi',secenek:[[0.5,'0,5 M'],[1,'1 M'],[2,'2 M']],deger:1},{id:'T',ad:'Sıcaklık',secenek:[[10,'10 °C'],[25,'25 °C'],[45,'45 °C']],deger:25},{id:'y',ad:'Biçim',secenek:[['serit','Şerit'],['parca','Parça'],['toz','Toz']],deger:'parca'}],sabitler:['Metal kütlesi: 0,1 g','HCl: 10 mL'],bagimsiz:'T',
+  ipucu:'Bir bağımsız değişken seç, diğerlerini sabit tutarak dene; sonra başka bir değişkene geç.',kap:c=>({ad:`${c.m}, ${LK.tr(+c.M)} M, ${c.T} °C`,metal:c.m,M:+c.M,T:+c.T,yuzey:c.y}),yorum:'Hız ∝ metal aktifliği × derişim × yüzey × 2^(ΔT/10) (bu sanal modelde).',
+  sorular:[{q:'En hızlı tepkime için hangisi seçilmelidir?',o:['Fe şerit, 0,5 M, 10 °C','Mg toz, 2 M, 45 °C','Zn parça, 1 M, 25 °C','Fe toz, 0,5 M, 25 °C'],a:1,e:'En aktif metal, en büyük yüzey, en yüksek derişim ve sıcaklık.'}]}});
+</script></body></html>
