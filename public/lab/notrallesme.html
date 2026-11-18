@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Nötralleşme</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,fmt,tr,sleep,tween,fade}=LK;
+const ION={HCl:['H','Cl'],HNO3:['H','NO3'],NaOH:['Na','OH'],KOH:['K','OH']};
+// erlenmayer/beherdeki asit (nA mol) + eklenen baz (nB mol), toplam hacim L
+function durum(a,aM,aV,b,bM,bV){const nA=aM*aV/1000,nB=bM*bV/1000,V=(aV+bV)/1000,ex=(nA-nB)/V;const pH=CH.pHex(ex);
+  const c={};const add=(k,v)=>c[k]=(c[k]||0)+v;add(ION[a][1],nA);add(ION[b][0],nB);if(ex>0)add('H',nA-nB);else if(ex<0)add('OH',nB-nA);
+  let k=0;for(const i in c)k+=CH.LAM[i]*c[i]/V;return {pH,k};}
+let A,BZ,MZa,MZb,PH,KD,drop,S;
+const cfg={ad:'notrallesme',baslik:'Nötralleşme',alt:'11. sınıf · 2.2.5 Kuvvetli Asit ve Kuvvetli Bazların Nötralleşme Tepkimeleri · Nötralleşme olayına ilişkin ölçütleri test etme',
+ malzemeler:['0,1 M HCl','0,1 M NaOH','2 adet 50 mL mezür','Fenolftalein','pH metre','Kondüktometre','100 mL beherglas','Etiket'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ Aşındırıcı (HCl, NaOH)','🧪 Cam malzeme'],
+ olcumler:[['v','Eklenen NaOH','mL'],['ph','pH metre',''],['k','İletkenlik','mS/cm'],['c','Renk','']],
+ grafik:{baslik:'pH ve iletkenlik – eklenen baz hacmi',xmax:60,ymax:14,xl:'Eklenen NaOH (mL)',yl:'pH  ·  iletkenlik/4',not:'Mavi: pH. Turuncu noktalar: iletkenlik (÷4). İletkenlik tam nötralleşmede en düşüktür.'},
+ adimlar:[['Mezürleri etiketle','Asit ve baz için iki ayrı 50 mL’lik mezür kullan; birine “ASİT”, diğerine “BAZ” etiketi yapıştır.'],
+  ['40 mL HCl ölç','ASİT mezürüyle 40 mL 0,1 M HCl ölç ve temiz, kuru beherglasa koy.'],
+  ['İndikatör ekle','Beherglastaki çözeltiye birkaç damla fenolftalein damlat.'],
+  ['Asidi ölç','HCl çözeltisinin pH’ını ve iletkenliğini ölç, rengini gözle: pH ≈ 1, iletkenlik yüksek, renksiz.'],
+  ['20 mL NaOH ekle','BAZ mezürüyle 20 mL 0,1 M NaOH ölç ve yavaş yavaş behere ekle. pH biraz yükseldi, iletkenlik azaldı, çözelti hâlâ renksiz.'],
+  ['Kalıcı renk değişimine kadar ekle','Yeniden 20 mL NaOH ölç, yavaşça eklemeye devam et. 40 mL’de H⁺ ve OH⁻ eşitlenir (pH 7, iletkenlik en düşük). Hemen ardından ilk fazla damlayla pembe renk kalıcı hâle geldi: eklemeyi durdur.'],
+  ['20 mL daha NaOH ekle','Kalıcı renk değişiminden sonra 20 mL daha NaOH ekle: pH 12’nin üstüne çıktı, iletkenlik yeniden arttı, renk koyu pembe.'],
+  ['Sonucu yorumla','H⁺ ve OH⁻ mol sayıları eşitlendiğinde tam nötralleşme olur: H⁺ + OH⁻ → H₂O. Ortamda kalan Na⁺ ve Cl⁻ iyonları iletkenliği düşük ama sıfırdan farklı tutar.']],
+ async kur(P,m){S=P.S;S.tileUnder(200,170).setAttribute('opacity',1);
+  A=S.beaker(200,520,100,118,100,'100 mL beherglas');MZa=S.cylinder(70,520,50);MZb=S.cylinder(330,520,50);
+  S.txt(MZa.g,70,300,'ASİT',9,{fill:'#b91c1c'});S.txt(MZb.g,330,300,'BAZ',9,{fill:'#1d4ed8'});
+  drop=S.dropBottle(118,452,'FENOLFTALEİN');PH=S.meter(112,150,'pH METRE',[180,500]);KD=S.meter(250,150,'İLETKENLİK',[212,500],'#fbbf24');
+  P.st={aV:0,bV:0,ind:false,a:'HCl',aM:.1,b:'NaOH',bM:.1,ind_t:'fenol'};
+  if(m==='dene'){[A.g,MZa.g,MZb.g,PH.g,KD.g,drop].forEach(g=>g.setAttribute('opacity',1));}
+ },
+ upd(P){const s=P.st;if(s.aV<=0){A.set(0);return;}const r=durum(s.a,s.aM,s.aV,s.b,s.bM,s.bV);const col=s.ind?CH.indColor(s.ind_t,r.pH):{rgba:'rgba(196,226,255,.82)',name:'renksiz'};
+  A.set(s.aV+s.bV,col.rgba);PH.set(fmt(r.pH,2));KD.set(fmt(r.k,1));P.set('v',fmt(s.bV,1));P.set('ph',fmt(r.pH,2));P.set('k',fmt(r.k,1));P.set('c',col.name);
+  if(P.cur){const L=P.cur.pH,K=P.cur.k;if(!L.pts.length||Math.abs(L.pts[L.pts.length-1][0]-s.bV)>.05){L.pts.push([s.bV,r.pH]);K.pts.push([s.bV,r.k/4]);}P.graph.draw();}
+  return {r,col};},
+ async calistir(P){const s=P.st,up=()=>cfg.upd(P);P.graph.clear();P.cur={pH:P.graph.add('#2563eb',3),k:P.graph.add('#f59e0b',3,true)};P.rows=[];
+  const log=lbl=>{const {r,col}=up();P.rows.push([lbl,fmt(s.bV,0)+' mL',fmt(r.pH,2),fmt(r.k,1),col.name]);P.cur.k.pts=P.rows.map(x=>[+x[1].replace(' mL','').replace(',','.'),+x[3].replace(',','.')/4]);P.graph.draw();};
+  P.stepUI(0);await fade(MZa.g,1);await fade(MZb.g,1);await sleep(900);
+  P.stepUI(1);await fade(A.g,1);await tween(1300,k=>MZa.set(40*k));await sleep(400);await tween(1600,k=>{MZa.set(40*(1-k));s.aV=40*k;up();});await sleep(500);
+  P.stepUI(2);await fade(drop,1,400);await sleep(900);s.ind=true;up();await fade(drop,0,400);
+  P.stepUI(3);await fade(PH.g,1,400);await fade(KD.g,1,400);up();P.cur.k.pts=[];log('Başlangıç');await sleep(1600);
+  P.stepUI(4);await tween(1100,k=>MZb.set(20*k));await tween(3200,k=>{MZb.set(20*(1-k));s.bV=20*k;up();});log('I. ekleme');await sleep(1200);
+  P.stepUI(5);await tween(1100,k=>MZb.set(20*k));await tween(3600,k=>{MZb.set(20-19.6*k);s.bV=20+19.6*k;up();});
+  for(let i=0;i<5;i++){await sleep(380);s.bV+=.1;MZb.set(.4-(i+1)*.08);up();}log('Kalıcı renk');await sleep(1400);
+  P.stepUI(6);await tween(1100,k=>MZb.set(20*k));await tween(3200,k=>{MZb.set(20*(1-k));s.bV=40.1+19.9*k;up();});log('+20 mL');await sleep(1200);
+  P.stepUI(7);await sleep(800);
+  P.calc('<b>Ölçümler</b><table><tr><th>Aşama</th><th>Eklenen baz</th><th>pH</th><th>İletkenlik (mS/cm)</th><th>Renk</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table><p style="margin:.5em 0 0">40 mL 0,1 M HCl = 0,004 mol H⁺ · 40 mL 0,1 M NaOH = 0,004 mol OH⁻ ⇒ mol sayıları eşit, tam nötralleşme. HCl + NaOH → NaCl + H₂O</p>');
+  P.done('40 mL HCl, 40 mL NaOH ile tam nötralleşti. Nötralleşmenin ölçütleri: pH 7’ye ulaşması, iletkenliğin en düşük değere inmesi ve hemen ardından indikatörün kalıcı renk değiştirmesi.');},
+ rapor:P=>[['Deneyin Adı','Nötralleşme Deneyi'],['Deneyin Amacı','Nötralleşme olayına ilişkin belirlenen ölçütleri test edebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],
+  ['Malzemeler','0,1 M HCl, 0,1 M NaOH, 2 adet 50 mL mezür, fenolftalein, pH metre, kondüktometre, 100 mL beherglas, etiket'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,7).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+  ['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]} NaOH → pH ${r[2]}, iletkenlik ${r[3]} mS/cm, ${r[4]}`).join('<br>')],
+  ['Sonuç','Kuvvetli asit ve kuvvetli baz eşit mol sayılarında tepkimeye girince tam nötralleşme olur (pH = 7). Nötralleşme; pH’ın 7 olması, iletkenliğin en düşük değere inmesi ve indikatörün kalıcı renk değiştirmesiyle anlaşılır. Tepkime: HCl(suda) + NaOH(suda) → NaCl(suda) + H₂O(s).']],
+ sorular:[
+  {q:'Nötralleşme sırasında iletkenlik neden önce azalır?',o:['Çözelti seyrelir, hiçbir iyon kalmaz','Hareketli H⁺ iyonları OH⁻ ile su oluşturur ve yerlerine daha az iletken Na⁺ iyonları gelir','Na⁺ iyonları çöker','Sıcaklık düşer'],a:1,e:'H⁺ en iletken iyondur. H⁺ + OH⁻ → H₂O ile ortadan kalkar; yerine gelen Na⁺ daha az iletkendir. Bu yüzden iletkenlik tam nötralleşmede en düşüktür.'},
+  {q:'Tam nötralleşmeden sonra NaOH eklemeye devam edilirse ne olur?',o:['pH 7’de sabit kalır','pH ve iletkenlik artar','İletkenlik sıfır olur','Çözelti renksizleşir'],a:1,e:'Fazla OH⁻ iyonları ortamı bazik yapar (pH > 7) ve iletkenliği yeniden artırır; fenolftalein pembe kalır.'},
+  {q:'40 mL 0,1 M HCl’yi tam nötralleştirmek için kaç mL 0,2 M NaOH gerekir?',o:['10','20','40','80'],a:1,e:'n(H⁺) = 0,1·40 = 4 mmol. V = 4/0,2 = 20 mL.'},
+  {q:'HBr(suda) + KOH(suda) tepkimesinin ürünleri nelerdir?',o:['KBr ve H₂O','K ve HBrO','KH ve BrOH','Br₂ ve KOH'],a:0,e:'Asit + baz → tuz + su: HBr + KOH → KBr + H₂O.'}],
+ dene:{
+  alanlar:[{id:'a',ad:'Behere konan asit',secenek:[['HCl','HCl'],['HNO3','HNO₃']],deger:'HCl'},{id:'aV',ad:'Asit hacmi (mL)',secenek:[[20,'20 mL'],[30,'30 mL'],[40,'40 mL']],deger:40},
+   {id:'aM',ad:'Asit derişimi',secenek:[[0.05,'0,05 M'],[0.1,'0,1 M'],[0.2,'0,2 M']],deger:0.1},{id:'b',ad:'Eklenen baz',secenek:[['NaOH','NaOH'],['KOH','KOH']],deger:'NaOH'},
+   {id:'bM',ad:'Baz derişimi',secenek:[[0.1,'0,1 M'],[0.2,'0,2 M']],deger:0.1},{id:'ind',ad:'İndikatör',secenek:[['fenol','Fenolftalein'],['metil','Metil oranj'],['brom','Bromtimol mavisi']],deger:'fenol'}],
+  bagimli:[['V','Kalıcı renk değişimine kadar eklenen baz hacmi'],['k','Tam nötralleşmedeki iletkenlik'],['pH','Durduğum andaki pH']],
+  sabitler:['Sıcaklık: 25 °C','Beherglas: 100 mL'],varsayilanBagimsiz:'aV',
+  tablo:[['V','Eklenen baz'],['pH','pH'],['k','İletkenlik'],['c','Renk'],['n','Mol H⁺ / OH⁻']],
+  dugmeler:[['kur','🧰 Beheri hazırla','p'],['b5','+5 mL baz','o'],['b1','+1 mL'],['bd','+1 damla'],['kay','✔ Kaydet','g']],
+  ipucu:'Asidi, bazı ve indikatörü seç, “Beheri hazırla”ya bas. Bazı parça parça ekle; kalıcı renk değişince kaydet.',
+  baslangic(P){P.enable(['b5','b1','bd','kay'],false);},
+  async on(id,P){const s=P.st;
+   if(id==='kur'){if(P.blocked)return;const c=P.cfgNow();Object.assign(s,{a:c.a,aV:+c.aV,aM:+c.aM,b:c.b,bM:+c.bM,ind_t:c.ind,ind:true,bV:0});
+     P.graph.clear();P.cur={pH:P.graph.add('#2563eb',3),k:P.graph.add('#f59e0b',3,true)};P.graph.o.xmax=Math.max(20,Math.ceil(s.aM*s.aV/s.bM*1.6/10)*10);cfg.upd(P);
+     P.enable(['b5','b1','bd','kay'],true);P.tip(`Behere ${s.aV} mL ${tr(s.aM)} M ${c.a} ve ${CH.IND[c.ind].ad} kondu. Bazı ekle, pH’a ve iletkenliğe dikkat et.`);return;}
+   if(id==='b5'||id==='b1'||id==='bd'){const d=id==='b5'?5:id==='b1'?1:.05;if(s.bV+d>100)return;s.bV=+(s.bV+d).toFixed(2);cfg.upd(P);P.cur.k.pts=P.cur.pH.pts.map(([v])=>[v,durum(s.a,s.aM,s.aV,s.b,s.bM,v).k/4]);P.graph.draw();return;}
+   if(id==='kay'){const r=durum(s.a,s.aM,s.aV,s.b,s.bM,s.bV),col=CH.indColor(s.ind_t,r.pH),veq=s.aM*s.aV/s.bM;
+     P.record({V:fmt(s.bV,2)+' mL',pH:fmt(r.pH,2),k:fmt(r.k,1)+' mS/cm',c:col.name,n:`${fmt(s.aM*s.aV,2)} / ${fmt(s.bM*s.bV,2)} mmol`});
+     const e=Math.abs(s.bV-veq);P.say(`Tam nötralleşme için gereken baz: ${tr(s.aM)}·${s.aV} = ${tr(s.bM)}·V ⇒ <b>V = ${fmt(veq,2)} mL</b>. Sen ${fmt(s.bV,2)} mL’de durdun. `+(e<=.3?'✅ Tam yakaladın.':s.bV<veq?'⚠ Erken durdun.':'⚠ Fazla ekledin; sona doğru damla damla ekle.')+(s.ind_t==='metil'?' (Metil oranj asidik bölgede, pH 3,1–4,4’te renk değiştirir.)':''));
+     P.enable(['b5','b1','bd','kay'],false);P.tip('Yeni deneme: sadece bağımsız değişkeni değiştir ve “Beheri hazırla”ya bas.');}},
+  sorular:[{q:'Asit hacmini iki katına çıkardığında (derişimler aynı) nötralleşme için gereken baz hacmi ne olur?',o:['Yarıya iner','Değişmez','İki katına çıkar','Dört katına çıkar'],a:2,e:'H⁺ mol sayısı iki katı olur; aynı derişimdeki bazdan iki kat hacim gerekir.'},
+   {q:'Baz derişimini 0,1 M’den 0,2 M’ye çıkarırsan gereken baz hacmi?',o:['Yarıya iner','İki katına çıkar','Değişmez','Sıfır olur'],a:0,e:'Aynı mol OH⁻ daha az hacimdedir: V = n/M.'},
+   {q:'İndikatörü değiştirmek tam nötralleşme için gereken baz hacmini değiştirir mi?',o:['Evet, çok değiştirir','Hayır; değişen sadece rengin döndüğü andır, gereken mol aynıdır','İndikatör nötralleşmeyi engeller','Sadece iletkenlik değişir'],a:1,e:'Gereken baz miktarı mol hesabıyla belirlenir; indikatör sadece dönüm noktasını gösterir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

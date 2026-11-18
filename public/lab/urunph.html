@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Ürünlerin pH Haritası</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// ad, kısa, pH (az suyla), tür: a=asit b=baz t=tamponlu, renk, katı mı
+const MD=[['Diş macunu A','Diş mac.\nA',8.0,'b','rgba(240,248,255,.95)',1],['Diş macunu B','Diş mac.\nB',9.6,'b','rgba(220,240,255,.95)',1],['Gargara','Gargara',5.8,'a','rgba(120,200,190,.8)',0],
+ ['Antiasit tablet','Antiasit',9.9,'b','rgba(245,245,245,.95)',1],['Kalıp sabun','Kalıp\nsabun',10.2,'b','rgba(250,226,180,.85)',1],['Cilt temizleyici','Cilt\ntemiz.',5.5,'a','rgba(250,220,235,.85)',0],['Tükürük (sabah)','Tükürük\nsabah',6.2,'a','rgba(235,240,245,.7)',0]];
+const XS=[46,96,146,196,246,296,346];
+function pHsu(i,vw){const [, ,p0,t]=MD[i];const D=Math.log10((1+vw)/1);return t==='a'?Math.min(7,p0+.3*D):t==='b'?Math.max(7,p0-.8*D):p0;}
+let TB=[],STR,ST;
+const KUL=['Diş','Diş','Ağız','Mide','Cilt (el)','Cilt (yüz)','Ağız'];
+const cfg={ad:'urunph',baslik:'Asidik ve Bazik Ürünlerin Seçimi',alt:'11. sınıf · 2.2.7 Asidik ve Bazik Ürünlerin Seçiminde Dikkat Edilecek Hususlar · Mide, ağız, diş ve cilt sağlığı için ürün seçimi',
+ malzemeler:['2 farklı diş macunu','Gargara','Antiasit tablet','Kalıp sabun','Cilt temizleyici','Tükürük örneği','Deney tüpleri','pH kâğıdı / pH metre','Saf su','Baget','Etiket'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','👅 Ürünlerin tadına bakma','👁 Göz temasından kaçın'],
+ olcumler:[['m','Ürün',''],['p1','pH',''],['u','Kullanım','']],
+ grafik:{baslik:'Ürünlerin pH haritası',xmax:8,ymax:14,xl:'Ürün no (1–7)',yl:'pH',not:'1–2 diş macunları · 3 gargara · 4 antiasit · 5 kalıp sabun · 6 cilt temizleyici · 7 sabah tükürüğü. Sağlıklı cilt yüzeyi pH ≈ 5,5; ağız içi gün içinde pH ≈ 7.'},
+ adimlar:[['Araştırma sorusu','Araştırma sorumuz: “En bazik diş macunu gece boyunca dişleri daha iyi korur mu?” ve “Cilt için hangi temizleyici uygundur?”'],
+  ['Ürünleri hazırla','Her ürün için ayrı etiketli tüp kullan. Katı ürünleri (diş macunları, antiasit, sabun) 3–4 damla saf suyla karıştır.'],
+  ['pH’ları ölç','pH kâğıdını sırayla her tüpe daldır, renk skalasıyla karşılaştır ve pH değerini kaydet.'],
+  ['Ağız ve cilt ile karşılaştır','Sabah ağız içi hafif asidiktir (pH ≈ 6); gün içinde ≈ 7 olur. Sağlıklı cilt yüzeyi hafif asidiktir (pH ≈ 5,5).'],
+  ['Ölçütleri belirle','Ölçütler: ürünün pH’ı, kullanılacağı bölgenin pH’ı ve ürünün amacı (asidi nötralleştirmek mi, korumak mı?).'],
+  ['Seçimi yap ve gerekçelendir','Sabah asidik ağız için daha bazik diş macunu (B) asidi nötralleştirir; çok bazik ürünler (kalıp sabun) yüz cildinin asidik koruyucu tabakasını bozar, yüz için pH ≈ 5,5 temizleyici seçilir.']],
+ async kur(P,m){const S=P.S;S.rack(18,374,440);S.phScale(20,40,360);
+  TB=MD.map((d,i)=>{const t=S.tube(XS[i],500,130,20,'');t.g.setAttribute('opacity',m==='kitap'?0:1);d[1].split('\n').forEach((w,k)=>S.txt(t.g,XS[i],357+k*9-(d[1].includes('\n')?0:-4),w,7.5,{fill:'#1e293b'}));return t;});
+  STR=S.phStrip(200,250);ST={};},
+ async dip(P,i,pH){const t=TB[i],x=XS[i],y=t.level(t.vol)+12;STR.color('#f2e29b');STR.g.setAttribute('opacity',1);STR.to(x,250);
+  await tween(600,k=>STR.to(x,250+(y-250)*k));await sleep(350);const c=CH.scaleColor(pH,'evrensel');STR.color(c.rgb);await tween(500,k=>STR.to(x,y-150*k));await sleep(350);STR.g.setAttribute('opacity',0);return c;},
+ async calistir(P){P.graph.clear();const r1=P.graph.add('#7c3aed',0,true);P.rows=[];
+  P.stepUI(0);P.set('m','—');await sleep(1800);
+  P.stepUI(1);for(const t of TB)await fade(t.g,1,200);for(let i=0;i<7;i++){const d=MD[i],t=TB[i];if(d[5]){await tween(320,k=>{t.set(2*k,d[4]);t.ppt(k*.9,d[4]);});await tween(280,k=>t.set(2+.4*k,'rgba(230,240,252,.85)'));}else await tween(420,k=>t.set(3*k,d[4]));}
+  await sleep(400);
+  P.stepUI(2);for(let i=0;i<7;i++){const p=pHsu(i,0);P.set('m',MD[i][0]);P.set('u',KUL[i]);await cfg.dip(P,i,p);P.set('p1',fmt(p,1));P.rows[i]=[MD[i][0],fmt(p,1),KUL[i],p];r1.pts.push([i+1,p]);P.graph.draw();await sleep(300);}
+  P.stepUI(3);P.set('m','Ağız / cilt');P.set('p1','6 → 7 / 5,5');P.set('u','karşılaştırma');await sleep(2600);
+  P.stepUI(4);await sleep(2600);
+  P.stepUI(5);P.set('m','Seçim');P.set('p1','B (9,6) · 5,5');P.set('u','diş · yüz');await sleep(900);
+  P.calc('<b>pH haritası</b><table><tr><th>Ürün</th><th>pH</th><th>Kullanım</th><th>Özellik</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]<6.6?'asidik':r[3]>7.4?'bazik':'nötre yakın'}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Önerme: “En bazik diş macunu gece boyunca dişleri daha iyi korur.” Mantıksal denetleme: Gece tükürük azalır, ağız asitleşir; bazik macun asidi nötralleştirir → önerme bu ölçüte göre desteklenir (ancak flor içeriği gibi başka ölçütler de önemlidir).</p>');
+  P.done('Ürün seçiminde ölçüt: ürünün pH’ı ile kullanılacağı bölgenin pH’ı ve ürünün amacı. Diş için asidi nötralleştiren bazik macun, yüz cildi için pH ≈ 5,5 temizleyici uygundur.');},
+ rapor:P=>[['Deneyin Adı','Asidik ve Bazik Ürünlerin pH Haritası'],['Deneyin Amacı','Mide, ağız, diş ve cilt sağlığı için kullanılan ürünlerin pH değerlerini belirleyip uygun ürünü seçebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],
+  ['Malzemeler',cfg.malzemeler.join(', ')],['Deneyin Yapılışı',cfg.adimlar.slice(0,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+  ['Gözlemler',P.rows.map(r=>`${r[0]} (${r[2]}): pH ${r[1]}`).join('<br>')],
+  ['Sonuç','Asidik veya bazik ürünler kullanılacağı bölgenin pH’ına ve amacına göre seçilmelidir. Mide asidini gidermek için bazik antiasit, sabah asidik ağız için daha bazik diş macunu, hafif asidik cilt yüzeyi için pH ≈ 5,5 olan temizleyici uygundur. Kalıp sabun gibi çok bazik ürünler yüz cildini kurutabilir.']],
+ sorular:[
+  {q:'Sabah ağız içi pH’ı yaklaşık kaçtır ve hangi diş macunu daha uygundur?',o:['pH ≈ 9; asidik macun','pH ≈ 6 (hafif asidik); bazik macun asidi nötralleştirir','pH ≈ 2; sabun','pH ≈ 7; hiçbir macun gerekmez'],a:1,e:'Gece tükürük salgısı azalır, bakteriler asit üretir; sabah ağız hafif asidiktir.'},
+  {q:'Yüz cildi için neden pH ≈ 5,5 olan temizleyici önerilir?',o:['Cilt yüzeyi hafif asidik olduğu için','Cilt bazik olduğu için','Daha çok köpürdüğü için','Ucuz olduğu için'],a:0,e:'Cildin asit örtüsü (pH ≈ 5,5) mikroplara karşı korur; çok bazik ürünler bu tabakayı bozar.'},
+  {q:'Antiasit tabletlerin çalışma ilkesi nedir?',o:['Mideyi daha asidik yapar','Mide asidini nötralleştirir','Mideyi soğutur','Asidi buharlaştırır'],a:1,e:'Antiasitler bazik maddelerdir (ör. Mg(OH)₂, CaCO₃); HCl ile nötralleşme tepkimesi verir.'},
+  {q:'Bir ürünü seçerken hangisi ölçüt OLAMAZ?',o:['Ürünün pH’ı','Kullanılacağı bölgenin pH’ı','Ürünün amacı','Ambalajının rengi'],a:3,e:'Seçim ölçütleri kimyasal özellik ve sağlıkla ilgilidir; ambalaj rengi ölçüt değildir.'}],
+ dene:{
+  alanlar:[{id:'md',ad:'Ürün',secenek:MD.map((d,i)=>[i,d[0]]),deger:1},{id:'su',ad:'Seyreltme (su)',secenek:[[0,'Yok'],[5,'5 mL'],[10,'10 mL']],deger:0},
+   {id:'arac',ad:'Ölçüm aracı',secenek:[['kagit','pH kâğıdı'],['metre','pH metre'],['lahana','Kırmızı lahana suyu']],deger:'metre'}],
+  bagimli:[['p','pH değeri']],sabitler:['Ürün miktarı: 1 mL / bir spatül ucu','Sıcaklık: oda sıcaklığı','Temiz tüp'],varsayilanBagimsiz:'md',
+  tablo:[['p','Okunan değer'],['o','Özellik'],['k','Uygun bölge']],
+  dugmeler:[['kur','🧰 Tüpü hazırla','p'],['olc','📟 Ölç','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Kendi araştırma sorunu seç (ör. hangi diş macunu daha bazik?). Ürünü seç, tüpü hazırla, ölç ve kaydet. Ürünleri karşılaştırırken diğer değişkenleri sabit tut.',
+  baslangic(P){P.enable(['olc','kay'],false);TB.forEach(t=>t.g.setAttribute('opacity',0));},
+  async on(id,P){const c=P.cfgNow(),i=+c.md,d=MD[i];
+   if(id==='kur'){TB.forEach((t,k)=>{t.g.setAttribute('opacity',k===i?1:.15);t.set(0);t.ppt(0);});const t=TB[i];
+     if(d[5]){t.ppt(.9,d[4]);t.set(.4,'rgba(230,240,252,.85)');}else t.set(3,d[4]);if(+c.su)await tween(600,k=>t.set(t.vol+(+c.su)*k/6));
+     P.enable(['olc'],true);P.enable(['kay'],false);P.tip(`${d[0]} hazır. Ölç.`);return;}
+   if(id==='olc'){const pH=pHsu(i,+c.su);let txt;if(c.arac==='lahana'){const col=CH.scaleColor(pH,'lahana');TB[i].set(TB[i].vol,col.rgba);txt=col.name+' renk';}else{const col=await cfg.dip(P,i,pH);txt=c.arac==='metre'?'pH '+fmt(pH,2):'pH ≈ '+Math.round(pH)+' ('+col.name+')';}
+     P.set('m',d[0]);P.set('p1',c.arac==='lahana'?txt:c.arac==='metre'?fmt(pH,2):String(Math.round(pH)));P.set('u',KUL[i]);P.cur={pH,txt};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){const pH=P.cur.pH;P.record({p:P.cur.txt,o:pH<6.6?'asidik':pH>7.4?'bazik':'nötre yakın',k:KUL[i]});
+     P.say(`${d[0]}: ${pH<6.6?'asidik':pH>7.4?'bazik':'nötre yakın'}. `+(KUL[i].startsWith('Cilt')?'Cilt yüzeyi pH ≈ 5,5’tir; buna yakın ürün cildi daha az kurutur.':KUL[i]==='Diş'?'Sabah ağız hafif asidik olduğundan bazik macun asidi nötralleştirir.':KUL[i]==='Mide'?'Mide asidi (pH ≈ 1–2) bazik antiasitle nötralleşir.':'Ağız içi gün içinde pH ≈ 7 civarındadır.'));
+     P.enable(['kay'],false);P.tip('Yeni deneme: sadece bağımsız değişkeni değiştir.');}},
+  sorular:[{q:'İki diş macununun bazlığını adil karşılaştırmak için ne sabit tutulmalı?',o:['Ürün türü','Eklenen su miktarı ve ölçüm aracı','pH değeri','Hiçbir şey'],a:1,e:'Bağımsız değişken ürün olduğunda su miktarı ve ölçüm aracı kontrol değişkenidir.'},
+   {q:'Diş macununu suyla seyreltince ölçülen pH nasıl değişir?',o:['Artar','7’ye yaklaşır (azalır)','14 olur','Değişmez'],a:1,e:'Seyrelme bazlığı azaltır; bu yüzden ıslak fırça macunun etkisini azaltır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

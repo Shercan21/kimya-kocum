@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Asit-Baz Tepkimesi</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+const F={HCl:['HCl','H⁺','Cl⁻'],HNO3:['HNO₃','H⁺','NO₃⁻'],KOH:['KOH','K⁺','OH⁻'],NaOH:['NaOH','Na⁺','OH⁻']};
+let A,K,PIP,STR,MIC;
+function pHof(s){const nA=s.aM*s.aV,nB=s.bM*s.bV;return CH.pHex((nA-nB)/1000/((s.aV+s.bV)/1000));}
+// tanecik paneli
+function micro(S){const g=el('g',{},S.top);el('rect',{x:228,y:24,width:160,height:150,rx:10,fill:'#fff',stroke:'#cbd5e1'},g);
+  const t=el('text',{x:308,y:40,'font-size':9,'font-weight':800,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g);t.textContent='TANECİK GÖRÜNÜMÜ (beherdeki)';
+  const box=el('g',{},g);const leg=el('text',{x:308,y:168,'font-size':7.5,fill:'#475569','text-anchor':'middle','font-family':'Nunito'},g);
+  const pos=[];for(let r=0;r<6;r++)for(let c=0;c<8;c++)pos.push([240+c*18+(r%2)*8,56+r*18]);
+  return {g,draw(s){box.innerHTML='';const nA=s.aM*s.aV,nB=s.bM*s.bV,u=Math.max(nA,1e-9)/8;const a=Math.round(nA/u),b=Math.round(Math.min(nB,nA*2)/u);
+    const h=Math.max(0,a-b),o=Math.max(0,b-a),w=Math.min(a,b);const L=[];
+    for(let i=0;i<h;i++)L.push(['H⁺','#ef4444']);for(let i=0;i<a;i++)L.push([F[s.a][2],'#22c55e']);for(let i=0;i<b;i++)L.push([F[s.b][1],'#a855f7']);for(let i=0;i<o;i++)L.push(['OH⁻','#3b82f6']);for(let i=0;i<w;i++)L.push(['H₂O','#94a3b8']);
+    L.slice(0,48).forEach(([n,c],i)=>{const [x,y]=pos[i];el('circle',{cx:x,cy:y,r:7.2,fill:c,opacity:.9},box);const tt=el('text',{x,y:y+2.6,'font-size':n.length>2?5:6.4,fill:'#fff','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent=n;});
+    leg.textContent=h?`H⁺ fazla → asidik`:o?`OH⁻ fazla → bazik`:`H⁺ ≈ OH⁻ → H₂O oluştu`;}};}
+const cfg={ad:'asitbaz',baslik:'Asit-Baz Tepkimesi',alt:'10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · Asit-baz tepkimelerinin oluşumunu gözlemleyebilme',
+ malzemeler:['0,1 M HCl','0,1 M KOH','Fenolftalein','2 adet 250 mL beherglas','Dereceli silindir','Pipet','Puar','pH kâğıdı'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ Aşındırıcı (HCl, KOH)','🧪 Pipeti ağızla çekme, puar kullan'],
+ olcumler:[['v','Eklenen KOH','mL'],['ph','pH',''],['c','Renk',''],['t','Tanecikler','']],
+ adimlar:[['HCl’yi ölç','Dereceli silindirle 100 mL 0,1 M HCl çözeltisini birinci beherglasa al.'],
+  ['HCl’nin pH’ı','Pens ile tutulan pH kâğıdını çözeltiye daldır: kırmızı renk, pH ≈ 1. Ortamda H⁺ iyonları fazla.'],
+  ['Fenolftalein ekle','HCl çözeltisine birkaç damla fenolftalein ekle: çözelti renksiz kalır.'],
+  ['KOH’ın pH’ı','İkinci beherglasa 100 mL 0,1 M KOH al ve pH’ını ölç: mor renk, pH ≈ 13. Ortamda OH⁻ iyonları fazla.'],
+  ['KOH’ı pipetle ekle','Puarla pipete KOH çek ve yavaş yavaş HCl’ye ekle. Her eklemede H⁺ + OH⁻ → H₂O tepkimesi olur; H⁺ sayısı azalır.'],
+  ['Kalıcı pembe renk','Sona doğru damla damla ekle. Kalıcı pembe renk görüldüğü anda deneyi sonlandır: yaklaşık 100 mL KOH eklendi.'],
+  ['Son karışımın pH’ı','Son karışımın pH’ını ölç: yeşil, pH ≈ 7. Ortamda K⁺, Cl⁻ ve H₂O var.'],
+  ['Sonuç','HCl(suda) + KOH(suda) → KCl(suda) + H₂O(s). Asit ile bazın tepkimesinde tuz ve su oluşur; H⁺ ve OH⁻ iyonları birleşerek suyu oluşturur.']],
+ async kur(P,m){const S=P.S;S.tileUnder(110,150);A=S.beaker(110,520,110,128,250,'');A.l=S.txt(A.g,110,538,'0,1 M HCl',10);K=S.beaker(330,520,90,110,250,'');K.l=S.txt(K.g,330,538,'0,1 M KOH',10);
+  // pipet + puar
+  PIP=el('g',{opacity:0},S.top);el('rect',Object.assign({x:-3.5,y:-120,width:7,height:110,rx:3},S.glass),PIP);el('path',Object.assign({d:'M-3.5 -10 L3.5 -10 L1 12 L-1 12 Z'},S.glass),PIP);
+  PIP.liq=el('rect',{x:-2.5,y:-12,width:5,height:0,fill:'rgba(196,226,255,.9)'},PIP);el('ellipse',{cx:0,cy:-132,rx:10,ry:14,fill:'#dc2626'},PIP);
+  PIP.at=(x,y)=>PIP.setAttribute('transform',`translate(${x} ${y})`);PIP.fill=f=>{PIP.liq.setAttribute('y',-12-96*f);PIP.liq.setAttribute('height',96*f);};PIP.at(330,330);
+  STR=S.phStrip(200,300);S.phScale(20,40,190).setAttribute('opacity',1);MIC=micro(S);
+  P.st={a:'HCl',b:'KOH',aM:.1,bM:.1,aV:0,bV:0,ind:'fenol',hasInd:false};MIC.g.setAttribute('opacity',0);
+  A.g.setAttribute('opacity',1);K.g.setAttribute('opacity',1);},
+ upd(P){const s=P.st;if(!s.aV)return {};const pH=pHof(s);const col=s.hasInd?CH.indColor(s.ind,pH):{rgba:'rgba(196,226,255,.82)',name:'renksiz'};A.set(s.aV+s.bV,col.rgba);
+  P.set('v',fmt(s.bV,1));P.set('c',col.name);MIC.draw(s);const nA=s.aM*s.aV,nB=s.bM*s.bV;P.set('t',Math.abs(nA-nB)<=nA*.01?'H⁺ ≈ OH⁻':nA>nB?'H⁺ fazla':'OH⁻ fazla');return {pH,col};},
+ async dip(P,V,pH){const x=V===A?110:330;STR.color('#f2e29b');STR.g.setAttribute('opacity',1);STR.to(x,300);await tween(700,k=>STR.to(x,300+k*(V.level(V.vol)-300+18)));await sleep(400);
+  STR.color(CH.scaleColor(pH,'evrensel').rgb);await tween(600,k=>STR.to(x,V.level(V.vol)+18-k*120));P.set('ph','≈ '+fmt(Math.round(pH),0)+' (kâğıt)');await sleep(900);await fade(STR.g,0,300);},
+ async calistir(P){const s=P.st,up=()=>cfg.upd(P);P.rows=[];
+  P.stepUI(0);await tween(1800,k=>{s.aV=100*k;up();});await fade(MIC.g,1,400);up();await sleep(500);
+  P.stepUI(1);await cfg.dip(P,A,pHof(s));P.rows.push(['HCl çözeltisi','1']);
+  P.stepUI(2);await sleep(700);s.hasInd=true;up();await sleep(900);
+  P.stepUI(3);await tween(1400,k=>K.set(100*k));await cfg.dip(P,K,13);P.rows.push(['KOH çözeltisi','13']);
+  P.stepUI(4);PIP.setAttribute('opacity',1);
+  for(let i=0;i<9;i++){PIP.at(330,K.level(K.vol)-6);await tween(380,k=>{PIP.fill(k);});K.set(K.vol-10);await tween(400,k=>PIP.at(330-220*k,K.level(K.vol)-110*k-6+0));
+    await tween(500,k=>{PIP.fill(1-k);s.bV=i*10+10*k;up();});P.set('ph','–');await tween(380,k=>PIP.at(110+220*k,250));}
+  P.stepUI(5);PIP.at(330,K.level(K.vol)-6);await tween(380,k=>PIP.fill(k));K.set(K.vol-10);await tween(400,k=>PIP.at(330-220*k,250));
+  for(let i=0;i<20;i++){P.S.drop(110,262,A.level(A.vol),'rgba(196,226,255,.95)');await sleep(i<16?170:420);s.bV=+(90+(i+1)*.5).toFixed(2);PIP.fill(1-(i+1)/20);up();}
+  s.bV=100.3;up();await sleep(600);await fade(PIP,0,300);
+  P.stepUI(6);await cfg.dip(P,A,7);P.rows.push(['Son karışım','7']);
+  P.stepUI(7);await sleep(800);
+  P.calc('<b>Gözlemler</b><table><tr><th>Ölçüm</th><th>pH (pH kâğıdı)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">0,01 mol H⁺ + 0,01 mol OH⁻ → 0,01 mol H₂O · HCl + KOH → KCl + H₂O</p>');
+  P.done('Asit ile baz tepkimeye girdi: H⁺ ve OH⁻ iyonları birleşip su oluşturdu, ortamda tuz iyonları (K⁺, Cl⁻) kaldı. Kalıcı pembe renkte pH ≈ 7.');},
+ rapor:P=>[['Deneyin Adı','Asit-Baz Tepkimesi'],['Deneyin Amacı','Asit-baz tepkimelerinin oluşumunu gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],
+  ['Malzemeler','HCl çözeltisi, KOH çözeltisi, fenolftalein, 2 adet 250 mL beherglas, dereceli silindir, pipet, pH kâğıdı, puar'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,7).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: pH ≈ ${r[1]}`).join('<br>')+'<br>Çözelti kalıcı pembe renk alana kadar renksiz kaldı.'],
+  ['Bulgular ve Sonuç','Tanecik düzeyinde: HCl çözeltisinde H⁺ ve Cl⁻, KOH çözeltisinde K⁺ ve OH⁻ iyonları vardır. Karıştırınca H⁺ ve OH⁻ birleşerek H₂O oluşturur; K⁺ ve Cl⁻ iyonları çözeltide kalır (KCl tuzu). Tepkime: HCl(suda) + KOH(suda) → KCl(suda) + H₂O(s).']],
+ sorular:[
+  {q:'Asit-baz tepkimesinde hangi iyonlar birleşerek su oluşturur?',o:['K⁺ ve Cl⁻','H⁺ ve OH⁻','H⁺ ve Cl⁻','K⁺ ve OH⁻'],a:1,e:'H⁺(suda) + OH⁻(suda) → H₂O(s) net iyon denklemidir.'},
+  {q:'Tepkime sonunda çözeltide hangi tanecikler bulunur?',o:['H⁺ ve OH⁻','K⁺, Cl⁻ ve H₂O','Sadece HCl molekülleri','KOH ve HCl'],a:1,e:'K⁺ ve Cl⁻ seyirci iyonlardır; tuz (KCl) çözeltide iyonları hâlinde kalır.'},
+  {q:'Fenolftalein neden en sonda pembeleşti?',o:['Asit bitince ilk fazla OH⁻ ortamı bazik yaptı','Sıcaklık arttı','KCl pembe renklidir','Pipet kirliydi'],a:0,e:'Fenolftalein asidik ve nötr ortamda renksizdir; pH ≈ 8,2’nin üstünde pembeleşir.'},
+  {q:'HNO₃ ile NaOH tepkimesinin ürünleri nelerdir?',o:['NaNO₃ ve H₂O','Na ve HNO₂','NaH ve NO₃','N₂ ve NaOH'],a:0,e:'Asit + baz → tuz + su: HNO₃ + NaOH → NaNO₃ + H₂O.'}],
+ dene:{
+  alanlar:[{id:'a',ad:'Asit',secenek:[['HCl','HCl'],['HNO3','HNO₃']],deger:'HCl'},{id:'aV',ad:'Asit hacmi',secenek:[[50,'50 mL'],[100,'100 mL']],deger:100},
+   {id:'b',ad:'Baz',secenek:[['KOH','KOH'],['NaOH','NaOH']],deger:'KOH'},{id:'bM',ad:'Baz derişimi',secenek:[[0.05,'0,05 M'],[0.1,'0,1 M'],[0.2,'0,2 M']],deger:0.1},
+   {id:'ind',ad:'İndikatör',secenek:[['fenol','Fenolftalein'],['brom','Bromtimol mavisi'],['turnusol','Turnusol']],deger:'fenol'}],
+  bagimli:[['V','Renk değişimine kadar eklenen baz'],['pH','Son karışımın pH’ı'],['c','Rengin değişimi']],
+  sabitler:['Asit derişimi: 0,1 M','Sıcaklık: oda sıcaklığı','Beherglas: 250 mL'],varsayilanBagimsiz:'bM',
+  tablo:[['V','Eklenen baz'],['pH','Son pH'],['c','Son renk'],['n','H⁺ / OH⁻ (mmol)']],
+  dugmeler:[['kur','🧰 Beherleri hazırla','p'],['p10','💧 Pipetle +10 mL','o'],['d','+1 damla (0,5 mL)'],['ph','📄 pH kâğıdıyla ölç'],['kay','✔ Kaydet','g']],
+  ipucu:'Asidi, bazı ve indikatörü seç; beherleri hazırla. Bazı pipetle ekle; renk kalıcı değişince pH’ı ölç ve kaydet.',
+  baslangic(P){P.enable(['p10','d','ph','kay'],false);A.set(0);K.set(0);},
+  async on(id,P){const s=P.st;
+   if(id==='kur'){const c=P.cfgNow();Object.assign(s,{a:c.a,b:c.b,aM:.1,aV:+c.aV,bM:+c.bM,bV:0,ind:c.ind,hasInd:true});A.l.textContent='0,1 M '+F[c.a][0];K.l.textContent=tr(s.bM)+' M '+F[c.b][0];
+     K.set(220);MIC.g.setAttribute('opacity',1);cfg.upd(P);P.set('ph','–');P.enable(['p10','d','ph','kay'],true);P.tip(`${s.aV} mL 0,1 M ${F[c.a][0]} + ${CH.IND[c.ind].ad}. Bazı ekle.`);return;}
+   if(id==='p10'||id==='d'){const d=id==='p10'?10:.5;if(K.vol<d)return;PIP.setAttribute('opacity',1);PIP.at(110,250);P.S.drop(110,262,A.level(A.vol),'rgba(196,226,255,.95)');K.set(K.vol-d);s.bV=+(s.bV+d).toFixed(2);cfg.upd(P);await sleep(300);PIP.setAttribute('opacity',0);return;}
+   if(id==='ph'){const pH=pHof(s);await cfg.dip(P,A,pH);s.olc=pH;return;}
+   if(id==='kay'){const pH=pHof(s),col=CH.indColor(s.ind,pH),veq=s.aM*s.aV/s.bM;
+     P.record({V:fmt(s.bV,1)+' mL',pH:s.olc!=null?'≈ '+Math.round(s.olc):'ölçülmedi',c:col.name,n:`${fmt(s.aM*s.aV,1)} / ${fmt(s.bM*s.bV,1)}`});s.olc=null;
+     P.say(`Tam tepkime için gereken baz: n(H⁺) = n(OH⁻) ⇒ <b>${fmt(veq,1)} mL</b> ${tr(s.bM)} M ${F[s.b][0]}. Sen ${fmt(s.bV,1)} mL ekledin. `+(Math.abs(s.bV-veq)<=.6?'✅ Tam yerinde durdun.':s.bV<veq?'⚠ Henüz asit fazla.':'⚠ Baz fazla eklendi.'));
+     P.enable(['p10','d','ph','kay'],false);P.tip('Yeni deneme: sadece bağımsız değişkeni değiştir ve beherleri yeniden hazırla.');}},
+  sorular:[{q:'Baz derişimi 0,1 M’den 0,2 M’ye çıkarılırsa gereken baz hacmi ne olur?',o:['İki katına çıkar','Yarıya iner','Değişmez','Dört katına çıkar'],a:1,e:'Aynı mol OH⁻ için hacim yarıya iner.'},
+   {q:'KOH yerine NaOH kullanmak (aynı derişim) gereken hacmi değiştirir mi?',o:['Evet, artırır','Hayır; ikisi de 1 mol OH⁻ verir','Evet, azaltır','Tepkime olmaz'],a:1,e:'İkisi de kuvvetli bazdır ve formül başına bir OH⁻ verir.'},
+   {q:'Bromtimol mavisi nötr noktada hangi renktedir?',o:['Sarı','Yeşil','Mavi','Pembe'],a:1,e:'Bromtimol mavisi asitte sarı, bazda mavi, nötre yakın (pH 6–7,6) yeşildir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Asitlerin ve Bazların Kuvveti</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,fmt,tr,sleep,tween,fade}=LK;
+// madde: tür, K (null=kuvvetli), iyonlar [katyon, anyon], formül
+const M={HCl:{t:'a',K:null,i:['H','Cl'],f:'HCl'},HNO3:{t:'a',K:null,i:['H','NO3'],f:'HNO₃'},CH3COOH:{t:'a',K:1.8e-5,i:['H','Ac'],f:'CH₃COOH'},HF:{t:'a',K:6.8e-4,i:['H','Cl'],f:'HF',lam:55},
+ NaOH:{t:'b',K:null,i:['Na','OH'],f:'NaOH'},KOH:{t:'b',K:null,i:['K','OH'],f:'KOH'},NH3:{t:'b',K:1.8e-5,i:['NH4','OH'],f:'NH₃'}};
+function olc(ad,C){const m=M[ad];let x,pH;
+ if(m.K===null){x=C;pH=m.t==='a'?-Math.log10(C):14+Math.log10(C);}
+ else{x=(-m.K+Math.sqrt(m.K*m.K+4*m.K*C))/2;pH=m.t==='a'?-Math.log10(x):14+Math.log10(x);}
+ const la=m.lam||CH.LAM[m.i[1]];const k=(CH.LAM[m.i[0]]+la)*x;return {pH,k,al:100*x/C};}
+const SIRA=['HCl','CH3COOH','NaOH','NH3'],XS=[58,148,252,342];
+let B=[],PH,KD;
+const cfg={ad:'kuvvet',baslik:'Asitlerin ve Bazların Kuvveti',alt:'11. sınıf · 2.2.3 Asitlerin ve Bazların Kuvveti · Asitlerin ve bazların kuvvetlerini karşılaştırabilme',
+ malzemeler:['0,1 M HCl','0,1 M CH₃COOH','0,1 M NaOH','0,1 M NH₃','pH metre','Kondüktometre','4 adet 100 mL beherglas','Etiket','Mezür','Termometre'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ Aşındırıcı (HCl, NaOH)','👃 NH₃ kokusunu koklama'],
+ olcumler:[['m','Ölçülen çözelti',''],['ph','pH',''],['k','İletkenlik','mS/cm'],['al','İyonlaşma','%']],
+ adimlar:[['4 beherglas hazırla','Temiz ve kuru dört adet 100 mL’lik beherglas al.'],
+  ['Çözeltileri koy','Her beherglasa 0,1 M HCl, CH₃COOH, NaOH ve NH₃ çözeltilerinden yirmişer mililitre ekle ve etiketle. Derişimler aynı: 0,1 M.'],
+  ['HCl ve CH₃COOH pH','pH metre ile asitleri ölç: HCl’nin pH’ı 1, CH₃COOH’in pH’ı yaklaşık 2,9. Aynı derişimde HCl çok daha asidik.'],
+  ['NaOH ve NH₃ pH','pH metreyi saf suyla yıkayıp bazları ölç: NaOH’ın pH’ı 13, NH₃’ün pH’ı yaklaşık 11,1.'],
+  ['İletkenlikleri ölç','Kondüktometre ile dört çözeltinin elektriksel iletkenliğini ölç. HCl ve NaOH çok iletken, CH₃COOH ve NH₃ çok az iletken.'],
+  ['Sonucu yorumla','Kuvvetli asit ve bazlar suda yaklaşık %100 iyonlaşır, zayıflar ise kısmen (bu derişimde %1,3). Daha çok iyon = daha düşük pH (asitte) / daha yüksek pH (bazda) ve daha yüksek iletkenlik.']],
+ async kur(P,m){const S=P.S;B=SIRA.map((ad,i)=>{const b=S.beaker(XS[i],520,72,96,100,'');b.lbl=S.txt(b.g,XS[i],538,M[ad].f,10);b.cl=S.txt(b.g,XS[i],551,'0,1 M',8,{'font-weight':500});return b;});
+  PH=S.probeMeter(40,40,'pH METRE','#4ade80',150,420);KD=S.probeMeter(268,40,'İLETKENLİK','#fbbf24',250,420);PH.g.setAttribute('opacity',1);KD.g.setAttribute('opacity',1);
+  if(m==='dene'){B.forEach(b=>b.g.setAttribute('opacity',0));}},
+ async calistir(P){const S=P.S;P.rows={};
+  const meas=async(i,which)=>{const ad=SIRA[i],r=olc(ad,.1);const Mt=which==='ph'?PH:KD;await Mt.glide(XS[i]+(which==='ph'?-14:6),494,900);await sleep(500);
+   P.set('m',M[ad].f+' (0,1 M)');if(which==='ph'){P.set('k','–');P.set('al','–');}if(which==='ph'){Mt.set(fmt(r.pH,2));P.set('ph',fmt(r.pH,2));}else{Mt.set(fmt(r.k,2));P.set('ph',fmt(r.pH,2));P.set('k',fmt(r.k,2));P.set('al',fmt(r.al,1));}
+   (P.rows[ad]=P.rows[ad]||{})[which]=r;await sleep(1200);};
+  P.stepUI(0);for(const b of B){await fade(b.g,1,350);}await sleep(700);
+  P.stepUI(1);for(let i=0;i<4;i++){await tween(900,k=>B[i].set(20*k));}await sleep(800);
+  P.stepUI(2);await meas(0,'ph');await meas(1,'ph');
+  P.stepUI(3);await meas(2,'ph');await meas(3,'ph');await PH.glide(150,420,700);
+  P.stepUI(4);for(let i=0;i<4;i++)await meas(i,'k');await KD.glide(250,420,700);
+  P.stepUI(5);P.set('m','4 çözelti');await sleep(900);
+  P.calc('<b>Ölçümler (0,1 M, 25 °C)</b><table><tr><th>Çözelti</th><th>pH</th><th>İletkenlik (mS/cm)</th><th>İyonlaşma</th><th>Sınıf</th></tr>'+SIRA.map(a=>{const r=P.rows[a].k;return `<tr><td>${M[a].f}</td><td>${fmt(r.pH,2)}</td><td>${fmt(r.k,2)}</td><td>%${fmt(r.al,1)}</td><td>${M[a].K===null?'kuvvetli':'zayıf'} ${M[a].t==='a'?'asit':'baz'}</td></tr>`}).join('')+'</table><p style="margin:.5em 0 0">HCl → H⁺ + Cl⁻ (tamamen) · CH₃COOH ⇌ H⁺ + CH₃COO⁻ (kısmen) · NaOH → Na⁺ + OH⁻ (tamamen) · NH₃ + H₂O ⇌ NH₄⁺ + OH⁻ (kısmen)</p>');
+  P.done('Aynı derişimde HCl, CH₃COOH’ten; NaOH, NH₃’ten daha kuvvetlidir: daha çok iyonlaşır, iletkenliği daha yüksektir.');},
+ rapor:P=>[['Deneyin Adı','Asitlerin ve Bazların Kuvveti'],['Deneyin Amacı','Asitlerin ve bazların kuvvetlerini karşılaştırabilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],
+  ['Malzemeler','0,1 M HCl, CH₃COOH, NaOH ve NH₃ çözeltileri; pH metre, kondüktometre, 4 adet 100 mL beherglas, etiket, mezür, termometre'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],
+  ['Gözlemler',SIRA.map(a=>{const r=P.rows[a].k;return `${M[a].f}: pH ${fmt(r.pH,2)}, iletkenlik ${fmt(r.k,2)} mS/cm`}).join('<br>')],
+  ['Sonuç','İyonlaşma yüzdesi arttıkça asitlerin ve bazların kuvveti artar. HCl ve NaOH suda yaklaşık %100 iyonlaşan kuvvetli asit ve bazdır; CH₃COOH ve NH₃ kısmen iyonlaşan zayıf asit ve bazdır. Bu yüzden aynı derişimde [H₃O⁺] HCl’de, [OH⁻] NaOH’ta çok daha büyüktür ve iletkenlikleri daha yüksektir.']],
+ sorular:[
+  {q:'0,1 M HCl ve 0,1 M CH₃COOH için hangisi doğrudur?',o:['[H₃O⁺] ikisinde eşittir','HCl’de [H₃O⁺] daha büyüktür, pH daha küçüktür','CH₃COOH daha iletkendir','İkisinin pH’ı 1’dir'],a:1,e:'HCl tamamen, CH₃COOH kısmen iyonlaşır; aynı derişimde HCl daha çok H₃O⁺ verir.'},
+  {q:'CH₃COOH çözeltisinin iletkenliğinin düşük olmasının nedeni nedir?',o:['Derişimi düşüktür','Moleküllerinin çoğu iyonlaşmadan kalır','Su iletkenliği engeller','CH₃COO⁻ iyonu yüksüzdür'],a:1,e:'Zayıf asit kısmen iyonlaşır (0,1 M’de ≈ %1,3); çözeltide az sayıda iyon vardır.'},
+  {q:'Asitlerin ve bazların kuvvetini belirleyen ölçüt nedir?',o:['Derişimleri','Suda iyonlaşma yüzdeleri','Molekül kütleleri','Renkleri'],a:1,e:'Kuvvet, derişime değil suda iyonlaşma yüzdesine (Ka/Kb) bağlıdır.'},
+  {q:'NH₃’ün suda iyonlaşma denklemi hangisidir?',o:['NH₃ → N³⁻ + 3H⁺','NH₃ + H₂O ⇌ NH₄⁺ + OH⁻','NH₃ + H₂O → NH₂⁻ + H₃O⁺','NH₃ → NH₂ + H'],a:1,e:'NH₃ sudan proton alır ve OH⁻ oluşturur; tepkime kısmidir (⇌).'}],
+ dene:{
+  alanlar:[{id:'ad',ad:'Çözelti',secenek:Object.keys(M).map(k=>[k,M[k].f]),deger:'CH3COOH'},{id:'C',ad:'Derişim',secenek:[[0.001,'0,001 M'],[0.01,'0,01 M'],[0.1,'0,1 M'],[1,'1 M']],deger:0.1},
+   {id:'V',ad:'Hacim',secenek:[[20,'20 mL'],[50,'50 mL']],deger:20,bagimsiz:true}],
+  bagimli:[['ph','pH'],['k','Elektriksel iletkenlik'],['al','İyonlaşma yüzdesi']],
+  sabitler:['Sıcaklık: 25 °C (termometre ile kontrol)','Aynı pH metre ve kondüktometre'],varsayilanBagimsiz:'ad',
+  tablo:[['C','Derişim'],['ph','pH'],['k','İletkenlik'],['al','İyonlaşma']],
+  dugmeler:[['kur','🧰 Beheri hazırla','p'],['olc','📟 pH ve iletkenliği ölç','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Çözeltiyi ve derişimi seç, beheri hazırla, ölç ve kaydet. Kuvvetli–zayıf karşılaştırması için derişimi sabit tutup çözeltiyi değiştir.',
+  baslangic(P){P.enable(['olc','kay'],false);B.forEach(b=>b.g.setAttribute('opacity',0));},
+  async on(id,P){const c=P.cfgNow();
+   if(id==='kur'){B.forEach(b=>{b.g.setAttribute('opacity',0);b.set(0);});const b=B[1];b.lbl.textContent=M[c.ad].f;b.cl.textContent=tr(+c.C)+' M';b.g.setAttribute('opacity',1);await tween(700,k=>b.set(+c.V*k));
+     PH.set('–');KD.set('–');P.cur=null;P.enable(['olc'],true);P.enable(['kay'],false);P.tip(`${tr(+c.C)} M ${M[c.ad].f} hazır. Ölç.`);return;}
+   if(id==='olc'){const r=olc(c.ad,+c.C);await PH.glide(XS[1]-14,494,600);PH.set(fmt(r.pH,2));await KD.glide(XS[1]+6,494,600);KD.set(fmt(r.k,3));
+     P.set('m',M[c.ad].f);P.set('ph',fmt(r.pH,2));P.set('k',fmt(r.k,3));P.set('al',fmt(r.al,1));P.cur=r;P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){const r=P.cur;P.record({f:M[c.ad].f,C:tr(+c.C)+' M',ph:fmt(r.pH,2),k:fmt(r.k,3)+' mS/cm',al:'%'+fmt(r.al,2)});
+     P.say(`${M[c.ad].f} ${M[c.ad].K===null?'<b>kuvvetli</b>: tamamen iyonlaşır':'<b>zayıf</b>: K = '+String(M[c.ad].K).replace('.',',')+', kısmen iyonlaşır'}. `+(M[c.ad].K!==null?'Zayıf asit/bazlarda derişim azaldıkça iyonlaşma yüzdesi artar ama pH yine kuvvetliye göre daha az uç değerdedir.':'Kuvvetlilerde iyonlaşma derişimden bağımsız olarak ≈ %100’dür.'));
+     P.enable(['kay'],false);P.tip('Yeni deneme: sadece bağımsız değişkeni değiştir.');}},
+  sorular:[{q:'0,1 M CH₃COOH’i 0,001 M’ye seyreltince iyonlaşma yüzdesi?',o:['Azalır','Artar','Değişmez','Sıfır olur'],a:1,e:'Seyrelme zayıf asidin iyonlaşma yüzdesini artırır (Ostwald); yine de [H⁺] azalır, pH artar.'},
+   {q:'Aynı derişimde HNO₃ ve HCl’nin pH’ı neden aynıdır?',o:['İkisi de kuvvetli asittir ve tamamen iyonlaşır','İkisi de zayıftır','Molekül kütleleri eşittir','Tesadüf'],a:0,e:'Kuvvetli asitler tamamen iyonlaştığından [H⁺] = asit derişimi olur.'},
+   {q:'Hangi değişken kontrol değişkeni olmalıdır?',o:['Çözeltinin türü','Sıcaklık','pH','İletkenlik'],a:1,e:'Sıcaklık iyonlaşmayı ve iletkenliği etkiler; sabit tutulmalıdır. pH ve iletkenlik bağımlı değişkendir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

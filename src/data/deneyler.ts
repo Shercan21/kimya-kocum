@@ -4,7 +4,7 @@ import { FOYLU_KONULAR } from './foyIndex'
 export type SimTanim = { tur: string; baslik: string; modlar?: string[] }
 
 const DENEYLER: Record<string, SimTanim[]> = {
-  '9:1.1.1': [{ tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
+  '9:1.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Günlük maddelerin pH’ı (MEB 1.1.1)', modlar: ['evdeph'] }, { tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
   '9:1.1.2': [{ tur: 'karistir', baslik: 'Sanal kimya laboratuvarı' }],
   '9:1.1.4': [{ tur: 'guvenlik', baslik: 'Laboratuvarda tehlikeleri bul' }, { tur: 'karistir', baslik: 'Laboratuvarda karıştırma ve gözlem' }],
   '9:2.2.2': [{ tur: 'kristal', baslik: 'Kristal örgüleri 3B incele' }, { tur: 'bag', baslik: 'Katılardaki bağ türleri' }],
@@ -36,7 +36,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '11:3.1.2': [{ tur: 'nano', baslik: 'Nano ölçeğin gücü', modlar: ['yuzey', 'altin'] }],
   '11:3.1.3': [{ tur: 'mikroplastik', baslik: 'Okyanusta plastiğin yolculuğu' }],
   '10:1.1.1': [{ tur: 'karistir', baslik: 'Sanal laboratuvar: karıştır ve gözle' }],
-  '10:1.1.2': [{ tur: 'karistir', baslik: 'Tepkime türlerini keşfet' }, { tur: 'pil', baslik: 'Konuyu genişlet: redoks ile pil yap' }],
+  '10:1.1.2': [{ tur: 'lab', baslik: 'Laboratuvar: Asit-baz tepkimesi (MEB 1.1.2)', modlar: ['asitbaz'] }, { tur: 'karistir', baslik: 'Tepkime türlerini keşfet' }, { tur: 'pil', baslik: 'Konuyu genişlet: redoks ile pil yap' }],
   '10:1.1.3-A': [{ tur: 'mol', baslik: 'Tartarak sayma: mol' }],
   '10:1.1.3-B': [{ tur: 'mol', baslik: 'Kütle, mol ve tanecik sayısı' }],
   '10:1.1.4': [{ tur: 'denklem', baslik: 'Denklem denkleştirme atölyesi', modlar: ['denklestir'] }],
@@ -72,11 +72,11 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '11:2.1.5': [{ tur: 'denge', baslik: 'Le Chatelier laboratuvarı' }],
   '11:2.2.1': [{ tur: 'ph', baslik: 'Suyun iyonlaşması ve sıcaklık', modlar: ['su', 'cozelti'] }],
   '11:2.2.2': [{ tur: 'ph', baslik: 'Asit ve bazlar suda', modlar: ['cozelti', 'urun'] }],
-  '11:2.2.3': [{ tur: 'ph', baslik: 'Kuvvetli ve zayıf asit–baz', modlar: ['cozelti'] }],
+  '11:2.2.3': [{ tur: 'lab', baslik: 'Laboratuvar: Asitlerin ve bazların kuvveti (MEB 2.2.3)', modlar: ['kuvvet'] }, { tur: 'ph', baslik: 'Kuvvetli ve zayıf asit–baz', modlar: ['cozelti'] }],
   '11:2.2.4': [{ tur: 'ph', baslik: 'pH laboratuvarı', modlar: ['cozelti', 'su', 'urun'] }],
-  '11:2.2.5': [{ tur: 'titrasyon', baslik: 'Nötralleşme ve indikatörler' }, { tur: 'tampon', baslik: 'Konuyu genişlet: tampon çözelti' }],
+  '11:2.2.5': [{ tur: 'lab', baslik: 'Laboratuvar: Nötralleşme deneyi (MEB 2.2.5)', modlar: ['notrallesme'] }, { tur: 'titrasyon', baslik: 'Nötralleşme ve indikatörler' }, { tur: 'tampon', baslik: 'Konuyu genişlet: tampon çözelti' }],
   '11:2.2.6': [{ tur: 'lab', baslik: 'Laboratuvar: Titrasyon deneyi (MEB 2.2.6)', modlar: ['titrasyon'] }, { tur: 'titrasyon', baslik: 'Konuyu genişlet: zayıf asit titrasyonu' }],
-  '11:2.2.7': [{ tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
+  '11:2.2.7': [{ tur: 'lab', baslik: 'Laboratuvar: Ürünlerin pH haritası (MEB 2.2.7)', modlar: ['urunph'] }, { tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
   '11:2.3.1': [{ tur: 'kcc', baslik: 'Az çözünen tuzlar ve Kçç' }],
   '11:2.3.2': [{ tur: 'kcc', baslik: 'Ortak iyon ve sıcaklık etkisi' }],
   '11:3.1.1': [{ tur: 'elektroliz', baslik: 'Suyun elektrolizi ve yeşil hidrojen' }],
