@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Enerji Kaynağı</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// madde: kJ/g (etiket/literatür), yanma süresi çarpanı, kül rengi
+const Y={ceviz:['Ceviz',26.1,1,'#8b5a2b'],findik:['Fındık',26.5,1,'#a0522d'],badem:['Badem',24.3,1,'#c08552'],seker:['Şeker',16.5,.7,'#f5f5f4'],yag:['Bitkisel yağ (fitilde)',37,1.3,'#facc15'],odun:['Odun talaşı',16,1.1,'#92400e'],kamp:['Kamp yakıtı (jel)',27,1,'#bfdbfe'],tatli:['Tatlandırıcı',.4,.3,'#fff']};
+const EFF=.35;
+let ST,CAN,TH,SMP,FL,flOn=0,BAL;
+const cfg={ad:'yakit',baslik:'Maddelerin Enerji Kaynağı Olma Potansiyeli',alt:'11. sınıf · 1.1.2 Maddelerin Enerji Kaynağı Olma Potansiyeli · Yanma ile açığa çıkan ısıyı karşılaştırma',
+ malzemeler:['Ceviz, fındık, şeker (1’er g)','Metal kutu (kalorimetre)','100 mL su','Termometre','Spor ve kıskaç','İğneli mantar tutucu','Kibrit / çakmak','Hassas terazi','Dereceli silindir'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Açık alev: saçını topla','🧯 Yangın söndürücü yakında olsun','🌬 Havalandırılmış ortam'],
+ olcumler:[['md','Yakıt',''],['t','Su sıcaklığı','°C'],['q','Ölçülen ısı','kJ/g']],
+ grafik:{baslik:'Ölçülen ısı (kJ/g) – yakıt',xmax:4,ymax:30,xl:'1 ceviz · 2 fındık · 3 şeker',yl:'kJ/g',not:'Ölçülen değerler etiket değerlerinin yaklaşık üçte biridir: ısının bir kısmı havaya ve kutuya kaçar (verim ≈ %35).'},
+ adimlar:[['Hipotez ve değişkenler','Hipotez: “Yağ oranı yüksek kuruyemişler şekerden daha çok enerji verir.” Bağımsız: yakıtın türü · Bağımlı: suyun sıcaklık artışı · Kontrol: yakıt kütlesi (1 g), su miktarı (100 mL), kutu–alev uzaklığı.'],
+  ['Düzeneği kur','Metal kutuya 100 mL su koy, sporla kıskaca as ve termometreyi yerleştir. İlk sıcaklık 20 °C.'],
+  ['Cevizi yak','1 g cevizi iğneli tutucuya tak, yak ve hemen kutunun altına getir. Tamamen yanana kadar bekle, son sıcaklığı oku.'],
+  ['Fındığı yak','Suyu tazele (20 °C) ve 1 g fındıkla tekrarla.'],
+  ['Şekeri yak','Suyu tazele ve 1 g şekerle tekrarla.'],
+  ['Isıyı hesapla','q = m·c·ΔT = 100 g · 4,18 J/g°C · ΔT. Yakıtın 1 g’ı başına düşen ısıyı hesapla ve etiket değerleriyle karşılaştır.'],
+  ['Sonuç','Ceviz ve fındık (yağ oranı yüksek) şekerden çok daha fazla ısı verdi; hipotez desteklendi. Yanma: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ısı.']],
+ async kur(P,m){const S=P.S;ST=S.stand(70,320,152);CAN=S.beaker(200,396,90,100,150,'');CAN.l=S.txt(CAN.g,262,392,'metal kutu',8);
+  CAN.g.querySelectorAll('path')[0].setAttribute('fill','url(#metal)');TH=S.thermo(214,200,180,0,80);TH.set(20);
+  BAL=S.balance(320,524);BAL.set('0,00 g');
+  const g=S.G(1);el('rect',{x:186,y:460,width:28,height:64,rx:3,fill:'#d6b48a',stroke:'#92400e'},g);el('line',{x1:200,y1:460,x2:200,y2:430,stroke:'#475569','stroke-width':1.5},g);
+  SMP=el('ellipse',{cx:200,cy:428,rx:8,ry:6,fill:'#8b5a2b',opacity:0},S.top);FL=el('path',{d:'',fill:'url(#flame)',opacity:0},S.top);
+  S.ticks.push(()=>{if(flOn>0){const h=(30+Math.sin(performance.now()/80)*6)*flOn;FL.setAttribute('d',`M192 424 Q${200+Math.sin(performance.now()/110)*3} ${424-h*2} 208 424 Z`);}});
+  [ST,CAN.g,TH.g,BAL.g].forEach(x=>x.setAttribute?x.setAttribute('opacity',1):x.g.setAttribute('opacity',1));CAN.set(100);P.st={};},
+ async yak(P,k,m,w){const y=Y[k];SMP.setAttribute('fill',y[3]);SMP.setAttribute('opacity',1);SMP.setAttribute('rx',8*Math.sqrt(m));BAL.set(fmt(m,2)+' g');P.set('md',y[0]);
+  const dT=y[1]*m*EFF*1000/(w*4.18);await sleep(500);FL.setAttribute('opacity',1);flOn=1;
+  await tween(4200*y[2],k2=>{const t=20+dT*k2;TH.set(t);P.set('t',fmt(t,1));SMP.setAttribute('rx',8*Math.sqrt(m)*(1-.6*k2));flOn=k2>.85?(1-k2)/.15:1;});flOn=0;FL.setAttribute('opacity',0);SMP.setAttribute('fill','#44403c');
+  const q=w*4.18*dT/1000/m;P.set('q',fmt(q,1));return {dT,q};},
+ async calistir(P){P.graph.clear();const G1=P.graph.add('#ea580c',3,true),G2=P.graph.add('#94a3b8',3,true);P.rows=[];
+  P.stepUI(0);P.set('md','–');await sleep(3200);
+  P.stepUI(1);P.set('t','20');await sleep(1600);
+  const L=[['ceviz',2],['findik',3],['seker',4]];let i=0;
+  for(const [k,st] of L){P.stepUI(st);TH.set(20);P.set('t','20');await sleep(500);const r=await cfg.yak(P,k,1,100);P.rows.push([Y[k][0],fmt(20+r.dT,1),fmt(r.dT,1),fmt(r.q,1),fmt(Y[k][1],1)]);i++;G1.pts.push([i,r.q]);G2.pts.push([i,Y[k][1]]);P.graph.draw();await sleep(900);}
+  P.stepUI(5);P.set('md','hesap');await sleep(1400);
+  P.stepUI(6);await sleep(700);
+  P.calc('<b>Ölçümler (1 g yakıt, 100 g su, ilk 20 °C)</b><table><tr><th>Yakıt</th><th>Son (°C)</th><th>ΔT (°C)</th><th>Ölçülen (kJ/g)</th><th>Etiket (kJ/g)</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table><p style="margin:.5em 0 0">q = m·c·ΔT · Isının bir kısmı havaya kaçtığı için ölçülen değer etiket değerinden küçüktür.</p>');
+  P.done('Yağ oranı yüksek ceviz ve fındık, şekerden daha yüksek enerji kaynağı potansiyeline sahiptir.');},
+ rapor:P=>[['Deneyin Adı','Enerji Kaynağı'],['Deneyin Amacı','Maddelerin enerji kaynağı olma potansiyeline ilişkin hipotezler oluşturabilme ve test edebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Değişkenler','Bağımsız: yakıt türü · Bağımlı: suyun sıcaklık artışı (ΔT) · Kontrol: yakıt kütlesi, su miktarı, kutu–alev uzaklığı'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,6).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: ΔT = ${r[2]} °C → ${r[3]} kJ/g (etiket ${r[4]})`).join('<br>')],
+  ['Sonuç','Yağ oranı yüksek besinler (ceviz, fındık) şekerden daha fazla enerji verir. Bir maddenin enerji kaynağı olma potansiyeli; ısıl değeri, depolanabilirliği, maliyeti ve çevresel etkisiyle birlikte değerlendirilmelidir.']],
+ sorular:[
+  {q:'Ölçülen kJ/g değerleri etiket değerlerinden neden küçüktür?',o:['Ceviz bozuktur','Isının bir kısmı havaya ve kutuya kaçar','Su fazla ısınır','Termometre yanlış'],a:1,e:'Basit kalorimetrede ısı kaybı büyüktür; verim düşüktür.'},
+  {q:'Bu deneyde kontrol değişkeni hangisidir?',o:['Yakıtın türü','ΔT','Su miktarı','Ölçülen ısı'],a:2,e:'Su miktarı, yakıt kütlesi ve uzaklık sabit tutulur.'},
+  {q:'Tabloya göre (kitap) en yüksek ısıl değere sahip madde hangisidir?',o:['Karbon','Metan','Hidrojen','Glikoz'],a:2,e:'H₂ 142,9 kJ/g ile en yüksek ısıl değere sahiptir.'},
+  {q:'Canlılar için enerji kaynağı olarak kullanılan madde hangisidir?',o:['Metan','Glikoz','Hidrojen','Karbon'],a:1,e:'Glikoz hücre solunumunda yakılarak enerji sağlar.'}],
+ dene:{
+  alanlar:[{id:'k',ad:'Yakıt',secenek:Object.keys(Y).map(k=>[k,Y[k][0]]),deger:'yag'},{id:'m',ad:'Yakıt kütlesi',secenek:[[0.5,'0,5 g'],[1,'1 g'],[2,'2 g']],deger:1},{id:'w',ad:'Su miktarı',secenek:[[50,'50 mL'],[100,'100 mL'],[200,'200 mL']],deger:100}],
+  bagimli:[['dt','Suyun sıcaklık artışı'],['q','Gram başına ısı']],sabitler:['Suyun ilk sıcaklığı: 20 °C','Kutu–alev uzaklığı: 2 cm','Aynı metal kutu'],varsayilanBagimsiz:'k',
+  tablo:[['dt','ΔT'],['q','Ölçülen'],['e','Etiket']],
+  dugmeler:[['go','🔥 Yak ve ölç','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Yakıtı, kütlesini ve su miktarını seç. Yak, ΔT’yi oku ve kaydet. Yakıtları karşılaştırırken kütle ve suyu sabit tut.',
+  baslangic(P){P.enable(['kay'],false);},
+  async on(id,P){const c=P.cfgNow();
+   if(id==='go'){CAN.set(Math.min(150,+c.w*.75+25));TH.set(20);const r=await cfg.yak(P,c.k,+c.m,+c.w);P.cur={dt:fmt(r.dT,1)+' °C',q:fmt(r.q,1)+' kJ/g',e:fmt(Y[c.k][1],1)+' kJ/g'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Gram başına ısı yakıtın türüne bağlıdır; kütleyi artırınca toplam ısı (ΔT) artar ama kJ/g değişmez. Su miktarı artınca ΔT azalır.');P.enable(['kay'],false);}},
+  sorular:[{q:'Yakıt kütlesi iki katına çıkarsa kJ/g değeri ne olur?',o:['İki katına çıkar','Değişmez','Yarıya iner','Sıfır olur'],a:1,e:'kJ/g maddenin özelliğidir; toplam ısı artar ama gram başına ısı aynı kalır.'},
+   {q:'Bitkisel yağın enerji potansiyelinin yüksek olmasının nedeni nedir?',o:['Su içermesi','C–H bağları bakımından zengin olması','Renkli olması','Sıvı olması'],a:1,e:'Yağlar, karbonhidratlara göre daha az oksijen ve daha çok C–H bağı içerir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

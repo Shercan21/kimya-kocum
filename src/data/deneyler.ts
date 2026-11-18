@@ -4,7 +4,7 @@ import { FOYLU_KONULAR } from './foyIndex'
 export type SimTanim = { tur: string; baslik: string; modlar?: string[] }
 
 const DENEYLER: Record<string, SimTanim[]> = {
-  '9:1.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Günlük maddelerin pH’ı (MEB 1.1.1)', modlar: ['evdeph'] }, { tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
+  '9:1.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Alüminyum folyo (MEB 1.1.1)', modlar: ['folyo'] }, { tur: 'lab', baslik: 'Laboratuvar: Günlük maddelerin pH’ı (MEB 1.1.1)', modlar: ['evdeph'] }, { tur: 'ph', baslik: 'Evdeki ürünlerin pH değeri', modlar: ['urun'] }],
   '9:1.1.2': [{ tur: 'karistir', baslik: 'Sanal kimya laboratuvarı' }],
   '9:1.1.4': [{ tur: 'guvenlik', baslik: 'Laboratuvarda tehlikeleri bul' }, { tur: 'karistir', baslik: 'Laboratuvarda karıştırma ve gözlem' }],
   '9:2.2.2': [{ tur: 'kristal', baslik: 'Kristal örgüleri 3B incele' }, { tur: 'bag', baslik: 'Katılardaki bağ türleri' }],
@@ -27,7 +27,7 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '9:2.2.1-A': [{ tur: 'buhar', baslik: 'Etkileşim gücü ve buhar basıncı' }],
   '9:2.2.1-B': [{ tur: 'polarlik', baslik: 'Polar moleküller ve etkileşimler' }],
   '9:2.2.3-A': [{ tur: 'buhar', baslik: 'Buharlaşma ve denge buhar basıncı' }],
-  '9:2.2.3-B': [{ tur: 'isitma', baslik: 'Buzdan buhara ısıtma eğrisi' }, { tur: 'buhar', baslik: 'Kaynama ve dış basınç' }],
+  '9:2.2.3-B': [{ tur: 'lab', baslik: 'Laboratuvar: Şırıngada kaynama (MEB 2.2.3)', modlar: ['kaynama'] }, { tur: 'lab', baslik: 'Laboratuvar: Hangi sıvı önce kaynar? (MEB 2.2.3)', modlar: ['kaynama2'] }, { tur: 'isitma', baslik: 'Buzdan buhara ısıtma eğrisi' }, { tur: 'buhar', baslik: 'Kaynama ve dış basınç' }],
   '9:2.2.3-C': [{ tur: 'viskozite', baslik: 'Viskozite yarışı' }],
   '9:2.2.3-D': [{ tur: 'kilcallik', baslik: 'Kılcallık ve yüzey gerilimi' }],
   '9:3.1.1': [{ tur: 'nano', baslik: 'Nano ölçek: yüzey alanı ve renk' }],
@@ -53,12 +53,12 @@ const DENEYLER: Record<string, SimTanim[]> = {
   '10:2.1.5': [{ tur: 'cozunurluk', baslik: 'Sıcaklık ve çözünürlük' }],
   '10:2.1.6': [{ tur: 'cozunurluk', baslik: 'Doymamış, doymuş, aşırı doymuş' }],
   '10:2.1.7': [{ tur: 'derisim', baslik: 'Derişim ve seyreltme' }],
-  '10:2.1.8': [{ tur: 'koligatif', baslik: 'Kaynama ve donma noktası' }],
+  '10:2.1.8': [{ tur: 'lab', baslik: 'Laboratuvar: Koligatif özellikler (MEB 2.1.8)', modlar: ['koligatif'] }, { tur: 'koligatif', baslik: 'Kaynama ve donma noktası' }],
   '10:3.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Makro ve mikro ölçek (MEB 3.1.1)', modlar: ['olcek'] }, { tur: 'karistir', baslik: 'Sanal laboratuvar: atık üretmeden dene' }],
   '10:3.1.2': [{ tur: 'sera', baslik: 'Sera etkisi' }],
 
-  '11:1.1.1': [{ tur: 'kalorimetre', baslik: 'Kalorimetre: çözünme ısısı', modlar: ['cozunme', 'yakit'] }],
-  '11:1.1.2': [{ tur: 'kalorimetre', baslik: 'Kalorimetre: yakıtların enerjisi', modlar: ['yakit', 'cozunme'] }],
+  '11:1.1.1': [{ tur: 'lab', baslik: 'Laboratuvar: Isı değişimleri: endo/ekzo (MEB 1.1.1)', modlar: ['isidegisim'] }, { tur: 'kalorimetre', baslik: 'Kalorimetre: çözünme ısısı', modlar: ['cozunme', 'yakit'] }],
+  '11:1.1.2': [{ tur: 'lab', baslik: 'Laboratuvar: Enerji kaynağı: yanma ısısı (MEB 1.1.2)', modlar: ['yakit'] }, { tur: 'kalorimetre', baslik: 'Kalorimetre: yakıtların enerjisi', modlar: ['yakit', 'cozunme'] }],
   '11:1.1.3': [{ tur: 'entalpi', baslik: 'Bağ kır, bağ kur: tepkime entalpisi' }],
   '11:1.1.4': [{ tur: 'entalpi', baslik: 'Enerji diyagramı ve tepkime entalpisi' }],
   '11:1.2.1': [{ tur: 'hiz', baslik: 'Çarpışma teorisi ve aktivasyon enerjisi' }],

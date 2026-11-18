@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Kaynama Sıcaklığı</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+const PV=[[20,17.5],[30,31.8],[40,55.3],[50,92.5],[60,149.4],[70,233.7],[80,355.1],[90,525.8],[100,760]];
+function pv(T){for(let i=0;i<PV.length-1;i++)if(T<=PV[i+1][0]){const [a,pa]=PV[i],[b,pb]=PV[i+1];return pa*Math.pow(pb/pa,(T-a)/(b-a));}return 760;}
+let BK,HT,TH,SY;
+function syringe(S,x,y){const g=S.G(0,1);const bar=el('rect',Object.assign({x,y,width:150,height:30,rx:4},S.glass),g);el('rect',{x:x-14,y:y+11,width:16,height:8,rx:2,fill:'rgba(200,215,235,.9)',stroke:'#64748b'},g);
+  const liq=el('rect',{x:x+2,y:y+3,width:0,height:24,fill:'rgba(196,226,255,.9)'},g);const vap=el('rect',{x:x+2,y:y+3,width:0,height:24,fill:'rgba(255,255,255,.0)'},g);const bub=el('g',{},g);
+  const pl=el('g',{},g);el('rect',{x:0,y:y+4,width:8,height:22,fill:'#334155'},pl);el('rect',{x:8,y:y+13,width:92,height:4,fill:'#64748b'},pl);el('rect',{x:98,y:y-4,width:8,height:38,rx:2,fill:'#334155'},pl);
+  const fin=el('ellipse',{cx:x-16,cy:y+15,rx:10,ry:14,fill:'#f2c9a0',stroke:'#c08457',opacity:0},g);
+  for(let i=0;i<=10;i++)el('line',{x1:x+10+i*13,y1:y,x2:x+10+i*13,y2:y+(i%5?6:10),stroke:'#334155','stroke-width':.7},g);
+  let boil=0;S.ticks.push(()=>{if(boil>0&&Math.random()<boil){const w=+liq.getAttribute('width');const c=el('circle',{cx:x+4+Math.random()*Math.max(4,w-8),cy:y+24,r:1+Math.random()*2.2,fill:'rgba(255,255,255,.9)',stroke:'#94a3b8','stroke-width':.4},bub);S.anim.push({e:c,y:y+24,vy:-.3,stop:y+5,kind:'up'});}});
+  const Y={g,water:0,piston:0,set(water,piston){Y.water=water;Y.piston=piston;liq.setAttribute('width',water);vap.setAttribute('x',x+2+water);vap.setAttribute('width',Math.max(0,piston-water));pl.setAttribute('transform',`translate(${x+2+piston} 0)`);},finger(o){fin.setAttribute('opacity',o);},boil(v){boil=v;vap.setAttribute('fill',v>0?'rgba(255,255,255,.55)':'rgba(255,255,255,0)');}};return Y;}
+const cfg={ad:'kaynama',baslik:'Kaynama Sıcaklığı ve Dış Basınç',alt:'9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Sıvıların kaynama sıcaklığını etkileyen faktörler (şırınga deneyi)',
+ malzemeler:['250 mL beherglas','Su','Termometre','İspirto ocağı / ısıtıcı','Üç ayak ve amyant tel','Şırınga','Eldiven'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Isıya dayanıklı eldiven','🔥 Sıcak su: dikkat','🧪 Cam malzeme'],
+ olcumler:[['t','Su sıcaklığı','°C'],['p','Şırıngadaki basınç','mmHg'],['d','Durum','']],
+ adimlar:[['Suyu 50 °C’a ısıt','Beherglasa 100 mL su koy ve yaklaşık 50 °C’a kadar ısıt. Bu sıcaklıkta su kaynamaz.'],
+  ['Şırıngaya su çek','Şırıngayla sıcak sudan bir miktar çek.'],
+  ['Havayı boşalt, ucu kapat','Şırıngadaki havayı dışarı ver ve ucunu işaret parmağınla sıkıca kapat.'],
+  ['Pistonu çek','Ucu kapalıyken pistonu geri çek: hacim artar, şırıngadaki basınç düşer. 50 °C’taki su kaynamaya başlar!'],
+  ['Pistonu bırak','Pistonu bırakınca basınç artar ve kaynama durur.'],
+  ['Sonuç','Bir sıvı, buhar basıncı dış basınca eşit olduğunda kaynar. Dış basınç azalınca kaynama sıcaklığı düşer: 50 °C’taki suyun buhar basıncı ≈ 92 mmHg’dir.']],
+ async kur(P,m){const S=P.S;HT=S.heater(110,524,140);BK=S.beaker(110,488,100,110,250,'');TH=S.thermo(130,280,200,0,100);SY=syringe(S,150,230);
+  [HT,BK,TH,SY].forEach(x=>x.g.setAttribute('opacity',1));TH.set(20);SY.set(0,10);},
+ async calistir(P){P.rows=[];
+  P.stepUI(0);await tween(900,k=>BK.set(100*k));HT.on(1);await tween(3200,k=>{const t=20+30*k;TH.set(t);P.set('t',fmt(t,0));});HT.on(0);P.set('p','760');P.set('d','kaynamıyor');await sleep(800);
+  P.stepUI(1);await tween(1600,k=>{SY.set(40*k,40*k+4);BK.set(100-8*k);});await sleep(400);
+  P.stepUI(2);await tween(700,k=>SY.set(40,44-4*k));SY.finger(1);await sleep(900);
+  P.stepUI(3);await tween(2600,k=>{SY.set(40,40+100*k);const p=760*40/(40+100*k*8);P.set('p',fmt(Math.max(92,p),0));if(p<130)SY.boil(.6),P.set('d','KAYNIYOR');});await sleep(2200);P.rows.push(['Piston çekildi','≈ 92','kaynadı']);
+  P.stepUI(4);SY.boil(0);await tween(1600,k=>SY.set(40,140-96*k));P.set('p','760');P.set('d','kaynama durdu');P.rows.push(['Piston bırakıldı','760','kaynamadı']);await sleep(900);
+  P.stepUI(5);await sleep(900);
+  P.calc('<b>Gözlemler (su 50 °C)</b><table><tr><th>Durum</th><th>Basınç (mmHg)</th><th>Gözlem</th></tr><tr><td>Açık havada</td><td>760</td><td>kaynamadı</td></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Kaynama koşulu: P(buhar) = P(dış). 50 °C’ta P(buhar) ≈ 92 mmHg.</p>');
+  P.done('Dış basınç azaltılınca su 50 °C’ta kaynadı: kaynama sıcaklığı dış basınca bağlıdır.');},
+ rapor:P=>[['Deneyin Adı','Kaynama Sıcaklığı'],['Deneyin Amacı','Dış basıncın sıvıların kaynama sıcaklığına etkisini gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler','Ucu kapalı şırıngada piston çekildiğinde 50 °C’taki su kaynadı; piston bırakılınca kaynama durdu.'],
+  ['Sonuç','Piston çekilince hacim artar, şırınga içindeki basınç azalır. Suyun buhar basıncı dış basınca eşitlenince su daha düşük sıcaklıkta kaynar. Yükseklere çıkıldıkça açık hava basıncı azaldığından su 100 °C’tan düşük sıcaklıkta kaynar; düdüklü tencerede ise basınç artar, su 100 °C’tan yüksek sıcaklıkta kaynar.']],
+ sorular:[
+  {q:'Şırınganın ucu kapalıyken piston çekilince ne olur?',o:['Basınç artar','Basınç azalır, su kaynar','Su donar','Hiçbir şey olmaz'],a:1,e:'Hacim artar, basınç azalır; buhar basıncı dış basınca eşitlenince kaynama başlar.'},
+  {q:'Bir sıvı hangi durumda kaynar?',o:['Buhar basıncı dış basınca eşit olunca','Sıcaklık 100 °C olunca','Kap ısınınca','Yoğunluğu azalınca'],a:0,e:'Kaynama sıcaklığı dış basınca bağlıdır.'},
+  {q:'Düdüklü tencerede yemek neden daha çabuk pişer?',o:['Su daha düşük sıcaklıkta kaynar','Basınç artar, su daha yüksek sıcaklıkta kaynar','Buhar kaçar','Isı azalır'],a:1,e:'Yüksek basınçta suyun kaynama sıcaklığı 100 °C’ın üstüne çıkar.'}],
+ dene:{
+  alanlar:[{id:'T',ad:'Su sıcaklığı',secenek:[[30,'30 °C'],[50,'50 °C'],[70,'70 °C'],[90,'90 °C']],deger:50},{id:'k',ad:'Piston çekme miktarı',secenek:[[1,'Az'],[2,'Orta'],[3,'Çok'],[4,'Sonuna kadar']],deger:2}],
+  bagimli:[['d','Kaynama olup olmadığı']],sabitler:['Şırıngadaki su: aynı miktar','Uç parmakla tam kapalı'],varsayilanBagimsiz:'T',
+  tablo:[['p','Şırıngadaki basınç'],['pv','Suyun buhar basıncı'],['d','Gözlem']],
+  dugmeler:[['go','▶ Suyu çek, ucu kapat, pistonu çek','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Su sıcaklığını ve pistonu ne kadar çekeceğini seç. Hangi koşullarda su kaynıyor?',
+  baslangic(P){P.enable(['kay'],false);BK.set(100);},
+  async on(id,P){const c=P.cfgNow(),T=+c.T,p=[0,380,160,75,28][+c.k],v=pv(T);
+   if(id==='go'){SY.boil(0);SY.finger(0);TH.set(T);P.set('t',String(T));await tween(900,k=>SY.set(40*k,40*k+4));SY.finger(1);await tween(1600,k=>SY.set(40,44+[0,30,65,100,108][+c.k]*k));const b=v>=p;P.set('p',String(p));P.set('d',b?'KAYNIYOR':'kaynamıyor');SY.boil(b?.6:0);await sleep(1600);
+     P.cur={p:p+' mmHg',pv:fmt(v,0)+' mmHg',d:b?'kaynadı':'kaynamadı'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`Su ${T} °C’ta: buhar basıncı ${fmt(v,0)} mmHg. Şırıngadaki basınç bunun altına inerse su kaynar.`);P.enable(['kay'],false);}},
+  sorular:[{q:'30 °C’taki suyu şırıngada kaynatmak için ne gerekir?',o:['Pistonu çok çekmek (basıncı ≈ 32 mmHg’ye düşürmek)','Pistonu itmek','Su eklemek','Hiçbir yolu yok'],a:0,e:'30 °C’ta buhar basıncı ≈ 32 mmHg’dir; basınç bunun altına inmelidir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

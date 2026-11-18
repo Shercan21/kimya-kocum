@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Alüminyum Folyo</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// sarım: ısınma katsayısı (°C/dk/100 mL)
+const W={parlak:['Parlak yüz dışta',4.0],mat:['Mat yüz dışta',4.05],yok:['Folyosuz',3.7]};
+function Tt(w,t,V){return Math.min(99,20+W[w][1]*t*(100/V));}
+let B=[],H=[],TH=[],WR=[],SW;
+function wrap(S,b,kind){const g=el('g',{},b.g);const r=el('rect',{x:b.x0-2,y:b.ytop-2,width:b.x1-b.x0+4,height:b.ybot-b.ytop+3,rx:3,fill:kind==='parlak'?'url(#metal)':'#a8adb4',opacity:.93},g);
+  if(kind==='parlak')el('path',{d:`M${b.x0+10} ${b.ytop+6} L${b.x0+10} ${b.ybot-6}`,stroke:'rgba(255,255,255,.95)','stroke-width':5,'stroke-linecap':'round'},g);
+  for(let i=0;i<5;i++)el('path',{d:`M${b.x0} ${b.ytop+15+i*18} q${(b.x1-b.x0)/2} ${i%2?4:-4} ${b.x1-b.x0} 0`,fill:'none',stroke:kind==='parlak'?'rgba(120,120,130,.4)':'rgba(90,90,100,.35)','stroke-width':.8},g);return g;}
+const cfg={ad:'folyo',baslik:'Alüminyum Folyonun Hangi Tarafını Kullanalım?',alt:'9. sınıf · 1.1.1 Günlük Hayatta Kimya · Folyonun parlak ya da mat yüzü enerji tasarrufu sağlar mı?',
+ malzemeler:['Alüminyum folyo','2 ısıtıcı (aynı güçte)','2 termometre','Kronometre','2 beherglas','Su','Mezür','Makas','Cetvel'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Sıcak yüzeylere dokunma','✂ Makası dikkatli kullan','🧪 Cam malzeme'],
+ olcumler:[['p','Parlak dışta','°C'],['m','Mat dışta','°C'],['t','Süre','dk']],
+ grafik:{baslik:'Sıcaklık – zaman',xmax:10,ymax:70,ymin:15,xl:'Zaman (dk)',yl:'Sıcaklık (°C)',not:'Gri: parlak yüz dışta · Turuncu: mat yüz dışta. İki eğri neredeyse üst üste: fark ölçüm hatası düzeyinde.'},
+ adimlar:[['Değişkenleri belirle','Bağımsız: folyonun dışa gelen yüzü · Bağımlı: suyun sıcaklık artışı · Kontrol: su miktarı (100 mL), ısıtıcı gücü, süre, folyo boyutu (cetvel ve makasla aynı kesilir).'],
+  ['Beherlere su koy','Mezürle iki behere 100 mL su koy. İlk sıcaklık 20 °C.'],
+  ['Folyoyla sar','Aynı boyda kesilmiş folyolarla beherlerden birini parlak yüzü dışta, diğerini mat yüzü dışta kalacak şekilde sar.'],
+  ['Isıt ve ölç','İki beheri aynı güçteki ısıtıcılara koy. Kronometreyi başlat; 10 dakika boyunca her dakika sıcaklıkları ölç.'],
+  ['Verileri karşılaştır','10. dakikada parlak dışta ≈ 60,0 °C, mat dışta ≈ 60,5 °C. Fark 0,5 °C: termometrenin okuma hatası kadar.'],
+  ['Sonuç','Folyonun parlak ve mat yüzleri arasında enerji tasarrufu açısından önemli bir fark yoktur. Fark üretimden kaynaklanır (son haddelemede iki folyo birlikte geçer); ısı iletkenliği iki yüzde aynıdır.']],
+ async kur(P,m){const S=P.S;[110,290].forEach((x,i)=>{H[i]=S.heater(x,524,140);B[i]=S.beaker(x,488,100,120,250,'');TH[i]=S.thermo(x+16,230,250,0,100);[H[i],B[i],TH[i]].forEach(o=>o.g.setAttribute('opacity',1));TH[i].set(20);});
+  S.txt(S.G(1),110,548,'parlak yüz dışta',10);S.txt(S.G(1),290,548,'mat yüz dışta',10);SW=S.stopwatch(200,80);SW.g.setAttribute('opacity',1);SW.set(0);},
+ async calistir(P){P.graph.clear();const g1=P.graph.add('#64748b',3),g2=P.graph.add('#ea580c',3);P.rows=[];
+  P.stepUI(0);await sleep(3200);
+  P.stepUI(1);await tween(1400,k=>{B[0].set(100*k);B[1].set(100*k);});P.set('p','20');P.set('m','20');P.set('t','0');await sleep(500);
+  P.stepUI(2);WR[0]=wrap(P.S,B[0],'parlak');WR[0].setAttribute('opacity',0);await fade(WR[0],1,700);WR[1]=wrap(P.S,B[1],'mat');WR[1].setAttribute('opacity',0);await fade(WR[1],1,700);await sleep(500);
+  P.stepUI(3);H[0].on(1);H[1].on(1);let last=-1;
+  await tween(9000,kk=>{const t=kk*10;const a=Tt('parlak',t,100),b=Tt('mat',t,100);TH[0].set(a);TH[1].set(b);SW.set(t*60);P.set('p',fmt(a,1));P.set('m',fmt(b,1));P.set('t',fmt(t,0));g1.pts.push([t,a]);g2.pts.push([t,b]);P.graph.draw();
+    const mm=Math.floor(t+1e-9);if(mm>last&&mm%2===0){last=mm;P.rows.push([mm,fmt(Tt('parlak',mm,100),1),fmt(Tt('mat',mm,100),1)]);}});
+  H[0].on(0);H[1].on(0);
+  P.stepUI(4);await sleep(1800);
+  P.stepUI(5);await sleep(800);
+  P.calc('<b>Ölçümler</b><table><tr><th>Zaman (dk)</th><th>Parlak dışta (°C)</th><th>Mat dışta (°C)</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">10. dakikadaki fark ≈ 0,5 °C: anlamlı değil.</p>');
+  P.done('Parlak ya da mat yüzü kullanmak arasında belirgin bir enerji farkı yoktur; aşçı folyonun istediği yüzünü kullanabilir.');},
+ rapor:P=>[['Deneyin Adı','Alüminyum Folyonun Hangi Tarafını Kullanalım?'],['Deneyin Amacı','Alüminyum folyonun parlak ya da mat tarafını kullanmanın enerji tasarrufu sağlayıp sağlamadığını belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Değişkenler','Bağımsız: dışa gelen yüz · Bağımlı: sıcaklık artışı · Kontrol: su miktarı, ısıtıcı gücü, süre, folyo boyutu'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,4).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}. dk: parlak ${r[1]} °C, mat ${r[2]} °C`).join('<br>')],
+  ['Sonuç','İki durumda sıcaklıklar neredeyse aynıdır; folyonun yüzleri arasında enerji tasarrufu açısından önemli bir fark yoktur. Folyo yerine fırın kâğıdı, kapaklı cam/döküm kap gibi alternatifler kullanılabilir. Asitli (düşük pH) yiyeceklerde alüminyum yiyeceğe geçebileceğinden folyo kullanımı sınırlandırılmalıdır.']],
+ sorular:[
+  {q:'Aşçı zaman tasarrufu için folyonun hangi yüzünü kullanmalıdır?',o:['Mutlaka parlak yüzü dışta','Mutlaka mat yüzü dışta','Fark önemsizdir; istediği yüzü','Folyo kullanmamalı'],a:2,e:'Ölçülen fark termometre hatası düzeyindedir.'},
+  {q:'Folyonun iki yüzünün farklı görünmesinin nedeni nedir?',o:['Farklı metallerden yapılması','Üretimde son haddelemede iki folyonun birlikte geçmesi','Bir yüzün boyanması','Isı iletkenliklerinin farklı olması'],a:1,e:'Merdaneye değen yüz parlak, birbirine değen yüzler mat olur.'},
+  {q:'Bu deneyde kontrol değişkeni hangisidir?',o:['Dışa gelen yüz','Suyun sıcaklığı','Su miktarı','Sıcaklık artışı'],a:2,e:'Su miktarı, ısıtıcı gücü ve süre sabit tutulur.'}],
+ dene:{
+  alanlar:[{id:'w',ad:'Sarım',secenek:Object.keys(W).map(k=>[k,W[k][0]]),deger:'yok'},{id:'V',ad:'Su miktarı',secenek:[[50,'50 mL'],[100,'100 mL'],[200,'200 mL']],deger:100},{id:'t',ad:'Isıtma süresi',secenek:[[5,'5 dk'],[10,'10 dk']],deger:10}],
+  bagimli:[['dt','Sıcaklık artışı']],sabitler:['Isıtıcı gücü','İlk sıcaklık 20 °C','Folyo boyutu'],varsayilanBagimsiz:'w',
+  tablo:[['son','Son sıcaklık'],['dt','ΔT']],
+  dugmeler:[['go','🔥 Isıt ve ölç','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Sarımı, su miktarını ve süreyi seç. Sıcaklık artışını karşılaştır. Folyosuz beher ile de dene.',
+  baslangic(P){P.enable(['kay'],false);[1].forEach(i=>[H[i],B[i],TH[i]].forEach(o=>o.g.setAttribute('opacity',0)));},
+  async on(id,P){const c=P.cfgNow(),V=+c.V,tm=+c.t;
+   if(id==='go'){if(WR[0])WR[0].remove();WR[0]=c.w==='yok'?null:wrap(P.S,B[0],c.w);B[0].set(Math.min(240,V));TH[0].set(20);H[0].on(1);P.graph.clear();const G=P.graph.add('#ea580c',3);
+     await tween(4000,kk=>{const t=kk*tm;const T=Tt(c.w,t,V);TH[0].set(T);SW.set(t*60);P.set('p',fmt(T,1));P.set('t',fmt(t,0));G.pts.push([t,T]);P.graph.draw();});H[0].on(0);
+     const T=Tt(c.w,tm,V);P.cur={son:fmt(T,1)+' °C',dt:fmt(T-20,1)+' °C'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Parlak–mat farkı çok küçüktür. Folyosuz beherde çevreye ısı kaybı biraz daha fazladır. Su miktarı arttıkça aynı sürede sıcaklık artışı azalır.');P.enable(['kay'],false);}},
+  sorular:[{q:'Su miktarı iki katına çıkınca aynı sürede ΔT?',o:['İki katına çıkar','Yaklaşık yarıya iner','Değişmez','Sıfır olur'],a:1,e:'Aynı ısı iki kat kütleyi ısıtır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

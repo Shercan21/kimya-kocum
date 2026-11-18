@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Koligatif Özellikler</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+const Z={su:['Saf su',0,1],seker:['Şeker (C₁₂H₂₂O₁₁)',342,1],ure:['Üre (CO(NH₂)₂)',60,1],nacl:['Tuz (NaCl)',58.5,2],cacl2:['CaCl₂',111,3]};
+const Kb=.52,Kf=1.86;
+function T(z,g){const [,M,i]=Z[z];const m=M?g/M/0.1:0;return {tb:100+Kb*m*i,tf:-Kf*m*i,n:m*i};}
+let HB,HT,BK,TH1,IB,TU,TH2;
+const cfg={ad:'koligatif',baslik:'Koligatif Özellikler',alt:'10. sınıf · 2.1.8 Koligatif Özellikler · Çözünen maddenin kaynama ve donma noktasına etkisi',
+ malzemeler:['Saf su','Şeker','Yemek tuzu (NaCl)','Isıtıcı','250 mL beherglas','2 termometre (0,1 °C duyarlı)','Deney tüpü','Buz + tuz banyosu','Hassas terazi','Baget'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Sıcak cam: maşa kullan','🧊 Buz-tuz banyosu çok soğuktur','🧪 Cam malzeme'],
+ olcumler:[['c','Çözelti',''],['tb','Kaynama noktası','°C'],['tf','Donma noktası','°C']],
+ grafik:{baslik:'Kaynama noktası yükselmesi ve donma noktası alçalması',xmax:4,ymax:4,xl:'1 saf su · 2 şekerli su · 3 tuzlu su',yl:'ΔT (°C)',not:'Kırmızı: kaynama noktası yükselmesi. Mavi: donma noktası alçalması. Aynı molalitede NaCl iki kat tanecik verdiği için etkisi iki kattır.'},
+ adimlar:[['Araştırma sorusu','Soru: “Suda çözünen tanecik sayısı arttıkça kaynama ve donma noktası nasıl değişir?” Bağımsız: çözünen tanecik sayısı · Bağımlı: kaynama ve donma noktası · Kontrol: su kütlesi (100 g), dış basınç, ısıtıcı gücü.'],
+  ['Saf suyu kaynat','100 g saf suyu ısıt: kaynama noktası 100,0 °C.'],
+  ['Şekerli suyu kaynat','100 g suda 34,2 g şeker (1 molal) çöz ve kaynat: kaynama noktası 100,5 °C.'],
+  ['Tuzlu suyu kaynat','100 g suda 5,85 g NaCl (1 molal) çöz ve kaynat: kaynama noktası 101,0 °C.'],
+  ['Saf suyu dondur','Tüpteki saf suyu buz-tuz banyosunda soğut: 0,0 °C’ta donar.'],
+  ['Şekerli ve tuzlu suyu dondur','Şekerli su −1,9 °C’ta, tuzlu su −3,7 °C’ta donmaya başlar.'],
+  ['Sonuç','Çözünen tanecik sayısı arttıkça kaynama noktası yükselir, donma noktası alçalır. NaCl suda Na⁺ ve Cl⁻ iyonlarına ayrıldığından şekerin iki katı etki yapar.']],
+ async kur(P,m){const S=P.S;HT=S.heater(110,524,140);BK=S.beaker(110,488,100,110,250,'');TH1=S.thermo(126,250,230,90,104);
+  IB=S.beaker(300,520,110,130,250,'');IB.set(200,'rgba(220,240,255,.85)');for(let i=0;i<14;i++)el('rect',{x:252+(i*13)%96,y:430+(i*29)%80,width:12,height:10,rx:2,fill:'rgba(255,255,255,.9)',stroke:'#93c5fd'},IB.g);
+  TU=S.tube(300,500,170,25,'');TH2=S.thermo(300,240,240,-6,4);[HT,BK,TH1,IB,TU,TH2].forEach(x=>x.g.setAttribute('opacity',1));S.txt(IB.g,300,538,'buz + tuz banyosu',9);TH1.set(25);TH2.set(4);},
+ async kaynat(P,z,g){const r=T(z,g);BK.set(100,z==='su'?'rgba(196,226,255,.82)':'rgba(215,230,250,.85)');HT.on(1);P.set('c',Z[z][0]);
+  await tween(3000,k=>{const t=25+(r.tb-25)*Math.min(1,k*1.15);TH1.set(Math.max(90,t));P.set('tb',fmt(t,1));if(k>.85)BK.bubbles(.8);});await sleep(1100);BK.bubbles(0);HT.on(0);return r;},
+ async dondur(P,z,g){const r=T(z,g);TU.set(15,'rgba(215,230,250,.85)');P.set('c',Z[z][0]);
+  await tween(3000,k=>{const t=4+(r.tf-4)*Math.min(1,k*1.15);TH2.set(t);P.set('tf',fmt(t,1));if(k>.9)TU.cloudy((k-.9)*8,'rgba(255,255,255,1)');});await sleep(900);TU.cloudy(0);return r;},
+ async calistir(P){P.graph.clear();const gb=P.graph.add('#dc2626',3,true),gf=P.graph.add('#2563eb',3,true);P.rows=[];
+  P.stepUI(0);await sleep(3200);
+  const L=[['su',0],['seker',34.2],['nacl',5.85]];
+  for(let i=0;i<3;i++){P.stepUI(1+i);TH1.set(25);const r=await cfg.kaynat(P,L[i][0],L[i][1]);P.rows.push([Z[L[i][0]][0],fmt(L[i][1],2),fmt(r.tb,1)]);gb.pts.push([i+1,r.tb-100]);P.graph.draw();}
+  P.stepUI(4);TH2.set(4);let r=await cfg.dondur(P,'su',0);P.rows[0].push(fmt(r.tf,1));gf.pts.push([1,-r.tf]);P.graph.draw();
+  P.stepUI(5);for(let i=1;i<3;i++){TH2.set(4);r=await cfg.dondur(P,L[i][0],L[i][1]);P.rows[i].push(fmt(r.tf,1));gf.pts.push([i+1,-r.tf]);P.graph.draw();}
+  P.stepUI(6);P.set('c','üçü');await sleep(700);
+  P.calc('<b>Ölçümler (100 g su)</b><table><tr><th>Çözelti</th><th>Çözünen (g)</th><th>Kaynama (°C)</th><th>Donma (°C)</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table><p style="margin:.5em 0 0">ΔTk = Kk·m·i (Kk = 0,52) · ΔTd = Kd·m·i (Kd = 1,86) · Şeker i = 1, NaCl i = 2</p>');
+  P.done('Çözünen tanecik sayısı arttıkça kaynama noktası yükseldi, donma noktası alçaldı. Bu özellikler çözünenin türüne değil tanecik sayısına bağlıdır: koligatif özellikler.');},
+ rapor:P=>[['Deneyin Adı','Koligatif Özellikler'],['Deneyin Amacı','Katı-sıvı çözeltilerinde çözünen maddenin suyun kaynama ve donma noktasına etkisini araştırabilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Değişkenler','Bağımsız: çözünen madde ve tanecik sayısı · Bağımlı: kaynama ve donma noktası · Kontrol: su kütlesi, dış basınç, ısıtıcı'],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(1,6).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: kaynama ${r[2]} °C, donma ${r[3]} °C`).join('<br>')],
+  ['Sonuç','Çözeltideki tanecik sayısı arttıkça kaynama noktası yükselir, donma noktası düşer. Aynı molalitede iyonik NaCl, moleküler şekerin iki katı etki yapar. Günlük hayatta: kışın yollara tuz serpilmesi, araç radyatörlerine antifriz konması.']],
+ sorular:[
+  {q:'Tuzlu suyun kaynama noktası neden saf sudan yüksektir?',o:['Tuz suyu ağırlaştırır','Çözünen tanecikler buhar basıncını düşürür','Tuz ısıyı emer','Tuz buharlaşır'],a:1,e:'Çözünen tanecikler yüzeyden buharlaşmayı azaltır; buhar basıncı düşer, daha yüksek sıcaklıkta kaynar.'},
+  {q:'Aynı molalitede hangisi donma noktasını en çok düşürür?',o:['Şeker','Üre','NaCl','CaCl₂'],a:3,e:'CaCl₂ suda 3 iyon (Ca²⁺ + 2Cl⁻) verir; tanecik sayısı en fazladır.'},
+  {q:'Kışın yollara tuz serpilmesinin nedeni nedir?',o:['Kaynama noktasını düşürmek','Donma noktasını düşürmek','Yolu ısıtmak','Buzu sertleştirmek'],a:1,e:'Tuzlu su 0 °C’ın altında donar; buzlanma azalır.'}],
+ dene:{
+  alanlar:[{id:'z',ad:'Çözünen madde',secenek:Object.keys(Z).map(k=>[k,Z[k][0]]),deger:'nacl'},{id:'g',ad:'100 g suda çözünen kütle',secenek:[[2,'2 g'],[5,'5 g'],[10,'10 g'],[20,'20 g']],deger:5},{id:'o',ad:'Ölçüm',secenek:[['k','Kaynama noktası'],['d','Donma noktası']],deger:'d',bagimsiz:false}],
+  bagimli:[['t','Kaynama / donma noktası']],sabitler:['Su kütlesi: 100 g','Dış basınç: 1 atm'],varsayilanBagimsiz:'g',
+  tablo:[['o','Ölçüm'],['t','Sıcaklık'],['n','Tanecik molalitesi']],
+  dugmeler:[['go','▶ Çözeltiyi hazırla ve ölç','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Çözünen maddeyi ve kütlesini seç; kaynama ya da donma noktasını ölç. Önce kütleyi, sonra maddeyi değiştirerek karşılaştır.',
+  baslangic(P){P.enable(['kay'],false);},
+  async on(id,P){const c=P.cfgNow();
+   if(id==='go'){let r,t;if(c.o==='k'){TH1.set(25);r=await cfg.kaynat(P,c.z,+c.g);t=fmt(r.tb,2)+' °C';}else{TH2.set(4);r=await cfg.dondur(P,c.z,+c.g);t=fmt(r.tf,2)+' °C';}
+     P.cur={o:c.o==='k'?'kaynama':'donma',t,n:fmt(r.n,2)+' m'};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('ΔT = K·m·i: tanecik molalitesi (m·i) arttıkça kaynama noktası yükselir, donma noktası düşer.');P.enable(['kay'],false);}},
+  sorular:[{q:'Çözünen kütlesi iki katına çıkınca donma noktası alçalması?',o:['Yarıya iner','Yaklaşık iki katına çıkar','Değişmez','Sıfır olur'],a:1,e:'ΔTd molaliteyle doğru orantılıdır.'},
+   {q:'Aynı kütlede (5 g) şeker mi NaCl mi donma noktasını daha çok düşürür?',o:['Şeker','NaCl','Eşit','İkisi de düşürmez'],a:1,e:'NaCl’nin mol kütlesi küçüktür ve 2 iyon verir; tanecik sayısı çok daha fazladır.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

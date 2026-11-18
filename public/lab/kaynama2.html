@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Hangi Sıvı Önce Kaynar?</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// sıvı: kaynama noktası, ısınma hızı katsayısı (1/özgül ısı), etkileşim
+const L={su:['Saf su',100,1.3,'hidrojen bağı (molekül başına çok)','rgba(196,226,255,.82)'],etanol:['Etanol',78,1.7,'hidrojen bağı + London','rgba(225,235,250,.8)'],aseton:['Aseton',56,1.9,'dipol-dipol + London','rgba(235,240,250,.78)'],
+ metanol:['Metanol',65,1.6,'hidrojen bağı','rgba(225,235,250,.8)'],propanol:['1-Propanol',97,1.75,'hidrojen bağı + daha güçlü London','rgba(230,235,248,.8)']};
+let E=[],TH=[],HT;
+const XS=[70,200,330],SIRA=['su','etanol','aseton'];
+function Tt(k,t,V,g){const [,bp,h]=L[k];return Math.min(bp,20+t*h*2.6*g*(150/V));}
+const cfg={ad:'kaynama2',baslik:'Hangi Sıvının Kaynama Sıcaklığı En Yüksek?',alt:'9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Moleküller arası etkileşimlerin kaynama sıcaklığına etkisi',
+ malzemeler:['3 adet 250 mL erlenmayer','150 mL saf su','150 mL etanol','150 mL aseton','3 termometre','Elektrikli ısıtıcı','Spor ve kıskaç'],
+ guvenlik:['⚠ Koruyucu gözlük','🔥 Etanol ve aseton yanıcıdır: açık alev yok','🌬 Çeker ocak / havalandırma','🧪 Cam malzeme'],
+ olcumler:[['a','Aseton','°C'],['e','Etanol','°C'],['s','Su','°C']],
+ grafik:{baslik:'Sıcaklık – zaman (ısıtma eğrileri)',xmax:30,ymax:110,ymin:10,xl:'Zaman (dk)',yl:'Sıcaklık (°C)',not:'Kırmızı: su · Yeşil: etanol · Mor: aseton. Eğrinin düzleştiği sıcaklık kaynama sıcaklığıdır.'},
+ adimlar:[['Sıvıları erlenlere koy','150 mL saf su, 150 mL etanol ve 150 mL asetonu üç ayrı erlenmayere doldur ve ısıtıcının üzerine yerleştir.'],
+  ['Termometreleri yerleştir','Her erlenmayere kıskaçla sabitlenmiş bir termometre yerleştir. Başlangıç sıcaklığı 20 °C.'],
+  ['Isıt, 3 dakikada bir ölç','Isıtıcıyı çalıştır ve her sıvının sıcaklığını üçer dakika arayla not et.'],
+  ['Aseton kaynadı','Aseton yaklaşık 56 °C’ta kaynamaya başladı; sıcaklığı sabit kaldı.'],
+  ['Etanol kaynadı','Etanol yaklaşık 78 °C’ta kaynadı.'],
+  ['Su kaynadı','Su en son, 100 °C’ta kaynadı.'],
+  ['Sonuç','Kaynama sıcaklığı: su > etanol > aseton. Moleküller arası etkileşimler güçlendikçe kaynama sıcaklığı artar. Suda her molekül çok sayıda hidrojen bağı yapar; asetonda hidrojen bağı yoktur.']],
+ async kur(P,m){const S=P.S;HT=S.heater(200,524,380);E=SIRA.map((k,i)=>{const e=S.erlen(XS[i],488,250,.78,'');e.l=S.txt(e.g,XS[i],548,L[k][0],10);return e;});
+  TH=SIRA.map((k,i)=>S.thermo(XS[i]+6,250,215,0,110));[HT,...E,...TH].forEach(x=>x.g.setAttribute('opacity',1));TH.forEach(t=>t.set(20));},
+ async calistir(P){P.graph.clear();const C={su:'#dc2626',etanol:'#16a34a',aseton:'#7c3aed'};const G=Object.fromEntries(SIRA.map(k=>[k,P.graph.add(C[k],3)]));P.rows=[];const ID={su:'s',etanol:'e',aseton:'a'};
+  P.stepUI(0);for(let i=0;i<3;i++)await tween(800,k=>E[i].set(150*k,L[SIRA[i]][4]));await sleep(400);
+  P.stepUI(1);SIRA.forEach(k=>P.set(ID[k],'20'));SIRA.forEach(k=>G[k].pts.push([0,20]));P.graph.draw();await sleep(1000);
+  P.stepUI(2);HT.on(1);const done={};const rows=[];
+  await tween(16000,kk=>{const t=kk*30;SIRA.forEach((k,i)=>{const T=Tt(k,t,150,1);TH[i].set(T);P.set(ID[k],fmt(T,0));G[k].pts.push([t,T]);if(T>=L[k][1]-.01){E[i].bubbles(.7);if(!done[k]){done[k]=t;const st=k==='aseton'?3:k==='etanol'?4:5;P.stepUI(st);}}});
+    const m=Math.floor(t/3);if(!rows[m]){rows[m]=1;P.rows.push([m*3,...SIRA.map(k=>Math.round(Tt(k,m*3,150,1)))]);}P.graph.draw();});
+  await sleep(600);HT.on(0);E.forEach(e=>e.bubbles(.1));
+  P.stepUI(6);await sleep(800);
+  P.calc('<b>Sıcaklık ölçümleri (°C)</b><table><tr><th>Zaman (dk)</th><th>Su</th><th>Etanol</th><th>Aseton</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Kaynama sıcaklıkları: aseton 56 °C · etanol 78 °C · su 100 °C</p>');
+  P.done('Kaynama sıcaklığı su > etanol > aseton sırasındadır; bu sıra moleküller arası etkileşimlerin gücüyle uyumludur.');},
+ rapor:P=>[['Deneyin Adı','Hangi Sıvının Kaynama Sıcaklığı En Yüksek?'],['Deneyin Amacı','Moleküller arası etkileşimlerin kaynama sıcaklığına etkisini belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,3).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler','Aseton 56 °C, etanol 78 °C, su 100 °C’ta kaynadı. Kaynama sırasında sıcaklık sabit kaldı.'],
+  ['Sonuç','Etkileşim türleri: su ve etanolde hidrojen bağı, asetonda dipol-dipol etkileşimleri (hepsinde London kuvvetleri). Etkileşim kuvveti su > etanol > aseton olduğundan kaynama sıcaklığı da aynı sıradadır.']],
+ sorular:[
+  {q:'Asetonun en düşük sıcaklıkta kaynamasının nedeni nedir?',o:['Molekülleri arasında hidrojen bağı olmaması','Yoğunluğunun büyük olması','Renksiz olması','Kütlesinin fazla olması'],a:0,e:'Asetonda O’ya bağlı H yoktur; hidrojen bağı yapamaz, etkileşimleri zayıftır.'},
+  {q:'Kaynama sırasında sıvının sıcaklığı nasıl değişir?',o:['Artmaya devam eder','Sabit kalır','Azalır','Sıfıra iner'],a:1,e:'Verilen ısı moleküller arası etkileşimleri koparmak için harcanır.'},
+  {q:'Hacim iki katına çıkarılırsa suyun kaynama sıcaklığı?',o:['İki katına çıkar','Değişmez; sadece kaynamaya ulaşma süresi uzar','Yarıya iner','50 °C olur'],a:1,e:'Kaynama sıcaklığı maddenin ayırt edici özelliğidir; miktara bağlı değildir.'}],
+ dene:{
+  alanlar:[{id:'k',ad:'Sıvı',secenek:Object.keys(L).map(k=>[k,L[k][0]]),deger:'metanol'},{id:'V',ad:'Sıvı hacmi',secenek:[[50,'50 mL'],[150,'150 mL'],[250,'250 mL']],deger:150},{id:'g',ad:'Isıtıcı gücü',secenek:[[0.6,'Düşük'],[1,'Orta'],[1.6,'Yüksek']],deger:1}],
+  bagimli:[['bp','Kaynama sıcaklığı'],['t','Kaynamaya ulaşma süresi']],sabitler:['Dış basınç: 1 atm','Başlangıç: 20 °C','Aynı erlenmayer'],varsayilanBagimsiz:'V',
+  tablo:[['bp','Kaynama sıcaklığı'],['t','Süre'],['et','Etkileşim']],
+  dugmeler:[['go','🔥 Isıt ve izle','p'],['kay','✔ Kaydet','g']],
+  ipucu:'Sıvıyı, hacmi ve ısıtıcı gücünü seç. Kaynama sıcaklığı ve kaynamaya ulaşma süresi neye bağlı? Tek değişkeni değiştir.',
+  baslangic(P){P.enable(['kay'],false);E.forEach((e,i)=>{if(i)e.g.setAttribute('opacity',0),TH[i].g.setAttribute('opacity',0);});},
+  async on(id,P){const c=P.cfgNow(),V=+c.V,g=+c.g,[ad,bp,h]=L[c.k];
+   if(id==='go'){E[0].l.textContent=ad;E[0].set(V,L[c.k][4]);E[0].bubbles(0);TH[0].set(20);P.graph.clear();const G=P.graph.add('#dc2626',3);HT.on(g/1.6);const tb=(bp-20)/(h*2.6*g*(150/V));
+     await tween(5000,kk=>{const t=kk*30;const T=Tt(c.k,t,V,g);TH[0].set(T);P.set('s',fmt(T,0));G.pts.push([t,T]);P.graph.draw();if(T>=bp-.01)E[0].bubbles(.7);});HT.on(0);E[0].bubbles(.1);
+     P.cur={bp:bp+' °C',t:tb>30?'> 30 dk':fmt(tb,1)+' dk',et:L[c.k][3]};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say('Kaynama sıcaklığı sıvının türüne (etkileşimlerine) bağlıdır; hacim ve ısıtıcı gücü yalnızca kaynamaya ulaşma süresini değiştirir.');P.enable(['kay'],false);}},
+  sorular:[{q:'Isıtıcı gücü artırılırsa ne değişir?',o:['Kaynama sıcaklığı yükselir','Kaynamaya ulaşma süresi kısalır','Kaynama sıcaklığı düşer','Hiçbir şey'],a:1,e:'Isı daha hızlı verilir; kaynama sıcaklığı değişmez.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Isı Değişimleri</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// çözünme entalpisi kJ/mol, mol kütlesi
+const M={NaOH:[-44.5,40,'NaOH'],NH4Cl:[14.8,53.5,'NH₄Cl'],NH4NO3:[25.7,80,'NH₄NO₃'],CaCl2:[-82.8,111,'CaCl₂'],NaCl:[3.9,58.5,'NaCl'],KNO3:[34.9,101,'KNO₃']};
+function dT(ad,m,w){const [h,mm]=M[ad];return -h*1000*(m/mm)/((w+m)*4.18);}
+let B1,B2,T1,T2;
+const cfg={ad:'isidegisim',baslik:'Isı Değişimleri: Endotermik mi, Ekzotermik mi?',alt:'11. sınıf · 1.1.1 Tepkimelerde Meydana Gelen Enerji Değişimi · Olayları endotermik ve ekzotermik olarak belirleyebilme',
+ malzemeler:['NaOH katısı','NH₄Cl katısı','Su','2 adet 200 mL beherglas','2 adet termometre','2 adet spatül','Dereceli silindir','Cam baget','Elektronik terazi','Cam kalemi'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ NaOH aşındırıcıdır','🌡 Beher ısınabilir'],
+ olcumler:[['t1','NaOH çözeltisi','°C'],['t2','NH₄Cl çözeltisi','°C'],['s','Sonuç','']],
+ grafik:{baslik:'Sıcaklık – zaman',xmax:120,ymax:40,ymin:10,xl:'Zaman (s)',yl:'Sıcaklık (°C)',not:'Kırmızı: NaOH (sıcaklık artar → ekzotermik). Mavi: NH₄Cl (sıcaklık azalır → endotermik).'},
+ adimlar:[['Beherleri etiketle, su koy','Beherleri cam kalemiyle etiketle. Dereceli silindirle her birine 100 mL su koy.'],
+  ['İlk sıcaklıkları ölç','Termometrelerle suyun ilk sıcaklığını ölç: ikisi de 22 °C.'],
+  ['5 g NaOH ekle','Terazide 5 g NaOH tart ve birinci behere ekleyip bagetle karıştır.'],
+  ['5 g NH₄Cl ekle','Terazide 5 g NH₄Cl tart ve ikinci behere ekleyip karıştır.'],
+  ['Sıcaklıkları izle','NaOH çözeltisinin sıcaklığı yükseldi (≈ 34 °C), NH₄Cl çözeltisinin sıcaklığı düştü (≈ 19 °C).'],
+  ['Endotermik / ekzotermik','NaOH’ın çözünmesi çevreye ısı verir: ekzotermik. NH₄Cl’nin çözünmesi çevreden ısı alır: endotermik. Ölçüt: sıcaklık artıyorsa ısı veren, azalıyorsa ısı alan.']],
+ async kur(P,m){const S=P.S;B1=S.beaker(110,520,100,120,200,'');B1.l=S.txt(B1.g,110,538,'NaOH',10);B2=S.beaker(290,520,100,120,200,'');B2.l=S.txt(B2.g,290,538,'NH₄Cl',10);
+  T1=S.thermo(130,240,250,0,50);T2=S.thermo(310,240,250,0,50);[B1,B2,T1,T2].forEach(x=>x.g.setAttribute('opacity',1));T1.set(22);T2.set(22);P.st={};},
+ async calistir(P){const S=P.S;P.graph.clear();const g1=P.graph.add('#dc2626',3),g2=P.graph.add('#2563eb',3);P.rows=[];
+  P.stepUI(0);await tween(1400,k=>{B1.set(100*k);B2.set(100*k);});await sleep(400);
+  P.stepUI(1);P.set('t1','22');P.set('t2','22');g1.pts.push([0,22]);g2.pts.push([0,22]);P.graph.draw();await sleep(1200);
+  const d1=dT('NaOH',5,100),d2=dT('NH4Cl',5,100);
+  P.stepUI(2);const p1=S.pieces(B1,14,'#fff','parca');await sleep(600);P.stepUI(3);const p2=S.pieces(B2,14,'#fff','parca');await sleep(500);
+  P.stepUI(4);await tween(6000,k=>{const e=1-Math.pow(1-k,2);const a=22+d1*e,b=22+d2*e;T1.set(a);T2.set(b);P.set('t1',fmt(a,1));P.set('t2',fmt(b,1));p1.shrink(k*1.2);p2.shrink(k*1.2);g1.pts.push([k*120,a]);g2.pts.push([k*120,b]);P.graph.draw();});
+  P.rows.push(['NaOH','22',fmt(22+d1,1),'arttı','ekzotermik'],['NH₄Cl','22',fmt(22+d2,1),'azaldı','endotermik']);
+  P.stepUI(5);P.set('s','NaOH ekzo · NH₄Cl endo');await sleep(900);
+  P.calc('<b>Ölçümler</b><table><tr><th>Madde</th><th>İlk (°C)</th><th>Son (°C)</th><th>Sıcaklık</th><th>Değişim</th></tr>'+P.rows.map(r=>'<tr>'+r.map(x=>`<td>${x}</td>`).join('')+'</tr>').join('')+'</table><p style="margin:.5em 0 0">NaOH(k) → Na⁺(suda) + OH⁻(suda) + ısı · NH₄Cl(k) + ısı → NH₄⁺(suda) + Cl⁻(suda)</p>');
+  P.done('Sıcaklığı artıran olay çevreye ısı verir (ekzotermik), sıcaklığı azaltan olay çevreden ısı alır (endotermik).');},
+ rapor:P=>[['Deneyin Adı','Isı Değişimleri'],['Deneyin Amacı','Fiziksel ve kimyasal olayları endotermik ve ekzotermik değişimler olarak belirleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]} → ${r[2]} °C (${r[4]})`).join('<br>')],
+  ['Sonuç','NaOH’ın suda çözünmesi ekzotermik, NH₄Cl’nin suda çözünmesi endotermiktir. Ölçüt: olay sırasında çevrenin (suyun) sıcaklığı artıyorsa ekzotermik, azalıyorsa endotermik. Örnekler: fotosentez, buharlaşma, buzun erimesi, yumurtanın pişmesi endotermik; buz kristalinin oluşumu, odunun yanması ekzotermiktir.']],
+ sorular:[
+  {q:'NaOH’ın suda çözünmesi hangi tür değişimdir?',o:['Endotermik','Ekzotermik','Isı alışverişi yok','Hem endo hem ekzo'],a:1,e:'Su ısındı; olay çevreye ısı verdi.'},
+  {q:'Hangisi endotermik bir olaydır?',o:['Odunun yanması','Buzun erimesi','Suyun donması','Buhar yoğuşması'],a:1,e:'Erime için katı ısı almalıdır.'},
+  {q:'Endotermik/ekzotermik ayrımında ölçüt nedir?',o:['Çözeltinin rengi','Çevrenin sıcaklığının artması ya da azalması','Katının kütlesi','Behrin büyüklüğü'],a:1,e:'Sistem ısı verirse çevre ısınır; ısı alırsa çevre soğur.'},
+  {q:'Fotosentez enerji açısından nasıl bir olaydır?',o:['Ekzotermik','Endotermik','Enerjisiz','Nükleer'],a:1,e:'Bitkiler güneş enerjisini alarak glikoz üretir.'}],
+ dene:{
+  alanlar:[{id:'ad',ad:'Çözünen madde',secenek:Object.keys(M).map(k=>[k,M[k][2]]),deger:'NH4NO3'},{id:'m',ad:'Katı kütlesi',secenek:[[2,'2 g'],[5,'5 g'],[10,'10 g'],[20,'20 g']],deger:5},
+   {id:'w',ad:'Su miktarı',secenek:[[50,'50 mL'],[100,'100 mL'],[150,'150 mL']],deger:100}],
+  bagimli:[['dt','Sıcaklık değişimi (ΔT)']],sabitler:['Suyun ilk sıcaklığı: 22 °C','Aynı beher ve termometre','Karıştırma süresi: 2 dk'],varsayilanBagimsiz:'ad',
+  tablo:[['son','Son sıcaklık'],['dt','ΔT'],['tur','Tür']],
+  dugmeler:[['kur','🧰 Beheri hazırla','p'],['go','🥄 Katıyı ekle ve karıştır','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Bir madde, kütle ve su miktarı seç. Katıyı ekle, sıcaklık değişimini ölç ve kaydet. Kütleyi ya da maddeyi değiştirerek karşılaştır.',
+  baslangic(P){P.enable(['go','kay'],false);B2.g.setAttribute('opacity',0);T2.g.setAttribute('opacity',0);},
+  async on(id,P){const c=P.cfgNow();
+   if(id==='kur'){B1.set(+c.w);if(P.pc)P.pc.g.remove();T1.set(22);P.set('t1','22');B1.l.textContent=M[c.ad][2];P.enable(['go'],true);P.enable(['kay'],false);return;}
+   if(id==='go'){P.pc=P.S.pieces(B1,Math.min(30,+c.m*2),'#fff','parca');const d=dT(c.ad,+c.m,+c.w);await tween(2500,k=>{const t=22+d*(1-Math.pow(1-k,2));T1.set(t);P.set('t1',fmt(t,1));P.pc.shrink(k*1.2);});
+     P.cur={son:fmt(22+d,1)+' °C',dt:(d>0?'+':'')+fmt(d,1)+' °C',tur:d>0.2?'ekzotermik':d<-0.2?'endotermik':'çok küçük'};P.set('s',P.cur.tur);P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`ΔT büyüklüğü çözünen madde miktarıyla artar, su miktarıyla azalır. ${M[c.ad][2]} için çözünme entalpisi ≈ ${fmt(M[c.ad][0],1)} kJ/mol.`);P.enable(['kay'],false);}},
+  sorular:[{q:'Katı kütlesi iki katına çıkarılırsa ΔT nasıl değişir?',o:['Yaklaşık iki katına çıkar','Yarıya iner','Değişmez','Sıfır olur'],a:0,e:'Açığa çıkan/alınan ısı çözünen mol sayısıyla orantılıdır.'},
+   {q:'Su miktarı artırılırsa aynı madde için ΔT?',o:['Artar','Azalır','Değişmez','İşaret değiştirir'],a:1,e:'Aynı ısı daha çok suya dağılır; sıcaklık değişimi küçülür.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>
