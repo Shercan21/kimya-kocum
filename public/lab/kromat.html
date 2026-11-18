@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Tersinir Tepkimeler</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// Durum: n(CrO4) başlangıç 20 mmol; net eklenen H+ (mmol, eksi=OH-)
+function hal(s){const n0=s.C*s.V0,h=s.h;let f,pH;
+ if(h<=0){f=0;pH=h<0?CH.pHex(h/((s.V0+s.va)/1000)/1000):9.2;if(h<0&&pH<9.2)pH=9.2;}
+ else if(h<n0){f=h/n0;pH=8.2-1.1*Math.log10(f/(1-f+1e-6)+1e-6)*-.6-2.2*f;pH=Math.max(2,Math.min(8.6,7.6-5.4*f));}
+ else{f=1;pH=CH.pHex((h-n0)/1000/((s.V0+s.va)/1000));pH=Math.min(pH,2);}
+ const col=`rgba(${Math.round(250-15*f)},${Math.round(215-95*f)},${Math.round(40-10*f)},.9)`;return {f,pH,col,name:f<.15?'sarı':f>.85?'turuncu':'sarı-turuncu'};}
+let B,PH,AC,BS,PIP,MIC;
+function micro(S){const g=el('g',{},S.top);el('rect',{x:10,y:24,width:200,height:130,rx:10,fill:'#fff',stroke:'#cbd5e1'},g);const t=el('text',{x:110,y:40,'font-size':9,'font-weight':800,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g);t.textContent='2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O';
+ const box=el('g',{},g);return {g,draw(f){box.innerHTML='';const n=10,d=Math.round(f*n/2);for(let i=0;i<n-2*d;i++){const x=28+(i%5)*36,y=62+Math.floor(i/5)*26;el('circle',{cx:x,cy:y,r:10,fill:'#facc15',stroke:'#a16207'},box);const tt=el('text',{x,y:y+2.5,'font-size':5.5,fill:'#713f12','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent='CrO₄²⁻';}
+  for(let i=0;i<d;i++){const x=40+(i%4)*44,y=128-Math.floor(i/4)*0;el('rect',{x:x-17,y:y-9,width:34,height:18,rx:8,fill:'#f97316',stroke:'#9a3412'},box);const tt=el('text',{x,y:y+2.5,'font-size':5.5,fill:'#fff','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent='Cr₂O₇²⁻';}}};}
+const cfg={ad:'kromat',baslik:'Tersinir Tepkimeler',alt:'11. sınıf · 2.1.1 Tersinir Tepkimelerin Özellikleri · Kromat ⇌ dikromat dengesi',
+ malzemeler:['1 M K₂CrO₄ çözeltisi','1 M H₂SO₄ çözeltisi','1 M NaOH çözeltisi','pH metre veya pH kâğıdı','Beherglas','Pipet'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☠ Kromat bileşikleri zehirlidir','♻ Krom atığını lavaboya dökme'],
+ olcumler:[['ph','pH',''],['c','Renk',''],['a','Eklenen','']],
+ grafik:{baslik:'pH ve dikromat oranı – işlem',xmax:3,ymax:14,xl:'Başlangıç → H₂SO₄ → NaOH',yl:'pH · oran×14',not:'Mavi: pH. Turuncu: Cr₂O₇²⁻ oranı (×14). Asit eklenince denge ürünlere, baz eklenince tepkenlere kayar.'},
+ adimlar:[['20 mL K₂CrO₄','Beherglasa 20 mL 1 M K₂CrO₄ çözeltisi ekle: çözelti sarı.'],['pH’ı ölç','pH metreyle ölç: pH ≈ 9 (bazik). Ortamda CrO₄²⁻ iyonları baskın.'],
+  ['H₂SO₄ damla damla','Renk değişimi tamamlanana kadar 1 M H₂SO₄’ü damla damla ekle: sarı renk turuncuya döner. H⁺ eklenince denge ürünler (Cr₂O₇²⁻) yönüne kayar.'],
+  ['pH’ı yeniden ölç','pH ≈ 1–2 (asidik). Ortamda Cr₂O₇²⁻ iyonları baskın.'],
+  ['NaOH damla damla','Aynı çözeltiye renk değişimi tamamlanana kadar 1 M NaOH ekle: turuncu renk yeniden sarıya döner. OH⁻, H⁺ ile su oluşturur; H⁺ azalınca denge tepkenler yönüne kayar.'],
+  ['pH’ı yeniden ölç','pH ≈ 12 (bazik). Çözelti yeniden sarı: tepkime geri yönde de yürüdü.'],
+  ['Sonuç','Renk sarıdan turuncuya, turuncudan yeniden sarıya döndü: 2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O tepkimesi iki yönde de gerçekleşebilir, yani tersinirdir.']],
+ async kur(P,m){const S=P.S;B=S.beaker(200,520,110,120,100,'');S.txt(B.g,200,538,'K₂CrO₄ (1 M)',9);PH=S.probeMeter(290,40,'pH METRE','#4ade80',300,420);
+  AC=S.dropBottle(80,452,'H₂SO₄ 1 M','rgba(220,230,255,.7)');BS=S.dropBottle(340,452,'NaOH 1 M','rgba(220,230,255,.7)');MIC=micro(S);MIC.g.setAttribute('opacity',0);
+  [B.g,PH.g,AC,BS].forEach(g=>g.setAttribute('opacity',1));P.st={C:1,V0:20,h:0,va:0};},
+ upd(P){const r=hal(P.st);B.set(P.st.V0+P.st.va,r.col);MIC.draw(r.f);P.set('c',r.name);return r;},
+ async olc(P){const r=hal(P.st);await PH.glide(206,494,800);PH.set(fmt(r.pH,1));P.set('ph',fmt(r.pH,1));await sleep(900);await PH.glide(300,420,700);return r;},
+ async drops(P,acid,n,dh,ms){const x=acid?150:250;for(let i=0;i<n;i++){P.S.drop(x,330,B.level(B.vol),'rgba(220,230,255,.95)');await sleep(ms);P.st.h+=dh;P.st.va+=.05*(1);cfg.upd(P);}},
+ async calistir(P){const s=P.st;P.graph.clear();const L=P.graph.add('#2563eb',3,true),F=P.graph.add('#f97316',3,true);P.rows=[];
+  P.stepUI(0);await tween(1500,k=>B.set(20*k,'rgba(250,215,40,.9)'));await fade(MIC.g,1,400);cfg.upd(P);P.set('a','–');await sleep(600);
+  P.stepUI(1);let r=await cfg.olc(P);P.rows.push(['K₂CrO₄ çözeltisi',fmt(r.pH,1),r.name]);L.pts.push([0,r.pH]);F.pts.push([0,r.f*14]);P.graph.draw();
+  P.stepUI(2);await fade(AC,1,200);P.set('a','H₂SO₄');await cfg.drops(P,true,26,0.88,260);s.h=s.C*s.V0+1;cfg.upd(P);await sleep(400);
+  P.stepUI(3);r=await cfg.olc(P);P.rows.push(['H₂SO₄ eklendikten sonra',fmt(r.pH,1),r.name]);L.pts.push([1.5,r.pH]);F.pts.push([1.5,r.f*14]);P.graph.draw();
+  P.stepUI(4);P.set('a','NaOH');await cfg.drops(P,false,30,-0.9,240);s.h=-0.5;cfg.upd(P);await sleep(400);
+  P.stepUI(5);r=await cfg.olc(P);P.rows.push(['NaOH eklendikten sonra',fmt(r.pH,1),r.name]);L.pts.push([3,r.pH]);F.pts.push([3,r.f*14]);P.graph.draw();
+  P.stepUI(6);await sleep(900);
+  P.calc('<b>Ölçümler</b><table><tr><th>Aşama</th><th>pH</th><th>Renk</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">2CrO₄²⁻ (sarı) + 2H⁺ ⇌ Cr₂O₇²⁻ (turuncu) + H₂O</p>');
+  P.done('Asit eklenince çözelti turuncu (ileri yön), baz eklenince yeniden sarı (geri yön) oldu: tepkime tersinirdir.');},
+ rapor:P=>[['Deneyin Adı','Tersinir Tepkimeler'],['Deneyin Amacı','Tepkimelerin tersinir olduğunu gösteren nitelikleri gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,6).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: pH ${r[1]}, ${r[2]}`).join('<br>')],
+  ['Sonuç','H⁺ eklenince denge Cr₂O₇²⁻ (turuncu) yönüne, OH⁻ eklenince (H⁺ azalınca) CrO₄²⁻ (sarı) yönüne kaydı. Aynı tepkimenin hem ileri hem geri yönde gerçekleşebilmesi tepkimenin tersinir olduğunu gösterir.']],
+ sorular:[
+  {q:'H₂SO₄ eklenince çözelti neden turuncu olur?',o:['H⁺ artar, denge Cr₂O₇²⁻ yönüne kayar','Sülfat iyonu turuncudur','Çözelti ısınır','Kromat çöker'],a:0,e:'Tepkenlerden H⁺ artınca denge ürünler yönüne kayar; turuncu Cr₂O₇²⁻ oluşur.'},
+  {q:'NaOH eklenince renk neden sarıya döner?',o:['OH⁻, H⁺’yı harcar; denge tepkenler yönüne kayar','Na⁺ sarı renklidir','Su buharlaşır','Dikromat yanar'],a:0,e:'H⁺ + OH⁻ → H₂O; H⁺ azalınca denge geri yöne, CrO₄²⁻ yönüne kayar.'},
+  {q:'Tepkimenin tersinir olduğunu gösteren gözlem hangisidir?',o:['Renk sarı → turuncu → sarı değişti','Gaz çıktı','Çökelek oluştu','pH hep 7 kaldı'],a:0,e:'Renk değişiminin geri dönmesi, tepkimenin iki yönde yürüyebildiğini gösterir.'}],
+ dene:{
+  alanlar:[{id:'ek',ad:'Eklenen çözelti',secenek:[['a','1 M H₂SO₄'],['b','1 M NaOH']],deger:'a'},{id:'n',ad:'Eklenen hacim',secenek:[[1,'1 mL'],[2,'2 mL'],[5,'5 mL'],[10,'10 mL']],deger:5}],
+  bagimli:[['c','Renk'],['ph','pH']],sabitler:['Başlangıç: 20 mL 1 M K₂CrO₄','Oda sıcaklığı'],varsayilanBagimsiz:'ek',
+  tablo:[['top','Toplam H⁺ / OH⁻'],['ph','pH'],['c','Renk'],['f','Cr₂O₇²⁻ oranı']],
+  dugmeler:[['kur','🧰 Yeni çözelti','p'],['go','💧 Damlat','o'],['olc','📟 pH ölç'],['kay','✔ Kaydet','g']],
+  ipucu:'Yeni çözelti hazırla. Asit ve bazı istediğin sırayla damlat; her seferinde pH’ı ölç ve kaydet. Rengi ileri geri döndürebiliyor musun?',
+  baslangic(P){P.enable(['go','olc','kay'],false);},
+  async on(id,P){const c=P.cfgNow(),s=P.st;
+   if(id==='kur'){Object.assign(s,{h:0,va:0});MIC.g.setAttribute('opacity',1);cfg.upd(P);PH.set('–');P.set('ph','–');P.enable(['go','olc','kay'],true);return;}
+   if(id==='go'){const v=+c.n,mm=(c.ek==='a'?2:-1)*v;await cfg.drops(P,c.ek==='a',12,mm/12,120);s.va+=v-12*.05;cfg.upd(P);P.set('a',(c.ek==='a'?'H₂SO₄ ':'NaOH ')+c.n+' mL');return;}
+   if(id==='olc'){await cfg.olc(P);return;}
+   if(id==='kay'){const r=hal(s);P.record({top:(s.h>=0?'+':'')+fmt(s.h,1)+' mmol H⁺',ph:fmt(r.pH,1),c:r.name,f:'%'+Math.round(r.f*100)});P.say(r.f>.5?'Denge ürünler (Cr₂O₇²⁻) yönünde: ortam asidik, turuncu.':'Denge tepkenler (CrO₄²⁻) yönünde: ortam bazik/nötre yakın, sarı.');}},
+  sorular:[{q:'Aynı çözeltiye önce asit sonra baz ekleyince renk tekrar sarı olabiliyor mu?',o:['Evet, tepkime tersinirdir','Hayır, tepkime tek yönlüdür','Sadece ısıtınca','Sadece seyreltince'],a:0,e:'Denge, eklenen türe göre iki yöne de kayabilir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

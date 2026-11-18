@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · İndirgenme-Yükseltgenme</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// metal: hız katsayısı, renk, denklem, e- sayısı (H2 mol / metal mol)
+const MT={Al:[1,'#cbd5e1','2Al + 6HCl → 2AlCl₃ + 3H₂','Al → Al³⁺ + 3e⁻',1.5,27],Zn:[.7,'#94a3b8','Zn + 2HCl → ZnCl₂ + H₂','Zn → Zn²⁺ + 2e⁻',1,65],Mg:[1.6,'#e5e7eb','Mg + 2HCl → MgCl₂ + H₂','Mg → Mg²⁺ + 2e⁻',1,24],Cu:[0,'#c2410c','Cu + HCl → tepkime olmaz','Cu, H’den daha az aktiftir',0,63.5]};
+const BIC={folyo:1,parca:.45,toz:2.2};
+let ER,PC,ST,HO,TR,MIC;
+function micro(S){const g=el('g',{},S.top);el('rect',{x:10,y:24,width:200,height:150,rx:10,fill:'#fff',stroke:'#cbd5e1'},g);
+  const t=el('text',{x:110,y:40,'font-size':9,'font-weight':800,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g);t.textContent='TANECİK GÖRÜNÜMÜ (metal yüzeyi)';
+  const box=el('g',{},g);const leg=el('text',{x:110,y:166,'font-size':7.5,fill:'#475569','text-anchor':'middle','font-family':'Nunito'},g);
+  return {g,draw(m,f){box.innerHTML='';const M=MT[m];for(let i=0;i<8;i++)el('circle',{cx:30+i*21,cy:146,r:9,fill:M[1],stroke:'#475569'},box);
+    const gone=M[4]?Math.round(f*3):0;for(let i=0;i<gone;i++){const x=40+i*50;el('circle',{cx:x,cy:110,r:9,fill:'#a855f7'},box);const tt=el('text',{x,y:113,'font-size':6.4,fill:'#fff','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent=m+(m==='Al'?'³⁺':'²⁺');}
+    for(let i=0;i<6-(M[4]?Math.round(f*4):0);i++){const x=26+i*30,y=70+(i%2)*14;el('circle',{cx:x,cy:y,r:7,fill:'#ef4444'},box);const tt=el('text',{x,y:y+2.5,'font-size':6.2,fill:'#fff','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent='H⁺';}
+    if(M[4])for(let i=0;i<Math.round(f*3);i++){const x=150+i*18,y=60;el('ellipse',{cx:x,cy:y,rx:9,ry:6,fill:'#e0f2fe',stroke:'#0284c7'},box);const tt=el('text',{x,y:y+2.4,'font-size':5.8,fill:'#0369a1','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent='H₂';}
+    leg.textContent=M[4]?`${M[3]}  ·  2H⁺ + 2e⁻ → H₂`:'Cu elektron vermez: tepkime yok';}};}
+const cfg={ad:'redoks',baslik:'İndirgenme-Yükseltgenme Tepkimesi',alt:'10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · İndirgenme-yükseltgenme tepkimelerinin oluşumunu gözlemleyebilme',
+ malzemeler:['50 mL HCl çözeltisi','Büyük şeffaf plastik kutu','Sıvı bulaşık deterjanı','250 mL erlenmayer','Alüminyum folyo','Tek delikli mantar tıpa','Serum hortumu','Saf su','100 mL dereceli silindir'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ HCl aşındırıcıdır','🔥 H₂ yanıcıdır, aleve yaklaştırma'],
+ olcumler:[['g','Gözlem',''],['h','Açığa çıkan H₂','mL'],['k','Köpük','']],
+ adimlar:[['Deterjanlı su hazırla','Derin, şeffaf bir kapta deterjanlı su hazırla.'],
+  ['50 mL HCl al','Dereceli silindirle 50 mL HCl çözeltisi ölç ve 250 mL’lik erlenmayere koy.'],
+  ['Alüminyum folyo ekle','Erlenmayere küçük parçalar hâlinde alüminyum folyo ekle.'],
+  ['Tıpa ve hortum','Erlenmayerin ağzını serum hortumuna bağlı tek delikli mantar tıpayla kapat; hortumun ucunu hızla deterjanlı suya daldır.'],
+  ['Gaz çıkışı ve köpük','Folyonun yüzeyinde kabarcıklar oluşur, folyo yavaş yavaş küçülür. Hortumdan gelen H₂ gazı deterjanlı suda köpük kabarcıkları oluşturur; erlenmayer ısınır.'],
+  ['Sonuç','2Al + 6HCl → 2AlCl₃ + 3H₂. Al elektron verip Al³⁺ olur (yükseltgenir), H⁺ elektron alıp H₂ olur (indirgenir).']],
+ async kur(P,m){const S=P.S;TR=S.trough(250,392,430);ER=S.erlen(130,524,250,.85,'');ST=S.stopper(130,524-102+2);HO=S.hose('M130 412 C130 330 240 300 300 360 C320 390 318 420 318 470');
+  MIC=micro(S);MIC.g.setAttribute('opacity',0);[ER.g,TR.g].forEach(g=>g.setAttribute('opacity',1));P.st={m:'Al',b:'folyo',M:1};},
+ async calistir(P){const S=P.S;P.rows=[];
+  P.stepUI(0);await sleep(1600);
+  P.stepUI(1);await tween(1500,k=>ER.set(50*k));P.set('g','renksiz HCl');await sleep(500);
+  P.stepUI(2);PC=S.pieces(ER,9,'#cbd5e1','folyo');await fade(MIC.g,1,400);MIC.draw('Al',0);ER.bubbles(.12);P.set('g','folyo eklendi');await sleep(900);
+  P.stepUI(3);await fade(ST,1,400);await fade(HO,1,500);await sleep(700);
+  P.stepUI(4);let h=0;await tween(7000,k=>{ER.bubbles(.2+.6*Math.min(1,k*2));TR.foam(.15+.5*k);h=k*220;P.set('h',fmt(h,0));P.set('k',k<.3?'az':k<.7?'orta':'çok');MIC.draw('Al',k);PC.shrink(k*.9);});
+  P.set('g','gaz çıkışı, köpük, ısınma');P.rows.push(['Folyo yüzeyi','kabarcıklar, folyo küçüldü'],['Deterjanlı su','H₂ köpükleri oluştu'],['Erlenmayer','ısındı (ekzotermik)']);TR.foam(.08);ER.bubbles(.15);
+  P.stepUI(5);await sleep(1200);
+  P.calc('<b>Gözlemler</b><table><tr><th>Nerede</th><th>Gözlem</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">Yükseltgenme: Al → Al³⁺ + 3e⁻ · İndirgenme: 2H⁺ + 2e⁻ → H₂ · Toplam: 2Al + 6HCl → 2AlCl₃ + 3H₂</p>');
+  P.done('Alüminyum elektron vererek yükseltgendi, H⁺ iyonları elektron alarak H₂ gazına indirgendi. Elektron alışverişiyle yürüyen bu tepkime bir redoks tepkimesidir.');},
+ rapor:P=>[['Deneyin Adı','İndirgenme-Yükseltgenme Tepkimesi'],['Deneyin Amacı','İndirgenme-yükseltgenme tepkimelerinin oluşumunu gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,5).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]}`).join('<br>')],
+  ['Bulgular ve Sonuç','Al atomları elektronlarını H⁺ iyonlarına vererek Al³⁺ iyonuna dönüşür (yükseltgenme); H⁺ iyonları elektron alıp H₂ moleküllerini oluşturur (indirgenme). Açığa çıkan H₂ gazı deterjanlı suda köpük yapar. Tepkime: 2Al(k) + 6HCl(suda) → 2AlCl₃(suda) + 3H₂(g).']],
+ sorular:[
+  {q:'Deterjanlı suda köpük oluşturan gaz hangisidir?',o:['O₂','Cl₂','H₂','CO₂'],a:2,e:'Aktif metaller asitlerle tepkimeye girince H₂ gazı açığa çıkar.'},
+  {q:'Bu tepkimede yükseltgenen tür hangisidir?',o:['H⁺','Cl⁻','Al','H₂'],a:2,e:'Al elektron verir (Al → Al³⁺ + 3e⁻); elektron veren tür yükseltgenir.'},
+  {q:'Hangi metal HCl ile H₂ gazı vermez?',o:['Mg','Zn','Al','Cu'],a:3,e:'Cu, hidrojenden daha az aktiftir; HCl ile tepkime vermez.'},
+  {q:'Al’ın yükseltgenme basamağı tepkimede nasıl değişir?',o:['0 → +3','+3 → 0','0 → −3','Değişmez'],a:0,e:'Element hâlinde 0 olan Al, AlCl₃’te +3 olur.'}],
+ dene:{
+  alanlar:[{id:'m',ad:'Metal',secenek:[['Al','Alüminyum'],['Zn','Çinko'],['Mg','Magnezyum'],['Cu','Bakır']],deger:'Zn'},{id:'M',ad:'HCl derişimi',secenek:[[0.5,'0,5 M'],[1,'1 M'],[2,'2 M']],deger:1},
+   {id:'b',ad:'Metalin biçimi',secenek:[['parca','Parça'],['folyo','Folyo / şerit'],['toz','Toz']],deger:'parca'}],
+  bagimli:[['h','30 s’de açığa çıkan H₂ hacmi'],['k','Köpük oluşma hızı']],sabitler:['Metal kütlesi: 0,5 g','HCl hacmi: 50 mL','Oda sıcaklığı'],varsayilanBagimsiz:'m',
+  tablo:[['h','30 s’de H₂'],['k','Köpük'],['e','Denklem']],
+  dugmeler:[['kur','🧰 Düzeneği kur','p'],['go','▶ Metali ekle, 30 s izle','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Metali, asit derişimini ve metalin biçimini seç. 30 saniyede çıkan H₂ hacmini karşılaştır. Sadece bir değişkeni değiştir.',
+  baslangic(P){P.enable(['go','kay'],false);[ST,HO].forEach(g=>g.setAttribute('opacity',0));},
+  async on(id,P){const c=P.cfgNow(),M=MT[c.m];
+   if(id==='kur'){ER.set(50,'rgba(196,226,255,.82)');ER.bubbles(0);TR.foam(0);TR.clearFoam();if(PC)PC.g.remove();ST.setAttribute('opacity',1);HO.setAttribute('opacity',1);MIC.g.setAttribute('opacity',1);MIC.draw(c.m,0);P.set('h','0');P.set('k','–');P.set('g','hazır');P.enable(['go'],true);P.enable(['kay'],false);return;}
+   if(id==='go'){PC=P.S.pieces(ER,c.b==='toz'?40:c.b==='folyo'?9:4,M[1],c.b==='toz'?'toz':c.b==='folyo'?'folyo':'parca');
+     const r=M[0]*BIC[c.b]*Math.pow(+c.M,1.2);const max=.5/M[5]*M[4]*24500;const h=Math.min(max,r*90);
+     await tween(3000,k=>{ER.bubbles(Math.min(.9,r*.5)*Math.min(1,k*3));TR.foam(Math.min(.7,r*.35));P.set('h',fmt(h*k,0));MIC.draw(c.m,Math.min(1,k*Math.min(1,r)));PC.shrink(k*Math.min(.8,h/max));});TR.foam(0);
+     const kk=r===0?'yok':r<.5?'yavaş':r<1.2?'orta':'hızlı';P.set('k',kk);P.set('g',r?'gaz çıkışı':'tepkime yok');P.cur={h:fmt(h,0)+' mL',k:kk,e:M[2]};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(`${M[2]}. `+(M[4]?'Metal aktifliği, asit derişimi ve temas yüzeyi arttıkça H₂ daha hızlı çıkar.':'Bakır hidrojenden az aktif olduğu için HCl’den H₂ açığa çıkaramaz.'));P.enable(['kay'],false);}},
+  sorular:[{q:'Metal toz hâline getirilirse ne olur?',o:['Gaz çıkışı yavaşlar','Temas yüzeyi artar, gaz çıkışı hızlanır','Tepkime durur','Değişmez'],a:1,e:'Toz metalde asitle temas eden yüzey çok daha geniştir.'},
+   {q:'Aktiflik sırası (hızlıdan yavaşa) hangisidir?',o:['Cu > Zn > Mg','Mg > Al > Zn > Cu','Zn > Mg > Cu','Cu > Al > Mg'],a:1,e:'Mg en aktif, Cu ise H’den az aktif olduğu için hiç tepkime vermez.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

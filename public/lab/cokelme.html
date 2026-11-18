@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Çökelme Tepkimesi</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+// çift: [A, B, A iyonları, B iyonları, çökelek, renk, net iyon denklemi, seyirci iyonlar]
+const C={agcl:['NaCl','AgNO₃',['Na⁺','Cl⁻'],['Ag⁺','NO₃⁻'],'AgCl','rgba(248,248,248,.98)','beyaz','Ag⁺ + Cl⁻ → AgCl(k)','Na⁺, NO₃⁻'],
+ pbi2:['KI','Pb(NO₃)₂',['K⁺','I⁻'],['Pb²⁺','NO₃⁻'],'PbI₂','rgba(250,204,21,.98)','sarı','Pb²⁺ + 2I⁻ → PbI₂(k)','K⁺, NO₃⁻'],
+ baso4:['Na₂SO₄','BaCl₂',['Na⁺','SO₄²⁻'],['Ba²⁺','Cl⁻'],'BaSO₄','rgba(245,245,245,.98)','beyaz','Ba²⁺ + SO₄²⁻ → BaSO₄(k)','Na⁺, Cl⁻'],
+ cuoh:['NaOH','CuSO₄',['Na⁺','OH⁻'],['Cu²⁺','SO₄²⁻'],'Cu(OH)₂','rgba(56,140,230,.95)','mavi','Cu²⁺ + 2OH⁻ → Cu(OH)₂(k)','Na⁺, SO₄²⁻'],
+ yok:['NaCl','KNO₃',['Na⁺','Cl⁻'],['K⁺','NO₃⁻'],null,null,'—','çökelek oluşmaz (tüm iyonlar suda çözünür)','Na⁺, Cl⁻, K⁺, NO₃⁻']};
+const BCOL={cuoh:'rgba(120,180,235,.85)'};
+let TU,CYL,PIP,MIC,DR;
+function micro(S){const g=el('g',{},S.top);el('rect',{x:196,y:30,width:194,height:190,rx:10,fill:'#fff',stroke:'#cbd5e1'},g);
+  const t=el('text',{x:293,y:47,'font-size':9,'font-weight':800,fill:'#334155','text-anchor':'middle','font-family':'Nunito'},g);t.textContent='TANECİK GÖRÜNÜMÜ (tüpteki)';
+  const box=el('g',{},g);const leg=el('text',{x:293,y:212,'font-size':8,fill:'#475569','text-anchor':'middle','font-family':'Nunito'},g);
+  const pos=[];for(let r=0;r<7;r++)for(let c=0;c<9;c++)pos.push([210+c*20+(r%2)*6,62+r*19]);
+  return {g,draw(k,f){box.innerHTML='';const p=C[k],n=6,b=Math.round(n*f),pp=p[4]?b:0;const L=[];
+    for(let i=0;i<n;i++)L.push([p[2][0],'#a855f7']);for(let i=0;i<n-pp;i++)L.push([p[2][1],'#22c55e']);for(let i=0;i<b-pp;i++)L.push([p[3][0],'#64748b']);for(let i=0;i<b;i++)L.push([p[3][1],'#f97316']);
+    L.forEach(([s,c],i)=>{const [x,y]=pos[i];el('circle',{cx:x,cy:y,r:8,fill:c,opacity:.9},box);const tt=el('text',{x,y:y+2.6,'font-size':s.length>3?5:6.5,fill:'#fff','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent=s;});
+    for(let i=0;i<pp;i++){const x=232+(i%6)*24,y=196-Math.floor(i/6)*14;el('rect',{x:x-11,y:y-7,width:22,height:13,rx:3,fill:p[5],stroke:'#475569','stroke-width':.6},box);const tt=el('text',{x,y:y+3,'font-size':5.6,fill:k==='cuoh'?'#fff':'#111827','text-anchor':'middle','font-weight':800,'font-family':'Nunito'},box);tt.textContent=p[4];}
+    leg.textContent=p[4]?(pp?`${p[4]} çöker (dipte) · seyirci: ${p[8]}`:'iyonlar serbest'):'tüm iyonlar serbest kalır';}};}
+const cfg={ad:'cokelme',baslik:'Çökelme Tepkimesi',alt:'10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · Çökelme tepkimelerinin oluşumunu gözlemleyebilme',
+ malzemeler:['AgNO₃ çözeltisi','NaCl çözeltisi','2 adet deney tüpü','Dereceli silindir','Pipet','Puar'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','🖐 AgNO₃ deride leke bırakır','♻ Gümüş atıklarını ayrı topla'],
+ olcumler:[['v','Eklenen 2. çözelti','mL'],['g','Gözlem',''],['p','Çökelek','']],
+ adimlar:[['10 mL NaCl al','Dereceli silindirle 10 mL NaCl çözeltisi ölç ve deney tüpüne koy. Çözelti renksiz ve berrak.'],
+  ['AgNO₃’ı damla damla ekle','Puarlı pipetle AgNO₃ çözeltisini damla damla ekle. İlk damlalardan itibaren tüpte beyaz bulanıklık oluşur.'],
+  ['10 mL’ye kadar ekle','Eklemeye devam et: beyaz çökelek artar ve tüpün dibine çöker. Çökelek AgCl’dir.'],
+  ['Tanecik düzeyinde','Ag⁺ ve Cl⁻ iyonları birleşip suda çözünmeyen AgCl katısını oluşturur. Na⁺ ve NO₃⁻ iyonları seyircidir, çözeltide kalır.'],
+  ['Sonuç','AgNO₃(suda) + NaCl(suda) → AgCl(k) + NaNO₃(suda). Net iyon denklemi: Ag⁺(suda) + Cl⁻(suda) → AgCl(k).']],
+ async kur(P,m){const S=P.S;S.rack(30,170,440);TU=S.tube(70,500,150,25,'');TU.l=S.txt(TU.g,70,340,'NaCl',10);DR=S.tube(130,500,150,25,'');DR.l=S.txt(DR.g,130,340,'AgNO₃',10);CYL=S.cylinder(330,520,25,150);
+  PIP=el('g',{opacity:0},S.top);el('rect',Object.assign({x:-3,y:-100,width:6,height:92,rx:3},S.glass),PIP);el('path',Object.assign({d:'M-3 -8 L3 -8 L1 10 L-1 10 Z'},S.glass),PIP);el('ellipse',{cx:0,cy:-110,rx:9,ry:12,fill:'#dc2626'},PIP);PIP.at=(x,y)=>PIP.setAttribute('transform',`translate(${x} ${y})`);
+  MIC=micro(S);MIC.g.setAttribute('opacity',0);[TU.g,DR.g].forEach(g=>g.setAttribute('opacity',1));P.st={k:'agcl',f:0};},
+ async drip(P,k,from,to,vA,vB,ms){const p=C[k];PIP.setAttribute('opacity',1);PIP.at(70,300);const n=Math.round(ms/220);
+  for(let i=1;i<=n;i++){P.S.drop(70,312,TU.level(TU.vol),'rgba(196,226,255,.95)');await sleep(220);const f=from+(to-from)*i/n;TU.set(vA+vB*f,p[4]?`rgba(${k==='cuoh'?'170,205,240':'232,236,240'},.9)`:(BCOL[k]||null));
+   if(p[4]){TU.cloudy(Math.min(.9,f*1.2),p[5].replace('.98','.55').replace('.95','.5'));TU.ppt(f*.55,p[5]);}DR.set(Math.max(0,DR.vol-vB*(to-from)/n));MIC.draw(k,f);P.set('v',fmt(vB*f,1));}
+  PIP.setAttribute('opacity',0);},
+ async calistir(P){P.rows=[];
+  P.stepUI(0);await tween(1200,k=>CYL.set(10*k));await sleep(300);await tween(1200,k=>{CYL.set(10*(1-k));TU.set(10*k);});DR.set(12);await fade(MIC.g,1,400);MIC.draw('agcl',0);P.set('v','0');P.set('g','renksiz, berrak');P.set('p','yok');P.rows.push(['NaCl çözeltisi','renksiz, berrak']);await sleep(900);
+  P.stepUI(1);await cfg.drip(P,'agcl',0,.3,10,10,2600);P.set('g','beyaz bulanıklık');P.set('p','oluşmaya başladı');P.rows.push(['İlk damlalar','beyaz bulanıklık']);
+  P.stepUI(2);await cfg.drip(P,'agcl',.3,1,10,10,4600);TU.cloudy(.35);P.set('g','beyaz çökelek dipte');P.set('p','AgCl (beyaz)');P.rows.push(['10 mL AgNO₃','beyaz çökelek dibe çöktü']);await sleep(900);
+  P.stepUI(3);await sleep(3200);
+  P.stepUI(4);await sleep(900);
+  P.calc('<b>Gözlemler</b><table><tr><th>Aşama</th><th>Gözlem</th></tr>'+P.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+'</table><p style="margin:.5em 0 0">AgNO₃ + NaCl → AgCl(k) + NaNO₃ · Net: Ag⁺ + Cl⁻ → AgCl(k) · Seyirci iyonlar: Na⁺, NO₃⁻</p>');
+  P.done('İki çözelti karışınca suda çözünmeyen AgCl katısı oluştu ve dibe çöktü: çökelme tepkimesi.');},
+ rapor:P=>[['Deneyin Adı','Çökelme Tepkimesi'],['Deneyin Amacı','Çökelme tepkimelerinin oluşumunu gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı','Bir deney tüpüne 10 mL NaCl çözeltisi alındı, üzerine 10 mL AgNO₃ çözeltisi damla damla eklendi.'],['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]}`).join('<br>')],
+  ['Bulgular ve Sonuç','Tanecik düzeyinde Ag⁺ ve Cl⁻ iyonları çarpışıp birleşerek suda çözünmeyen iyonik AgCl katısını oluşturur; Na⁺ ve NO₃⁻ seyirci iyonlardır. Çözünen iki iyonik bileşiğin çözeltileri karıştırıldığında suda çözünmeyen bir katının oluştuğu tepkimelere çökelme tepkimesi denir.']],
+ sorular:[
+  {q:'Deneyde oluşan beyaz katı hangisidir?',o:['NaNO₃','AgCl','NaCl','AgNO₃'],a:1,e:'Ag⁺ ve Cl⁻ iyonları suda çözünmeyen AgCl’yi oluşturur.'},
+  {q:'Seyirci iyonlar hangileridir?',o:['Ag⁺ ve Cl⁻','Na⁺ ve NO₃⁻','Ag⁺ ve Na⁺','Cl⁻ ve NO₃⁻'],a:1,e:'Na⁺ ve NO₃⁻ tepkimeye katılmaz, çözeltide serbest kalır.'},
+  {q:'Hangi karışımda çökelek oluşmaz?',o:['KI + Pb(NO₃)₂','NaCl + KNO₃','Na₂SO₄ + BaCl₂','NaOH + CuSO₄'],a:1,e:'NaNO₃ ve KCl suda çözünür; çözünmeyen ürün yoktur.'},
+  {q:'Pb(NO₃)₂ ile KI çözeltileri karıştırılırsa çökeleğin rengi nedir?',o:['Beyaz','Mavi','Sarı','Siyah'],a:2,e:'PbI₂ parlak sarı renkli bir çökelektir.'}],
+ dene:{
+  alanlar:[{id:'k',ad:'Karıştırılan çözeltiler',secenek:[['agcl','NaCl + AgNO₃'],['pbi2','KI + Pb(NO₃)₂'],['baso4','Na₂SO₄ + BaCl₂'],['cuoh','NaOH + CuSO₄'],['yok','NaCl + KNO₃']],deger:'pbi2'},
+   {id:'vB',ad:'Eklenen ikinci çözelti',secenek:[[2,'2 mL'],[5,'5 mL'],[10,'10 mL']],deger:10}],
+  bagimli:[['g','Çökelek oluşumu ve rengi'],['q','Çökelek miktarı']],sabitler:['Birinci çözelti: 10 mL','Derişimler: 0,1 M','Oda sıcaklığı'],varsayilanBagimsiz:'k',
+  tablo:[['g','Gözlem'],['p','Çökelek'],['e','Net iyon denklemi']],
+  dugmeler:[['kur','🧰 Tüpü hazırla','p'],['go','💧 Damla damla ekle','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Bir çözelti çifti seç, tüpü hazırla, ikinci çözeltiyi damla damla ekle. Hangi çiftlerin çökelek verdiğini karşılaştır.',
+  baslangic(P){P.enable(['go','kay'],false);},
+  async on(id,P){const c=P.cfgNow(),k=c.k,p=C[k];
+   if(id==='kur'){TU.set(10,BCOL[k]&&false||'rgba(196,226,255,.82)');TU.ppt(0);TU.cloudy(0);TU.l.textContent=p[0];DR.l.textContent=p[1];DR.set(12,k==='cuoh'?'rgba(80,150,230,.85)':'rgba(196,226,255,.82)');MIC.g.setAttribute('opacity',1);MIC.draw(k,0);
+     P.set('v','0');P.set('g','berrak');P.set('p','yok');P.enable(['go'],true);P.enable(['kay'],false);return;}
+   if(id==='go'){const f=+c.vB/10;await cfg.drip(P,k,0,f,10,10,1800);P.set('g',p[4]?p[6]+' çökelek':'değişim yok, berrak');P.set('p',p[4]?p[4]:'yok');P.cur={g:p[4]?`${p[6]} çökelek`:'berrak kaldı',p:p[4]?`${p[4]} (${f<1?'az':'çok'})`:'yok',e:p[7]};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record(P.cur);P.say(p[4]?`${p[0]} ile ${p[1]} karışınca suda çözünmeyen <b>${p[4]}</b> oluşur. ${p[7]} · Seyirci iyonlar: ${p[8]}.`:'Bu karışımda oluşabilecek tüm ürünler suda çözünür; çökelek oluşmaz.');P.enable(['kay'],false);}},
+  sorular:[{q:'Eklenen AgNO₃ hacmi 2 mL’den 10 mL’ye çıkarılınca ne olur?',o:['Çökelek azalır','Çökelek miktarı artar (Cl⁻ bitene kadar)','Renk maviye döner','Değişmez'],a:1,e:'Ag⁺ arttıkça daha çok AgCl oluşur; Cl⁻ biterse artış durur.'},
+   {q:'Çökelme olup olmayacağını ne belirler?',o:['Çözeltinin rengi','Oluşabilecek ürünlerden birinin suda çözünmemesi','Tüpün boyu','Karıştırma hızı'],a:1,e:'Çözünmeyen bir iyonik bileşik oluşabiliyorsa çökelek görülür.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>

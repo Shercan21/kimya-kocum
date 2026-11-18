@@ -102,13 +102,13 @@ function Scene(svg){
     const id=S.uid('cl');const cp=el('clipPath',{id},defs);el('path',{d:path},cp);
     const liq=el('rect',{x:x0,y:ybot,width:x1-x0,height:0,fill:'rgba(196,226,255,.82)','clip-path':`url(#${id})`},g);
     const prc=el('rect',{x:x0,y:ybot,width:x1-x0,height:0,fill:'rgba(255,255,255,0)','clip-path':`url(#${id})`},g);
-    const bub=el('g',{'clip-path':`url(#${id})`},g);const cloud=el('circle',{cx:(x0+x1)/2,cy:ybot,r:0,fill:'rgba(0,0,0,0)','clip-path':`url(#${id})`},g);
+    const bub=el('g',{'clip-path':`url(#${id})`},g);const cloud=el('rect',{x:x0,y:ybot,width:x1-x0,height:0,fill:'rgba(0,0,0,0)',opacity:0,'clip-path':`url(#${id})`},g);
     el('path',Object.assign({d:path},glass),g);
     const V={g,liq,prc,bub,cloud,vol:0,cap,ybot,ytop,x0,x1,color:'rgba(196,226,255,.82)',gas:0,
       level(v){const f=shape?shape(Math.max(0,Math.min(1,v/cap))):Math.max(0,Math.min(1,v/cap));return ybot-(ybot-ytop)*f;},
-      set(v,color){V.vol=v;if(color)V.color=color;const y=V.level(v);liq.setAttribute('y',y);liq.setAttribute('height',ybot-y);liq.setAttribute('fill',V.color);return V;},
+      set(v,color){V.vol=v;if(color)V.color=color;const y=V.level(v);liq.setAttribute('y',y);liq.setAttribute('height',ybot-y);liq.setAttribute('fill',V.color);cloud.setAttribute('y',y);cloud.setAttribute('height',ybot-y);return V;},
       ppt(f,color='rgba(240,240,240,.95)'){const h=Math.max(0,f)*(ybot-ytop)*.22;prc.setAttribute('y',ybot-h);prc.setAttribute('height',h);prc.setAttribute('fill',color);return V;},
-      cloudy(f,color){if(color)cloud.setAttribute('fill',color);cloud.setAttribute('cy',(V.level(V.vol)+ybot)/2);cloud.setAttribute('r',f*(x1-x0)*.7);return V;},
+      cloudy(f,color){if(color)cloud.setAttribute('fill',color.replace(/,[\d.]+\)$/,',1)'));const y=V.level(V.vol);cloud.setAttribute('y',y);cloud.setAttribute('height',ybot-y);cloud.setAttribute('opacity',Math.max(0,Math.min(.85,f)));V._cf=f;return V;},
       bubbles(rate){V.gas=rate;return V;}};
     S.ticks.push(()=>{if(V.gas>0&&Math.random()<V.gas){const top=V.level(V.vol);if(ybot-top<6)return;const x=x0+(x1-x0)*(.25+Math.random()*.5);const c=el('circle',{cx:x,cy:ybot-3,r:1.4+Math.random()*2.2,fill:'rgba(255,255,255,.75)',stroke:'rgba(120,150,190,.7)','stroke-width':.6},bub);S.anim.push({e:c,y:ybot-3,vy:-.6-Math.random()*.8,stop:top+2,kind:'up'});}});
     return V;
@@ -206,6 +206,31 @@ function Scene(svg){
     const P2={g,x,y,color(c){r.setAttribute('fill',c);},to(X,Y){g.setAttribute('transform',`translate(${X-x} ${Y-y})`);}};return P2;};
   // pH renk skalası kartı
   S.phScale=(x,y,w=360)=>{const g=G(1,1);el('rect',{x:x-4,y:y-4,width:w+8,height:34,rx:5,fill:'#fff',stroke:'#cbd5e1'},g);for(let i=0;i<=14;i++){const c=CH.scaleColor(i,'evrensel');el('rect',{x:x+i*w/15,y,width:w/15-1,height:14,fill:c.rgb},g);txt(g,x+i*w/15+w/30,y+24,i,7);}return g;};
+  // Köpük (kabın ağzından yükselen): set(f 0..1)
+  S.foam=(cx,yMouth,w=30,hMax=200,color='rgba(255,255,255,.95)')=>{const g=el('g',{},S.top);const bl=[];for(let i=0;i<130;i++)bl.push(el('circle',{cx,cy:yMouth,r:0,fill:color,stroke:'rgba(180,190,200,.6)','stroke-width':.5},g));
+    let seed=1;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};const P=bl.map(()=>[rnd()*2-1,Math.sqrt(rnd()),6+rnd()*7]);
+    return {g,set(f){bl.forEach((c,i)=>{const [dx,dy,r]=P[i];const y=yMouth-dy*hMax*f;const spread=w/2+(yMouth-y)*.05;c.setAttribute('cx',cx+dx*spread*Math.min(1,f*3));c.setAttribute('cy',y);c.setAttribute('r',f>0?r*Math.min(1,f*4):0);});}};};
+  // Katı parçalar (kabın dibinde): n parça, renk
+  S.pieces=(V,n,color='#9ca3af',kind='parca')=>{const g=el('g',{},V.g);const L=[];for(let i=0;i<n;i++){const x=V.x0+6+(V.x1-V.x0-12)*((i*37)%100)/100,y=V.ybot-3-((i*53)%9);
+      L.push(kind==='toz'?el('circle',{cx:x,cy:y+1,r:1.3,fill:color},g):kind==='folyo'?el('path',{d:`M${x-5} ${y} l4 -4 l5 3 l-2 4 z`,fill:color,stroke:'#6b7280','stroke-width':.5},g):el('rect',{x:x-3,y:y-3,width:6,height:4,rx:1,fill:color,stroke:'#4b5563','stroke-width':.5},g));}
+    return {g,L,shrink(f){L.forEach(e=>e.setAttribute('opacity',Math.max(0,1-f)));}};};
+  // Kuyu plaka: n kuyu, kuyular set(color,f)
+  S.wellPlate=(x,y,cols=4,rows=2,r=13)=>{const g=G(0,1);el('rect',{x:x-8,y:y-8,width:cols*r*2.6+8,height:rows*r*2.6+8,rx:8,fill:'rgba(240,244,250,.95)',stroke:'#94a3b8'},g);const W=[];
+    for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){const cx=x+r+i*r*2.6,cy=y+r+j*r*2.6;el('circle',{cx,cy,r,fill:'#fff',stroke:'#94a3b8'},g);const lq=el('circle',{cx,cy,r:0,fill:'rgba(196,226,255,.8)'},g);const pp=el('circle',{cx,cy,r:0,fill:'#fff'},g);
+      const bb=el('g',{},g);let gas=0;S.ticks.push(()=>{if(gas>0&&Math.random()<gas){const c=el('circle',{cx:cx+(Math.random()-.5)*r,cy:cy+(Math.random()-.5)*r,r:1+Math.random()*1.5,fill:'rgba(255,255,255,.9)',stroke:'#94a3b8','stroke-width':.4},bb);setTimeout(()=>c.remove(),500);}});
+      W.push({cx,cy,set(c,f){lq.setAttribute('fill',c);lq.setAttribute('r',r*.85*Math.sqrt(f));},ppt(c,f){pp.setAttribute('fill',c);pp.setAttribute('r',r*.6*Math.sqrt(f));},bubbles(v){gas=v;}});}
+    return {g,W};};
+  // Deterjanlı su kabı + hortum: köpük kabarcıkları
+  S.trough=(x0,x1,ytop=420)=>{const g=G(0,1);const V=vessel(g,`M${x0} ${ytop} L${x0} 520 L${x1} 520 L${x1} ${ytop}`,{x0,x1,ybot:519,ytop:ytop+6,cap:100});V.set(70,'rgba(190,225,255,.75)');
+    const fb=el('g',{},g);let rate=0;const top=()=>V.level(V.vol);const pile=[];
+    S.ticks.push(()=>{if(rate>0&&Math.random()<rate){const cx=x0+(x1-x0)*(.3+Math.random()*.4);const c=el('circle',{cx,cy:top()-2-Math.min(40,pile.length*.3)*Math.random(),r:3+Math.random()*5,fill:'rgba(255,255,255,.85)',stroke:'rgba(150,170,200,.7)','stroke-width':.6},fb);pile.push(c);if(pile.length>160)pile.shift().remove();}});
+    V.foam=v=>{rate=v;};V.clearFoam=()=>{pile.splice(0).forEach(c=>c.remove());};return V;};
+  S.hose=(d)=>{const g=G(0);el('path',{d,fill:'none',stroke:'rgba(250,204,150,.9)','stroke-width':5,'stroke-linecap':'round'},g);el('path',{d,fill:'none',stroke:'rgba(180,120,60,.6)','stroke-width':1.2},g);return g;};
+  S.stopper=(cx,y,w=16)=>{const g=G(0);el('path',{d:`M${cx-w} ${y-10} L${cx+w} ${y-10} L${cx+w-4} ${y+8} L${cx-w+4} ${y+8} Z`,fill:'#b45309',stroke:'#78350f'},g);return g;};
+  // Elektrikli ısıtıcı (hot plate): on(f 0..1)
+  S.heater=(cx,base=524,w=120)=>{const g=G(0,1);el('rect',{x:cx-w/2,y:base-30,width:w,height:30,rx:6,fill:'#e5e7eb',stroke:'#9ca3af'},g);const pl=el('rect',{x:cx-w/2+8,y:base-36,width:w-16,height:7,rx:3,fill:'#6b7280'},g);
+    el('circle',{cx:cx+w/2-16,cy:base-14,r:6,fill:'#374151'},g);const led=el('circle',{cx:cx-w/2+16,cy:base-14,r:3.5,fill:'#9ca3af'},g);
+    return {g,top:base-36,on(f){pl.setAttribute('fill',f>0?`rgb(${Math.round(107+148*f)},${Math.round(114-60*f)},${Math.round(128-90*f)})`:'#6b7280');led.setAttribute('fill',f>0?'#ef4444':'#9ca3af');}};};
   S.tick=()=>{S.ticks.forEach(f=>f());S.anim=S.anim.filter(a=>{a.vy+=a.kind==='down'?.6:-.02;a.y+=a.vy;a.e.setAttribute('cy',a.y);if((a.kind==='down'&&a.y>=a.stop)||(a.kind==='up'&&a.y<=a.stop)){a.e.remove();return false;}return true;});requestAnimationFrame(S.tick);};
   requestAnimationFrame(S.tick);
   return S;

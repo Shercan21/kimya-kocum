@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sanal Lab · Kimyasal Değişim</title></head>
+<body><script src="labkit.js"></script><script>
+(()=>{const {CH,el,fmt,tr,sleep,tween,fade}=LK;
+let CY,FO,TH,ER,BA,B1,B2,PP;
+const cfg={ad:'degisim',baslik:'Kimyasal Değişimin Göstergeleri',alt:'10. sınıf · 1.1.1 Kimyasal Değişimin Göstergeleri · Farklı kimyasal tepkimelerdeki değişimleri gözlemleyebilme',
+ malzemeler:['50 mL H₂O₂ (%30)','Bulaşık deterjanı','2 g KI','50 mL sirke (CH₃COOH)','1 g NaHCO₃','1 g Pb(NO₃)₂','250 mL erlenmayer','2 adet 100 mL beherglas','250 mL dereceli silindir','Elastik balon','Huni','Spatül','Baget','Hassas terazi','Saf su'],
+ guvenlik:['⚠ Koruyucu gözlük','🧤 Eldiven','☣ %30 H₂O₂ yakıcıdır','☠ Pb(NO₃)₂ zehirlidir, atığı lavaboya dökme'],
+ olcumler:[['d','Deney',''],['g','Gözlem',''],['t','Sıcaklık','°C']],
+ adimlar:[['1. Deney: H₂O₂ + deterjan','Dereceli silindire 50 mL H₂O₂ koy, üzerine biraz bulaşık deterjanı ekleyip karıştır.'],
+  ['KI ekle: köpük ve ısı','1 g KI’yı tek seferde ekle: H₂O₂ hızla bozunur, açığa çıkan O₂ gazı deterjanla dev köpük oluşturur, silindir ısınır. 2H₂O₂ → 2H₂O + O₂ (KI katalizör).'],
+  ['2. Deney: sirke ve balon','Erlenmayere 50 mL sirke koy. Huniyle 1 g NaHCO₃’ı balona doldur ve balonu, soda dökülmeyecek şekilde erlenmayerin ağzına geçir.'],
+  ['Sodayı dök: gaz çıkışı','Balonu kaldırıp sodayı sirkeye dök: kabarcıklar çıkar, balon şişer, çözelti biraz soğur. CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂'],
+  ['3. Deney: iki çözelti hazırla','Bir beherglasta 50 mL suda 1 g Pb(NO₃)₂, diğerinde 50 mL suda 1 g KI çöz. İki çözelti de renksiz.'],
+  ['Çözeltileri karıştır: sarı çökelek','KI çözeltisini Pb(NO₃)₂ çözeltisine dikkatlice dök: parlak sarı PbI₂ çökeleği oluşur. Pb(NO₃)₂ + 2KI → PbI₂(k) + 2KNO₃'],
+  ['Gözlemleri tabloya işle','1. deney: gaz çıkışı, köpük, sıcaklık artışı · 2. deney: gaz çıkışı (balon şişti), sıcaklık azalması · 3. deney: çökelek ve renk değişimi.']],
+ async kur(P,m){const S=P.S;CY=S.cylinder(60,520,250,240);FO=S.foam(60,520-240,26,230,'rgba(255,248,220,.97)');TH=S.thermo(106,300,150,0,60);TH.set(22);
+  ER=S.erlen(185,524,250,.85,'');BA=S.balloon(185,524-102,'#f59e0b');
+  B1=S.beaker(300,520,56,74,100,'');B1.l=S.txt(B1.g,300,536,'Pb(NO₃)₂',8.5);B2=S.beaker(365,520,56,74,100,'');B2.l=S.txt(B2.g,365,536,'KI',8.5);
+  S.txt(S.G(1),60,548,'1. deney',9,{fill:'#7c3aed'});S.txt(S.G(1),185,548,'2. deney',9,{fill:'#7c3aed'});S.txt(S.G(1),332,548,'3. deney',9,{fill:'#7c3aed'});
+  [CY.g,TH.g,ER.g,B1.g,B2.g].forEach(g=>g.setAttribute('opacity',1));P.rows=[];},
+ async calistir(P){P.rows=[];
+  P.stepUI(0);P.set('d','1. deney');P.set('t','22');await tween(1200,k=>CY.set(50*k));await sleep(400);await tween(500,k=>CY.set(50+4*k,'rgba(200,235,210,.85)'));P.set('g','renksiz çözelti');await sleep(900);
+  P.stepUI(1);CY.bubbles(.7);let T=22;await tween(4200,k=>{FO.set(Math.min(1,k*1.3));T=22+30*Math.min(1,k*1.5);TH.set(T);P.set('t',fmt(T,0));});CY.set(54,'rgba(220,190,120,.85)');P.set('g','köpük, gaz, ısınma');CY.bubbles(.15);
+  P.rows.push(['1. deney','gaz çıkışı (O₂), köpük, sıcaklık artışı']);await sleep(1200);
+  P.stepUI(2);P.set('d','2. deney');P.set('t','22');TH.set(22);await tween(1200,k=>ER.set(50*k,'rgba(240,235,215,.82)'));await fade(BA.g,1,500);BA.inflate(.15);P.set('g','balonda soda');await sleep(900);
+  P.stepUI(3);ER.bubbles(.9);await tween(3600,k=>{BA.inflate(.15+.85*Math.min(1,k*1.2));P.set('t',fmt(22-3*k,0));});ER.bubbles(.2);P.set('g','gaz çıkışı, balon şişti');P.rows.push(['2. deney','gaz çıkışı (CO₂), balon şişti, sıcaklık azaldı']);await sleep(1200);
+  P.stepUI(4);P.set('d','3. deney');P.set('t','22');await tween(1000,k=>B1.set(50*k));await tween(1000,k=>B2.set(50*k));P.set('g','iki renksiz çözelti');await sleep(900);
+  P.stepUI(5);await tween(2600,k=>{B2.set(50*(1-k));B1.set(50+50*k*.96,`rgba(${Math.round(196+59*k)},${Math.round(226-6*k)},${Math.round(255-195*k)},.85)`);B1.ppt(k*.8,'rgba(250,204,21,.98)');});
+  P.set('g','sarı çökelek');P.rows.push(['3. deney','renk değişimi, sarı çökelek (PbI₂) oluştu']);await sleep(1200);
+  P.stepUI(6);P.set('d','Hepsi');P.set('g','3 farklı gösterge');await sleep(700);
+  P.calc('<b>Gözlem tablosu</b><table><tr><th>Gözlem</th><th>1. deney</th><th>2. deney</th><th>3. deney</th></tr><tr><td>Gaz çıkışı</td><td>✓</td><td>✓</td><td></td></tr><tr><td>Köpük</td><td>✓</td><td></td><td></td></tr><tr><td>Sıcaklık artışı</td><td>✓</td><td></td><td></td></tr><tr><td>Sıcaklık azalması</td><td></td><td>✓</td><td></td></tr><tr><td>Renk değişimi</td><td>✓ (sarımsı)</td><td></td><td>✓</td></tr><tr><td>Çökelek</td><td></td><td></td><td>✓</td></tr></table>');
+  P.done('Kimyasal değişimin göstergeleri: gaz çıkışı, renk değişimi, çökelek oluşumu, sıcaklık (ısı) değişimi. Bu göstergeler yeni maddelerin oluştuğunu gösterir.');},
+ rapor:P=>[['Deneyin Adı','Kimyasal Değişim'],['Deneyin Amacı','Farklı kimyasal tepkimelerdeki değişimleri gözlemleyebilme'],['Tarih',new Date().toLocaleDateString('tr-TR')],['Malzemeler',cfg.malzemeler.join(', ')],
+  ['Deneyin Yapılışı',cfg.adimlar.slice(0,6).map((x,i)=>`${i+1}. ${x[1]}`).join('<br>')],['Gözlemler',P.rows.map(r=>`${r[0]}: ${r[1]}`).join('<br>')],
+  ['Sonuç','Üç deneyde de yeni maddeler oluştu: 1. deneyde O₂ gazı (2H₂O₂ → 2H₂O + O₂), 2. deneyde CO₂ gazı (CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂), 3. deneyde PbI₂ çökeleği (Pb(NO₃)₂ + 2KI → PbI₂ + 2KNO₃). Gaz çıkışı, renk değişimi, çökelek oluşumu ve sıcaklık değişimi kimyasal değişimin göstergeleridir.']],
+ sorular:[
+  {q:'1. deneyde köpüğü oluşturan gaz hangisidir?',o:['H₂','O₂','CO₂','Cl₂'],a:1,e:'H₂O₂ bozunur: 2H₂O₂ → 2H₂O + O₂. KI tepkimeyi hızlandırır (katalizör), deterjan gazı köpüğe hapseder.'},
+  {q:'2. deneyde balonu şişiren gaz hangisidir?',o:['O₂','H₂','CO₂','N₂'],a:2,e:'Sirkedeki asetik asit sodayla tepkimeye girer ve CO₂ gazı açığa çıkar.'},
+  {q:'3. deneydeki sarı katı nedir?',o:['KNO₃','PbI₂','KI','Pb'],a:1,e:'Pb²⁺ ve I⁻ iyonları suda az çözünen PbI₂ çökeleğini oluşturur; K⁺ ve NO₃⁻ çözeltide kalır.'},
+  {q:'Hangisi kimyasal değişimin göstergesi DEĞİLDİR?',o:['Gaz çıkışı','Çökelek oluşumu','Şeker çözünmesi','Renk değişimi'],a:2,e:'Şekerin suda çözünmesi fiziksel bir olaydır; yeni madde oluşmaz.'}],
+ dene:{
+  alanlar:[{id:'dn',ad:'Deney',secenek:[['1','1. H₂O₂ + KI (köpük)'],['2','2. Sirke + soda (balon)'],['3','3. Pb(NO₃)₂ + KI (çökelek)']],deger:'2',bagimsiz:false},
+   {id:'m',ad:'Katı miktarı (KI / NaHCO₃ / KI)',secenek:[[0.25,'0,25 g'],[0.5,'0,5 g'],[1,'1 g'],[2,'2 g']],deger:1},{id:'V',ad:'Sıvı hacmi',secenek:[[25,'25 mL'],[50,'50 mL']],deger:50}],
+  bagimli:[['o','Gaz/çökelek miktarı (köpük boyu, balon, çökelek)']],sabitler:['Sıcaklık: oda sıcaklığı','Aynı kaplar'],varsayilanBagimsiz:'m',
+  tablo:[['dn','Deney'],['o','Gözlem'],['q','Miktar']],
+  dugmeler:[['kur','🧰 Hazırla','p'],['go','▶ Katıyı ekle','o'],['kay','✔ Kaydet','g']],
+  ipucu:'Bir deney seç, katı miktarını değiştirerek sonucun nasıl değiştiğini incele. Sıvı hacmini sabit tut.',
+  baslangic(P){P.enable(['go','kay'],false);},
+  async on(id,P){const c=P.cfgNow(),dn=c.dn,m=+c.m,V=+c.V;
+   if(id==='kur'){CY.set(0);FO.set(0);ER.set(0);BA.inflate(0);BA.g.setAttribute('opacity',0);B1.set(0);B1.ppt(0);B2.set(0);TH.set(22);CY.bubbles(0);ER.bubbles(0);
+     if(dn==='1')CY.set(V,'rgba(200,235,210,.85)');if(dn==='2'){ER.set(V,'rgba(240,235,215,.82)');BA.g.setAttribute('opacity',1);BA.inflate(.15);}if(dn==='3'){B1.set(V);B2.set(V);}
+     P.set('d',dn+'. deney');P.set('g','hazır');P.set('t','22');P.enable(['go'],true);P.enable(['kay'],false);return;}
+   if(id==='go'){let o,q;
+     if(dn==='1'){const lim=Math.min(1,V/50);const f=Math.min(1,.25+.6*Math.min(m,1)*lim+.15*Math.min(1,m/2));CY.bubbles(.6);await tween(2200+1200/m,k=>{FO.set(f*k);TH.set(22+30*f*k*lim);P.set('t',fmt(22+30*f*k*lim,0));});CY.bubbles(.1);o='köpük, ısınma';q=`köpük ≈ ${Math.round(f*230)} mm`;}
+     if(dn==='2'){const n=Math.min(m/84,V*.83/60);const vol=n*24.5*1000;const f=Math.min(1,vol/600);ER.bubbles(.8);await tween(2600,k=>BA.inflate(.15+.85*f*k));ER.bubbles(.1);o='gaz, balon şişti';q=`CO₂ ≈ ${Math.round(vol)} mL`+(m/84>V*.83/60?' (sirke sınırlayıcı)':'');}
+     if(dn==='3'){const n=Math.min(m/331,m/166/2);const g=n*461;await tween(2000,k=>{B2.set(V*(1-k));B1.set(V+V*k,`rgba(${Math.round(196+59*k)},220,${Math.round(255-195*k)},.85)`);B1.ppt(Math.min(1,g/1.4)*k,'rgba(250,204,21,.98)');});o='sarı çökelek';q=`PbI₂ ≈ ${fmt(g,2)} g`;}
+     P.set('g',o);P.cur={o,q,dn};P.enable(['kay'],true);return;}
+   if(id==='kay'&&P.cur){P.record({dn:P.cur.dn+'. deney',o:P.cur.o,q:P.cur.q});P.say('Katı miktarı arttıkça oluşan ürün miktarı artar; ancak diğer madde biterse (sınırlayıcı bileşen) artış durur.');P.enable(['kay'],false);}},
+  sorular:[{q:'Sirke miktarı sabitken soda miktarı çok artırılırsa balon nasıl şişer?',o:['Sınırsız büyür','Bir noktadan sonra büyümez; sirke biter','Hiç şişmez','Söner'],a:1,e:'Asetik asit tükenince CO₂ oluşumu durur: sirke sınırlayıcı bileşen olur.'},
+   {q:'Bu deneylerde bağımsız değişken hangisiydi?',o:['Katı miktarı','Oluşan gaz','Balonun rengi','Sıcaklık'],a:0,e:'Değiştirdiğimiz katı miktarıdır; ölçtüğümüz ürün miktarı bağımlı değişkendir.'}]}
+};
+LK.page(cfg);
+})();
+</script></body></html>
