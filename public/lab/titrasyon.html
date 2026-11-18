@@ -62,7 +62,7 @@ th{color:var(--mut);font-size:12px}
 .q{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}.q p{margin:0 0 6px;font-weight:700}
 .q button{display:block;width:100%;text-align:left;margin:4px 0;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;font:inherit;cursor:pointer}
 .q button.ok{background:#e7f8ee;border-color:#34a853}.q button.no{background:#fdecec;border-color:#e57373}.q .ex{font-size:13px;color:#475569;margin-top:4px}
-body.video header,body.video .tabs,body.video #mKitap,body.video #mDene,body.video .safety,body.video #quizCard,body.video #repCard,body.video .tip{display:none!important}
+body.video header,body.video .tabs,body.video #mKitap,body.video #mDene,body.video .safety,body.video #quizCard,body.video #ksCard,body.video #repCard,body.video .tip{display:none!important}
 body.video main{grid-template-columns:480px 1fr;max-width:none;padding:16px;align-items:start}
 body.video canvas{height:420px}
 body.video .readouts{grid-template-columns:repeat(4,1fr)}
@@ -171,6 +171,7 @@ body.gomulu{background:transparent}body.gomulu header{display:none}body.gomulu m
       <h2>❓ Sonuç soruları</h2>
       <div id="quiz"></div>
     </div>
+    <div class="card hidden" id="ksCard" style="margin-top:14px"></div>
     <div class="card hidden" id="repCard" style="margin-top:14px">
       <h2>📝 Deney raporu</h2>
       <div id="rep" class="rep"></div>
@@ -525,16 +526,17 @@ function quiz(list){
       if(d.dataset.done)return;d.dataset.done=1;b.classList.add(k===it.a?'ok':'no');d.querySelectorAll('button')[it.a].classList.add('ok');
       const ex=document.createElement('div');ex.className='ex';ex.textContent=(k===it.a?'✅ Doğru. ':'❌ Doğru cevap '+String.fromCharCode(65+it.a)+'. ')+it.e;d.append(ex);};d.append(b);});
     box.append(d);});
-  $('#quizCard').classList.remove('hidden');
+  $('#quizCard').classList.remove('hidden');if(KSO)$('#ksCard').classList.remove('hidden');
 }
-let repText='';
-function report(rows){
+let repText='',KSO=null,lastRows=null;
+(function(){const m=()=>{KSO=window.KS&&window.KS.mount($('#ksCard'),'titrasyon',()=>{if(lastRows&&!$('#repCard').classList.contains('hidden'))report(lastRows);});};const s=document.createElement('script');s.src='kitapsorular.js';s.onload=m;document.head.appendChild(s);})();
+function report(rows){lastRows=rows;if(KSO)rows=rows.concat(KSO.rows());
   const h=rows.map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('');
   $('#rep').innerHTML=`<table>${h}</table>`;$('#repCard').classList.remove('hidden');
   repText=rows.map(([k,v])=>k+': '+v.replace(/<br>/g,'\n  ').replace(/<[^>]+>/g,'')).join('\n');
 }
 $('#repCopy').onclick=async()=>{try{await navigator.clipboard.writeText(repText);$('#repMsg').textContent='Kopyalandı.';}catch{$('#repMsg').textContent='Kopyalanamadı; metni seçip kopyalayabilirsin.';}};
-function hideEnd(){$('#quizCard').classList.add('hidden');$('#repCard').classList.add('hidden');}
+function hideEnd(){$('#quizCard').classList.add('hidden');$('#ksCard').classList.add('hidden');$('#repCard').classList.add('hidden');}
 function kitapEnd(){
   const today=new Date().toLocaleDateString('tr-TR');
   report([['Deneyin Adı','Titrasyon Deneyi'],['Deneyin Amacı','Derişimi bilinmeyen HCl çözeltisinin derişimini belirlemek'],['Tarih',today],

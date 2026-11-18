@@ -4,6 +4,7 @@
    grafik, sonuç soruları, deney raporu, gömülü (Kimya Koçum) ve video modu. */
 (function(){
 'use strict';
+const LKBASE=((document.currentScript&&document.currentScript.src)||'').replace(/[^/]*$/,'');
 const NS='http://www.w3.org/2000/svg';
 const $=(s,r=document)=>r.querySelector(s);
 const fmt=(x,d=2)=>Number(x).toFixed(d).replace('.',',');
@@ -36,7 +37,7 @@ table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}th,td{bo
 .rep table{font-size:14px}.rep th{width:30%;color:#1d2b44;font-size:13px;vertical-align:top}.rep td{vertical-align:top}
 .q{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}.q p{margin:0 0 6px;font-weight:700}.q button{display:block;width:100%;text-align:left;margin:4px 0;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;font:inherit;cursor:pointer}.q button.ok{background:#e7f8ee;border-color:#34a853}.q button.no{background:#fdecec;border-color:#e57373}.q .ex{font-size:13px;color:#475569;margin-top:4px}
 body.gomulu{background:transparent}body.gomulu header{display:none}body.gomulu main{padding:10px 0 12px}body.gomulu .tabs{padding:4px 0 0}
-body.video header,body.video .tabs,body.video #mKitap,body.video #mDene,body.video .safety,body.video #quizCard,body.video #repCard,body.video .tip{display:none!important}
+body.video header,body.video .tabs,body.video #mKitap,body.video #mDene,body.video .safety,body.video #quizCard,body.video #ksCard,body.video #repCard,body.video .tip{display:none!important}
 body.video main{grid-template-columns:480px 1fr;max-width:none;padding:16px;align-items:start}body.video canvas.lk-cv{height:420px}`;
 
 /* ---------------- Kimya ---------------- */
@@ -266,6 +267,7 @@ function page(cfg){
     <table id="dTable"><thead></thead><tbody></tbody></table><div class="calc" id="dCalc"></div></div>
    <div class="card${cfg.grafik?'':' hidden'}" style="margin-top:14px" id="gCard"><h2>📈 ${cfg.grafik?cfg.grafik.baslik:''}</h2><canvas class="lk-cv" id="cv" width="760" height="300"></canvas><p class="tip">${cfg.grafik?cfg.grafik.not||'':''}</p></div>
    <div class="card hidden" id="quizCard" style="margin-top:14px"><h2>❓ Sonuç soruları</h2><div id="quiz"></div></div>
+   <div class="card hidden" id="ksCard" style="margin-top:14px"></div>
    <div class="card hidden" id="repCard" style="margin-top:14px"><h2>📝 Deney raporu</h2><div id="rep" class="rep"></div><div class="row" style="margin-top:8px"><button class="b" id="repCopy">📋 Raporu kopyala</button><span class="tip" id="repMsg"></span></div></div>
   </section></main>`;
   const P={cfg,mode:'kitap'};
@@ -279,14 +281,14 @@ function page(cfg){
   P.stepUI=i=>{window.__step=i;$('#stepList').innerHTML=STEPS.map((s,k)=>`<li class="${k<i?'ok':k===i?'on':''}">${s[0]}</li>`).join('');
     if(i>=0&&i<STEPS.length)$('#cap').innerHTML=`<span class="n">${i+1}/${STEPS.length}</span><b>${STEPS[i][0]}.</b> ${STEPS[i][1]}`;};
   P.idle=()=>{P.stepUI(-1);$('#cap').innerHTML='<span class="n">Hazır</span>Malzemeler tezgâhta. <b>Başlat</b>’a basınca kitaptaki deney adım adım yapılır.';$('#kStart').disabled=false;$('#kPause').disabled=true;$('#kPause').textContent='⏸ Duraklat';};
-  P.hideEnd=()=>{$('#quizCard').classList.add('hidden');$('#repCard').classList.add('hidden');$('#kCalc').classList.remove('show');$('#dCalc').classList.remove('show');};
+  P.hideEnd=()=>{$('#quizCard').classList.add('hidden');$('#ksCard').classList.add('hidden');$('#repCard').classList.add('hidden');$('#kCalc').classList.remove('show');$('#dCalc').classList.remove('show');};
   P.reset=async()=>{T.abort=true;await new Promise(r=>setTimeout(r,40));T.abort=false;T.paused=false;P.hideEnd();
     // sahneyi baştan kur
     const svg=$('#svg');svg.innerHTML='';P.S=Scene(svg);Object.keys(P.ro).forEach(k=>P.set(k,'–'));if(P.graph)P.graph.clear();
     await (P.mode==='kitap'?cfg.kur(P,'kitap'):cfg.kur(P,'dene'));};
   P.calc=html=>{$('#kCalc').innerHTML=html;$('#kCalc').classList.add('show');};
   P.done=msg=>{$('#cap').innerHTML='<span class="n">Bitti</span>'+msg;$('#stepList').querySelectorAll('li').forEach(l=>l.className='ok');};
-  $('#kStart').onclick=async()=>{await P.reset();$('#kStart').disabled=true;$('#kPause').disabled=false;try{await cfg.calistir(P);if(cfg.rapor)report(P,cfg.rapor(P));if(cfg.sorular)quiz(cfg.sorular);}catch(e){if(e!=='abort')console.error(e);}$('#kStart').disabled=false;$('#kPause').disabled=true;};
+  $('#kStart').onclick=async()=>{await P.reset();$('#kStart').disabled=true;$('#kPause').disabled=false;try{await cfg.calistir(P);if(cfg.rapor)report(P,cfg.rapor(P));if(cfg.sorular)quiz(cfg.sorular);P.showKS();}catch(e){if(e!=='abort')console.error(e);}$('#kStart').disabled=false;$('#kPause').disabled=true;};
   $('#kPause').onclick=()=>{T.paused=!T.paused;$('#kPause').textContent=T.paused?'▶ Devam':'⏸ Duraklat';};
   $('#kReset').onclick=async()=>{await P.reset();P.idle();};
   document.querySelectorAll('.tab').forEach(t=>t.onclick=async()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));P.mode=t.dataset.m;
@@ -296,6 +298,10 @@ function page(cfg){
   else if(location.hash==='#gomulu'||window.self!==window.top){b.classList.add('gomulu');const ad=cfg.ad;const bildir=()=>{try{parent.postMessage({tur:'kk-lab-yukseklik',ad,h:document.documentElement.scrollHeight},'*')}catch{}};try{new ResizeObserver(bildir).observe(b)}catch{setInterval(bildir,800)};bildir();}
   $('#repCopy').onclick=async()=>{try{await navigator.clipboard.writeText(P.repText||'');$('#repMsg').textContent='Kopyalandı.';}catch{$('#repMsg').textContent='Kopyalanamadı; metni seçip kopyalayabilirsin.';}};
   (async()=>{await cfg.kur(P,'kitap');P.idle();})();
+  // kitabın soruları (kitapsorular.js)
+  P.showKS=()=>{if(P.ks)$('#ksCard').classList.remove('hidden');};
+  const ksMount=()=>{if(!window.KS)return;P.ks=window.KS.mount($('#ksCard'),cfg.ad,()=>{if(P.lastRows&&!$('#repCard').classList.contains('hidden'))report(P,P.lastRows);});};
+  if(window.KS)ksMount();else if(LKBASE){const s=document.createElement('script');s.src=LKBASE+'kitapsorular.js';s.onload=ksMount;document.head.appendChild(s);}
   window.LAB=P;return P;
 }
 
@@ -317,7 +323,7 @@ function dene(P){
   P.tip=t=>$('#dTip').textContent=t;
   P.record=row=>{const vi=$('#vInd').value;P.trials.push({cfg:P.cfgNow(),row});
     $('#dTable tbody').innerHTML=P.trials.map((t,i)=>`<tr><td>${i+1}</td><td>${P.label(vi,t.cfg[vi])}</td>${D.tablo.map(([k])=>`<td>${t.row[k]}</td>`).join('')}</tr>`).join('');
-    if(P.trials.length>=2&&D.sorular)quiz(D.sorular);
+    if(P.trials.length>=2&&D.sorular)quiz(D.sorular);if(P.trials.length>=2)P.showKS();
     report(P,[['Deneyin Adı',P.cfg.baslik+' (kendi tasarımım)'],['Bağımsız değişken',$('#vInd').selectedOptions[0].text],['Bağımlı değişken',$('#vDep').selectedOptions[0].text],
       ['Kontrol değişkenleri',$('#vbK').innerHTML.replace(/• /g,'')],['Ölçümler',P.trials.map((t,i)=>`${i+1}) ${$('#vInd').selectedOptions[0].text}: ${P.label(vi,t.cfg[vi])} → `+D.tablo.map(([k,h])=>`${h}: ${t.row[k]}`).join(', ')).join('<br>')],['Sonuç (sen yaz)','Tablodaki değerlere bakarak bağımsız değişken ile bağımlı değişken arasındaki ilişkiyi bir cümleyle yaz.']]);
     varsUI();};
@@ -337,7 +343,7 @@ function quiz(list){const box=$('#quiz');box.innerHTML='';
     it.o.forEach((o,k)=>{const b=hx('button',{text:String.fromCharCode(65+k)+') '+o},d);b.onclick=()=>{if(d.dataset.done)return;d.dataset.done=1;b.classList.add(k===it.a?'ok':'no');d.querySelectorAll('button')[it.a].classList.add('ok');
       hx('div',{class:'ex',text:(k===it.a?'✅ Doğru. ':'❌ Doğru cevap '+String.fromCharCode(65+it.a)+'. ')+it.e},d);};});});
   $('#quizCard').classList.remove('hidden');}
-function report(P,rows){$('#rep').innerHTML='<table>'+rows.map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('')+'</table>';$('#repCard').classList.remove('hidden');
+function report(P,rows){P.lastRows=rows;if(P.ks)rows=rows.concat(P.ks.rows());$('#rep').innerHTML='<table>'+rows.map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('')+'</table>';$('#repCard').classList.remove('hidden');
   P.repText=rows.map(([k,v])=>k+': '+String(v).replace(/<br>/g,'\n  ').replace(/<[^>]+>/g,'')).join('\n');}
 
 window.LK={page,CH,el,hx,fmt,tr,sleep,tween,fade,clock,T,quiz,report};
