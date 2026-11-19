@@ -7,6 +7,7 @@ import { konuDeneyleri, konudaFoyVar } from '../data/deneyler'
 import { SIMLER } from './sims'
 import DeneyFoyuKart from './DeneyFoyuKart'
 import DeneyKontrol from './DeneyKontrol'
+import LabPaketiKart from './LabPaketiKart'
 import VideoLesson from './VideoLesson'
 import './video.css'
 import {
@@ -17,8 +18,9 @@ import {
   konuId,
   sinifMufredati,
   type EtkinlikKitabi,
-  deneyFoyleri,
   type DeneyFoyu,
+  type LabPaketi,
+  deneyKayitlari,
   dersVideolari,
   type DersVideosu,
 } from '../data/content'
@@ -68,6 +70,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
   const deneyler = konuDeneyleri(grade, kod)
   const foyVar = konudaFoyVar(grade, kod)
   const [foyler, setFoyler] = useState<DeneyFoyu[] | null>(null)
+  const [lablar, setLablar] = useState<LabPaketi[]>([])
   const [video, setVideo] = useState<DersVideosu | null>(null)
 
   useEffect(() => {
@@ -85,6 +88,24 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
 
   useEffect(() => {
     let active = true
+    deneyKayitlari(grade, kod)
+      .then(list => {
+        if (!active) return
+        setFoyler(list.filter((x): x is DeneyFoyu => x?.tur !== 'lab'))
+        setLablar(list.filter((x): x is LabPaketi => x?.tur === 'lab' && !!(x as LabPaketi).deney))
+      })
+      .catch(() => {
+        if (!active) return
+        setFoyler([])
+        if (foyVar) setError('Deney föyleri yüklenemedi.')
+      })
+    return () => {
+      active = false
+    }
+  }, [grade, kod, foyVar])
+
+  useEffect(() => {
+    let active = true
     if (tab === 'anlatim' && detail === null && !detailError) {
       ayrintiliAnlatim(grade, kod).then(text => active && setDetail(text)).catch(() => active && setDetailError('Bu konu için ayrıntılı anlatım yüklenemedi. Kısa özeti kullanabilir veya yeniden deneyebilirsin.'))
     }
@@ -92,11 +113,6 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
       konuAnlatimi(grade, kod)
         .then(text => active && setHtml(text))
         .catch(() => active && setError('Konu anlatımı yüklenemedi.'))
-    }
-    if (tab === 'deney' && foyVar && foyler === null) {
-      deneyFoyleri(grade, kod)
-        .then(data => active && setFoyler(data))
-        .catch(() => active && setError('Deney föyleri yüklenemedi.'))
     }
     if (tab === 'etkinlik' && found?.konu.etkinlik && kit === null) {
       etkinlikler(grade, kod)
@@ -159,7 +175,7 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
           {([
             ['video', 'Video', !!video],
             ['anlatim', 'Anlatım', konu.anlatim],
-            ['deney', 'Deneyler', deneyler.length > 0 || foyVar],
+            ['deney', 'Deneyler', deneyler.length > 0 || foyVar || lablar.length > 0],
             ['test', `Testler (${konu.seviyeler.length + konu.baglam.length})`, true],
             ['etkinlik', `Etkinlikler (${konu.etkinlik})`, konu.etkinlik > 0],
           ] as const).map(([id, label, enabled]) =>
@@ -255,6 +271,14 @@ export default function TopicPage({ grade, kod, initialTab, initialTestLevel, in
               </section>
             ) : null
           })}
+          {lablar.map(lab => (
+            <section key={lab.ad} className="card">
+              <span className="badge">Laboratuvar</span>
+              <h3 className="card-title">🧪 {lab.baslik}</h3>
+              <LabPaketiKart deney={lab.deney} ad={lab.ad} />
+              <DeneyKontrol tur="lab" anahtar={`${grade}:${kod}:lab:${lab.ad}`} />
+            </section>
+          ))}
           {foyVar && foyler === null && <section className="card"><p className="muted">Deney föyü yükleniyor…</p></section>}
           {foyler?.map((foy, i) => (
             <section key={foy.ad} className="card">

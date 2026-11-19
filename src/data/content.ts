@@ -221,6 +221,7 @@ export function etkinlikler(grade: number, kod: string) {
 // ---------- Laboratuvar deneyi föyleri ----------
 
 export type DeneyFoyu = {
+  tur?: undefined
   ad: string
   amac: string
   sure?: string
@@ -232,8 +233,15 @@ export type DeneyFoyu = {
   ipucu?: string
 }
 
+// Yönetimden (Deney Atölyesi lab paketi) eklenen sanal lab; aynı dosyada tur:'lab' ile durur.
+export type LabPaketi = { tur: 'lab'; ad: string; baslik: string; guncel?: string; deney: Record<string, unknown> }
+
 export function deneyFoyleri(grade: number, kod: string): Promise<DeneyFoyu[]> {
-  return load<Record<string, DeneyFoyu[]>>(`${grade}/deney-foyleri.json`, 'json').then(data => data[kod] ?? [])
+  return deneyKayitlari(grade, kod).then(list => list.filter((x): x is DeneyFoyu => x?.tur !== 'lab'))
+}
+
+export function deneyKayitlari(grade: number, kod: string): Promise<(DeneyFoyu | LabPaketi)[]> {
+  return load<Record<string, (DeneyFoyu | LabPaketi)[]>>(`${grade}/deney-foyleri.json`, 'json').then(data => (Array.isArray(data[kod]) ? data[kod] : []))
 }
 
 // ---------- Yazılıya hazırlık ----------

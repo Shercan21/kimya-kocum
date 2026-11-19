@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Sanal Lab</title></head>
+<body><script src="labkit.js"></script><script src="aletler.js"></script><script src="deneyoynatici.js"></script><script>
+(()=>{let basladi=false;
+addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==parent||basladi)return;const d=e.data;
+  if(!d||d.tip!=='kimya-lab-deney'||!d.deney||!Array.isArray(d.deney.adimlar))return;basladi=true;
+  try{document.title='Sanal Lab · '+String(d.deney.baslik||'');DO.sayfa(d.deney);}catch(err){document.body.textContent='Deney açılamadı.';console.error(err);}});
+if(parent!==window)parent.postMessage({tip:'kimya-lab-hazir'},location.origin);
+else document.body.innerHTML='<p style="font:16px system-ui;padding:24px">Bu sayfa Kimya Koçum içinde açılır.</p>';
+})();
+</script></body></html>
