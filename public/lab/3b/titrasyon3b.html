@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sanal Lab 3B</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import { Lab3B } from './sayfa3b.js';
+const CA=0.12;const pH=v=>{const na=CA*20,nb=0.1*v,V=(20+v)/1000;if(Math.abs(na-nb)<1e-9)return 7;return na>nb?-Math.log10((na-nb)/1000/V):14+Math.log10((nb-na)/1000/V);};
+Lab3B({ad:'titrasyon3b',baslik:'Titrasyon: derişimi bilinmeyen HCl',alt:'0,1 M NaOH ile titre ederek asidin derişimini bul',
+ malzemeler:['Büret (50 mL)','Erlenmayer (250 mL)','Mezür (100 mL)','Spor ve kıskaç','Derişimi bilinmeyen HCl','0,1 M NaOH (standart)','Fenolftalein'],guvenlik:['Koruyucu gözlük','Eldiven','Asit/baz cilde değmesin'],
+ olcumler:[['v','Eklenen NaOH','mL'],['ph','pH',''],['renk','Renk','']],
+ adimlar:[['Mezürle 20 mL HCl ölç','Derişimi bilinmeyen HCl çözeltisinden 20 mL alınır.'],['HCl’yi erlene aktar','Mezürdeki asit erlenmayere boşaltılır.'],['2 damla fenolftalein ekle','Asidik ortamda indikatör renksizdir.'],['Büretten NaOH damlat','Musluk açılır, erlen çalkalanarak baz eklenir.'],['Dönüm noktasında dur ve hesapla','Harcanan NaOH hacmiyle M₁·V₁ = M₂·V₂ uygulanır.']],
+ sonuc:'Dönüm noktasında 24 mL 0,1 M NaOH harcandı. M(HCl)·20 = 0,1·24 → M(HCl) = 0,12 M. Kalıcı pembe renk, asidin tamamının nötrleştiğini gösterir.',
+ sahne:{hedef:[4,16,0],uzak:92},
+ async kur(K){const A=K.A;
+  const spor=A.spor(-14,-4,{kolY:34,kolBoy:16}); const buret=A.buret(2,-4,{y0:28,etiket:'NaOH'});
+  const erlen=A.erlen(2,-4,{etiket:'HCl + indikatör'}); const mezur=A.mezur(-26,12,{etiket:'Mezür'});
+  A.sise(24,-6,{etiket:'HCl',renk:'#d9e7f5',sivi:'? M'}); A.sise(34,-10,{etiket:'NaOH',renk:'#7c3a12',sivi:'0,1 M'});
+  const fen=A.damlalikSise(40,8,{etiket:'fenolftalein'}); A.gozluk(-36,18);
+  return {buret,erlen,mezur,fen};},
+ ilkOlcum(M,P){P.olc('v',0);P.olc('ph','–');P.olc('renk','—');},
+ async calistir(K,M,P){const T=K.THREE,{erlen,mezur,buret}=M;
+  P.adim(0); await K.tween(2.2,t=>mezur.set(20*t,'#cfe3f8')); await K.bekle(.4);
+  P.adim(1); const g=mezur.g, bas=g.position.clone(); const e=erlen.g.position;
+  await K.tween(1.3,t=>{g.position.set(K.lerp(bas.x,e.x+23,t),K.lerp(0,17.5,t)+Math.sin(t*Math.PI)*5,K.lerp(bas.z,e.z,t));});
+  await K.tween(.8,t=>{g.rotation.z=1.75*t;});
+  const ak=K.akis('#cfe3f8'); const ag=()=>g.localToWorld(new T.Vector3(0,22,0));
+  await K.tween(2.4,t=>{mezur.set(20*(1-t));erlen.set(20*t,'#cfe3f8');const a=ag();ak.ciz(a,new T.Vector3(e.x,Math.max(erlen.seviye()+.2,1),e.z),.22*(1-t*.5)+.08);}); ak.sil();
+  await K.tween(.7,t=>{g.rotation.z=1.75*(1-t);}); await K.tween(1.2,t=>{g.position.set(K.lerp(e.x+23,bas.x,t),K.lerp(17.5,0,t)+Math.sin(t*Math.PI)*4,K.lerp(e.z,bas.z,t));});
+  P.olc('ph',pH(0)); P.olc('renk','renksiz');
+  P.adim(2); const d=K.A.damlalik(40,12,8); await K.tasi(d,new T.Vector3(e.x,16,e.z),1.2,6);
+  for(let i=0;i<2;i++){await K.damla(new T.Vector3(e.x,16,e.z),erlen.seviye(),'#f5f5f4');await K.bekle(.35);}
+  await K.tasi(d,new T.Vector3(40,12,8),1,6); K.sc.remove(d);
+  P.adim(3); buret.ac(true); let v=0; const pembe=new T.Color('#e0367f'),beyaz=new T.Color('#cfe3f8');
+  while(v<24.05){const yavas=v>21.5; const adim=yavas?.25:.5; await K.damla(buret.uc.clone(),erlen.seviye(),'#9cc3ec'); v=+(v+adim).toFixed(2); buret.set(50-v); erlen.set(20+v);
+   const p=pH(v); P.olc('v',v); P.olc('ph',p); const f=Math.max(0,Math.min(1,(p-8.2)/1.4)); erlen.renkle(beyaz.clone().lerp(pembe,f),.62+.2*f); P.olc('renk',f>0.1?'pembe':'renksiz');
+   erlen.g.rotation.z=Math.sin(K.zaman*9)*0.03; await K.bekle(yavas?.18:.05);}
+  erlen.g.rotation.z=0; buret.ac(false);
+  P.adim(4); await K.kamera([e.x+20,30,e.z+52],[e.x,12,e.z],1.6); await K.bekle(1.2);}
+});
+</script></body></html>

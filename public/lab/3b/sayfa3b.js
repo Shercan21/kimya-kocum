@@ -48,6 +48,7 @@ export async function Lab3B(L) {
   <div class="sonuc" id="sonuc"></div>
 </section><aside>
   ${L.olcumler?.length ? `<div class="kart"><h3>Ölçümler</h3><div class="olc" id="olc">${L.olcumler.map(([id, ad, b]) => `<span><b>${ad}</b><i id="o_${id}">–</i>${b ? ' ' + b : ''}</span>`).join('')}</div></div>` : ''}
+  <div class="kart" id="dinOlc" style="display:none"><h3>Ölçümler</h3><div class="olc"></div></div>
   <div class="kart"><h3>Adımlar</h3><ol class="adimlar" id="adimlar">${L.adimlar.map(([b, a]) => `<li>${b}<small>${a || ''}</small></li>`).join('')}</ol></div>
   <div class="kart"><h3>Malzemeler</h3><div class="cips">${(L.malzemeler || []).map(m => `<span>${m}</span>`).join('')}</div>
   ${L.guvenlik?.length ? `<h3 style="margin-top:10px">Güvenlik</h3><div class="cips uyari">${L.guvenlik.map(m => `<span>⚠ ${m}</span>`).join('')}</div>` : ''}</div>
@@ -60,8 +61,11 @@ export async function Lab3B(L) {
     olc(id, v) { const e = $('#o_' + id); if (e) e.textContent = typeof v === 'number' ? v.toFixed(1).replace('.', ',') : v; },
     bitti(m) { document.querySelectorAll('#adimlar li').forEach(li => li.className = 'ok'); const s = $('#sonuc'); s.innerHTML = '✅ ' + (m || L.sonuc || 'Deney tamamlandı.'); s.style.display = 'block'; $('#altyazi').innerHTML = '<b>Deney tamamlandı.</b> Sahneyi döndürüp inceleyebilirsin.'; durum = 'bitti'; $('#basla').textContent = '▶ Yeniden'; },
   };
+  const dinOlc = $('#dinOlc');
+  document.addEventListener('lab-olcum', e => { const { id, ad, birim, v } = e.detail; let s = dinOlc.querySelector('[data-id="' + id + '"]'); if (!s) { s = document.createElement('span'); s.dataset.id = id; s.innerHTML = '<b></b><i></i>'; dinOlc.querySelector('.olc').append(s); } s.querySelector('b').textContent = ad; s.querySelector('i').textContent = v + (birim ? ' ' + birim : ''); dinOlc.style.display = ''; });
+  document.addEventListener('lab-olcum-ad', e => { const s = dinOlc.querySelector('[data-id="' + e.detail.id + '"]'); if (s) s.querySelector('b').textContent = e.detail.ad; });
   async function kur() {
-    oturum++; if (L.sifirla) await L.sifirla(); if (K) K.yok(); kutu.querySelectorAll('.yuk,.ipucu').forEach(e => e.remove());
+    oturum++; if (L.sifirla) await L.sifirla(); if (K) K.yok(); dinOlc.querySelector('.olc').innerHTML = ''; dinOlc.style.display = 'none'; kutu.querySelectorAll('.yuk,.ipucu').forEach(e => e.remove());
     const y = document.createElement('div'); y.className = 'yuk'; y.textContent = '3B laboratuvar hazırlanıyor…'; kutu.append(y);
     K = await Sahne(kutu, L.sahne || {}); y.remove(); K.hiz = +document.querySelector('.hiz .on').dataset.h;
     M = await L.kur(K); (L.olcumler || []).forEach(([id]) => P.olc(id, '–')); if (L.ilkOlcum) L.ilkOlcum(M, P);

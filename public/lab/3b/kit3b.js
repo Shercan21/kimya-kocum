@@ -232,8 +232,8 @@ export async function Sahne(kutu, o = {}) {
     const boru = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.9, 10, 24), M.metal); boru.position.y = 6; g.add(boru);
     const ayar = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1.2, 24), M.gri); ayar.position.y = 2.5; g.add(ayar);
     const hortum = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(0.8, 2.3, 0), new THREE.Vector3(4, 1.5, 1), new THREE.Vector3(8, 0.6, 4), new THREE.Vector3(14, 0.6, 2)]), 24, 0.45, 10), new THREE.MeshStandardMaterial({ color: '#ea580c', roughness: 0.6 })); g.add(hortum);
-    const alevM = new THREE.MeshBasicMaterial({ color: '#60a5fa', transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false });
-    const alevIcM = new THREE.MeshBasicMaterial({ color: '#93c5fd', transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false });
+    const alevM = new THREE.MeshBasicMaterial({ color: '#3b82f6', transparent: true, opacity: 0.55, depthWrite: false });
+    const alevIcM = new THREE.MeshBasicMaterial({ color: '#60a5fa', transparent: true, opacity: 0.8, depthWrite: false });
     const alev = new THREE.Group(); const dis = new THREE.Mesh(new THREE.ConeGeometry(0.9, 4.5, 20, 1, true), alevM); dis.position.y = 2.25; const ic2 = new THREE.Mesh(new THREE.ConeGeometry(0.5, 2, 16, 1, true), alevIcM); ic2.position.y = 1; alev.add(dis, ic2); alev.position.y = 11; alev.visible = false; g.add(alev);
     const isik = new THREE.PointLight('#7fb2ff', 0, 30); isik.position.y = 13; g.add(isik);
     K.tick(() => { if (alev.visible) { const s = 1 + Math.sin(K.zaman * 30) * 0.06 + Math.random() * 0.04; alev.scale.set(1, s, 1); } });
