@@ -1,0 +1,2 @@
+// 3B görünümü olan hazır lablar (public/lab/3b/deneyler/<ad>.json)
+export const LAB_3B = new Set<string>(["akiskanlik", "akiskanlik2", "asitbaz", "buharbasinci", "cokelme", "cozunurluk", "cozunurluk2", "damla", "degisim", "evdeph", "folyo", "graham", "gumusagaci", "hiz_derisim", "hiz_hal", "hiz_katalizor", "hiz_madde", "hiz_sicaklik", "hiz_tum", "hiz_yuzey", "isidegisim", "kaynama", "kaynama2", "kcc", "koligatif", "kromat", "kuvvet", "nano", "nano2", "notrallesme", "olcek", "redoks", "urunph", "yakit", "yesilh2", "yuzeygerilim"])

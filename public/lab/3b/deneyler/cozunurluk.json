@@ -1,0 +1,1536 @@
+{
+ "ad": "cozunurluk",
+ "baslik": "Katıların 100 g Sudaki Çözünürlüğü",
+ "alt": "10. sınıf · 2.1.4 Çözünürlük · Belirli sıcaklıkta 100 g suda çözünen en fazla madde miktarı",
+ "amac": "",
+ "sonuc": "20 °C’ta 100 g suda NaCl ≈ 35,9 g, KNO₃ ≈ 31,6 g, KBr ≈ 65,3 g çözündü: çözünürlük maddeye özgüdür.",
+ "W": 400,
+ "malzemeler": [
+  "Hassas terazi",
+  "Beherglas",
+  "100 g (100 mL) saf su",
+  "Baget",
+  "Spatül",
+  "Termometre",
+  "Isıtıcı",
+  "NaCl, KNO₃, KBr"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🔥 Sıcak su: dikkat",
+  "☣ KNO₃ yükseltgendir"
+ ],
+ "aletler": [
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     170,
+     556,
+     180
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     170,
+     520,
+     120,
+     140,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     205,
+     250,
+     250,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balance",
+    "args": [
+     330,
+     524
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      "0,00 g"
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Değişkenler",
+   "aciklama": "Bağımsız: katının cinsi · Bağımlı: 100 g suda çözünen en fazla kütle · Kontrol: sıcaklık (20 °C), su kütlesi, karıştırma.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.13
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "100 g su, 20 °C",
+   "aciklama": "Behere 100 g saf su koy ve terazide dara al.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.0
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "NaCl ekle",
+   "aciklama": "Spatülle azar azar NaCl ekle, her eklemede karıştır. Dipte çözünmeyen katı kalınca dur: ≈ 35,9 g çözündü (doymuş çözelti).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      112.565,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 4.61,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "39,4 g"
+     ],
+     "sure": 4.45,
+     "ilk": [
+      "1,6 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.16
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.299,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.16
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.998,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.35
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.697,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.55
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.397,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.74
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.096,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.795,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.494,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.193,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.892,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.7
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.591,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.9
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.29,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.1
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.99,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.29
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.689,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.49
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.388,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.68
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.087,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.88
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.786,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.07
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.485,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.184,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.884,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.62
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.583,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.83
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.282,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.02
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.016,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 2,
+     "aralik": 198,
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.62
+    }
+   ]
+  },
+  {
+   "baslik": "KNO₃ ve KBr",
+   "aciklama": "Aynı işlemi KNO₃ (≈ 31,6 g) ve KBr (≈ 65,3 g) ile tekrarla.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h1",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"444\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h2",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"384.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"444\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"384.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      111.06,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 4.76,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "34,7 g"
+     ],
+     "sure": 4.56,
+     "ilk": [
+      "1,4 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.335,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.069,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.804,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.538,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.273,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.008,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.742,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.477,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.212,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.946,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.01
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.681,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.415,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.41
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.15,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.62
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.885,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.82
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.619,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.02
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.354,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.18
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.089,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.823,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.56
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.558,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.76
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.292,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.95
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.027,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.17
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.805,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 2,
+     "aralik": 208,
+     "birlikte": true,
+     "gecikme": 4.36
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.76
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.66
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      122.855,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 4.73,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "71,1 g"
+     ],
+     "sure": 4.53,
+     "ilk": [
+      "3,0 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.056,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.513,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.969,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.426,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.882,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.01
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.339,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.795,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.252,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.708,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.165,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.621,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.078,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      459.534,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      458.991,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.75
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      458.447,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      457.904,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.15
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      457.36,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      456.817,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.55
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      456.273,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.74
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      455.73,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      455.186,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      454.643,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      454.624,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.73
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Belirli sıcaklık ve basınçta 100 g suda çözünebilen en fazla madde miktarı çözünürlüktür. Farklı maddelerin çözünürlüğü farklıdır: çözünürlük ayırt edici bir özelliktir.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h7",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"444\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h8",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h9",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"384.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h7",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h8",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h9",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Doymuş çözelti nedir?",
+   "o": [
+    "Çözebileceği en fazla maddeyi çözmüş çözelti",
+    "Renkli çözelti",
+    "Sıcak çözelti",
+    "Seyreltik çözelti"
+   ],
+   "a": 0,
+   "e": "Daha fazla çözünen eklenirse dipte katı kalır."
+  },
+  {
+   "q": "20 °C’ta 100 g suya 50 g KNO₃ eklenirse ne olur?",
+   "o": [
+    "Tamamı çözünür",
+    "≈ 31,6 g çözünür, ≈ 18,4 g dipte kalır",
+    "Hiç çözünmez",
+    "Su donar"
+   ],
+   "a": 1,
+   "e": "KNO₃’ün 20 °C’taki çözünürlüğü 31,6 g/100 g su."
+  },
+  {
+   "q": "Hangisinin çözünürlüğü sıcaklık artınca azalır?",
+   "o": [
+    "KNO₃",
+    "KBr",
+    "Ce₂(SO₄)₃",
+    "Şeker"
+   ],
+   "a": 2,
+   "e": "Çözünmesi ekzotermik olan tuzların çözünürlüğü sıcaklıkla azalabilir."
+  }
+ ]
+}

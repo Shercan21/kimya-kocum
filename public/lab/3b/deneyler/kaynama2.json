@@ -1,0 +1,661 @@
+{
+ "ad": "kaynama2",
+ "baslik": "Hangi Sıvının Kaynama Sıcaklığı En Yüksek?",
+ "alt": "9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Moleküller arası etkileşimlerin kaynama sıcaklığına etkisi",
+ "amac": "",
+ "sonuc": "Kaynama sıcaklığı su > etanol > aseton sırasındadır; bu sıra moleküller arası etkileşimlerin gücüyle uyumludur.",
+ "W": 400,
+ "malzemeler": [
+  "3 adet 250 mL erlenmayer",
+  "150 mL saf su",
+  "150 mL etanol",
+  "150 mL aseton",
+  "3 termometre",
+  "Elektrikli ısıtıcı",
+  "Spor ve kıskaç"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🔥 Etanol ve aseton yanıcıdır: açık alev yok",
+  "🌬 Çeker ocak / havalandırma",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     70,
+     548,
+     "Saf su",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     200,
+     548,
+     "Etanol",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     330,
+     548,
+     "Aseton",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     200,
+     524,
+     380
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     70,
+     488,
+     250,
+     0.78,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     200,
+     488,
+     250,
+     0.78,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     330,
+     488,
+     250,
+     0.78,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     76,
+     250,
+     215,
+     0,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     206,
+     250,
+     215,
+     0,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     336,
+     250,
+     215,
+     0,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Sıvıları erlenlere koy",
+   "aciklama": "150 mL saf su, 150 mL etanol ve 150 mL asetonu üç ayrı erlenmayere doldur ve ısıtıcının üzerine yerleştir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.82,
+     "ilk": [
+      0.075,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(225,235,250,.8)"
+     ],
+     "sure": 0.85,
+     "ilk": [
+      0,
+      "rgba(225,235,250,.8)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.82
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(235,240,250,.78)"
+     ],
+     "sure": 0.8,
+     "ilk": [
+      0,
+      "rgba(235,240,250,.78)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.68
+    }
+   ]
+  },
+  {
+   "baslik": "Termometreleri yerleştir",
+   "aciklama": "Her erlenmayere kıskaçla sabitlenmiş bir termometre yerleştir. Başlangıç sıcaklığı 20 °C.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.5
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Isıt, 3 dakikada bir ölç",
+   "aciklama": "Isıtıcıyı çalıştır ve her sıvının sıcaklığını üçer dakika arayla not et.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      44.871
+     ],
+     "sure": 3.92,
+     "ilk": [
+      20
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      52.523
+     ],
+     "sure": 3.92,
+     "ilk": [
+      20
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      56
+     ],
+     "sure": 3.92,
+     "ilk": [
+      20
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.93
+    }
+   ]
+  },
+  {
+   "baslik": "Aseton kaynadı",
+   "aciklama": "Aseton yaklaşık 56 °C’ta kaynamaya başladı; sıcaklığı sabit kaldı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      64.75
+     ],
+     "sure": 3.07,
+     "ilk": [
+      45.294
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      77.979
+     ],
+     "sure": 3.0,
+     "ilk": [
+      53.077
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      56
+     ],
+     "sure": 3.0,
+     "ilk": [
+      56
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 3.0,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Etanol kaynadı",
+   "aciklama": "Etanol yaklaşık 78 °C’ta kaynadı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      78
+     ],
+     "sure": 5.56,
+     "ilk": [
+      78
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 5.56,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      56
+     ],
+     "sure": 5.56,
+     "ilk": [
+      56
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 5.56,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 5.56,
+     "ilk": [
+      65.169
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Su kaynadı",
+   "aciklama": "Su en son, 100 °C’ta kaynadı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 3.38,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      78
+     ],
+     "sure": 3.38,
+     "ilk": [
+      78
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 3.38,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      56
+     ],
+     "sure": 3.38,
+     "ilk": [
+      56
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 3.38,
+     "ilk": [
+      0.7
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 3.31,
+     "ilk": [
+      100
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.6
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Kaynama sıcaklığı: su > etanol > aseton. Moleküller arası etkileşimler güçlendikçe kaynama sıcaklığı artar. Suda her molekül çok sayıda hidrojen bağı yapar; asetonda hidrojen bağı yoktur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.1
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0.1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0.1
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Asetonun en düşük sıcaklıkta kaynamasının nedeni nedir?",
+   "o": [
+    "Molekülleri arasında hidrojen bağı olmaması",
+    "Yoğunluğunun büyük olması",
+    "Renksiz olması",
+    "Kütlesinin fazla olması"
+   ],
+   "a": 0,
+   "e": "Asetonda O’ya bağlı H yoktur; hidrojen bağı yapamaz, etkileşimleri zayıftır."
+  },
+  {
+   "q": "Kaynama sırasında sıvının sıcaklığı nasıl değişir?",
+   "o": [
+    "Artmaya devam eder",
+    "Sabit kalır",
+    "Azalır",
+    "Sıfıra iner"
+   ],
+   "a": 1,
+   "e": "Verilen ısı moleküller arası etkileşimleri koparmak için harcanır."
+  },
+  {
+   "q": "Hacim iki katına çıkarılırsa suyun kaynama sıcaklığı?",
+   "o": [
+    "İki katına çıkar",
+    "Değişmez; sadece kaynamaya ulaşma süresi uzar",
+    "Yarıya iner",
+    "50 °C olur"
+   ],
+   "a": 1,
+   "e": "Kaynama sıcaklığı maddenin ayırt edici özelliğidir; miktara bağlı değildir."
+  }
+ ]
+}

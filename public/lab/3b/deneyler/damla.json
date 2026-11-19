@@ -1,0 +1,1638 @@
+{
+ "ad": "damla",
+ "baslik": "Damlalar Büyükse Göl Kısa Sürede Oluşur",
+ "alt": "9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Damlaların boyutu ve şeklinden yüzey gerilimini tahmin etme",
+ "amac": "",
+ "sonuc": "Büyük damla veren (az damla) sıvıların yüzey gerilimi büyüktür; su yağlı kâğıtta boncuklanır, camda yayılır.",
+ "W": 400,
+ "malzemeler": [
+  "2 büret",
+  "2 spor ve kıskaç",
+  "2 beherglas",
+  "Gliserin (10 mL)",
+  "Zeytinyağı (10 mL)",
+  "Su (10 mL)",
+  "Mısır şurubu (10 mL)",
+  "Pipet",
+  "Kronometre",
+  "Mezür",
+  "Yağlı kâğıt, cam, pleksi, plastik ve metal yüzeyler"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧪 Cam malzeme",
+  "🔥 Etil alkol yanıcıdır",
+  "🧽 Dökülen yağı hemen sil"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"bu200001\"><rect x=\"193.5\" y=\"44\" width=\"13\" height=\"262\"></rect></clipPath><clipPath id=\"cl200002\"><path d=\"M151 430 L155 434 L155 514 Q155 520 161 520 L239 520 Q245 520 245 514 L245 430 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stand",
+    "args": [
+     101,
+     240,
+     190
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "burette",
+    "args": [
+     200,
+     38,
+     270,
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     90,
+     90,
+     100,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">0</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g><rect x=\"240\" y=\"30\" width=\"150\" height=\"110\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"315\" y=\"46\" font-size=\"8.5\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\"></text><rect x=\"252\" y=\"110\" width=\"126\" height=\"10\" fill=\"#cbd5e1\"></rect><path d=\"\" fill=\"rgba(96,165,250,.8)\"></path><text x=\"315\" y=\"134\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Değişkenler",
+   "aciklama": "Bağımsız: sıvının cinsi · Bağımlı: 1 mL’deki damla sayısı (damla boyutu) · Kontrol: büret ucu, damlatma hızı, sıcaklık.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.12
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Büretleri doldur",
+   "aciklama": "Büretleri sporlara tuttur, 10’ar mL sıvıyla doldur.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.03
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Damlaları say",
+   "aciklama": "Her sıvıdan 1 mL’yi damla damla akıt ve damla sayısını kaydet: su 20, gliserin 29, zeytinyağı 41, mısır şurubu 26.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      1
+     ],
+     "sure": 13.92,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(230,200,140,.9)"
+     ],
+     "sure": 13.92,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.676,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.15
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.352,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.28
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.028,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.704,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.38,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.056,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.732,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.93
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.408,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.084,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.76,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.436,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.112,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.788,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.464,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.14,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.816,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.492,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.25
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.168,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.844,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.53
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 2.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.777,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.33,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.883,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.436,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.989,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.542,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.095,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.648,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.201,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.754,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.308,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.861,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.414,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.25
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.967,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.743,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.65
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.47,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 6.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.842,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.526,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.45
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.21,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.58
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.894,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.72
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.578,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.261,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.98
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.945,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.11
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.629,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.25
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.313,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.38
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.997,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.681,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.65
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.365,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.049,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.733,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.07
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.417,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.1,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.784,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.468,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.61
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.152,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.74
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.836,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.87
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.678,
+      "rgba(214,190,60,.8)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 9.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 10.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 10.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.751,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 10.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.502,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 10.72
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.252,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 10.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.003,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 10.98
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.754,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.505,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.255,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.006,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.757,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.65
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.508,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.258,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 11.91
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.009,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.76,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.18
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.511,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.262,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.012,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.763,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.71
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.514,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.265,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 12.98
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.015,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.766,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.24
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.517,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.268,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.018,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.769,
+      "rgba(230,200,140,.9)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 13.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 13.92
+    }
+   ]
+  },
+  {
+   "baslik": "Damla şekilleri",
+   "aciklama": "Damlaları yağlı kâğıt, cam, pleksi, plastik ve metal yüzeylere damlat; şekillerini karşılaştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">26</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g><rect x=\"240\" y=\"30\" width=\"150\" height=\"110\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"315\" y=\"46\" font-size=\"8.5\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">Mısır şurubu damlası · cam</text><rect x=\"252\" y=\"110\" width=\"126\" height=\"10\" fill=\"#e0f2fe\"></rect><path d=\"M281.1405476914938 110 A67.71890461701246 67.71890461701246 0 0 1 348.8594523085062 110 Z\" fill=\"rgba(230,200,140,.9)\"></path><text x=\"315\" y=\"134\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">temas açısı ≈ 30° · yayılır</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"505.8\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"480\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"456.6\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"435.6\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h7",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"417\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h8",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"400.8\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h9",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"387\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h10",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"375.6\" r=\"2.4\" fill=\"rgba(230,200,140,.9)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      3.19
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Damla sayısı az (damla büyük) olan sıvıların yüzey gerilimi büyüktür. Yüzey gerilimi kohezyon kuvvetlerinden kaynaklanır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g><rect x=\"240\" y=\"30\" width=\"150\" height=\"110\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"315\" y=\"46\" font-size=\"8.5\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">Su damlası · metal</text><rect x=\"252\" y=\"110\" width=\"126\" height=\"10\" fill=\"#9ca3af\"></rect><path d=\"M294.7153769719916 110 A21.586444949459583 21.586444949459583 0 0 1 335.2846230280084 110 Z\" fill=\"rgba(196,226,255,.85)\"></path><text x=\"315\" y=\"134\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">temas açısı ≈ 70° · yarım küre</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h7",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h8",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h9",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h10",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "1 mL’de en az damla veren sıvının yüzey gerilimi için ne söylenebilir?",
+   "o": [
+    "En küçüktür",
+    "Damlaları büyüktür, yüzey gerilimi büyüktür",
+    "Sıfırdır",
+    "Yoğunluğu sıfırdır"
+   ],
+   "a": 1,
+   "e": "Büyük damla oluşturabilen sıvının yüzey gerilimi büyüktür."
+  },
+  {
+   "q": "Su yağlı kâğıtta neden boncuklanır?",
+   "o": [
+    "Kohezyon > adezyon",
+    "Adezyon > kohezyon",
+    "Su yağda çözünür",
+    "Kâğıt ıslaktır"
+   ],
+   "a": 0,
+   "e": "Su molekülleri birbirini, yağlı yüzeyden daha güçlü çeker."
+  },
+  {
+   "q": "Deterjan suyun yüzey gerilimini nasıl etkiler?",
+   "o": [
+    "Artırır",
+    "Azaltır",
+    "Değiştirmez",
+    "Sıfırlar"
+   ],
+   "a": 1,
+   "e": "Yüzey aktif moleküller yüzeye dizilip su molekülleri arasındaki çekimi azaltır."
+  }
+ ]
+}

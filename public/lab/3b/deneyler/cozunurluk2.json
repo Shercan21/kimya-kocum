@@ -1,0 +1,2092 @@
+{
+ "ad": "cozunurluk2",
+ "baslik": "Çözünürlüğe Etki Eden Faktörler (MiniLAB)",
+ "alt": "10. sınıf · 2.1.5 Çözünürlüğe Etki Eden Faktörler",
+ "amac": "",
+ "sonuc": "KNO₃’ün çözünürlüğü sıcaklıkla arttı, Ce₂(SO₄)₃’ünki azaldı.",
+ "W": 400,
+ "malzemeler": [
+  "Hassas terazi",
+  "Beherglas",
+  "100 g (100 mL) saf su",
+  "Baget",
+  "Spatül",
+  "Termometre",
+  "Isıtıcı",
+  "NaCl, KNO₃, KBr, Ce₂(SO₄)₃"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🔥 Sıcak su: dikkat",
+  "☣ KNO₃ yükseltgendir"
+ ],
+ "aletler": [
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     170,
+     556,
+     180
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     170,
+     520,
+     120,
+     140,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     205,
+     250,
+     250,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balance",
+    "args": [
+     330,
+     524
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      "0,00 g"
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Araştırma sorusu",
+   "aciklama": "Soru: “Sıcaklık katıların çözünürlüğünü nasıl etkiler?” Bağımsız: sıcaklık · Bağımlı: 100 g suda çözünen en fazla kütle · Kontrol: su kütlesi, karıştırma süresi, madde cinsi.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.13
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "KNO₃, 20 °C",
+   "aciklama": "100 g suya azar azar KNO₃ ekle ve karıştır; çözünme durunca eklenen kütleyi kaydet: ≈ 31,6 g.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      111.06,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 3.2,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "34,7 g"
+     ],
+     "sure": 3.06,
+     "ilk": [
+      "1,4 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.335,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.069,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.804,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.538,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.273,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.008,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.742,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.477,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.212,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.946,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.35
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.681,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.415,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.61
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.15,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.74
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.885,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.87
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.619,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.354,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.089,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.823,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.558,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.292,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.027,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.8
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.805,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 2,
+     "aralik": 133,
+     "birlikte": true,
+     "gecikme": 2.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.2
+    }
+   ]
+  },
+  {
+   "baslik": "KNO₃, 60 °C",
+   "aciklama": "Suyu 60 °C’a ısıt ve tekrarla: ≈ 110 g. Sıcaklık artınca KNO₃’ün çözünürlüğü çok arttı.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h1",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"456\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h2",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"432.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"393\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"376.8\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"363\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      138.5,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 3.21,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0.7
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "119,4 g"
+     ],
+     "sure": 3.07,
+     "ilk": [
+      "5,0 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.688,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.775,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      463.863,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.95,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      462.038,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      461.126,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      460.213,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      459.301,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.08
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      458.388,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      457.476,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.35
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      456.563,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.48
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      455.651,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.62
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      454.739,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.75
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      453.826,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.88
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      452.914,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.01
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      452.001,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      451.089,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.28
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      450.177,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.41
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      449.264,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      448.352,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      447.439,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      446.527,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.95
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      446.426,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.08
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.21
+    }
+   ]
+  },
+  {
+   "baslik": "Ce₂(SO₄)₃, 20 °C ve 60 °C",
+   "aciklama": "Aynı deneyi Ce₂(SO₄)₃ ile yap: 20 °C’ta ≈ 10 g, 60 °C’ta ≈ 3,9 g. Bu tuzun çözünürlüğü sıcaklıkla azaldı.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h7",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"432.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h8",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h9",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"393\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h10",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"376.8\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h11",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"363\" r=\"2.4\" fill=\"rgba(255,255,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h12",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"444\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h13",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"421.8\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h14",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"402\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h15",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"376.8\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h16",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"363\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h7",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h8",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h9",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h10",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h11",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      101.365,
+      "rgba(240,236,200,.85)"
+     ],
+     "sure": 6.99,
+     "ilk": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "11,4 g"
+     ],
+     "sure": 3.12,
+     "ilk": [
+      "0,5 g"
+     ],
+     "birlikte": true,
+     "gecikme": 0.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.513,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.426,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.339,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.252,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.164,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.077,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.99,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.903,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.816,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.729,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.642,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.555,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.468,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.38,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.293,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.206,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.119,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.032,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.945,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.858,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.771,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      464.766,
+      "#fde68a"
+     ],
+     "tekrar": 2,
+     "aralik": 130,
+     "birlikte": true,
+     "gecikme": 2.98
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0.7
+     ],
+     "sure": 0.56,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 3.25
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.6,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.81
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      "4,8 g"
+     ],
+     "sure": 3.05,
+     "ilk": [
+      "0,2 g"
+     ],
+     "birlikte": true,
+     "gecikme": 3.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.563,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.526,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.07
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.49,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.2
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.453,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.416,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.379,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.343,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.306,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.269,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.232,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.196,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.159,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.122,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.085,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.048,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      466.012,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.975,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.07
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.938,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.901,
+      "#fde68a"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      170,
+      330,
+      465.885,
+      "#fde68a"
+     ],
+     "tekrar": 4,
+     "aralik": 131,
+     "birlikte": true,
+     "gecikme": 6.47
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.99
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Çözünmesi endotermik olan katıların çözünürlüğü sıcaklıkla artar, ekzotermik olanlarınki azalır. Çözünürlük ayrıca madde ve çözücü cinsine, gazlarda basınca bağlıdır.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h17",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"456\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h18",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"432.6\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h19",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"411.6\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h20",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"393\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h21",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"376.8\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h22",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"170\" cy=\"363\" r=\"2.4\" fill=\"#fde68a\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h12",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h13",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h14",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h15",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h16",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h17",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h18",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h19",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h20",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h21",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h22",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Doymuş çözelti nedir?",
+   "o": [
+    "Çözebileceği en fazla maddeyi çözmüş çözelti",
+    "Renkli çözelti",
+    "Sıcak çözelti",
+    "Seyreltik çözelti"
+   ],
+   "a": 0,
+   "e": "Daha fazla çözünen eklenirse dipte katı kalır."
+  },
+  {
+   "q": "20 °C’ta 100 g suya 50 g KNO₃ eklenirse ne olur?",
+   "o": [
+    "Tamamı çözünür",
+    "≈ 31,6 g çözünür, ≈ 18,4 g dipte kalır",
+    "Hiç çözünmez",
+    "Su donar"
+   ],
+   "a": 1,
+   "e": "KNO₃’ün 20 °C’taki çözünürlüğü 31,6 g/100 g su."
+  },
+  {
+   "q": "Hangisinin çözünürlüğü sıcaklık artınca azalır?",
+   "o": [
+    "KNO₃",
+    "KBr",
+    "Ce₂(SO₄)₃",
+    "Şeker"
+   ],
+   "a": 2,
+   "e": "Çözünmesi ekzotermik olan tuzların çözünürlüğü sıcaklıkla azalabilir."
+  }
+ ]
+}

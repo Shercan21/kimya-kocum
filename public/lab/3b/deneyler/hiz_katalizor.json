@@ -1,0 +1,375 @@
+{
+ "ad": "hiz_katalizor",
+ "baslik": "Katalizör ve Tepkime Hızı",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.16",
+ "amac": "",
+ "sonuc": "MnO₂ eklenen tüpte H₂O₂ hızla bozundu ve kor çubuk alevlendi: katalizör tepkimeyi hızlandırdı ve kendisi harcanmadı.",
+ "W": 400,
+ "malzemeler": [
+  "200 mL beherglas",
+  "Tahta çubuk",
+  "2 deney tüpü",
+  "Hidrojen peroksit (H₂O₂) çözeltisi",
+  "Mangan(IV) oksit (MnO₂) katısı",
+  "Kibrit"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ H₂O₂ cildi tahriş eder",
+  "🔥 Kor çubuk: dikkat"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M119 350 L119 489 A11 11 0 0 0 141 489 L141 350 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M269 350 L269 489 A11 11 0 0 0 291 489 L291 350 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     130,
+     330,
+     "H₂O₂",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     280,
+     330,
+     "H₂O₂ + MnO₂",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     90,
+     320,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     130,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     280,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"128\" y=\"250\" width=\"4\" height=\"90\" fill=\"#b45309\"></rect><circle cx=\"130\" cy=\"342\" r=\"4\" fill=\"#7f1d1d\"></circle><path d=\"M125 344 Q130 316 135 344 Z\" fill=\"url(#flame)\" opacity=\"0\"></path></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"278\" y=\"250\" width=\"4\" height=\"90\" fill=\"#b45309\"></rect><circle cx=\"280\" cy=\"342\" r=\"4\" fill=\"#7f1d1d\"></circle><path d=\"M275 344 Q280 316 285 344 Z\" fill=\"url(#flame)\" opacity=\"0\"></path></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez ve değişkenler",
+   "aciklama": "Hipotez: “MnO₂ eklenince H₂O₂’nin bozunması hızlanır.” Bağımsız: katalizör · Bağımlı: O₂ çıkış hızı · Kontrol: H₂O₂ miktarı, sıcaklık.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.54
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Tüplere H₂O₂ koy",
+   "aciklama": "İki tüpe eşit miktarda H₂O₂ çözeltisi koy. Kendi kendine bozunma çok yavaştır; kabarcık neredeyse yok.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(215,235,255,.85)"
+     ],
+     "sure": 0.71,
+     "ilk": [
+      0,
+      "rgba(215,235,255,.85)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(215,235,255,.85)"
+     ],
+     "sure": 0.71,
+     "ilk": [
+      0,
+      "rgba(215,235,255,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.71
+    }
+   ]
+  },
+  {
+   "baslik": "MnO₂ ekle, kor çubuğu tut",
+   "aciklama": "İkinci tüpe bir spatül ucu MnO₂ ekle. Tahta çubuğu yakıp söndür ve kor hâlindeki ucu iki tüpün ağzına tut.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.36
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gözle",
+   "aciklama": "MnO₂’li tüpte şiddetli gaz çıkışı oldu ve kor çubuk alevlendi (O₂). MnO₂’siz tüpte değişiklik olmadı. MnO₂ tepkimeden sonra değişmeden kaldı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"128\" y=\"250\" width=\"4\" height=\"90\" fill=\"#b45309\"></rect><circle cx=\"130\" cy=\"342\" r=\"4\" fill=\"#7f1d1d\"></circle><path d=\"M125 344 Q130 316 135 344 Z\" fill=\"url(#flame)\" opacity=\"0\"></path></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"278\" y=\"250\" width=\"4\" height=\"90\" fill=\"#b45309\"></rect><circle cx=\"280\" cy=\"342\" r=\"4\" fill=\"#7f1d1d\"></circle><path d=\"M275 344 Q280 316 285 344 Z\" fill=\"url(#flame)\" opacity=\"0\"></path></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "k7",
+     "ad": "pieces",
+     "arg": [
+      "@k4",
+      20,
+      "#1c1917",
+      "toz"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.085
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Katalizör, tepkimeye daha düşük aktifleşme enerjili yeni bir yol açarak hızı artırır; kendisi tepkimede harcanmaz.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Kor hâlindeki çubuğun alevlenmesi hangi gazın varlığını gösterir?",
+   "o": [
+    "H₂",
+    "CO₂",
+    "O₂",
+    "N₂"
+   ],
+   "a": 2,
+   "e": "O₂ yanmayı destekler; kor çubuk alevlenir."
+  },
+  {
+   "q": "Katalizör hangisini değiştirir?",
+   "o": [
+    "ΔH",
+    "Aktifleşme enerjisi",
+    "Ürünlerin türü",
+    "Denge sabiti"
+   ],
+   "a": 1,
+   "e": "Katalizör Ea’yı düşürür; ΔH ve ürünler aynıdır."
+  },
+  {
+   "q": "Tepkime sonunda MnO₂ ne olur?",
+   "o": [
+    "Tükenir",
+    "Değişmeden kalır",
+    "O₂’ye dönüşür",
+    "Suda çözünür"
+   ],
+   "a": 1,
+   "e": "Katalizör tepkimede harcanmaz."
+  }
+ ]
+}

@@ -1,0 +1,846 @@
+{
+ "ad": "kuvvet",
+ "baslik": "Asitlerin ve Bazların Kuvveti",
+ "alt": "11. sınıf · 2.2.3 Asitlerin ve Bazların Kuvveti · Asitlerin ve bazların kuvvetlerini karşılaştırabilme",
+ "amac": "",
+ "sonuc": "Aynı derişimde HCl, CH₃COOH’ten; NaOH, NH₃’ten daha kuvvetlidir: daha çok iyonlaşır, iletkenliği daha yüksektir.",
+ "W": 400,
+ "malzemeler": [
+  "0,1 M HCl",
+  "0,1 M CH₃COOH",
+  "0,1 M NaOH",
+  "0,1 M NH₃",
+  "pH metre",
+  "Kondüktometre",
+  "4 adet 100 mL beherglas",
+  "Etiket",
+  "Mezür",
+  "Termometre"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ Aşındırıcı (HCl, NaOH)",
+  "👃 NH₃ kokusunu koklama"
+ ],
+ "aletler": [
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     58,
+     538,
+     "HCl",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     58,
+     551,
+     "0,1 M",
+     8,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     148,
+     538,
+     "CH₃COOH",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     148,
+     551,
+     "0,1 M",
+     8,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k7",
+     252,
+     538,
+     "NaOH",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k7",
+     252,
+     551,
+     "0,1 M",
+     8,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k11",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k10",
+     342,
+     538,
+     "NH₃",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k12",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k10",
+     342,
+     551,
+     "0,1 M",
+     8,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     58,
+     520,
+     72,
+     96,
+     100,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     148,
+     520,
+     72,
+     96,
+     100,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     252,
+     520,
+     72,
+     96,
+     100,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     342,
+     520,
+     72,
+     96,
+     100,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k13",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "probeMeter",
+    "args": [
+     40,
+     40,
+     "pH METRE",
+     "#4ade80",
+     150,
+     420
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k14",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "probeMeter",
+    "args": [
+     268,
+     40,
+     "İLETKENLİK",
+     "#fbbf24",
+     250,
+     420
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "4 beherglas hazırla",
+   "aciklama": "Temiz ve kuru dört adet 100 mL’lik beherglas al.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.41,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.4,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.39,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.81
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.39,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.2
+    }
+   ]
+  },
+  {
+   "baslik": "Çözeltileri koy",
+   "aciklama": "Her beherglasa 0,1 M HCl, CH₃COOH, NaOH ve NH₃ çözeltilerinden yirmişer mililitre ekle ve etiketle. Derişimler aynı: 0,1 M.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0.93,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0.94,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0.93,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.87
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0.93,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 2.8
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.36
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "HCl ve CH₃COOH pH",
+   "aciklama": "pH metre ile asitleri ölç: HCl’nin pH’ı 1, CH₃COOH’in pH’ı yaklaşık 2,9. Aynı derişimde HCl çok daha asidik.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "move",
+     "arg": [
+      44,
+      494
+     ],
+     "sure": 0.93,
+     "ilk": [
+      150,
+      420
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "set",
+     "arg": [
+      "1,00"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.24
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "move",
+     "arg": [
+      134,
+      494
+     ],
+     "sure": 0.92,
+     "ilk": [
+      44,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "set",
+     "arg": [
+      "2,88"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.75
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "NaOH ve NH₃ pH",
+   "aciklama": "pH metreyi saf suyla yıkayıp bazları ölç: NaOH’ın pH’ı 13, NH₃’ün pH’ı yaklaşık 11,1.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "move",
+     "arg": [
+      238,
+      494
+     ],
+     "sure": 0.92,
+     "ilk": [
+      134,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "set",
+     "arg": [
+      "13,00"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.25
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "move",
+     "arg": [
+      328,
+      494
+     ],
+     "sure": 0.94,
+     "ilk": [
+      238,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "set",
+     "arg": [
+      "11,12"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.24
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "move",
+     "arg": [
+      150,
+      420
+     ],
+     "sure": 0.71,
+     "ilk": [
+      328,
+      494
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "İletkenlikleri ölç",
+   "aciklama": "Kondüktometre ile dört çözeltinin elektriksel iletkenliğini ölç. HCl ve NaOH çok iletken, CH₃COOH ve NH₃ çok az iletken.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      64,
+      494
+     ],
+     "sure": 0.92,
+     "ilk": [
+      250,
+      420
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      "42,60"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.23
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      154,
+      494
+     ],
+     "sure": 0.93,
+     "ilk": [
+      64,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.52
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      "0,52"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.2
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      258,
+      494
+     ],
+     "sure": 0.9,
+     "ilk": [
+      154,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.53
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      "24,80"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.26
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      348,
+      494
+     ],
+     "sure": 0.92,
+     "ilk": [
+      258,
+      494
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.54
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      "0,36"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.22
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      250.846,
+      408.34
+     ],
+     "sure": 0.65,
+     "ilk": [
+      348,
+      494
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonucu yorumla",
+   "aciklama": "Kuvvetli asit ve bazlar suda yaklaşık %100 iyonlaşır, zayıflar ise kısmen (bu derişimde %1,3). Daha çok iyon = daha düşük pH (asitte) / daha yüksek pH (bazda) ve daha yüksek iletkenlik.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "move",
+     "arg": [
+      250,
+      420
+     ],
+     "sure": 0,
+     "birlikte": false
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları.",
+ "sorular": [
+  {
+   "q": "0,1 M HCl ve 0,1 M CH₃COOH için hangisi doğrudur?",
+   "o": [
+    "[H₃O⁺] ikisinde eşittir",
+    "HCl’de [H₃O⁺] daha büyüktür, pH daha küçüktür",
+    "CH₃COOH daha iletkendir",
+    "İkisinin pH’ı 1’dir"
+   ],
+   "a": 1,
+   "e": "HCl tamamen, CH₃COOH kısmen iyonlaşır; aynı derişimde HCl daha çok H₃O⁺ verir."
+  },
+  {
+   "q": "CH₃COOH çözeltisinin iletkenliğinin düşük olmasının nedeni nedir?",
+   "o": [
+    "Derişimi düşüktür",
+    "Moleküllerinin çoğu iyonlaşmadan kalır",
+    "Su iletkenliği engeller",
+    "CH₃COO⁻ iyonu yüksüzdür"
+   ],
+   "a": 1,
+   "e": "Zayıf asit kısmen iyonlaşır (0,1 M’de ≈ %1,3); çözeltide az sayıda iyon vardır."
+  },
+  {
+   "q": "Asitlerin ve bazların kuvvetini belirleyen ölçüt nedir?",
+   "o": [
+    "Derişimleri",
+    "Suda iyonlaşma yüzdeleri",
+    "Molekül kütleleri",
+    "Renkleri"
+   ],
+   "a": 1,
+   "e": "Kuvvet, derişime değil suda iyonlaşma yüzdesine (Ka/Kb) bağlıdır."
+  },
+  {
+   "q": "NH₃’ün suda iyonlaşma denklemi hangisidir?",
+   "o": [
+    "NH₃ → N³⁻ + 3H⁺",
+    "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+    "NH₃ + H₂O → NH₂⁻ + H₃O⁺",
+    "NH₃ → NH₂ + H"
+   ],
+   "a": 1,
+   "e": "NH₃ sudan proton alır ve OH⁻ oluşturur; tepkime kısmidir (⇌)."
+  }
+ ]
+}

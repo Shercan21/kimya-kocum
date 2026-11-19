@@ -1,0 +1,414 @@
+{
+ "ad": "nano",
+ "baslik": "Gümüş ve Bakır Nanoparçacık Eldesi",
+ "alt": "9. sınıf · 3.1.1 Metal Nanoparçacıklar · AgNP (sitrat) ve CuNP (askorbik asit)",
+ "amac": "",
+ "sonuc": "Sitratla AgNP (açık sarı), askorbik asitle CuNP (kahverengi) elde edildi.",
+ "W": 400,
+ "malzemeler": [
+  "AgNO₃ (0,17 g → 1 L)",
+  "Sodyum sitrat (1 g → 100 mL)",
+  "CuCl₂ (2 g)",
+  "Askorbik asit (3 g)",
+  "Balon joje",
+  "Deney tüpü",
+  "Damlalık",
+  "Termometre",
+  "Isıtıcı ve su banyosu",
+  "Beherglas"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🖐 AgNO₃ deride leke bırakır",
+  "♻ Nanoparçacık atığını lavaboya dökme"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M71 410 L75 414 L75 514 Q75 520 81 520 L179 520 Q185 520 185 514 L185 410 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M119 350 L119 489 A11 11 0 0 0 141 489 L141 350 Z\"></path></clipPath><clipPath id=\"cl200003\"><path d=\"M279 350 L279 489 A11 11 0 0 0 301 489 L301 350 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     130,
+     338,
+     "AgNO₃",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     290,
+     338,
+     "CuCl₂",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     130,
+     556,
+     140
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     130,
+     520,
+     110,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      160,
+      "rgba(205,228,255,.7)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     130,
+     500,
+     150,
+     10,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     255,
+     325,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     290,
+     500,
+     150,
+     10,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     175,
+     280,
+     220,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"20\" y=\"30\" width=\"180\" height=\"60\" rx=\"8\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"52\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#334155\" font-family=\"Nunito\">Lazer ışını testi (Tyndall)</text><line x1=\"30\" y1=\"72\" x2=\"190\" y2=\"72\" stroke=\"#ef4444\" stroke-width=\"0\"></line><text x=\"110\" y=\"85\" font-size=\"8\" text-anchor=\"middle\" fill=\"#475569\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Çözeltileri hazırla",
+   "aciklama": "0,17 g AgNO₃’ı 1 L’ye, 1 g sodyum sitratı 100 mL’ye tamamla. 2 g CuCl₂’yi 5 mL, 3 g askorbik asidi 10 mL suda çöz.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.04
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "AgNO₃’ı ısıt",
+   "aciklama": "Tüpteki 2 mL AgNO₃’ı kaynar su banyosunda 10 dakika ısıt.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      4,
+      "rgba(196,226,255,.88)"
+     ],
+     "sure": 0.92,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.88)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      4,
+      "rgba(120,200,190,.85)"
+     ],
+     "sure": 0.92,
+     "ilk": [
+      0,
+      "rgba(120,200,190,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 0.92
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      98
+     ],
+     "sure": 2.26,
+     "ilk": [
+      20
+     ],
+     "birlikte": true,
+     "gecikme": 0.92
+    }
+   ]
+  },
+  {
+   "baslik": "Sitrat ekle",
+   "aciklama": "7 damla (0,45 mL) sodyum sitrat ekle ve 5–15 dakika ısıtmaya devam et: renksiz çözelti açık sarı oldu (AgNP).",
+   "islemler": [
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      130,
+      320,
+      444,
+      "rgba(255,255,255,.95)"
+     ],
+     "tekrar": 7,
+     "aralik": 267,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      4.4,
+      "rgba(242,215,113,.88)"
+     ],
+     "sure": 5.01,
+     "ilk": [
+      4.4,
+      "rgba(196,226,255,.88)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.88
+    }
+   ]
+  },
+  {
+   "baslik": "CuCl₂ + askorbik asit",
+   "aciklama": "Askorbik asit çözeltisini CuCl₂ çözeltisine ekleyip karıştır ve birkaç saat beklet: renk beyazdan sarıya, sonra kahverengiye döndü (CuNP).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      4,
+      "rgba(150,90,40,.88)"
+     ],
+     "sure": 5.05,
+     "ilk": [
+      4,
+      "rgba(245,245,240,.9)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 5.06
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.74
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Sitrat Ag⁺’yı, askorbik asit Cu²⁺’yı indirger; 1–100 nm boyutundaki metal tanecikleri renkli koloidal çözelti oluşturur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"180\" height=\"60\" rx=\"8\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"52\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#334155\" font-family=\"Nunito\">Lazer ışını testi (Tyndall)</text><line x1=\"30\" y1=\"72\" x2=\"190\" y2=\"72\" stroke=\"#ef4444\" stroke-width=\"3\"></line><text x=\"110\" y=\"85\" font-size=\"8\" text-anchor=\"middle\" fill=\"#475569\" font-family=\"Nunito\">ışın yolu görünür → koloidal çözelti</text></g>"
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Nanoparçacık oluştuğunu hangi gözlem gösterir?",
+   "o": [
+    "Gaz çıkışı",
+    "Renk değişimi ve ışın yolunun görünmesi",
+    "Sıcaklığın düşmesi",
+    "Kokunun değişmesi"
+   ],
+   "a": 1,
+   "e": "Koloidal metal tanecikleri ışığı saçar ve renk oluşturur."
+  },
+  {
+   "q": "Sodyum sitrat bu deneyde ne işe yarar?",
+   "o": [
+    "Yükseltgen",
+    "İndirgen ve dengeleyici",
+    "Katalizör",
+    "Çözücü"
+   ],
+   "a": 1,
+   "e": "Sitrat Ag⁺’yı indirger ve tanecikleri kaplayarak büyümelerini sınırlar."
+  },
+  {
+   "q": "Nanoparçacık boyutu hangi aralıktadır?",
+   "o": [
+    "1–100 nm",
+    "1–100 µm",
+    "1–100 mm",
+    "1–100 pm"
+   ],
+   "a": 0,
+   "e": "Nano ölçek 1–100 nanometredir."
+  }
+ ]
+}

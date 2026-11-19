@@ -1,0 +1,1370 @@
+{
+ "ad": "kromat",
+ "baslik": "Tersinir Tepkimeler",
+ "alt": "11. sınıf · 2.1.1 Tersinir Tepkimelerin Özellikleri · Kromat ⇌ dikromat dengesi",
+ "amac": "",
+ "sonuc": "Asit eklenince çözelti turuncu (ileri yön), baz eklenince yeniden sarı (geri yön) oldu: tepkime tersinirdir.",
+ "W": 400,
+ "malzemeler": [
+  "1 M K₂CrO₄ çözeltisi",
+  "1 M H₂SO₄ çözeltisi",
+  "1 M NaOH çözeltisi",
+  "pH metre veya pH kâğıdı",
+  "Beherglas",
+  "Pipet"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☠ Kromat bileşikleri zehirlidir",
+  "♻ Krom atığını lavaboya dökme"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M141 400 L145 404 L145 514 Q145 520 151 520 L249 520 Q255 520 255 514 L255 400 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     200,
+     538,
+     "K₂CrO₄ (1 M)",
+     9
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     110,
+     120,
+     100,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "probeMeter",
+    "args": [
+     290,
+     40,
+     "pH METRE",
+     "#4ade80",
+     300,
+     420
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "dropBottle",
+    "args": [
+     80,
+     452,
+     "H₂SO₄ 1 M",
+     "rgba(220,230,255,.7)"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "dropBottle",
+    "args": [
+     340,
+     452,
+     "NaOH 1 M",
+     "rgba(220,230,255,.7)"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"130\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O</text><g></g></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "20 mL K₂CrO₄",
+   "aciklama": "Beherglasa 20 mL 1 M K₂CrO₄ çözeltisi ekle: çözelti sarı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      20,
+      "rgba(250,215,40,.9)"
+     ],
+     "sure": 1.97,
+     "ilk": [
+      0,
+      "rgba(250,215,40,.9)"
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "pH’ı ölç",
+   "aciklama": "pH metreyle ölç: pH ≈ 9 (bazik). Ortamda CrO₄²⁻ iyonları baskın.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"130\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O</text><g><circle cx=\"28\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"28\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"64\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"64\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"100\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"100\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"136\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"136\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"172\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"172\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"28\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"28\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"64\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"64\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"100\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"100\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"136\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"136\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"172\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"172\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text></g></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      206,
+      494
+     ],
+     "sure": 0.83,
+     "ilk": [
+      300,
+      420
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      "9,2"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 0.83
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.9
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      300,
+      420
+     ],
+     "sure": 0.72,
+     "ilk": [
+      206,
+      494
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "H₂SO₄ damla damla",
+   "aciklama": "Renk değişimi tamamlanana kadar 1 M H₂SO₄’ü damla damla ekle: sarı renk turuncuya döner. H⁺ eklenince denge ürünler (Cr₂O₇²⁻) yönüne kayar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.2,
+     "ilk": [
+      1
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.8,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      21.3,
+      "rgba(235,120,30,.9)"
+     ],
+     "sure": 7.21,
+     "ilk": [
+      20.05,
+      "rgba(249,211,40,.9)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.745,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.689,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.634,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.578,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.522,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.467,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.87
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.411,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.356,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.3,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.75
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.245,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.08
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.19,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.134,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.67
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.079,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.94
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      496.023,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.967,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.55
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.912,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.81
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.856,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.801,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.745,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.69,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.635,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.25
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.579,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.524,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.468,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      150,
+      330,
+      495.413,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.39
+    }
+   ]
+  },
+  {
+   "baslik": "pH’ı yeniden ölç",
+   "aciklama": "pH ≈ 1–2 (asidik). Ortamda Cr₂O₇²⁻ iyonları baskın.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"130\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O</text><g><rect x=\"23\" y=\"119\" width=\"34\" height=\"18\" rx=\"8\" fill=\"#f97316\" stroke=\"#9a3412\"></rect><text x=\"40\" y=\"130.5\" font-size=\"5.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cr₂O₇²⁻</text><rect x=\"67\" y=\"119\" width=\"34\" height=\"18\" rx=\"8\" fill=\"#f97316\" stroke=\"#9a3412\"></rect><text x=\"84\" y=\"130.5\" font-size=\"5.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cr₂O₇²⁻</text><rect x=\"111\" y=\"119\" width=\"34\" height=\"18\" rx=\"8\" fill=\"#f97316\" stroke=\"#9a3412\"></rect><text x=\"128\" y=\"130.5\" font-size=\"5.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cr₂O₇²⁻</text><rect x=\"155\" y=\"119\" width=\"34\" height=\"18\" rx=\"8\" fill=\"#f97316\" stroke=\"#9a3412\"></rect><text x=\"172\" y=\"130.5\" font-size=\"5.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cr₂O₇²⁻</text><rect x=\"23\" y=\"119\" width=\"34\" height=\"18\" rx=\"8\" fill=\"#f97316\" stroke=\"#9a3412\"></rect><text x=\"40\" y=\"130.5\" font-size=\"5.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cr₂O₇²⁻</text></g></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h2",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"150\" cy=\"444\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"150\" cy=\"393\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"150\" cy=\"363\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      206,
+      494
+     ],
+     "sure": 0.85,
+     "ilk": [
+      300,
+      420
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      "1,3"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 0.85
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.91
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      300,
+      420
+     ],
+     "sure": 0.72,
+     "ilk": [
+      206,
+      494
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "NaOH damla damla",
+   "aciklama": "Aynı çözeltiye renk değişimi tamamlanana kadar 1 M NaOH ekle: turuncu renk yeniden sarıya döner. OH⁻, H⁺ ile su oluşturur; H⁺ azalınca denge tepkenler yönüne kayar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.357,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      22.8,
+      "rgba(250,215,40,.9)"
+     ],
+     "sure": 7.7,
+     "ilk": [
+      21.35,
+      "rgba(235,120,30,.9)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.301,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.246,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.19,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.135,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.079,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.31
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      495.024,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.57
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.969,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.83
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.913,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.1
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.858,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.802,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.64
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.746,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.9
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.691,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.16
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.635,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.42
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.58,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.71
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.524,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.98
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.469,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.24
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.413,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.5
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.358,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.303,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.247,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.31
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.192,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.57
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.136,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.83
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.081,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.1
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      494.025,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      493.969,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.63
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      493.914,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.91
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      493.858,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.17
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      493.803,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.43
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      250,
+      330,
+      493.748,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.7
+    }
+   ]
+  },
+  {
+   "baslik": "pH’ı yeniden ölç",
+   "aciklama": "pH ≈ 12 (bazik). Çözelti yeniden sarı: tepkime geri yönde de yürüdü.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"130\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O</text><g><circle cx=\"28\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"28\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"64\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"64\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"100\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"100\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"136\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"136\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"172\" cy=\"62\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"172\" y=\"64.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"28\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"28\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"64\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"64\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"100\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"100\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"136\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"136\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text><circle cx=\"172\" cy=\"88\" r=\"10\" fill=\"#facc15\" stroke=\"#a16207\"></circle><text x=\"172\" y=\"90.5\" font-size=\"5.5\" fill=\"#713f12\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">CrO₄²⁻</text></g></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"250\" cy=\"481.8\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"250\" cy=\"432.6\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h7",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"250\" cy=\"393\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h8",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"250\" cy=\"363\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      206,
+      494
+     ],
+     "sure": 0.81,
+     "ilk": [
+      300,
+      420
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      "12,3"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 0.81
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.91
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "move",
+     "arg": [
+      300,
+      420
+     ],
+     "sure": 0.75,
+     "ilk": [
+      206,
+      494
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Renk sarıdan turuncuya, turuncudan yeniden sarıya döndü: 2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O tepkimesi iki yönde de gerçekleşebilir, yani tersinirdir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h7",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h8",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "H₂SO₄ eklenince çözelti neden turuncu olur?",
+   "o": [
+    "H⁺ artar, denge Cr₂O₇²⁻ yönüne kayar",
+    "Sülfat iyonu turuncudur",
+    "Çözelti ısınır",
+    "Kromat çöker"
+   ],
+   "a": 0,
+   "e": "Tepkenlerden H⁺ artınca denge ürünler yönüne kayar; turuncu Cr₂O₇²⁻ oluşur."
+  },
+  {
+   "q": "NaOH eklenince renk neden sarıya döner?",
+   "o": [
+    "OH⁻, H⁺’yı harcar; denge tepkenler yönüne kayar",
+    "Na⁺ sarı renklidir",
+    "Su buharlaşır",
+    "Dikromat yanar"
+   ],
+   "a": 0,
+   "e": "H⁺ + OH⁻ → H₂O; H⁺ azalınca denge geri yöne, CrO₄²⁻ yönüne kayar."
+  },
+  {
+   "q": "Tepkimenin tersinir olduğunu gösteren gözlem hangisidir?",
+   "o": [
+    "Renk sarı → turuncu → sarı değişti",
+    "Gaz çıktı",
+    "Çökelek oluştu",
+    "pH hep 7 kaldı"
+   ],
+   "a": 0,
+   "e": "Renk değişiminin geri dönmesi, tepkimenin iki yönde yürüyebildiğini gösterir."
+  }
+ ]
+}

@@ -1,0 +1,412 @@
+{
+ "ad": "folyo",
+ "baslik": "Alüminyum Folyonun Hangi Tarafını Kullanalım?",
+ "alt": "9. sınıf · 1.1.1 Günlük Hayatta Kimya · Folyonun parlak ya da mat yüzü enerji tasarrufu sağlar mı?",
+ "amac": "",
+ "sonuc": "Parlak ya da mat yüzü kullanmak arasında belirgin bir enerji farkı yoktur; aşçı folyonun istediği yüzünü kullanabilir.",
+ "W": 400,
+ "malzemeler": [
+  "Alüminyum folyo",
+  "2 ısıtıcı (aynı güçte)",
+  "2 termometre",
+  "Kronometre",
+  "2 beherglas",
+  "Su",
+  "Mezür",
+  "Makas",
+  "Cetvel"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🔥 Sıcak yüzeylere dokunma",
+  "✂ Makası dikkatli kullan",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M56 368 L60 372 L60 482 Q60 488 66 488 L154 488 Q160 488 160 482 L160 368 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M236 368 L240 372 L240 482 Q240 488 246 488 L334 488 Q340 488 340 482 L340 368 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     110,
+     524,
+     140
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     110,
+     488,
+     100,
+     120,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     126,
+     230,
+     250,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     290,
+     524,
+     140
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     290,
+     488,
+     100,
+     120,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     306,
+     230,
+     250,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><text x=\"110\" y=\"548\" font-size=\"10\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">parlak yüz dışta</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><text x=\"290\" y=\"548\" font-size=\"10\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">mat yüz dışta</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     80
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Değişkenleri belirle",
+   "aciklama": "Bağımsız: folyonun dışa gelen yüzü · Bağımlı: suyun sıcaklık artışı · Kontrol: su miktarı (100 mL), ısıtıcı gücü, süre, folyo boyutu (cetvel ve makasla aynı kesilir).",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.72
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Beherlere su koy",
+   "aciklama": "Mezürle iki behere 100 mL su koy. İlk sıcaklık 20 °C.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 1.41,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 1.41,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Folyoyla sar",
+   "aciklama": "Aynı boyda kesilmiş folyolarla beherlerden birini parlak yüzü dışta, diğerini mat yüzü dışta kalacak şekilde sar.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.5
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Isıt ve ölç",
+   "aciklama": "İki beheri aynı güçteki ısıtıcılara koy. Kronometreyi başlat; 10 dakika boyunca her dakika sıcaklıkları ölç.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 9.03,
+     "ilk": [
+      20
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      60.5
+     ],
+     "sure": 9.03,
+     "ilk": [
+      20
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "set",
+     "arg": [
+      600
+     ],
+     "sure": 9.03,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Verileri karşılaştır",
+   "aciklama": "10. dakikada parlak dışta ≈ 60,0 °C, mat dışta ≈ 60,5 °C. Fark 0,5 °C: termometrenin okuma hatası kadar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.33
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Folyonun parlak ve mat yüzleri arasında enerji tasarrufu açısından önemli bir fark yoktur. Fark üretimden kaynaklanır (son haddelemede iki folyo birlikte geçer); ısı iletkenliği iki yüzde aynıdır.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Aşçı zaman tasarrufu için folyonun hangi yüzünü kullanmalıdır?",
+   "o": [
+    "Mutlaka parlak yüzü dışta",
+    "Mutlaka mat yüzü dışta",
+    "Fark önemsizdir; istediği yüzü",
+    "Folyo kullanmamalı"
+   ],
+   "a": 2,
+   "e": "Ölçülen fark termometre hatası düzeyindedir."
+  },
+  {
+   "q": "Folyonun iki yüzünün farklı görünmesinin nedeni nedir?",
+   "o": [
+    "Farklı metallerden yapılması",
+    "Üretimde son haddelemede iki folyonun birlikte geçmesi",
+    "Bir yüzün boyanması",
+    "Isı iletkenliklerinin farklı olması"
+   ],
+   "a": 1,
+   "e": "Merdaneye değen yüz parlak, birbirine değen yüzler mat olur."
+  },
+  {
+   "q": "Bu deneyde kontrol değişkeni hangisidir?",
+   "o": [
+    "Dışa gelen yüz",
+    "Suyun sıcaklığı",
+    "Su miktarı",
+    "Sıcaklık artışı"
+   ],
+   "a": 2,
+   "e": "Su miktarı, ısıtıcı gücü ve süre sabit tutulur."
+  }
+ ]
+}

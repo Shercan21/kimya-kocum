@@ -1,0 +1,301 @@
+{
+ "ad": "buharbasinci",
+ "baslik": "Sıvıların Denge Buhar Basıncı",
+ "alt": "9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Buharlaşma ve denge buhar basıncı",
+ "amac": "",
+ "sonuc": "Denge buhar basıncı aseton > etil alkol > su; moleküller arası etkileşim ne kadar zayıfsa buhar basıncı o kadar büyüktür.",
+ "W": 400,
+ "malzemeler": [
+  "Nuçe erlenmayeri",
+  "Delikli tıpa",
+  "Lastik boru",
+  "Pipetler (U-manometre)",
+  "Şırınga",
+  "Aseton",
+  "Etil alkol",
+  "Saf su",
+  "Cetvel"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🔥 Aseton ve etanol yanıcıdır",
+  "🌬 Havalandırma",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M186.5 416 L213.5 416 L213.5 453.8 C213.5 459.8 216.5 463.8 220.5 469.8 L257 510 C265 518 261 524 251 524 L149 524 C139 524 135 518 143 510 L179.5 469.8 C183.5 463.8 186.5 459.8 186.5 453.8 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     200,
+     524,
+     250,
+     0.9,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopper",
+    "args": [
+     200,
+     418
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><rect x=\"150\" y=\"330\" width=\"14\" height=\"70\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><rect x=\"153\" y=\"318\" width=\"8\" height=\"16\" fill=\"#334155\"></rect><line x1=\"157\" y1=\"400\" x2=\"190\" y2=\"420\" stroke=\"#64748b\" stroke-width=\"1.5\"></line><rect x=\"152\" y=\"360\" width=\"10\" height=\"38\" fill=\"rgba(196,226,255,.85)\"></rect></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><path d=\"M278 260 L278 470 Q278 492 300 492 Q322 492 322 470 L322 260\" fill=\"none\" stroke-width=\"10\" stroke=\"rgba(200,215,235,.6)\"></path><rect x=\"274\" y=\"410\" width=\"8\" height=\"60\" fill=\"rgba(37,99,235,.75)\"></rect><rect x=\"318\" y=\"410\" width=\"8\" height=\"60\" fill=\"rgba(37,99,235,.75)\"></rect><path d=\"M278 470 Q278 492 300 492 Q322 492 322 470\" fill=\"none\" stroke=\"rgba(37,99,235,.75)\" stroke-width=\"8\"></path><line x1=\"330\" y1=\"350\" x2=\"340\" y2=\"350\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"360\" x2=\"334\" y2=\"360\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"370\" x2=\"340\" y2=\"370\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"380\" x2=\"334\" y2=\"380\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"390\" x2=\"340\" y2=\"390\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"400\" x2=\"334\" y2=\"400\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"410\" x2=\"340\" y2=\"410\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"420\" x2=\"334\" y2=\"420\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"430\" x2=\"340\" y2=\"430\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"440\" x2=\"334\" y2=\"440\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"450\" x2=\"340\" y2=\"450\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"460\" x2=\"334\" y2=\"460\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"470\" x2=\"340\" y2=\"470\" stroke=\"#334155\"></line><text x=\"350\" y=\"340\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">cetvel</text><path d=\"M278 260 L278 240 L200 240 L200 298\" fill=\"none\" stroke=\"rgba(250,204,150,.9)\" stroke-width=\"5\"></path></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     90,
+     300,
+     190,
+     0,
+     50
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      25
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Araştırma sorusu ve değişkenler",
+   "aciklama": "Soru: “Sıvının cinsi denge buhar basıncını etkiler mi?” Bağımsız: sıvının cinsi · Bağımlı: manometredeki seviye farkı · Kontrol: sıcaklık (25 °C), sıvı miktarı (2 mL), kap.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.54
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Düzeneği kur",
+   "aciklama": "Nuçe erlenmayerinin yan koluna lastik boruyla renkli su içeren U-manometre bağla; ağzını delikli tıpayla kapat, tıpadan şırıngayı geçir.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.31
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Su enjekte et",
+   "aciklama": "Şırıngayla 2 mL saf su enjekte et: seviye farkı yavaşça artar ve ≈ 1,3 cm’de sabitlenir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      2.702
+     ],
+     "sure": 4.37,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Etil alkolü dene",
+   "aciklama": "Düzeneği kurutup aynı işlemi 2 mL etil alkolle tekrarla: fark ≈ 3,2 cm.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><path d=\"M278 260 L278 470 Q278 492 300 492 Q322 492 322 470 L322 260\" fill=\"none\" stroke-width=\"10\" stroke=\"rgba(200,215,235,.6)\"></path><rect x=\"274\" y=\"415.90990921535547\" width=\"8\" height=\"54.09009078464453\" fill=\"rgba(37,99,235,.75)\"></rect><rect x=\"318\" y=\"404.09009078464453\" width=\"8\" height=\"65.90990921535547\" fill=\"rgba(37,99,235,.75)\"></rect><path d=\"M278 470 Q278 492 300 492 Q322 492 322 470\" fill=\"none\" stroke=\"rgba(37,99,235,.75)\" stroke-width=\"8\"></path><line x1=\"330\" y1=\"350\" x2=\"340\" y2=\"350\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"360\" x2=\"334\" y2=\"360\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"370\" x2=\"340\" y2=\"370\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"380\" x2=\"334\" y2=\"380\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"390\" x2=\"340\" y2=\"390\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"400\" x2=\"334\" y2=\"400\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"410\" x2=\"340\" y2=\"410\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"420\" x2=\"334\" y2=\"420\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"430\" x2=\"340\" y2=\"430\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"440\" x2=\"334\" y2=\"440\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"450\" x2=\"340\" y2=\"450\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"460\" x2=\"334\" y2=\"460\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"470\" x2=\"340\" y2=\"470\" stroke=\"#334155\"></line><text x=\"350\" y=\"340\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">cetvel</text><path d=\"M278 260 L278 240 L200 240 L200 298\" fill=\"none\" stroke=\"rgba(250,204,150,.9)\" stroke-width=\"5\"></path></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      2.702
+     ],
+     "sure": 4.4,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Asetonu dene",
+   "aciklama": "Aynı işlemi 2 mL asetonla tekrarla: fark ≈ 12,5 cm.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"150\" y=\"330\" width=\"14\" height=\"70\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><rect x=\"153\" y=\"318\" width=\"8\" height=\"16\" fill=\"#334155\"></rect><line x1=\"157\" y1=\"400\" x2=\"190\" y2=\"420\" stroke=\"#64748b\" stroke-width=\"1.5\"></line><rect x=\"152\" y=\"360\" width=\"10\" height=\"38\" fill=\"rgba(225,235,250,.85)\"></rect></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><path d=\"M278 260 L278 470 Q278 492 300 492 Q322 492 322 470 L322 260\" fill=\"none\" stroke-width=\"10\" stroke=\"rgba(200,215,235,.6)\"></path><rect x=\"274\" y=\"424.65061528176346\" width=\"8\" height=\"45.349384718236536\" fill=\"rgba(37,99,235,.75)\"></rect><rect x=\"318\" y=\"395.34938471823654\" width=\"8\" height=\"74.65061528176346\" fill=\"rgba(37,99,235,.75)\"></rect><path d=\"M278 470 Q278 492 300 492 Q322 492 322 470\" fill=\"none\" stroke=\"rgba(37,99,235,.75)\" stroke-width=\"8\"></path><line x1=\"330\" y1=\"350\" x2=\"340\" y2=\"350\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"360\" x2=\"334\" y2=\"360\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"370\" x2=\"340\" y2=\"370\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"380\" x2=\"334\" y2=\"380\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"390\" x2=\"340\" y2=\"390\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"400\" x2=\"334\" y2=\"400\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"410\" x2=\"340\" y2=\"410\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"420\" x2=\"334\" y2=\"420\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"430\" x2=\"340\" y2=\"430\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"440\" x2=\"334\" y2=\"440\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"450\" x2=\"340\" y2=\"450\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"460\" x2=\"334\" y2=\"460\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"470\" x2=\"340\" y2=\"470\" stroke=\"#334155\"></line><text x=\"350\" y=\"340\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">cetvel</text><path d=\"M278 260 L278 240 L200 240 L200 298\" fill=\"none\" stroke=\"rgba(250,204,150,.9)\" stroke-width=\"5\"></path></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      2.702
+     ],
+     "sure": 4.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Denge buhar basıncı: aseton > etil alkol > su. Moleküller arası etkileşimler zayıfladıkça buharlaşma kolaylaşır, denge buhar basıncı artar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"150\" y=\"330\" width=\"14\" height=\"70\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><rect x=\"153\" y=\"318\" width=\"8\" height=\"16\" fill=\"#334155\"></rect><line x1=\"157\" y1=\"400\" x2=\"190\" y2=\"420\" stroke=\"#64748b\" stroke-width=\"1.5\"></line><rect x=\"152\" y=\"360\" width=\"10\" height=\"38\" fill=\"rgba(235,240,250,.85)\"></rect></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><path d=\"M278 260 L278 470 Q278 492 300 492 Q322 492 322 470 L322 260\" fill=\"none\" stroke-width=\"10\" stroke=\"rgba(200,215,235,.6)\"></path><rect x=\"274\" y=\"467.1125680475526\" width=\"8\" height=\"2.8874319524474004\" fill=\"rgba(37,99,235,.75)\"></rect><rect x=\"318\" y=\"352.8874319524474\" width=\"8\" height=\"117.1125680475526\" fill=\"rgba(37,99,235,.75)\"></rect><path d=\"M278 470 Q278 492 300 492 Q322 492 322 470\" fill=\"none\" stroke=\"rgba(37,99,235,.75)\" stroke-width=\"8\"></path><line x1=\"330\" y1=\"350\" x2=\"340\" y2=\"350\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"360\" x2=\"334\" y2=\"360\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"370\" x2=\"340\" y2=\"370\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"380\" x2=\"334\" y2=\"380\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"390\" x2=\"340\" y2=\"390\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"400\" x2=\"334\" y2=\"400\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"410\" x2=\"340\" y2=\"410\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"420\" x2=\"334\" y2=\"420\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"430\" x2=\"340\" y2=\"430\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"440\" x2=\"334\" y2=\"440\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"450\" x2=\"340\" y2=\"450\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"460\" x2=\"334\" y2=\"460\" stroke=\"#334155\"></line><line x1=\"330\" y1=\"470\" x2=\"340\" y2=\"470\" stroke=\"#334155\"></line><text x=\"350\" y=\"340\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">cetvel</text><path d=\"M278 260 L278 240 L200 240 L200 298\" fill=\"none\" stroke=\"rgba(250,204,150,.9)\" stroke-width=\"5\"></path></g>"
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Hangi sıvının denge buhar basıncı en yüksektir?",
+   "o": [
+    "Su",
+    "Etil alkol",
+    "Aseton",
+    "Hepsi eşit"
+   ],
+   "a": 2,
+   "e": "Asetonda hidrojen bağı yoktur; molekülleri kolay buharlaşır."
+  },
+  {
+   "q": "Denge buhar basıncı hangisine bağlı DEĞİLDİR?",
+   "o": [
+    "Sıvının cinsi",
+    "Sıcaklık",
+    "Sıvının miktarı",
+    "Moleküller arası etkileşim"
+   ],
+   "a": 2,
+   "e": "Denge kurulduğunda buhar basıncı sıvı miktarından bağımsızdır."
+  },
+  {
+   "q": "Manometre farkı neden bir süre sonra sabitlenir?",
+   "o": [
+    "Sıvı biter",
+    "Buharlaşma hızı yoğuşma hızına eşitlenir",
+    "Tıpa açılır",
+    "Sıcaklık düşer"
+   ],
+   "a": 1,
+   "e": "Dinamik denge kurulur."
+  }
+ ]
+}

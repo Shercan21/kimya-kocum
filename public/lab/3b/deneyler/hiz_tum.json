@@ -1,0 +1,422 @@
+{
+ "ad": "hiz_tum",
+ "baslik": "Tepkime Hızına Etki Eden Faktörler (Performans Görevi)",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Tüm faktörler bir arada",
+ "amac": "",
+ "sonuc": "C (toz, 2 M, 45 °C) en hızlı, A (parça, 1 M, 25 °C) en yavaş tepkime verdi.",
+ "W": 400,
+ "malzemeler": [
+  "Zn, Fe, Mg parçaları ve tozları",
+  "0,5 M – 2 M HCl",
+  "Deney tüpleri",
+  "Su banyosu ve ısıtıcı",
+  "Termometre",
+  "Kronometre",
+  "Hassas terazi"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ HCl aşındırıcıdır",
+  "🔥 H₂ yanıcıdır"
+ ],
+ "aletler": [
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     90,
+     330,
+     "A (parça)",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     200,
+     330,
+     "B (toz)",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     310,
+     330,
+     "C (toz, 2 M, 45 °C)",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     50,
+     350,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     90,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     200,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     310,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Plan",
+   "aciklama": "Amaç: Zn + HCl tepkimesini en hızlı hâle getirmek. A standart koşul; B’de yalnızca yüzey, C’de ayrıca derişim ve sıcaklık artırıldı.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.51
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Tüpleri hazırla",
+   "aciklama": "A ve B’ye 10’ar mL 1 M HCl, C’ye 10 mL 2 M HCl koy; C’yi 45 °C banyoya yerleştir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.72,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.74,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.72
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.72,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.47
+    }
+   ]
+  },
+  {
+   "baslik": "Zn ekle",
+   "aciklama": "Eşit kütlede Zn’yi (A’ya parça, B ve C’ye toz) aynı anda ekle, kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.3
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Süreleri karşılaştır",
+   "aciklama": "A en yavaş; B yüzey artışıyla yaklaşık 3 kat hızlı; C derişim ve sıcaklık artışıyla en hızlı.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k9",
+     "ad": "pieces",
+     "arg": [
+      "@k2",
+      6,
+      "#94a3b8",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "olustur",
+     "id": "k10",
+     "ad": "pieces",
+     "arg": [
+      "@k4",
+      36,
+      "#94a3b8",
+      "toz"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "olustur",
+     "id": "k11",
+     "ad": "pieces",
+     "arg": [
+      "@k6",
+      36,
+      "#94a3b8",
+      "toz"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0.11
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0.18
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.01,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Temas yüzeyi, derişim ve sıcaklık arttıkça tepkime hızlanır. Bir faktörün etkisini görmek için yalnızca o değişken değiştirilmelidir.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "A ile C’yi karşılaştırmak neden tek bir faktör hakkında kesin bilgi vermez?",
+   "o": [
+    "Birden çok değişken birlikte değişti",
+    "Tüpler farklı",
+    "Zn farklı",
+    "Süre ölçülmedi"
+   ],
+   "a": 0,
+   "e": "C’de yüzey, derişim ve sıcaklık birlikte değişti."
+  },
+  {
+   "q": "Hangisi tepkime hızını artırmaz?",
+   "o": [
+    "Sıcaklığı artırmak",
+    "Derişimi artırmak",
+    "Katıyı toz hâline getirmek",
+    "Kabın rengini değiştirmek"
+   ],
+   "a": 3,
+   "e": "Kabın rengi çarpışmaları etkilemez."
+  }
+ ]
+}

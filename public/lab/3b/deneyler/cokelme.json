@@ -1,0 +1,1005 @@
+{
+ "ad": "cokelme",
+ "baslik": "Çökelme Tepkimesi",
+ "alt": "10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · Çökelme tepkimelerinin oluşumunu gözlemleyebilme",
+ "amac": "",
+ "sonuc": "İki çözelti karışınca suda çözünmeyen AgCl katısı oluştu ve dibe çöktü: çökelme tepkimesi.",
+ "W": 400,
+ "malzemeler": [
+  "AgNO₃ çözeltisi",
+  "NaCl çözeltisi",
+  "2 adet deney tüpü",
+  "Dereceli silindir",
+  "Pipet",
+  "Puar"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🖐 AgNO₃ deride leke bırakır",
+  "♻ Gümüş atıklarını ayrı topla"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M59 350 L59 489 A11 11 0 0 0 81 489 L81 350 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M119 350 L119 489 A11 11 0 0 0 141 489 L141 350 Z\"></path></clipPath><clipPath id=\"cl200003\"><path d=\"M315 370 L345 370 L351 364 L351 370 L345 374 L345 512 L315 512 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     70,
+     340,
+     "NaCl",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     130,
+     340,
+     "AgNO₃",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     30,
+     170,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     70,
+     500,
+     150,
+     25,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     130,
+     500,
+     150,
+     25,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "cylinder",
+    "args": [
+     330,
+     520,
+     25,
+     150
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"-3\" y=\"-100\" width=\"6\" height=\"92\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><path d=\"M-3 -8 L3 -8 L1 10 L-1 10 Z\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></path><ellipse cx=\"0\" cy=\"-110\" rx=\"9\" ry=\"12\" fill=\"#dc2626\"></ellipse></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"196\" y=\"30\" width=\"194\" height=\"190\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"293\" y=\"47\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (tüpteki)</text><g></g><text x=\"293\" y=\"212\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "10 mL NaCl al",
+   "aciklama": "Dereceli silindirle 10 mL NaCl çözeltisi ölç ve deney tüpüne koy. Çözelti renksiz ve berrak.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 2.86,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      10
+     ],
+     "sure": 1.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.59
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      12
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.86
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.89
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "AgNO₃’ı damla damla ekle",
+   "aciklama": "Puarlı pipetle AgNO₃ çözeltisini damla damla ekle. İlk damlalardan itibaren tüpte beyaz bulanıklık oluşur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"196\" y=\"30\" width=\"194\" height=\"190\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"293\" y=\"47\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (tüpteki)</text><g><circle cx=\"210\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"210\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"230\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"230\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"250\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"250\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"270\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"270\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"290\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"290\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"310\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"310\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"330\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"330\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"350\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"350\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"370\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"370\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"216\" cy=\"81\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"216\" y=\"83.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"236\" cy=\"81\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"236\" y=\"83.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"256\" cy=\"81\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"256\" y=\"83.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text></g><text x=\"293\" y=\"212\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">iyonlar serbest</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      444,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      13,
+      "rgba(232,236,240,.9)"
+     ],
+     "sure": 2.92,
+     "ilk": [
+      10.25,
+      "rgba(232,236,240,.9)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "cloudy",
+     "arg": [
+      0.36,
+      "rgba(248,248,248,.55)"
+     ],
+     "sure": 2.92,
+     "ilk": [
+      0.03,
+      "rgba(248,248,248,.55)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "ppt",
+     "arg": [
+      0.165,
+      "rgba(248,248,248,.98)"
+     ],
+     "sure": 2.92,
+     "ilk": [
+      0.014,
+      "rgba(248,248,248,.98)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      9
+     ],
+     "sure": 2.92,
+     "ilk": [
+      11.75
+     ],
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      442.6,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      441.2,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      439.8,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      438.4,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.04
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      437,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.31
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      435.6,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.58
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      434.2,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      432.8,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.11
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      431.4,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      430,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.65
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      428.6,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.92
+    }
+   ]
+  },
+  {
+   "baslik": "10 mL’ye kadar ekle",
+   "aciklama": "Eklemeye devam et: beyaz çökelek artar ve tüpün dibine çöker. Çökelek AgCl’dir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"0\" transform=\"translate(70 300)\"><rect x=\"-3\" y=\"-100\" width=\"6\" height=\"92\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><path d=\"M-3 -8 L3 -8 L1 10 L-1 10 Z\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></path><ellipse cx=\"0\" cy=\"-110\" rx=\"9\" ry=\"12\" fill=\"#dc2626\"></ellipse></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"196\" y=\"30\" width=\"194\" height=\"190\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"293\" y=\"47\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (tüpteki)</text><g><circle cx=\"210\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"210\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"230\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"230\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"250\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"250\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"270\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"270\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"290\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"290\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"310\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"310\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"330\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"330\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"350\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"350\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"370\" cy=\"62\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"370\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"216\" cy=\"81\" r=\"8\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"216\" y=\"83.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"236\" cy=\"81\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"236\" y=\"83.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"256\" cy=\"81\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"256\" y=\"83.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><rect x=\"221\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"232\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"245\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"256\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text></g><text x=\"293\" y=\"212\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">AgCl çöker (dipte) · seyirci: Na⁺, NO₃⁻</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"70\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(196,226,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"70\" cy=\"358.8\" r=\"2.4\" fill=\"rgba(196,226,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"70\" cy=\"333.6\" r=\"2.4\" fill=\"rgba(196,226,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"70\" cy=\"318\" r=\"2.4\" fill=\"rgba(196,226,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      427.2,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      20,
+      "rgba(232,236,240,.9)"
+     ],
+     "sure": 5.32,
+     "ilk": [
+      13.333,
+      "rgba(232,236,240,.9)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "cloudy",
+     "arg": [
+      0.35
+     ],
+     "sure": 5.32,
+     "ilk": [
+      0.4,
+      "rgba(248,248,248,.55)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "ppt",
+     "arg": [
+      0.55,
+      "rgba(248,248,248,.98)"
+     ],
+     "sure": 5.32,
+     "ilk": [
+      0.183,
+      "rgba(248,248,248,.98)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      2.0
+     ],
+     "sure": 5.32,
+     "ilk": [
+      8.667
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      425.333,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      423.467,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      421.6,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      419.733,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      417.867,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      416,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.58
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      414.133,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      412.267,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.11
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      410.4,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.37
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      408.533,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.63
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      406.667,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.91
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      404.8,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.18
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      402.933,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.44
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      401.067,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.7
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      399.2,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.96
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      397.333,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.23
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      395.467,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.51
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      393.6,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      391.733,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      70,
+      312,
+      389.867,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.33
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.42
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Tanecik düzeyinde",
+   "aciklama": "Ag⁺ ve Cl⁻ iyonları birleşip suda çözünmeyen AgCl katısını oluşturur. Na⁺ ve NO₃⁻ iyonları seyircidir, çözeltide kalır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"196\" y=\"30\" width=\"194\" height=\"190\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"293\" y=\"47\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (tüpteki)</text><g><circle cx=\"210\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"210\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"230\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"230\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"250\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"250\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"270\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"270\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"290\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"290\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"310\" cy=\"62\" r=\"8\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"310\" y=\"64.6\" font-size=\"6.5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Na⁺</text><circle cx=\"330\" cy=\"62\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"330\" y=\"64.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"350\" cy=\"62\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"350\" y=\"64.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"370\" cy=\"62\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"370\" y=\"64.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"216\" cy=\"81\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"216\" y=\"83.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"236\" cy=\"81\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"236\" y=\"83.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><circle cx=\"256\" cy=\"81\" r=\"8\" fill=\"#f97316\" opacity=\"0.9\"></circle><text x=\"256\" y=\"83.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">NO₃⁻</text><rect x=\"221\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"232\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"245\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"256\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"269\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"280\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"293\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"304\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"317\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"328\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text><rect x=\"341\" y=\"189\" width=\"22\" height=\"13\" rx=\"3\" fill=\"rgba(248,248,248,.98)\" stroke=\"#475569\" stroke-width=\"0.6\"></rect><text x=\"352\" y=\"199\" font-size=\"5.6\" fill=\"#111827\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">AgCl</text></g><text x=\"293\" y=\"212\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">AgCl çöker (dipte) · seyirci: Na⁺, NO₃⁻</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      2.74
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "AgNO₃(suda) + NaCl(suda) → AgCl(k) + NaNO₃(suda). Net iyon denklemi: Ag⁺(suda) + Cl⁻(suda) → AgCl(k).",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Deneyde oluşan beyaz katı hangisidir?",
+   "o": [
+    "NaNO₃",
+    "AgCl",
+    "NaCl",
+    "AgNO₃"
+   ],
+   "a": 1,
+   "e": "Ag⁺ ve Cl⁻ iyonları suda çözünmeyen AgCl’yi oluşturur."
+  },
+  {
+   "q": "Seyirci iyonlar hangileridir?",
+   "o": [
+    "Ag⁺ ve Cl⁻",
+    "Na⁺ ve NO₃⁻",
+    "Ag⁺ ve Na⁺",
+    "Cl⁻ ve NO₃⁻"
+   ],
+   "a": 1,
+   "e": "Na⁺ ve NO₃⁻ tepkimeye katılmaz, çözeltide serbest kalır."
+  },
+  {
+   "q": "Hangi karışımda çökelek oluşmaz?",
+   "o": [
+    "KI + Pb(NO₃)₂",
+    "NaCl + KNO₃",
+    "Na₂SO₄ + BaCl₂",
+    "NaOH + CuSO₄"
+   ],
+   "a": 1,
+   "e": "NaNO₃ ve KCl suda çözünür; çözünmeyen ürün yoktur."
+  },
+  {
+   "q": "Pb(NO₃)₂ ile KI çözeltileri karıştırılırsa çökeleğin rengi nedir?",
+   "o": [
+    "Beyaz",
+    "Mavi",
+    "Sarı",
+    "Siyah"
+   ],
+   "a": 2,
+   "e": "PbI₂ parlak sarı renkli bir çökelektir."
+  }
+ ]
+}

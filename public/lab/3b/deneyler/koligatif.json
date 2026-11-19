@@ -1,0 +1,659 @@
+{
+ "ad": "koligatif",
+ "baslik": "Koligatif Özellikler",
+ "alt": "10. sınıf · 2.1.8 Koligatif Özellikler · Çözünen maddenin kaynama ve donma noktasına etkisi",
+ "amac": "",
+ "sonuc": "Çözünen tanecik sayısı arttıkça kaynama noktası yükseldi, donma noktası alçaldı. Bu özellikler çözünenin türüne değil tanecik sayısına bağlıdır: koligatif özellikler.",
+ "W": 400,
+ "malzemeler": [
+  "Saf su",
+  "Şeker",
+  "Yemek tuzu (NaCl)",
+  "Isıtıcı",
+  "250 mL beherglas",
+  "2 termometre (0,1 °C duyarlı)",
+  "Deney tüpü",
+  "Buz + tuz banyosu",
+  "Hassas terazi",
+  "Baget"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🔥 Sıcak cam: maşa kullan",
+  "🧊 Buz-tuz banyosu çok soğuktur",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     300,
+     538,
+     "buz + tuz banyosu",
+     9
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     110,
+     524,
+     140
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     110,
+     488,
+     100,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     126,
+     250,
+     230,
+     90,
+     104
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      25
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     300,
+     520,
+     110,
+     130,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      200,
+      "rgba(220,240,255,.85)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     300,
+     500,
+     170,
+     25,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     300,
+     240,
+     240,
+     -6,
+     4
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      4
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Araştırma sorusu",
+   "aciklama": "Soru: “Suda çözünen tanecik sayısı arttıkça kaynama ve donma noktası nasıl değişir?” Bağımsız: çözünen tanecik sayısı · Bağımlı: kaynama ve donma noktası · Kontrol: su kütlesi (100 g), dış basınç, ısıtıcı gücü.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.76
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Saf suyu kaynat",
+   "aciklama": "100 g saf suyu ısıt: kaynama noktası 100,0 °C.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 3.04,
+     "ilk": [
+      25
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.8
+     ],
+     "sure": 0.47,
+     "ilk": [
+      0.8
+     ],
+     "birlikte": true,
+     "gecikme": 2.56
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.12
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Şekerli suyu kaynat",
+   "aciklama": "100 g suda 34,2 g şeker (1 molal) çöz ve kaynat: kaynama noktası 100,5 °C.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      100.52
+     ],
+     "sure": 3.01,
+     "ilk": [
+      25
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(215,230,250,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.8
+     ],
+     "sure": 0.41,
+     "ilk": [
+      0.8
+     ],
+     "birlikte": true,
+     "gecikme": 2.59
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.13
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Tuzlu suyu kaynat",
+   "aciklama": "100 g suda 5,85 g NaCl (1 molal) çöz ve kaynat: kaynama noktası 101,0 °C.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      101.04
+     ],
+     "sure": 3.04,
+     "ilk": [
+      25
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(215,230,250,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.8
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0.8
+     ],
+     "birlikte": true,
+     "gecikme": 2.58
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.13
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Saf suyu dondur",
+   "aciklama": "Tüpteki saf suyu buz-tuz banyosunda soğut: 0,0 °C’ta donar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 3.02,
+     "ilk": [
+      4
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      15,
+      "rgba(215,230,250,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0.8,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0.165,
+      "rgba(255,255,255,1)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.76
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.91
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Şekerli ve tuzlu suyu dondur",
+   "aciklama": "Şekerli su −1,9 °C’ta, tuzlu su −3,7 °C’ta donmaya başlar.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      -1.86
+     ],
+     "sure": 3.04,
+     "ilk": [
+      4
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      15,
+      "rgba(215,230,250,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0.8,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0.014,
+      "rgba(255,255,255,1)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.71
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.91
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      -3.72
+     ],
+     "sure": 3.04,
+     "ilk": [
+      4
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      15,
+      "rgba(215,230,250,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0.8,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0.017,
+      "rgba(255,255,255,1)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.71
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.92
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "cloudy",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Çözünen tanecik sayısı arttıkça kaynama noktası yükselir, donma noktası alçalır. NaCl suda Na⁺ ve Cl⁻ iyonlarına ayrıldığından şekerin iki katı etki yapar.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Tuzlu suyun kaynama noktası neden saf sudan yüksektir?",
+   "o": [
+    "Tuz suyu ağırlaştırır",
+    "Çözünen tanecikler buhar basıncını düşürür",
+    "Tuz ısıyı emer",
+    "Tuz buharlaşır"
+   ],
+   "a": 1,
+   "e": "Çözünen tanecikler yüzeyden buharlaşmayı azaltır; buhar basıncı düşer, daha yüksek sıcaklıkta kaynar."
+  },
+  {
+   "q": "Aynı molalitede hangisi donma noktasını en çok düşürür?",
+   "o": [
+    "Şeker",
+    "Üre",
+    "NaCl",
+    "CaCl₂"
+   ],
+   "a": 3,
+   "e": "CaCl₂ suda 3 iyon (Ca²⁺ + 2Cl⁻) verir; tanecik sayısı en fazladır."
+  },
+  {
+   "q": "Kışın yollara tuz serpilmesinin nedeni nedir?",
+   "o": [
+    "Kaynama noktasını düşürmek",
+    "Donma noktasını düşürmek",
+    "Yolu ısıtmak",
+    "Buzu sertleştirmek"
+   ],
+   "a": 1,
+   "e": "Tuzlu su 0 °C’ın altında donar; buzlanma azalır."
+  }
+ ]
+}

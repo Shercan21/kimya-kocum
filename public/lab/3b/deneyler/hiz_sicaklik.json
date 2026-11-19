@@ -1,0 +1,478 @@
+{
+ "ad": "hiz_sicaklik",
+ "baslik": "Sıcaklık ve Tepkime Hızı",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.15",
+ "amac": "",
+ "sonuc": "50 °C’taki tepkime 10 °C’takinden yaklaşık 16 kat hızlı oldu: sıcaklık arttıkça tepkime hızı artar.",
+ "W": 400,
+ "malzemeler": [
+  "Demir parçaları",
+  "1 M HCl",
+  "2 deney tüpü",
+  "2 adet 500 mL beherglas",
+  "Pipet",
+  "Isıtıcı",
+  "Termometre",
+  "Kronometre",
+  "Etiket",
+  "Buz"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ HCl aşındırıcıdır",
+  "🔥 Sıcak su banyosu"
+ ],
+ "aletler": [
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     130,
+     318,
+     "10 °C",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k7",
+     280,
+     318,
+     "50 °C",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     130,
+     520,
+     92,
+     120,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      200,
+      "rgba(200,225,255,.85)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     130,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     160,
+     300,
+     190,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      10
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     280,
+     520,
+     92,
+     120,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      200,
+      "rgba(205,225,250,.8)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     280,
+     556,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "on",
+     "arg": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     280,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     310,
+     300,
+     190,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez ve değişkenler",
+   "aciklama": "Hipotez: “Sıcaklık arttıkça Fe ile HCl arasındaki tepkime hızlanır.” Bağımsız: sıcaklık · Bağımlı: süre · Kontrol: Fe kütlesi, HCl derişimi/hacmi.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.55
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Tüplere HCl koy",
+   "aciklama": "İki tüpe 10’ar mL 1 M HCl koy ve etiketle.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.73,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.72,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.73
+    }
+   ]
+  },
+  {
+   "baslik": "Su banyolarını hazırla",
+   "aciklama": "Bir beheri buzlu suyla 10 °C’a, diğerini ısıtıcıda 50 °C’a getir; tüpleri banyolara yerleştir.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.02
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Fe parçalarını ekle",
+   "aciklama": "Eşit kütlede Fe parçalarını tüplere aynı anda ekle, kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.3
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gaz çıkışını izle",
+   "aciklama": "50 °C’taki tüpte kabarcıklar çok daha yoğun; Fe çok daha kısa sürede tükendi.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k11",
+     "ad": "pieces",
+     "arg": [
+      "@k2",
+      6,
+      "#57534e",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "olustur",
+     "id": "k12",
+     "ad": "pieces",
+     "arg": [
+      "@k7",
+      6,
+      "#57534e",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "set",
+     "arg": [
+      600
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0.13
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.02,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Sıcaklık arttıkça taneciklerin kinetik enerjisi artar, aktifleşme enerjisini aşan tanecik sayısı ve etkin çarpışmalar artar: tepkime hızlanır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Sıcaklık artınca hangisi artar?",
+   "o": [
+    "Aktifleşme enerjisi",
+    "Etkin çarpışma sayısı",
+    "Tepkime ısısı",
+    "Ürün kütlesi"
+   ],
+   "a": 1,
+   "e": "Ea değişmez; Ea’yı aşan taneciklerin oranı artar."
+  },
+  {
+   "q": "Yiyecekler buzdolabında neden daha geç bozulur?",
+   "o": [
+    "Işık azdır",
+    "Düşük sıcaklıkta tepkimeler yavaşlar",
+    "Nem artar",
+    "Basınç artar"
+   ],
+   "a": 1,
+   "e": "Bozulma tepkimelerinin hızı düşük sıcaklıkta azalır."
+  }
+ ]
+}

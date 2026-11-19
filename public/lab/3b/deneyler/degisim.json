@@ -1,0 +1,619 @@
+{
+ "ad": "degisim",
+ "baslik": "Kimyasal Değişimin Göstergeleri",
+ "alt": "10. sınıf · 1.1.1 Kimyasal Değişimin Göstergeleri · Farklı kimyasal tepkimelerdeki değişimleri gözlemleyebilme",
+ "amac": "",
+ "sonuc": "Kimyasal değişimin göstergeleri: gaz çıkışı, renk değişimi, çökelek oluşumu, sıcaklık (ısı) değişimi. Bu göstergeler yeni maddelerin oluştuğunu gösterir.",
+ "W": 400,
+ "malzemeler": [
+  "50 mL H₂O₂ (%30)",
+  "Bulaşık deterjanı",
+  "2 g KI",
+  "50 mL sirke (CH₃COOH)",
+  "1 g NaHCO₃",
+  "1 g Pb(NO₃)₂",
+  "250 mL erlenmayer",
+  "2 adet 100 mL beherglas",
+  "250 mL dereceli silindir",
+  "Elastik balon",
+  "Huni",
+  "Spatül",
+  "Baget",
+  "Hassas terazi",
+  "Saf su"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ %30 H₂O₂ yakıcıdır",
+  "☠ Pb(NO₃)₂ zehirlidir, atığı lavaboya dökme"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M45 280 L75 280 L81 274 L81 280 L75 284 L75 512 L45 512 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M172.25 422 L197.75 422 L197.75 457.7 C197.75 463.7 200.75 467.7 204.75 473.7 L238.5 510 C246.5 518 242.5 524 232.5 524 L137.5 524 C127.5 524 123.5 518 131.5 510 L165.25 473.7 C169.25 467.7 172.25 463.7 172.25 457.7 Z\"></path></clipPath><clipPath id=\"cl200003\"><path d=\"M268 446 L272 450 L272 514 Q272 520 278 520 L322 520 Q328 520 328 514 L328 446 Z\"></path></clipPath><clipPath id=\"cl200004\"><path d=\"M333 446 L337 450 L337 514 Q337 520 343 520 L387 520 Q393 520 393 514 L393 446 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     300,
+     536,
+     "Pb(NO₃)₂",
+     8.5
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k8",
+     365,
+     536,
+     "KI",
+     8.5
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "cylinder",
+    "args": [
+     60,
+     520,
+     250,
+     240
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     106,
+     300,
+     150,
+     0,
+     60
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      22
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     185,
+     524,
+     250,
+     0.85,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balloon",
+    "args": [
+     185,
+     422,
+     "#f59e0b"
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     300,
+     520,
+     56,
+     74,
+     100,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     365,
+     520,
+     56,
+     74,
+     100,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><text x=\"60\" y=\"548\" font-size=\"9\" fill=\"#7c3aed\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">1. deney</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><text x=\"185\" y=\"548\" font-size=\"9\" fill=\"#7c3aed\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">2. deney</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><text x=\"332\" y=\"548\" font-size=\"9\" fill=\"#7c3aed\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">3. deney</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "foam",
+    "args": [
+     60,
+     280,
+     26,
+     230,
+     "rgba(255,248,220,.97)"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "1. Deney: H₂O₂ + deterjan",
+   "aciklama": "Dereceli silindire 50 mL H₂O₂ koy, üzerine biraz bulaşık deterjanı ekleyip karıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      54,
+      "rgba(200,235,210,.85)"
+     ],
+     "sure": 2.24,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.43
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "KI ekle: köpük ve ısı",
+   "aciklama": "1 g KI’yı tek seferde ekle: H₂O₂ hızla bozunur, açığa çıkan O₂ gazı deterjanla dev köpük oluşturur, silindir ısınır. 2H₂O₂ → 2H₂O + O₂ (KI katalizör).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0.7
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      1
+     ],
+     "sure": 4.2,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      52
+     ],
+     "sure": 4.2,
+     "ilk": [
+      22
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0.15
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      54,
+      "rgba(220,190,120,.85)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.76
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "2. Deney: sirke ve balon",
+   "aciklama": "Erlenmayere 50 mL sirke koy. Huniyle 1 g NaHCO₃’ı balona doldur ve balonu, soda dökülmeyecek şekilde erlenmayerin ağzına geçir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      22
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      50,
+      "rgba(240,235,215,.82)"
+     ],
+     "sure": 1.21,
+     "ilk": [
+      0,
+      "rgba(240,235,215,.82)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.53,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "inflate",
+     "arg": [
+      0.15
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.74
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.42
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sodayı dök: gaz çıkışı",
+   "aciklama": "Balonu kaldırıp sodayı sirkeye dök: kabarcıklar çıkar, balon şişer, çözelti biraz soğur. CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0.9
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "inflate",
+     "arg": [
+      1
+     ],
+     "sure": 3.62,
+     "ilk": [
+      0.15
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0.2
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.62
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.74
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "3. Deney: iki çözelti hazırla",
+   "aciklama": "Bir beherglasta 50 mL suda 1 g Pb(NO₃)₂, diğerinde 50 mL suda 1 g KI çöz. İki çözelti de renksiz.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      50
+     ],
+     "sure": 1.0,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      50
+     ],
+     "sure": 1.0,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.0
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.44
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Çözeltileri karıştır: sarı çökelek",
+   "aciklama": "KI çözeltisini Pb(NO₃)₂ çözeltisine dikkatlice dök: parlak sarı PbI₂ çökeleği oluşur. Pb(NO₃)₂ + 2KI → PbI₂(k) + 2KNO₃",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 2.6,
+     "ilk": [
+      50
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      98,
+      "rgba(255,220,60,.85)"
+     ],
+     "sure": 2.6,
+     "ilk": [
+      50,
+      "rgba(196,226,255,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "ppt",
+     "arg": [
+      0.8,
+      "rgba(250,204,21,.98)"
+     ],
+     "sure": 2.6,
+     "ilk": [
+      0,
+      "rgba(250,204,21,.98)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.77
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gözlemleri tabloya işle",
+   "aciklama": "1. deney: gaz çıkışı, köpük, sıcaklık artışı · 2. deney: gaz çıkışı (balon şişti), sıcaklık azalması · 3. deney: çökelek ve renk değişimi.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "1. deneyde köpüğü oluşturan gaz hangisidir?",
+   "o": [
+    "H₂",
+    "O₂",
+    "CO₂",
+    "Cl₂"
+   ],
+   "a": 1,
+   "e": "H₂O₂ bozunur: 2H₂O₂ → 2H₂O + O₂. KI tepkimeyi hızlandırır (katalizör), deterjan gazı köpüğe hapseder."
+  },
+  {
+   "q": "2. deneyde balonu şişiren gaz hangisidir?",
+   "o": [
+    "O₂",
+    "H₂",
+    "CO₂",
+    "N₂"
+   ],
+   "a": 2,
+   "e": "Sirkedeki asetik asit sodayla tepkimeye girer ve CO₂ gazı açığa çıkar."
+  },
+  {
+   "q": "3. deneydeki sarı katı nedir?",
+   "o": [
+    "KNO₃",
+    "PbI₂",
+    "KI",
+    "Pb"
+   ],
+   "a": 1,
+   "e": "Pb²⁺ ve I⁻ iyonları suda az çözünen PbI₂ çökeleğini oluşturur; K⁺ ve NO₃⁻ çözeltide kalır."
+  },
+  {
+   "q": "Hangisi kimyasal değişimin göstergesi DEĞİLDİR?",
+   "o": [
+    "Gaz çıkışı",
+    "Çökelek oluşumu",
+    "Şeker çözünmesi",
+    "Renk değişimi"
+   ],
+   "a": 2,
+   "e": "Şekerin suda çözünmesi fiziksel bir olaydır; yeni madde oluşmaz."
+  }
+ ]
+}

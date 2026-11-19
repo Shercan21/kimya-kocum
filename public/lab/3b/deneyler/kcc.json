@@ -1,0 +1,454 @@
+{
+ "ad": "kcc",
+ "baslik": "Çözünürlüğe Sıcaklık ve Ortak İyon Etkisi",
+ "alt": "11. sınıf · 2.3.2 Çözünürlüğe Etki Eden Faktörler · Performans görevi",
+ "amac": "",
+ "sonuc": "Isıtma ve ortak iyon eklenmesi Ca(OH)₂’nin çözünürlüğünü azalttı; Kçç yalnızca sıcaklıkla değişti.",
+ "W": 400,
+ "malzemeler": [
+  "Doymuş Ca(OH)₂ çözeltisi (kireç suyu, süzülmüş)",
+  "0,5 M NaOH çözeltisi",
+  "Saf su",
+  "3 deney tüpü / beherglas",
+  "Isıtıcı",
+  "Termometre",
+  "Damlalık",
+  "Süzgeç kâğıdı"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ NaOH ve Ca(OH)₂ yakıcıdır",
+  "🔥 Sıcak su banyosu"
+ ],
+ "aletler": [
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     80,
+     370,
+     "ısıtılan",
+     10,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     200,
+     370,
+     "+ NaOH",
+     10,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     320,
+     370,
+     "kontrol",
+     10,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     80,
+     556,
+     120
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     80,
+     520,
+     90,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     90,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     320,
+     520,
+     90,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     104,
+     300,
+     200,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      25
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez",
+   "aciklama": "Hipotez 1: “Isıtılınca Ca(OH)₂ çözünürlüğü azalır.” Hipotez 2: “Ortak iyon (OH⁻) eklenince çözünürlük azalır.” Kontrol: çözelti hacmi, başlangıç derişimi.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.53
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Doymuş kireç suyu",
+   "aciklama": "Üç behere 25 °C’ta doymuş, berrak Ca(OH)₂ çözeltisi koy: s ≈ 0,021 mol/L.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      150
+     ],
+     "sure": 1.52,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      150
+     ],
+     "sure": 1.52,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      150
+     ],
+     "sure": 1.52,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.43
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Isıt",
+   "aciklama": "Birinci beheri 80 °C’a ısıt: berrak çözelti bulanıklaştı; Ca(OH)₂ çöktü (s ≈ 0,013 mol/L).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      80
+     ],
+     "sure": 4.02,
+     "ilk": [
+      25
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "cloudy",
+     "arg": [
+      0.6,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 4.02,
+     "ilk": [
+      0,
+      "rgba(255,255,255,1)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "ppt",
+     "arg": [
+      0.489,
+      "rgba(250,250,250,.95)"
+     ],
+     "sure": 4.02,
+     "ilk": [
+      0,
+      "rgba(250,250,250,.95)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "on",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.02
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.43
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Ortak iyon ekle",
+   "aciklama": "İkinci behere birkaç mL 0,5 M NaOH ekle: hemen beyaz bulanıklık oluştu. OH⁻ derişimi arttığı için denge sola kaydı.",
+   "islemler": [
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      330,
+      458.4,
+      "rgba(220,230,255,.95)"
+     ],
+     "tekrar": 10,
+     "aralik": 266,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "cloudy",
+     "arg": [
+      0.54,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 2.39,
+     "ilk": [
+      0,
+      "rgba(255,255,255,1)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "ppt",
+     "arg": [
+      0.4,
+      "rgba(250,250,250,.95)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.66
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.43
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Kontrol",
+   "aciklama": "Üçüncü beher (25 °C, katkısız) berrak kaldı.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "h1",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"432.6\" r=\"2.4\" fill=\"rgba(220,230,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.04
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Ca(OH)₂(k) ⇌ Ca²⁺ + 2OH⁻ + ısı. Sıcaklık artınca (ekzotermik) ve ortak iyon eklenince çözünürlük azalır; Kçç yalnız sıcaklıkla değişir.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Ortak iyon eklenmesi Kçç’yi nasıl etkiler?",
+   "o": [
+    "Artırır",
+    "Azaltır",
+    "Değiştirmez; çözünürlük azalır",
+    "Sıfırlar"
+   ],
+   "a": 2,
+   "e": "Kçç yalnızca sıcaklıkla değişir."
+  },
+  {
+   "q": "Kireç suyu ısıtılınca neden bulanıklaşır?",
+   "o": [
+    "Ca(OH)₂’nin çözünürlüğü sıcaklıkla azalır",
+    "Su buharlaşır",
+    "CO₂ çıkar",
+    "Renk değişir"
+   ],
+   "a": 0,
+   "e": "Çözünmesi ekzotermiktir."
+  },
+  {
+   "q": "PbCl₂’nin sıcak sudaki çözünürlüğü için ne söylenebilir?",
+   "o": [
+    "Soğuk sudan azdır",
+    "Soğuk sudan fazladır",
+    "Sıfırdır",
+    "Değişmez"
+   ],
+   "a": 1,
+   "e": "PbCl₂’nin çözünmesi endotermiktir; sıcaklık artınca çözünürlük artar."
+  }
+ ]
+}

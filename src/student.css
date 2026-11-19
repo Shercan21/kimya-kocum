@@ -17,3 +17,8 @@
 @media(max-width:720px){.student-metrics small{font-size:11px;line-height:1.35}.learning-route small{font-size:10px}.hero-kicker{font-size:10px}.eyebrow{font-size:11px}}
 
 .reading-picker{display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:24px}.reading-picker .chip{padding:10px 16px}.classroom-preview summary{cursor:pointer;color:var(--purple-800);font-size:14px;font-weight:650}.classroom-preview .card{margin-top:16px;box-shadow:none}.resource-heading{display:flex;gap:16px;align-items:center;justify-content:space-between}.resource-heading p{margin-bottom:0}.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:18px}.resource-grid h4{margin:8px 0}.resource-grid ul{list-style:none;padding:0;margin:0}.resource-grid a{display:flex;justify-content:space-between;gap:12px;color:var(--purple-800);padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;text-decoration:none}.resource-grid a span{font-size:11px;color:var(--text-2)}.konu .ka svg{max-width:100%;height:auto}.preview-banner{position:sticky;top:0;z-index:12}.resource-heading .btn-secondary{white-space:nowrap}@media(max-width:720px){.resource-heading{align-items:flex-start;flex-direction:column}.reading-picker .chip{width:100%}}
+
+/* Sanal lab: 2B / 3B görünüm seçici */
+.lab-gorunum{display:inline-flex;gap:4px;background:#e4e8f1;border-radius:12px;padding:4px;margin:4px 0 10px}
+.lab-gorunum button{border:0;background:none;padding:7px 12px;border-radius:9px;font-weight:800;font-size:13px;color:#5b6476;cursor:pointer}
+.lab-gorunum button.on{background:#fff;color:#1d2433;box-shadow:0 1px 4px #0002}

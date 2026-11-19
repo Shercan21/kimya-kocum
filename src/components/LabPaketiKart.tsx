@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 export default function LabPaketiKart({ deney, ad }: { deney: Record<string, unknown>; ad: string }) {
   const ref = useRef<HTMLIFrameElement>(null)
   const [h, setH] = useState(1100)
+  const [uc, setUc] = useState(false)
   useEffect(() => {
     function dinle(e: MessageEvent) {
       const w = ref.current?.contentWindow
@@ -17,15 +18,22 @@ export default function LabPaketiKart({ deney, ad }: { deney: Record<string, unk
     return () => window.removeEventListener('message', dinle)
   }, [deney])
   return (
+    <>
+    <div className="lab-gorunum" role="tablist" aria-label="Lab görünümü">
+      <button type="button" role="tab" aria-selected={!uc} className={uc ? '' : 'on'} onClick={() => setUc(false)}>🧪 2B lab</button>
+      <button type="button" role="tab" aria-selected={uc} className={uc ? 'on' : ''} onClick={() => setUc(true)}>🧊 3B görünüm</button>
+    </div>
     <iframe
+      key={uc ? '3b' : '2b'}
       ref={ref}
       className="lab-cerceve"
       title={`Laboratuvar: ${ad}`}
-      src={`${import.meta.env.BASE_URL}lab/oynat.html#gomulu`}
+      src={uc ? `${import.meta.env.BASE_URL}lab/3b/oynat3b.html#gomulu` : `${import.meta.env.BASE_URL}lab/oynat.html#gomulu`}
       style={{ width: '100%', height: h, border: 0, display: 'block' }}
       loading="lazy"
       allow="fullscreen"
       allowFullScreen
     />
+    </>
   )
 }

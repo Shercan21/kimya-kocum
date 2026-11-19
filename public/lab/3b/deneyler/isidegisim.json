@@ -1,0 +1,348 @@
+{
+ "ad": "isidegisim",
+ "baslik": "Isı Değişimleri: Endotermik mi, Ekzotermik mi?",
+ "alt": "11. sınıf · 1.1.1 Tepkimelerde Meydana Gelen Enerji Değişimi · Olayları endotermik ve ekzotermik olarak belirleyebilme",
+ "amac": "",
+ "sonuc": "Sıcaklığı artıran olay çevreye ısı verir (ekzotermik), sıcaklığı azaltan olay çevreden ısı alır (endotermik).",
+ "W": 400,
+ "malzemeler": [
+  "NaOH katısı",
+  "NH₄Cl katısı",
+  "Su",
+  "2 adet 200 mL beherglas",
+  "2 adet termometre",
+  "2 adet spatül",
+  "Dereceli silindir",
+  "Cam baget",
+  "Elektronik terazi",
+  "Cam kalemi"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ NaOH aşındırıcıdır",
+  "🌡 Beher ısınabilir"
+ ],
+ "aletler": [
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     110,
+     538,
+     "NaOH",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     290,
+     538,
+     "NH₄Cl",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     110,
+     520,
+     100,
+     120,
+     200,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     290,
+     520,
+     100,
+     120,
+     200,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     130,
+     240,
+     250,
+     0,
+     50
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      22
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     310,
+     240,
+     250,
+     0,
+     50
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      22
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Beherleri etiketle, su koy",
+   "aciklama": "Beherleri cam kalemiyle etiketle. Dereceli silindirle her birine 100 mL su koy.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 1.4,
+     "ilk": [
+      0.029
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 1.4,
+     "ilk": [
+      0.029
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "İlk sıcaklıkları ölç",
+   "aciklama": "Termometrelerle suyun ilk sıcaklığını ölç: ikisi de 22 °C.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.78
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "5 g NaOH ekle",
+   "aciklama": "Terazide 5 g NaOH tart ve birinci behere ekleyip bagetle karıştır.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k7",
+     "ad": "pieces",
+     "arg": [
+      "@k1",
+      14,
+      "#fff",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "5 g NH₄Cl ekle",
+   "aciklama": "Terazide 5 g NH₄Cl tart ve ikinci behere ekleyip karıştır.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k8",
+     "ad": "pieces",
+     "arg": [
+      "@k3",
+      14,
+      "#fff",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sıcaklıkları izle",
+   "aciklama": "NaOH çözeltisinin sıcaklığı yükseldi (≈ 34 °C), NH₄Cl çözeltisinin sıcaklığı düştü (≈ 19 °C).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      34.674
+     ],
+     "sure": 6.0,
+     "ilk": [
+      22
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      18.849
+     ],
+     "sure": 6.0,
+     "ilk": [
+      22
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "shrink",
+     "arg": [
+      1.2
+     ],
+     "sure": 6.0,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "shrink",
+     "arg": [
+      1.2
+     ],
+     "sure": 6.0,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Endotermik / ekzotermik",
+   "aciklama": "NaOH’ın çözünmesi çevreye ısı verir: ekzotermik. NH₄Cl’nin çözünmesi çevreden ısı alır: endotermik. Ölçüt: sıcaklık artıyorsa ısı veren, azalıyorsa ısı alan.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "NaOH’ın suda çözünmesi hangi tür değişimdir?",
+   "o": [
+    "Endotermik",
+    "Ekzotermik",
+    "Isı alışverişi yok",
+    "Hem endo hem ekzo"
+   ],
+   "a": 1,
+   "e": "Su ısındı; olay çevreye ısı verdi."
+  },
+  {
+   "q": "Hangisi endotermik bir olaydır?",
+   "o": [
+    "Odunun yanması",
+    "Buzun erimesi",
+    "Suyun donması",
+    "Buhar yoğuşması"
+   ],
+   "a": 1,
+   "e": "Erime için katı ısı almalıdır."
+  },
+  {
+   "q": "Endotermik/ekzotermik ayrımında ölçüt nedir?",
+   "o": [
+    "Çözeltinin rengi",
+    "Çevrenin sıcaklığının artması ya da azalması",
+    "Katının kütlesi",
+    "Behrin büyüklüğü"
+   ],
+   "a": 1,
+   "e": "Sistem ısı verirse çevre ısınır; ısı alırsa çevre soğur."
+  },
+  {
+   "q": "Fotosentez enerji açısından nasıl bir olaydır?",
+   "o": [
+    "Ekzotermik",
+    "Endotermik",
+    "Enerjisiz",
+    "Nükleer"
+   ],
+   "a": 1,
+   "e": "Bitkiler güneş enerjisini alarak glikoz üretir."
+  }
+ ]
+}

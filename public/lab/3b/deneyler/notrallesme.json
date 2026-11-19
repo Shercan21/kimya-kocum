@@ -1,0 +1,722 @@
+{
+ "ad": "notrallesme",
+ "baslik": "Nötralleşme",
+ "alt": "11. sınıf · 2.2.5 Kuvvetli Asit ve Kuvvetli Bazların Nötralleşme Tepkimeleri · Nötralleşme olayına ilişkin ölçütleri test etme",
+ "amac": "",
+ "sonuc": "40 mL HCl, 40 mL NaOH ile tam nötralleşti. Nötralleşmenin ölçütleri: pH 7’ye ulaşması, iletkenliğin en düşük değere inmesi ve hemen ardından indikatörün kalıcı renk değiştirmesi.",
+ "W": 400,
+ "malzemeler": [
+  "0,1 M HCl",
+  "0,1 M NaOH",
+  "2 adet 50 mL mezür",
+  "Fenolftalein",
+  "pH metre",
+  "Kondüktometre",
+  "100 mL beherglas",
+  "Etiket"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ Aşındırıcı (HCl, NaOH)",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     70,
+     300,
+     "ASİT",
+     9,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     330,
+     300,
+     "BAZ",
+     9,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tileUnder",
+    "args": [
+     200,
+     170
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     100,
+     118,
+     100,
+     "100 mL beherglas"
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "cylinder",
+    "args": [
+     70,
+     520,
+     50
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "cylinder",
+    "args": [
+     330,
+     520,
+     50
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "dropBottle",
+    "args": [
+     118,
+     452,
+     "FENOLFTALEİN"
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "meter",
+    "args": [
+     112,
+     150,
+     "pH METRE",
+     [
+      180,
+      500
+     ]
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "meter",
+    "args": [
+     250,
+     150,
+     "İLETKENLİK",
+     [
+      212,
+      500
+     ],
+     "#fbbf24"
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Mezürleri etiketle",
+   "aciklama": "Asit ve baz için iki ayrı 50 mL’lik mezür kullan; birine “ASİT”, diğerine “BAZ” etiketi yapıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.54,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.53,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.54
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.41
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "40 mL HCl ölç",
+   "aciklama": "ASİT mezürüyle 40 mL 0,1 M HCl ölç ve temiz, kuru beherglasa koy.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.52,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 3.38,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.52
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      40,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 1.66,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 2.24
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "1,00"
+     ],
+     "sure": 1.59,
+     "ilk": [
+      "1,00"
+     ],
+     "birlikte": true,
+     "gecikme": 2.31
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "42,6"
+     ],
+     "sure": 1.59,
+     "ilk": [
+      "42,6"
+     ],
+     "birlikte": true,
+     "gecikme": 2.31
+    }
+   ]
+  },
+  {
+   "baslik": "İndikatör ekle",
+   "aciklama": "Beherglastaki çözeltiye birkaç damla fenolftalein damlat.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.91
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      40,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "1,00"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "42,6"
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0.4,
+     "ilk": [
+      1
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Asidi ölç",
+   "aciklama": "HCl çözeltisinin pH’ını ve iletkenliğini ölç, rengini gözle: pH ≈ 1, iletkenlik yüksek, renksiz.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.41,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.41,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      40,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.01,
+     "ilk": [
+      40,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.82
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "1,00"
+     ],
+     "sure": 0.01,
+     "ilk": [
+      "1,00"
+     ],
+     "birlikte": true,
+     "gecikme": 0.82
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "42,6"
+     ],
+     "sure": 0.01,
+     "ilk": [
+      "42,6"
+     ],
+     "birlikte": true,
+     "gecikme": 0.82
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.14
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "20 mL NaOH ekle",
+   "aciklama": "BAZ mezürüyle 20 mL 0,1 M NaOH ölç ve yavaş yavaş behere ekle. pH biraz yükseldi, iletkenlik azaldı, çözelti hâlâ renksiz.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 4.36,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      60,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 3.23,
+     "ilk": [
+      40,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "1,48"
+     ],
+     "sure": 3.23,
+     "ilk": [
+      "1,00"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "18,4"
+     ],
+     "sure": 3.23,
+     "ilk": [
+      "42,6"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.75
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Kalıcı renk değişimine kadar ekle",
+   "aciklama": "Yeniden 20 mL NaOH ölç, yavaşça eklemeye devam et. 40 mL’de H⁺ ve OH⁻ eşitlenir (pH 7, iletkenlik en düşük). Hemen ardından ilk fazla damlayla pembe renk kalıcı hâle geldi: eklemeyi durdur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 6.73,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      80.1,
+      "rgba(218,193,227,0.82)"
+     ],
+     "sure": 5.6,
+     "ilk": [
+      60,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "10,10"
+     ],
+     "sure": 5.6,
+     "ilk": [
+      "1,48"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "6,3"
+     ],
+     "sure": 5.6,
+     "ilk": [
+      "18,4"
+     ],
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.96
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "20 mL daha NaOH ekle",
+   "aciklama": "Kalıcı renk değişiminden sonra 20 mL daha NaOH ekle: pH 12’nin üstüne çıktı, iletkenlik yeniden arttı, renk koyu pembe.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 4.36,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(226,107,169,0.85)"
+     ],
+     "sure": 3.22,
+     "ilk": [
+      80.1,
+      "rgba(218,193,227,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.14
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      "12,30"
+     ],
+     "sure": 3.22,
+     "ilk": [
+      "10,10"
+     ],
+     "birlikte": true,
+     "gecikme": 1.14
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      "10,0"
+     ],
+     "sure": 3.22,
+     "ilk": [
+      "6,3"
+     ],
+     "birlikte": true,
+     "gecikme": 1.14
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.75
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sonucu yorumla",
+   "aciklama": "H⁺ ve OH⁻ mol sayıları eşitlendiğinde tam nötralleşme olur: H⁺ + OH⁻ → H₂O. Ortamda kalan Na⁺ ve Cl⁻ iyonları iletkenliği düşük ama sıfırdan farklı tutar.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Nötralleşme sırasında iletkenlik neden önce azalır?",
+   "o": [
+    "Çözelti seyrelir, hiçbir iyon kalmaz",
+    "Hareketli H⁺ iyonları OH⁻ ile su oluşturur ve yerlerine daha az iletken Na⁺ iyonları gelir",
+    "Na⁺ iyonları çöker",
+    "Sıcaklık düşer"
+   ],
+   "a": 1,
+   "e": "H⁺ en iletken iyondur. H⁺ + OH⁻ → H₂O ile ortadan kalkar; yerine gelen Na⁺ daha az iletkendir. Bu yüzden iletkenlik tam nötralleşmede en düşüktür."
+  },
+  {
+   "q": "Tam nötralleşmeden sonra NaOH eklemeye devam edilirse ne olur?",
+   "o": [
+    "pH 7’de sabit kalır",
+    "pH ve iletkenlik artar",
+    "İletkenlik sıfır olur",
+    "Çözelti renksizleşir"
+   ],
+   "a": 1,
+   "e": "Fazla OH⁻ iyonları ortamı bazik yapar (pH > 7) ve iletkenliği yeniden artırır; fenolftalein pembe kalır."
+  },
+  {
+   "q": "40 mL 0,1 M HCl’yi tam nötralleştirmek için kaç mL 0,2 M NaOH gerekir?",
+   "o": [
+    "10",
+    "20",
+    "40",
+    "80"
+   ],
+   "a": 1,
+   "e": "n(H⁺) = 0,1·40 = 4 mmol. V = 4/0,2 = 20 mL."
+  },
+  {
+   "q": "HBr(suda) + KOH(suda) tepkimesinin ürünleri nelerdir?",
+   "o": [
+    "KBr ve H₂O",
+    "K ve HBrO",
+    "KH ve BrOH",
+    "Br₂ ve KOH"
+   ],
+   "a": 0,
+   "e": "Asit + baz → tuz + su: HBr + KOH → KBr + H₂O."
+  }
+ ]
+}

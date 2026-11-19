@@ -1,0 +1,1218 @@
+{
+ "ad": "asitbaz",
+ "baslik": "Asit-Baz Tepkimesi",
+ "alt": "10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · Asit-baz tepkimelerinin oluşumunu gözlemleyebilme",
+ "amac": "",
+ "sonuc": "Asit ile baz tepkimeye girdi: H⁺ ve OH⁻ iyonları birleşip su oluşturdu, ortamda tuz iyonları (K⁺, Cl⁻) kaldı. Kalıcı pembe renkte pH ≈ 7.",
+ "W": 400,
+ "malzemeler": [
+  "0,1 M HCl",
+  "0,1 M KOH",
+  "Fenolftalein",
+  "2 adet 250 mL beherglas",
+  "Dereceli silindir",
+  "Pipet",
+  "Puar",
+  "pH kâğıdı"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ Aşındırıcı (HCl, KOH)",
+  "🧪 Pipeti ağızla çekme, puar kullan"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M51 392 L55 396 L55 514 Q55 520 61 520 L159 520 Q165 520 165 514 L165 392 Z\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M281 410 L285 414 L285 514 Q285 520 291 520 L369 520 Q375 520 375 514 L375 410 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     110,
+     538,
+     "0,1 M HCl",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     330,
+     538,
+     "0,1 M KOH",
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tileUnder",
+    "args": [
+     110,
+     150
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     110,
+     520,
+     110,
+     128,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     330,
+     520,
+     90,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phScale",
+    "args": [
+     20,
+     40,
+     190
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\" transform=\"translate(330 330)\"><rect x=\"-3.5\" y=\"-120\" width=\"7\" height=\"110\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><path d=\"M-3.5 -10 L3.5 -10 L1 12 L-1 12 Z\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></path><rect x=\"-2.5\" y=\"-12\" width=\"5\" height=\"0\" fill=\"rgba(196,226,255,.9)\"></rect><ellipse cx=\"0\" cy=\"-132\" rx=\"10\" ry=\"14\" fill=\"#dc2626\"></ellipse></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phStrip",
+    "args": [
+     200,
+     300
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"228\" y=\"24\" width=\"160\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"308\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (beherdeki)</text><g></g><text x=\"308\" y=\"168\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "HCl’yi ölç",
+   "aciklama": "Dereceli silindirle 100 mL 0,1 M HCl çözeltisini birinci beherglasa al.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 2.25,
+     "ilk": [
+      3.867,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "HCl’nin pH’ı",
+   "aciklama": "Pens ile tutulan pH kâğıdını çözeltiye daldır: kırmızı renk, pH ≈ 1. Ortamda H⁺ iyonları fazla.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"228\" y=\"24\" width=\"160\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"308\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (beherdeki)</text><g><circle cx=\"240\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"240\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"258\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"258\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"276\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"276\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"294\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"294\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"312\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"312\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"330\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"330\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"348\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"348\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"366\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"366\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"248\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"248\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"266\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"266\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"284\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"284\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"302\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"302\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"320\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"320\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"338\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"338\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"356\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"356\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"374\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"374\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text></g><text x=\"308\" y=\"168\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">H⁺ fazla → asidik</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "to",
+     "arg": [
+      110,
+      369.4
+     ],
+     "sure": 1.82,
+     "ilk": [
+      110,
+      300
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "rgb(217,45,35)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.16
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.93
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0.33,
+     "ilk": [
+      1
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Fenolftalein ekle",
+   "aciklama": "HCl çözeltisine birkaç damla fenolftalein ekle: çözelti renksiz kalır.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.75
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      100,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.46
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "KOH’ın pH’ı",
+   "aciklama": "İkinci beherglasa 100 mL 0,1 M KOH al ve pH’ını ölç: mor renk, pH ≈ 13. Ortamda OH⁻ iyonları fazla.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      100
+     ],
+     "sure": 1.43,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.43
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.43
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "to",
+     "arg": [
+      330,
+      376.6
+     ],
+     "sure": 1.83,
+     "ilk": [
+      330,
+      300
+     ],
+     "birlikte": true,
+     "gecikme": 1.43
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "rgb(80,40,130)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.62
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.9
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0.33,
+     "ilk": [
+      1
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "KOH’ı pipetle ekle",
+   "aciklama": "Puarla pipete KOH çek ve yavaş yavaş HCl’ye ekle. Her eklemede H⁺ + OH⁻ → H₂O tepkimesi olur; H⁺ sayısı azalır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      90
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      110,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.53,
+     "ilk": [
+      100,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.4
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.79
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      80
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      120,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.51,
+     "ilk": [
+      110,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.78
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      70
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      130,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.55,
+     "ilk": [
+      120,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.45
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.78
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      140,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.54,
+     "ilk": [
+      130,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.45
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.79
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      50
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.53,
+     "ilk": [
+      140,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.4
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.8
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      40
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      160,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.53,
+     "ilk": [
+      150,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.8
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      30
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      170,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.57,
+     "ilk": [
+      160,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.78
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      180,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.53,
+     "ilk": [
+      170,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.45
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.79
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      10
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      190,
+      "rgba(196,226,255,0.82)"
+     ],
+     "sure": 0.56,
+     "ilk": [
+      180,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.47
+    }
+   ]
+  },
+  {
+   "baslik": "Kalıcı pembe renk",
+   "aciklama": "Sona doğru damla damla ekle. Kalıcı pembe renk görüldüğü anda deneyi sonlandır: yaklaşık 100 mL KOH eklendi.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\" transform=\"translate(330 250)\"><rect x=\"-3.5\" y=\"-120\" width=\"7\" height=\"110\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><path d=\"M-3.5 -10 L3.5 -10 L1 12 L-1 12 Z\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></path><rect x=\"-2.5\" y=\"-12\" width=\"5\" height=\"0\" fill=\"rgba(196,226,255,.9)\"></rect><ellipse cx=\"0\" cy=\"-132\" rx=\"10\" ry=\"14\" fill=\"#dc2626\"></ellipse></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"228\" y=\"24\" width=\"160\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"308\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (beherdeki)</text><g><circle cx=\"240\" cy=\"56\" r=\"7.2\" fill=\"#ef4444\" opacity=\"0.9\"></circle><text x=\"240\" y=\"58.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"258\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"258\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"276\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"276\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"294\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"294\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"312\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"312\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"330\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"330\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"348\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"348\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"366\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"366\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"248\" cy=\"74\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"248\" y=\"76.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"266\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"266\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"284\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"284\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"302\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"302\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"320\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"320\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"338\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"338\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"356\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"356\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"374\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"374\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"240\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"240\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"258\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"258\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"276\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"276\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"294\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"294\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"312\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"312\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"330\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"330\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"348\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"348\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text></g><text x=\"308\" y=\"168\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">H⁺ fazla → asidik</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      428.56,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.45
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      200.3,
+      "rgba(219,189,224,0.82)"
+     ],
+     "sure": 4.86,
+     "ilk": [
+      190.5,
+      "rgba(196,226,255,0.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      428.322,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      428.084,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      427.846,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      427.608,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      427.37,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.45
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      427.132,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      426.894,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      426.656,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      426.418,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.25
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      426.18,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.44
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      425.942,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.64
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      425.704,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.84
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      425.466,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.04
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      425.228,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.24
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      424.99,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.44
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      424.752,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.64
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      424.514,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.11
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      424.276,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.58
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      110,
+      262,
+      424.038,
+      "rgba(196,226,255,.95)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.06
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.44
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Son karışımın pH’ı",
+   "aciklama": "Son karışımın pH’ını ölç: yeşil, pH ≈ 7. Ortamda K⁺, Cl⁻ ve H₂O var.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"0\" transform=\"translate(110 250)\"><rect x=\"-3.5\" y=\"-120\" width=\"7\" height=\"110\" rx=\"3\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><path d=\"M-3.5 -10 L3.5 -10 L1 12 L-1 12 Z\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></path><rect x=\"-2.5\" y=\"-12\" width=\"5\" height=\"0\" fill=\"rgba(196,226,255,.9)\"></rect><ellipse cx=\"0\" cy=\"-132\" rx=\"10\" ry=\"14\" fill=\"#dc2626\"></ellipse></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h2",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"228\" y=\"24\" width=\"160\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"308\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (beherdeki)</text><g><circle cx=\"240\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"240\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"258\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"258\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"276\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"276\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"294\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"294\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"312\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"312\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"330\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"330\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"348\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"348\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"366\" cy=\"56\" r=\"7.2\" fill=\"#22c55e\" opacity=\"0.9\"></circle><text x=\"366\" y=\"58.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Cl⁻</text><circle cx=\"248\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"248\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"266\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"266\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"284\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"284\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"302\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"302\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"320\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"320\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"338\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"338\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"356\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"356\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"374\" cy=\"74\" r=\"7.2\" fill=\"#a855f7\" opacity=\"0.9\"></circle><text x=\"374\" y=\"76.6\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">K⁺</text><circle cx=\"240\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"240\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"258\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"258\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"276\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"276\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"294\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"294\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"312\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"312\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"330\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"330\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"348\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"348\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text><circle cx=\"366\" cy=\"92\" r=\"7.2\" fill=\"#94a3b8\" opacity=\"0.9\"></circle><text x=\"366\" y=\"94.6\" font-size=\"5\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂O</text></g><text x=\"308\" y=\"168\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">H⁺ ≈ OH⁻ → H₂O oluştu</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"110\" cy=\"400.6\" r=\"2.4\" fill=\"rgba(196,226,255,.95)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "to",
+     "arg": [
+      110,
+      321.657
+     ],
+     "sure": 1.79,
+     "ilk": [
+      110,
+      300
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "color",
+     "arg": [
+      "rgb(120,190,70)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.19
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.94
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      0.105
+     ],
+     "sure": 0.27,
+     "ilk": [
+      1
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "HCl(suda) + KOH(suda) → KCl(suda) + H₂O(s). Asit ile bazın tepkimesinde tuz ve su oluşur; H⁺ ve OH⁻ iyonları birleşerek suyu oluşturur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Asit-baz tepkimesinde hangi iyonlar birleşerek su oluşturur?",
+   "o": [
+    "K⁺ ve Cl⁻",
+    "H⁺ ve OH⁻",
+    "H⁺ ve Cl⁻",
+    "K⁺ ve OH⁻"
+   ],
+   "a": 1,
+   "e": "H⁺(suda) + OH⁻(suda) → H₂O(s) net iyon denklemidir."
+  },
+  {
+   "q": "Tepkime sonunda çözeltide hangi tanecikler bulunur?",
+   "o": [
+    "H⁺ ve OH⁻",
+    "K⁺, Cl⁻ ve H₂O",
+    "Sadece HCl molekülleri",
+    "KOH ve HCl"
+   ],
+   "a": 1,
+   "e": "K⁺ ve Cl⁻ seyirci iyonlardır; tuz (KCl) çözeltide iyonları hâlinde kalır."
+  },
+  {
+   "q": "Fenolftalein neden en sonda pembeleşti?",
+   "o": [
+    "Asit bitince ilk fazla OH⁻ ortamı bazik yaptı",
+    "Sıcaklık arttı",
+    "KCl pembe renklidir",
+    "Pipet kirliydi"
+   ],
+   "a": 0,
+   "e": "Fenolftalein asidik ve nötr ortamda renksizdir; pH ≈ 8,2’nin üstünde pembeleşir."
+  },
+  {
+   "q": "HNO₃ ile NaOH tepkimesinin ürünleri nelerdir?",
+   "o": [
+    "NaNO₃ ve H₂O",
+    "Na ve HNO₂",
+    "NaH ve NO₃",
+    "N₂ ve NaOH"
+   ],
+   "a": 0,
+   "e": "Asit + baz → tuz + su: HNO₃ + NaOH → NaNO₃ + H₂O."
+  }
+ ]
+}

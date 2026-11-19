@@ -1,0 +1,514 @@
+{
+ "ad": "yesilh2",
+ "baslik": "Fermantasyonla Yeşil Hidrojen",
+ "alt": "11. sınıf · 3.1.1 Yeşil Hidrojen Enerjisi · Sıcaklığın ya da evsel atık miktarının H₂ miktarına etkisi",
+ "amac": "",
+ "sonuc": "En yüksek H₂ verimi 5,5 g/L atıkta elde edildi; daha fazla atık verimi düşürdü.",
+ "W": 400,
+ "malzemeler": [
+  "3 adet 1 L şişe (biyoreaktör)",
+  "Evsel organik atık (karbonhidrat içeren)",
+  "Ön işlem görmüş çamur (bakteri kaynağı)",
+  "Su banyosu ve termometre",
+  "pH metre",
+  "Balon / gaz ölçer",
+  "Hassas terazi"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🔥 H₂ yanıcıdır: alevden uzak tut",
+  "🦠 Hijyen: eldivenle çalış"
+ ],
+ "aletler": [
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     200,
+     538,
+     "su banyosu",
+     9
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k5",
+     80,
+     280,
+     "A",
+     12,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k7",
+     200,
+     280,
+     "B",
+     12,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k9",
+     320,
+     280,
+     "C",
+     12,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     370,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      180,
+      "rgba(200,225,255,.6)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     200,
+     556,
+     240
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     372,
+     320,
+     190,
+     0,
+     60
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      35
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     80,
+     512,
+     250,
+     0.75,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      170,
+      "rgba(150,120,70,.7)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     200,
+     512,
+     250,
+     0.75,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      170,
+      "rgba(150,120,70,.7)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     320,
+     512,
+     250,
+     0.75,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      170,
+      "rgba(150,120,70,.7)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k11",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balloon",
+    "args": [
+     80,
+     424,
+     "#38bdf8"
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "inflate",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k12",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balloon",
+    "args": [
+     200,
+     424,
+     "#38bdf8"
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "inflate",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k13",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "balloon",
+    "args": [
+     320,
+     424,
+     "#38bdf8"
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "inflate",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez",
+   "aciklama": "Hipotez: “Atık miktarı arttıkça H₂ artar, ancak bir eşikten sonra azalır.” Bağımsız: atık (karbonhidrat) miktarı · Bağımlı: toplanan H₂ hacmi · Kontrol: sıcaklık 35 °C, pH 5,5, bakteri miktarı, süre.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.74
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Biyoreaktörleri hazırla",
+   "aciklama": "Üç şişeye 1’er L karışım koy: A’ya 2,2 g, B’ye 5,5 g, C’ye 13,8 g karbonhidrat içeren atık ekle. pH’ı 5,5’e ayarla.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.76
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Su banyosu: 35 °C",
+   "aciklama": "Şişeleri 35 °C’lik su banyosuna koy, ağızlarına gaz toplama balonlarını tak; oksijensiz (anaerobik) ortam sağla.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "on",
+     "arg": [
+      0.5
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.32
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "48 saat bekle, ölç",
+   "aciklama": "Karanlık fermantasyonda bakteriler karbonhidratı parçalayıp H₂ ve CO₂ üretir. Balonlar zamanla şişer.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "bubbles",
+     "arg": [
+      0.25
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "bubbles",
+     "arg": [
+      0.25
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "bubbles",
+     "arg": [
+      0.25
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "inflate",
+     "arg": [
+      0.729
+     ],
+     "sure": 9.01,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "inflate",
+     "arg": [
+      1
+     ],
+     "sure": 9.01,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "inflate",
+     "arg": [
+      0.555
+     ],
+     "sure": 9.01,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "En çok H₂ B şişesinde (5,5 g/L) toplandı. Atık eşiğin üstüne çıkınca verim düştü. Sıcaklık için 25–40 °C, pH için 5–7 aralığı en uygundur.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Kitaba göre en yüksek H₂ verimi hangi atık miktarında elde edilmiştir?",
+   "o": [
+    "2,2 g/L",
+    "5,5 g/L",
+    "13,8 g/L",
+    "23,1 g/L"
+   ],
+   "a": 1,
+   "e": "5,5 g/L karbonhidrata kadar verim artar, sonra düşer."
+  },
+  {
+   "q": "Fermantasyonla H₂ üretimi için en uygun sıcaklık aralığı hangisidir?",
+   "o": [
+    "0–10 °C",
+    "25–40 °C",
+    "65–80 °C",
+    "80 °C üzeri"
+   ],
+   "a": 1,
+   "e": "Bakteriler bu aralıkta en aktiftir."
+  },
+  {
+   "q": "Karanlık fermantasyonda hangi canlılar kullanılır?",
+   "o": [
+    "Fotosentetik bakteriler",
+    "Anaerobik bakteriler",
+    "Bitkiler",
+    "Mantarlar"
+   ],
+   "a": 1,
+   "e": "Oksijensiz ortamda yaşayan bakteriler karbonhidratları parçalar."
+  }
+ ]
+}

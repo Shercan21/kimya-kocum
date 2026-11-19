@@ -1,0 +1,425 @@
+{
+ "ad": "hiz_derisim",
+ "baslik": "Derişim ve Tepkime Hızı",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.14",
+ "amac": "",
+ "sonuc": "HCl derişimi arttıkça Zn daha kısa sürede tükendi: derişim arttıkça tepkime hızı artar.",
+ "W": 400,
+ "malzemeler": [
+  "Derişik HCl",
+  "Saf su",
+  "Çinko parçaları",
+  "Pipet",
+  "2 adet 100 mL erlenmayer",
+  "2 adet 500 mL beherglas",
+  "Kronometre",
+  "5 deney tüpü",
+  "Dereceli silindir",
+  "Maşa"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ Derişik HCl: suyu asite değil, asidi suya ekle",
+  "🌬 Havalandırma"
+ ],
+ "aletler": [
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k2",
+     90,
+     330,
+     "0,5 M",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k4",
+     200,
+     330,
+     "1 M",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     310,
+     330,
+     "2 M",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     50,
+     350,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     90,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     200,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     310,
+     500,
+     150,
+     20,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez ve değişkenler",
+   "aciklama": "Hipotez: “HCl derişimi arttıkça Zn ile tepkime hızlanır.” Bağımsız: derişim · Bağımlı: süre · Kontrol: Zn kütlesi/biçimi, hacim, sıcaklık.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.56
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Çözeltileri hazırla",
+   "aciklama": "Derişik HCl’yi suya ekleyerek 0,5 M, 1 M ve 2 M çözeltiler hazırla; tüplere 10’ar mL koy.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.75,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.71,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.76
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      10,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.72,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.47
+    }
+   ]
+  },
+  {
+   "baslik": "Zn parçalarını ekle",
+   "aciklama": "Eşit kütlede Zn parçalarını tüplere aynı anda at, kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.35
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gaz çıkışını izle",
+   "aciklama": "2 M HCl’de kabarcıklar en yoğun, 0,5 M’de en seyrek. Zn bitince süreleri kaydet.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k9",
+     "ad": "pieces",
+     "arg": [
+      "@k2",
+      6,
+      "#94a3b8",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "olustur",
+     "id": "k10",
+     "ad": "pieces",
+     "arg": [
+      "@k4",
+      6,
+      "#94a3b8",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "olustur",
+     "id": "k11",
+     "ad": "pieces",
+     "arg": [
+      "@k6",
+      6,
+      "#94a3b8",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "set",
+     "arg": [
+      150
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.007
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.28
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.48
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Derişim arttıkça birim hacimdeki tanecik sayısı ve çarpışma sayısı artar; tepkime hızlanır.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Derişim artınca tepkime neden hızlanır?",
+   "o": [
+    "Aktifleşme enerjisi azalır",
+    "Birim hacimdeki tanecik ve çarpışma sayısı artar",
+    "Sıcaklık düşer",
+    "Ürün azalır"
+   ],
+   "a": 1,
+   "e": "Çarpışma teorisi: daha çok çarpışma, daha çok etkin çarpışma."
+  },
+  {
+   "q": "Derişik asit seyreltilirken ne yapılmalıdır?",
+   "o": [
+    "Asidin üzerine su dökülür",
+    "Asit yavaşça suya eklenir",
+    "Hızlıca karıştırılır",
+    "Isıtılır"
+   ],
+   "a": 1,
+   "e": "Seyreltme çok ekzotermiktir; asit suya eklenir."
+  }
+ ]
+}

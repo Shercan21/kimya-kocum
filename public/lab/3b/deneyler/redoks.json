@@ -1,0 +1,339 @@
+{
+ "ad": "redoks",
+ "baslik": "İndirgenme-Yükseltgenme Tepkimesi",
+ "alt": "10. sınıf · 1.1.2 Kimyasal Tepkime Türleri · İndirgenme-yükseltgenme tepkimelerinin oluşumunu gözlemleyebilme",
+ "amac": "",
+ "sonuc": "Alüminyum elektron vererek yükseltgendi, H⁺ iyonları elektron alarak H₂ gazına indirgendi. Elektron alışverişiyle yürüyen bu tepkime bir redoks tepkimesidir.",
+ "W": 400,
+ "malzemeler": [
+  "50 mL HCl çözeltisi",
+  "Büyük şeffaf plastik kutu",
+  "Sıvı bulaşık deterjanı",
+  "250 mL erlenmayer",
+  "Alüminyum folyo",
+  "Tek delikli mantar tıpa",
+  "Serum hortumu",
+  "Saf su",
+  "100 mL dereceli silindir"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ HCl aşındırıcıdır",
+  "🔥 H₂ yanıcıdır, aleve yaklaştırma"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"cl200001\"><path d=\"M250 430 L250 520 L392 520 L392 430\"></path></clipPath><clipPath id=\"cl200002\"><path d=\"M117.25 422 L142.75 422 L142.75 457.7 C142.75 463.7 145.75 467.7 149.75 473.7 L183.5 510 C191.5 518 187.5 524 177.5 524 L82.5 524 C72.5 524 68.5 518 76.5 510 L110.25 473.7 C114.25 467.7 117.25 463.7 117.25 457.7 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "trough",
+    "args": [
+     250,
+     392,
+     430
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "erlen",
+    "args": [
+     130,
+     524,
+     250,
+     0.85,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopper",
+    "args": [
+     130,
+     424
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "hose",
+    "args": [
+     "M130 412 C130 330 240 300 300 360 C320 390 318 420 318 470"
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (metal yüzeyi)</text><g></g><text x=\"110\" y=\"166\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Deterjanlı su hazırla",
+   "aciklama": "Derin, şeffaf bir kapta deterjanlı su hazırla.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.12
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "50 mL HCl al",
+   "aciklama": "Dereceli silindirle 50 mL HCl çözeltisi ölç ve 250 mL’lik erlenmayere koy.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      50
+     ],
+     "sure": 1.53,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Alüminyum folyo ekle",
+   "aciklama": "Erlenmayere küçük parçalar hâlinde alüminyum folyo ekle.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k5",
+     "ad": "pieces",
+     "arg": [
+      "@k2",
+      9,
+      "#cbd5e1",
+      "folyo"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.12
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      0.44
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Tıpa ve hortum",
+   "aciklama": "Erlenmayerin ağzını serum hortumuna bağlı tek delikli mantar tıpayla kapat; hortumun ucunu hızla deterjanlı suya daldır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (metal yüzeyi)</text><g><circle cx=\"30\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"51\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"72\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"93\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"114\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"135\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"156\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"177\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"26\" cy=\"70\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"26\" y=\"72.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"56\" cy=\"84\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"56\" y=\"86.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"86\" cy=\"70\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"86\" y=\"72.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"116\" cy=\"84\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"116\" y=\"86.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"146\" cy=\"70\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"146\" y=\"72.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"176\" cy=\"84\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"176\" y=\"86.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text></g><text x=\"110\" y=\"166\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">Al → Al³⁺ + 3e⁻  ·  2H⁺ + 2e⁻ → H₂</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.45,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.53,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.45
+    }
+   ]
+  },
+  {
+   "baslik": "Gaz çıkışı ve köpük",
+   "aciklama": "Folyonun yüzeyinde kabarcıklar oluşur, folyo yavaş yavaş küçülür. Hortumdan gelen H₂ gazı deterjanlı suda köpük kabarcıkları oluşturur; erlenmayer ısınır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "bubbles",
+     "arg": [
+      0.15
+     ],
+     "sure": 7.0,
+     "ilk": [
+      0.2
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "foam",
+     "arg": [
+      0.08
+     ],
+     "sure": 7.0,
+     "ilk": [
+      0.15
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "shrink",
+     "arg": [
+      0.9
+     ],
+     "sure": 7.0,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "2Al + 6HCl → 2AlCl₃ + 3H₂. Al elektron verip Al³⁺ olur (yükseltgenir), H⁺ elektron alıp H₂ olur (indirgenir).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"10\" y=\"24\" width=\"200\" height=\"150\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"110\" y=\"40\" font-size=\"9\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\">TANECİK GÖRÜNÜMÜ (metal yüzeyi)</text><g><circle cx=\"30\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"51\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"72\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"93\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"114\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"135\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"156\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"177\" cy=\"146\" r=\"9\" fill=\"#cbd5e1\" stroke=\"#475569\"></circle><circle cx=\"40\" cy=\"110\" r=\"9\" fill=\"#a855f7\"></circle><text x=\"40\" y=\"113\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Al³⁺</text><circle cx=\"90\" cy=\"110\" r=\"9\" fill=\"#a855f7\"></circle><text x=\"90\" y=\"113\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Al³⁺</text><circle cx=\"140\" cy=\"110\" r=\"9\" fill=\"#a855f7\"></circle><text x=\"140\" y=\"113\" font-size=\"6.4\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">Al³⁺</text><circle cx=\"26\" cy=\"70\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"26\" y=\"72.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><circle cx=\"56\" cy=\"84\" r=\"7\" fill=\"#ef4444\"></circle><text x=\"56\" y=\"86.5\" font-size=\"6.2\" fill=\"#fff\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H⁺</text><ellipse cx=\"150\" cy=\"60\" rx=\"9\" ry=\"6\" fill=\"#e0f2fe\" stroke=\"#0284c7\"></ellipse><text x=\"150\" y=\"62.4\" font-size=\"5.8\" fill=\"#0369a1\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂</text><ellipse cx=\"168\" cy=\"60\" rx=\"9\" ry=\"6\" fill=\"#e0f2fe\" stroke=\"#0284c7\"></ellipse><text x=\"168\" y=\"62.4\" font-size=\"5.8\" fill=\"#0369a1\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂</text><ellipse cx=\"186\" cy=\"60\" rx=\"9\" ry=\"6\" fill=\"#e0f2fe\" stroke=\"#0284c7\"></ellipse><text x=\"186\" y=\"62.4\" font-size=\"5.8\" fill=\"#0369a1\" text-anchor=\"middle\" font-weight=\"800\" font-family=\"Nunito\">H₂</text></g><text x=\"110\" y=\"166\" font-size=\"7.5\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\">Al → Al³⁺ + 3e⁻  ·  2H⁺ + 2e⁻ → H₂</text></g>"
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "Deterjanlı suda köpük oluşturan gaz hangisidir?",
+   "o": [
+    "O₂",
+    "Cl₂",
+    "H₂",
+    "CO₂"
+   ],
+   "a": 2,
+   "e": "Aktif metaller asitlerle tepkimeye girince H₂ gazı açığa çıkar."
+  },
+  {
+   "q": "Bu tepkimede yükseltgenen tür hangisidir?",
+   "o": [
+    "H⁺",
+    "Cl⁻",
+    "Al",
+    "H₂"
+   ],
+   "a": 2,
+   "e": "Al elektron verir (Al → Al³⁺ + 3e⁻); elektron veren tür yükseltgenir."
+  },
+  {
+   "q": "Hangi metal HCl ile H₂ gazı vermez?",
+   "o": [
+    "Mg",
+    "Zn",
+    "Al",
+    "Cu"
+   ],
+   "a": 3,
+   "e": "Cu, hidrojenden daha az aktiftir; HCl ile tepkime vermez."
+  },
+  {
+   "q": "Al’ın yükseltgenme basamağı tepkimede nasıl değişir?",
+   "o": [
+    "0 → +3",
+    "+3 → 0",
+    "0 → −3",
+    "Değişmez"
+   ],
+   "a": 0,
+   "e": "Element hâlinde 0 olan Al, AlCl₃’te +3 olur."
+  }
+ ]
+}

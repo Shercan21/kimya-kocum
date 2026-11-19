@@ -1,0 +1,1618 @@
+{
+ "ad": "evdeph",
+ "baslik": "Günlük Hayattaki Maddelerin pH’ı",
+ "alt": "9. sınıf · 1.1.1 Günlük Hayatta Kimya · Günlük hayatta kullanılan bazı kimyasal maddelerin pH değerini belirleyebilme",
+ "amac": "",
+ "sonuc": "Asidik maddeler: limon tuzu, gazlı içecek, sirke. Bazik maddeler: sıvı sabun, karbonat, diş macunu, antiasit. Su eklenince pH değerleri 7’ye yaklaştı.",
+ "W": 400,
+ "malzemeler": [
+  "Limon tuzu",
+  "Sirke",
+  "Karbonat",
+  "Sıvı sabun",
+  "Diş macunu",
+  "Antiasit mide tableti",
+  "Gazlı içecek",
+  "Deney tüpleri",
+  "pH kâğıdı",
+  "Pens",
+  "Saf su",
+  "Baget",
+  "Etiket"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "👅 Maddelerin tadına bakma",
+  "🧪 Cam malzeme"
+ ],
+ "aletler": [
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     46,
+     357,
+     "Limon",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     46,
+     366,
+     "tuzu",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     96,
+     357,
+     "Sıvı",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     96,
+     366,
+     "sabun",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k9",
+     146,
+     357,
+     "Gazlı",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k11",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k9",
+     146,
+     366,
+     "içecek",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k13",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k12",
+     196,
+     361,
+     "Karbonat",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k15",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k14",
+     246,
+     361,
+     "Sirke",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k17",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k16",
+     296,
+     357,
+     "Diş",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k18",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k16",
+     296,
+     366,
+     "macunu",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k20",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k19",
+     346,
+     361,
+     "Antiasit",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     18,
+     374,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phScale",
+    "args": [
+     20,
+     40,
+     360
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     46,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     96,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     146,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k12",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     196,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k14",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     246,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k16",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     296,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k19",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     346,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k21",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phStrip",
+    "args": [
+     200,
+     250
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Tüpleri etiketle",
+   "aciklama": "Her madde için ayrı bir deney tüpü kullan ve tüplere maddelerin adını yazdığın etiketleri yapıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0.002
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.27,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.27,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.07
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.27,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.33
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.6
+    }
+   ]
+  },
+  {
+   "baslik": "Maddeleri koy",
+   "aciklama": "Maddeleri tüplere koy. Katı maddelerin (limon tuzu, karbonat, diş macunu, antiasit) üzerine 3–4 damla saf su ekleyip bagetle karıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.76,
+     "ilk": [
+      0,
+      "rgba(250,250,250,.95)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(250,250,250,.95)"
+     ],
+     "sure": 0.41,
+     "ilk": [
+      0,
+      "rgba(250,250,250,.95)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(250,226,120,.85)"
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0,
+      "rgba(250,226,120,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.76
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(120,60,30,.8)"
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0,
+      "rgba(120,60,30,.8)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.22
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.68,
+     "ilk": [
+      0,
+      "rgba(250,250,250,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.68
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(250,250,250,.95)"
+     ],
+     "sure": 0.36,
+     "ilk": [
+      0,
+      "rgba(250,250,250,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.68
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(240,230,200,.8)"
+     ],
+     "sure": 0.46,
+     "ilk": [
+      0,
+      "rgba(240,230,200,.8)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.36
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.74,
+     "ilk": [
+      0,
+      "rgba(240,248,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.82
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(240,248,255,.95)"
+     ],
+     "sure": 0.39,
+     "ilk": [
+      0,
+      "rgba(240,248,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.82
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.73,
+     "ilk": [
+      0,
+      "rgba(245,245,245,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 3.56
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(245,245,245,.95)"
+     ],
+     "sure": 0.4,
+     "ilk": [
+      0,
+      "rgba(245,245,245,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 3.56
+    }
+   ]
+  },
+  {
+   "baslik": "pH kâğıdıyla ölç",
+   "aciklama": "Pens ile tuttuğun pH kâğıdını her tüpe daldır, rengini skala ile karşılaştır ve yaklaşık pH değerini tabloya yaz.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      46,
+      347.6
+     ],
+     "sure": 1.6,
+     "ilk": [
+      46,
+      250
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(225,55,37)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.99
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.34
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      96,
+      344
+     ],
+     "sure": 1.59,
+     "ilk": [
+      96,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 2.34
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(44,112,162)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.39
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 4.32
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.65
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      146,
+      344
+     ],
+     "sure": 1.56,
+     "ilk": [
+      146,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 4.65
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(237,88,40)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 5.69
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 6.6
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      196,
+      347.6
+     ],
+     "sure": 1.61,
+     "ilk": [
+      196,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 6.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(57,151,104)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 7.98
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 8.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 9.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      246,
+      344
+     ],
+     "sure": 1.53,
+     "ilk": [
+      246,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 9.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(237,84,40)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 10.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 11.19
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 11.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      296,
+      347.6
+     ],
+     "sure": 1.59,
+     "ilk": [
+      296,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 11.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(44,112,162)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 12.59
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 13.53
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 13.87
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      346,
+      347.6
+     ],
+     "sure": 1.51,
+     "ilk": [
+      346,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 13.87
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(41,103,176)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 14.86
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 15.77
+    }
+   ]
+  },
+  {
+   "baslik": "5 mL saf su ekle",
+   "aciklama": "Her deney tüpüne 5 mL saf su ekle ve karıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      7.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "sure": 0.41,
+     "ilk": [
+      2.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(250,226,120,.55)"
+     ],
+     "sure": 0.39,
+     "ilk": [
+      3,
+      "rgba(250,226,120,.55)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.41
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(120,60,30,.55)"
+     ],
+     "sure": 0.41,
+     "ilk": [
+      3,
+      "rgba(120,60,30,.55)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.8
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k12",
+     "ad": "set",
+     "arg": [
+      7.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "sure": 0.41,
+     "ilk": [
+      2.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k14",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(240,230,200,.55)"
+     ],
+     "sure": 0.39,
+     "ilk": [
+      3,
+      "rgba(240,230,200,.55)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.62
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "set",
+     "arg": [
+      7.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "sure": 0.4,
+     "ilk": [
+      2.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.02
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "set",
+     "arg": [
+      7.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "sure": 0.4,
+     "ilk": [
+      2.4,
+      "rgba(225,235,250,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.42
+    }
+   ]
+  },
+  {
+   "baslik": "pH’ı yeniden ölç",
+   "aciklama": "pH kâğıdıyla pH değerlerini yeniden ölç: asitlerin pH’ı biraz arttı, bazların pH’ı biraz azaldı; hepsi 7’ye yaklaştı.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      46,
+      317.6
+     ],
+     "sure": 1.52,
+     "ilk": [
+      46,
+      250
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(235,71,40)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.91
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.24
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      96,
+      314
+     ],
+     "sure": 1.57,
+     "ilk": [
+      96,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 2.24
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(50,131,134)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.29
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 4.2
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.52
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      146,
+      314
+     ],
+     "sure": 1.56,
+     "ilk": [
+      146,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 4.52
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(240,116,40)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 5.53
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.32,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 6.47
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      196,
+      317.6
+     ],
+     "sure": 1.53,
+     "ilk": [
+      196,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 6.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(57,150,105)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 7.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.32,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 8.71
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 9.04
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      246,
+      314
+     ],
+     "sure": 1.55,
+     "ilk": [
+      246,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 9.04
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(240,112,40)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 10.07
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 10.98
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 11.3
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      296,
+      317.6
+     ],
+     "sure": 1.56,
+     "ilk": [
+      296,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 11.3
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(50,131,134)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 12.34
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.36,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 13.25
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 13.62
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "to",
+     "arg": [
+      346,
+      317.6
+     ],
+     "sure": 1.6,
+     "ilk": [
+      346,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 13.62
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "color",
+     "arg": [
+      "rgb(47,122,147)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 14.66
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k21",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 15.61
+    }
+   ]
+  },
+  {
+   "baslik": "Sonucu yorumla",
+   "aciklama": "Limon tuzu, sirke ve gazlı içecek asidik; sıvı sabun, karbonat, diş macunu ve antiasit baziktir. Su eklemek asitliği ve bazlığı azaltır (seyrelme).",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Deney tüplerine saf su eklenince maddelerin pH değeri nasıl değişti?",
+   "o": [
+    "Hepsi 7’den uzaklaştı",
+    "Hepsi 7’ye yaklaştı",
+    "Hepsi 0 oldu",
+    "Değişmedi"
+   ],
+   "a": 1,
+   "e": "Seyrelme asitlik ve bazlığı azaltır: asitlerin pH’ı artar, bazlarınki azalır."
+  },
+  {
+   "q": "“Diş fırçanızı ıslatmayın!” uyarısının nedeni nedir?",
+   "o": [
+    "Su diş macununu asidik yapar",
+    "Su diş macununu seyreltir, bazik etkisi azalır",
+    "Fırça bozulur",
+    "Diş macunu suda çözünmez"
+   ],
+   "a": 1,
+   "e": "Su eklenince diş macununun pH’ı 7’ye yaklaşır; ağızdaki asitleri nötralleştirme etkisi azalır."
+  },
+  {
+   "q": "Çaydanlıktaki kireci (CaCO₃) çözmek için neden limon tuzu kullanılır?",
+   "o": [
+    "Bazik olduğu için",
+    "Asidik olduğu için kireçle tepkimeye girer",
+    "Tuzlu olduğu için",
+    "Renkli olduğu için"
+   ],
+   "a": 1,
+   "e": "Kireç (karbonat) asitlerle tepkimeye girip çözünür: CaCO₃ + asit → tuz + H₂O + CO₂."
+  },
+  {
+   "q": "Antiasit tabletlerin çiğneme tableti olmasının nedeni nedir?",
+   "o": [
+    "Asidik oldukları için",
+    "Suyla seyreltilince bazlık etkisi azaldığı için",
+    "Tatlı oldukları için",
+    "Suda hiç çözünmedikleri için"
+   ],
+   "a": 1,
+   "e": "Antiasit baziktir; seyreltilmeden mideye ulaşınca mide asidini daha etkili nötralleştirir."
+  }
+ ]
+}

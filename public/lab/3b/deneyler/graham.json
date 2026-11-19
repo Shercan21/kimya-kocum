@@ -1,0 +1,219 @@
+{
+ "ad": "graham",
+ "baslik": "Gazların Yolculuğu: Graham Difüzyon Yasası",
+ "alt": "10. sınıf · 1.2.4 Graham Difüzyon ve Efüzyon Yasası · Gazların farklı ortamlarda yayılması",
+ "amac": "",
+ "sonuc": "Hafif NH₃ gazı daha hızlı yayıldığından NH₄Cl halkası HCl ucuna daha yakın oluştu (Graham yasası).",
+ "W": 400,
+ "malzemeler": [
+  "80 cm uzunluğunda cam boru",
+  "Pamuk",
+  "Derişik NH₄OH (amonyak) çözeltisi",
+  "Derişik HCl çözeltisi",
+  "2 lastik tıpa",
+  "Pens",
+  "Cetvel",
+  "Kronometre"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "🌬 Çeker ocakta çalış",
+  "👃 NH₃ ve HCl buharını koklama"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><rect x=\"24\" y=\"284\" width=\"352\" height=\"32\" rx=\"14\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><line x1=\"30\" y1=\"322\" x2=\"30\" y2=\"330\" stroke=\"#334155\"></line><text x=\"30\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">0</text><line x1=\"72.5\" y1=\"322\" x2=\"72.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"72.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">10</text><line x1=\"115\" y1=\"322\" x2=\"115\" y2=\"330\" stroke=\"#334155\"></line><text x=\"115\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">20</text><line x1=\"157.5\" y1=\"322\" x2=\"157.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"157.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">30</text><line x1=\"200\" y1=\"322\" x2=\"200\" y2=\"330\" stroke=\"#334155\"></line><text x=\"200\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">40</text><line x1=\"242.5\" y1=\"322\" x2=\"242.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"242.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">50</text><line x1=\"285\" y1=\"322\" x2=\"285\" y2=\"330\" stroke=\"#334155\"></line><text x=\"285\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">60</text><line x1=\"327.5\" y1=\"322\" x2=\"327.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"327.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">70</text><line x1=\"370\" y1=\"322\" x2=\"370\" y2=\"330\" stroke=\"#334155\"></line><text x=\"370\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">80</text><text x=\"30\" y=\"274\" font-size=\"11\" fill=\"#1d4ed8\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">A</text><text x=\"370\" y=\"274\" font-size=\"11\" fill=\"#a16207\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">C</text><text x=\"47\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">NH₄OH pamuğu</text><text x=\"353\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">HCl pamuğu</text><rect x=\"30\" y=\"288\" width=\"0\" height=\"24\" fill=\"rgba(59,130,246,.35)\"></rect><rect x=\"370\" y=\"288\" width=\"0\" height=\"24\" fill=\"rgba(234,179,8,.35)\"></rect><rect x=\"0\" y=\"286\" width=\"10\" height=\"28\" rx=\"3\" fill=\"rgba(255,255,255,.98)\" stroke=\"#cbd5e1\" opacity=\"0\"></rect><ellipse cx=\"36.375\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"0\"></ellipse><ellipse cx=\"363.625\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"0\"></ellipse></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     120
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Boruyu yerleştir",
+   "aciklama": "80 cm’lik cam boruyu yatay olarak sporlara tuttur. Cetvelle uzunluğu ölç.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.03
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Pamukları ıslat",
+   "aciklama": "Pensle bir pamuğu derişik NH₄OH’a, diğerini derişik HCl’ye batır.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.03
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Pamukları uçlara yerleştir",
+   "aciklama": "Pamukları aynı anda borunun iki ucuna (A ve C) yerleştir, uçları tıpayla kapat ve kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.56
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gazlar yayılıyor",
+   "aciklama": "NH₃ ve HCl gazları boru boyunca difüzyonla ilerler. NH₃ molekülleri daha hafif olduğu için daha hızlı ilerler.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"24\" y=\"284\" width=\"352\" height=\"32\" rx=\"14\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><line x1=\"30\" y1=\"322\" x2=\"30\" y2=\"330\" stroke=\"#334155\"></line><text x=\"30\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">0</text><line x1=\"72.5\" y1=\"322\" x2=\"72.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"72.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">10</text><line x1=\"115\" y1=\"322\" x2=\"115\" y2=\"330\" stroke=\"#334155\"></line><text x=\"115\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">20</text><line x1=\"157.5\" y1=\"322\" x2=\"157.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"157.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">30</text><line x1=\"200\" y1=\"322\" x2=\"200\" y2=\"330\" stroke=\"#334155\"></line><text x=\"200\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">40</text><line x1=\"242.5\" y1=\"322\" x2=\"242.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"242.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">50</text><line x1=\"285\" y1=\"322\" x2=\"285\" y2=\"330\" stroke=\"#334155\"></line><text x=\"285\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">60</text><line x1=\"327.5\" y1=\"322\" x2=\"327.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"327.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">70</text><line x1=\"370\" y1=\"322\" x2=\"370\" y2=\"330\" stroke=\"#334155\"></line><text x=\"370\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">80</text><text x=\"30\" y=\"274\" font-size=\"11\" fill=\"#1d4ed8\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">A</text><text x=\"370\" y=\"274\" font-size=\"11\" fill=\"#a16207\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">C</text><text x=\"47\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">NH₄OH pamuğu</text><text x=\"353\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">HCl pamuğu</text><rect x=\"30\" y=\"288\" width=\"0\" height=\"24\" fill=\"rgba(59,130,246,.35)\"></rect><rect x=\"370\" y=\"288\" width=\"0\" height=\"24\" fill=\"rgba(234,179,8,.35)\"></rect><rect x=\"0\" y=\"286\" width=\"10\" height=\"28\" rx=\"3\" fill=\"rgba(255,255,255,.98)\" stroke=\"#cbd5e1\" opacity=\"0\"></rect><ellipse cx=\"36.375\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"1\"></ellipse><ellipse cx=\"363.625\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"1\"></ellipse></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      39.319
+     ],
+     "sure": 7.94,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    }
+   ]
+  },
+  {
+   "baslik": "Beyaz halka",
+   "aciklama": "≈ 40 saniyede borunun B noktasında beyaz NH₄Cl halkası oluşur: NH₃(g) + HCl(g) → NH₄Cl(k). AB = 48 cm, BC = 32 cm.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"24\" y=\"284\" width=\"352\" height=\"32\" rx=\"14\" fill=\"url(#glass)\" stroke=\"rgba(90,115,150,.85)\" stroke-width=\"1.4\"></rect><line x1=\"30\" y1=\"322\" x2=\"30\" y2=\"330\" stroke=\"#334155\"></line><text x=\"30\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">0</text><line x1=\"72.5\" y1=\"322\" x2=\"72.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"72.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">10</text><line x1=\"115\" y1=\"322\" x2=\"115\" y2=\"330\" stroke=\"#334155\"></line><text x=\"115\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">20</text><line x1=\"157.5\" y1=\"322\" x2=\"157.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"157.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">30</text><line x1=\"200\" y1=\"322\" x2=\"200\" y2=\"330\" stroke=\"#334155\"></line><text x=\"200\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">40</text><line x1=\"242.5\" y1=\"322\" x2=\"242.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"242.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">50</text><line x1=\"285\" y1=\"322\" x2=\"285\" y2=\"330\" stroke=\"#334155\"></line><text x=\"285\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">60</text><line x1=\"327.5\" y1=\"322\" x2=\"327.5\" y2=\"330\" stroke=\"#334155\"></line><text x=\"327.5\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">70</text><line x1=\"370\" y1=\"322\" x2=\"370\" y2=\"330\" stroke=\"#334155\"></line><text x=\"370\" y=\"342\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">80</text><text x=\"30\" y=\"274\" font-size=\"11\" fill=\"#1d4ed8\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">A</text><text x=\"370\" y=\"274\" font-size=\"11\" fill=\"#a16207\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">C</text><text x=\"47\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">NH₄OH pamuğu</text><text x=\"353\" y=\"362\" font-size=\"9\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">HCl pamuğu</text><rect x=\"30\" y=\"288\" width=\"202.08488611204191\" height=\"24\" fill=\"rgba(59,130,246,.35)\"></rect><rect x=\"232.08488611204191\" y=\"288\" width=\"137.91511388795809\" height=\"24\" fill=\"rgba(234,179,8,.35)\"></rect><rect x=\"227.08488611204191\" y=\"286\" width=\"10\" height=\"28\" rx=\"3\" fill=\"rgba(255,255,255,.98)\" stroke=\"#cbd5e1\" opacity=\"1\"></rect><ellipse cx=\"36.375\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"1\"></ellipse><ellipse cx=\"363.625\" cy=\"300\" rx=\"9\" ry=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" opacity=\"1\"></ellipse></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      39.624
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.15
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Graham yasası",
+   "aciklama": "Hızlar oranı: v(NH₃)/v(HCl) = √(M(HCl)/M(NH₃)) = √(36,5/17) ≈ 1,47 ≈ 48/32 = 1,5. Hafif gaz daha hızlı yayılır.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "NH₄Cl halkası neden HCl ucuna daha yakın oluşur?",
+   "o": [
+    "HCl daha hızlıdır",
+    "NH₃ daha hafiftir ve daha hızlı yayılır",
+    "Pamuklar farklıdır",
+    "Boru eğiktir"
+   ],
+   "a": 1,
+   "e": "M(NH₃) = 17 < M(HCl) = 36,5 g/mol."
+  },
+  {
+   "q": "CH₄ ve SO₂ 80 cm’lik borunun iki ucundan bırakılırsa nerede karşılaşırlar?",
+   "o": [
+    "Ortada (40 cm)",
+    "CH₄ ucundan ≈ 53 cm",
+    "CH₄ ucundan ≈ 27 cm",
+    "SO₂ ucunda"
+   ],
+   "a": 1,
+   "e": "v(CH₄)/v(SO₂) = √(64/16) = 2 ⇒ 80·2/3 ≈ 53 cm."
+  },
+  {
+   "q": "SF₆ gibi ağır bir gazdan oluşan atmosferde ses nasıl duyulur?",
+   "o": [
+    "Daha ince",
+    "Daha kalın (yavaş yayılır)",
+    "Aynı",
+    "Hiç duyulmaz"
+   ],
+   "a": 1,
+   "e": "Ağır gazda ses daha yavaş yayılır, ses daha kalın duyulur."
+  }
+ ]
+}

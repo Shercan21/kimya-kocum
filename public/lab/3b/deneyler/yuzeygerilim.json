@@ -1,0 +1,3425 @@
+{
+ "ad": "yuzeygerilim",
+ "baslik": "Yüzey Gerilimini Etkileyen Faktörler",
+ "alt": "9. sınıf · 2.2.3 Sıvılar ve Özellikleri · Sıvı cinsi, sıcaklık ve çözünen maddenin yüzey gerilimine etkisi",
+ "amac": "",
+ "sonuc": "Yüzey gerilimi: sıvı cinsine bağlıdır, sıcaklık arttıkça azalır, deterjanla çok azalır.",
+ "W": 400,
+ "malzemeler": [
+  "Büret",
+  "Spor ve kıskaç",
+  "Beherglas",
+  "Su",
+  "Etil alkol",
+  "Gliserin",
+  "Bulaşık deterjanı",
+  "Yemek tuzu",
+  "Isıtıcı",
+  "Termometre",
+  "Mezür"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧪 Cam malzeme",
+  "🔥 Etil alkol yanıcıdır",
+  "🧽 Dökülen yağı hemen sil"
+ ],
+ "aletler": [
+  {
+   "id": "h0",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__defs",
+    "args": [
+     "<linearGradient id=\"glass\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"rgba(120,150,190,.55)\"></stop><stop offset=\"0.12\" stop-color=\"rgba(255,255,255,.55)\"></stop><stop offset=\"0.22\" stop-color=\"rgba(235,244,255,.18)\"></stop><stop offset=\"0.75\" stop-color=\"rgba(225,238,252,.12)\"></stop><stop offset=\"0.9\" stop-color=\"rgba(255,255,255,.45)\"></stop><stop offset=\"1\" stop-color=\"rgba(110,140,180,.55)\"></stop></linearGradient><linearGradient id=\"metal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#6b7280\"></stop><stop offset=\"0.35\" stop-color=\"#e5e7eb\"></stop><stop offset=\"0.55\" stop-color=\"#f9fafb\"></stop><stop offset=\"1\" stop-color=\"#4b5563\"></stop></linearGradient><linearGradient id=\"metalV\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9ca3af\"></stop><stop offset=\"0.5\" stop-color=\"#d1d5db\"></stop><stop offset=\"1\" stop-color=\"#6b7280\"></stop></linearGradient><linearGradient id=\"base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1f2937\"></stop><stop offset=\"0.5\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"wood\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#e2c9a0\"></stop><stop offset=\"1\" stop-color=\"#c9a878\"></stop></linearGradient><linearGradient id=\"tile\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#ffffff\"></stop><stop offset=\"1\" stop-color=\"#e5e7eb\"></stop></linearGradient><linearGradient id=\"teflon\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#1e3a8a\"></stop><stop offset=\"0.5\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"#1e3a8a\"></stop></linearGradient><linearGradient id=\"meter\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#374151\"></stop><stop offset=\"1\" stop-color=\"#111827\"></stop></linearGradient><linearGradient id=\"flame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#fde68a\"></stop><stop offset=\"0.5\" stop-color=\"#f97316\"></stop><stop offset=\"1\" stop-color=\"rgba(239,68,68,0)\"></stop></linearGradient><linearGradient id=\"blueflame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#93c5fd\"></stop><stop offset=\"0.6\" stop-color=\"#3b82f6\"></stop><stop offset=\"1\" stop-color=\"rgba(59,130,246,0)\"></stop></linearGradient><filter id=\"sh\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\"><feDropShadow dx=\"0\" dy=\"3\" stdDeviation=\"3\" flood-color=\"#000\" flood-opacity=\"0.18\"></feDropShadow></filter><clipPath id=\"bu200001\"><rect x=\"193.5\" y=\"44\" width=\"13\" height=\"262\"></rect></clipPath><clipPath id=\"cl200002\"><path d=\"M151 430 L155 434 L155 514 Q155 520 161 520 L239 520 Q245 520 245 514 L245 430 Z\"></path></clipPath>"
+    ]
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stand",
+    "args": [
+     101,
+     240,
+     190
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "burette",
+    "args": [
+     200,
+     38,
+     270,
+     10
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     90,
+     90,
+     100,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "h1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "katman",
+     "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">0</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "thermo",
+    "args": [
+     300,
+     320,
+     190,
+     0,
+     100
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      20
+     ]
+    }
+   ]
+  },
+  {
+   "id": "h2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "__svg",
+    "args": [
+     "ust",
+     "<g opacity=\"0\"><rect x=\"240\" y=\"30\" width=\"150\" height=\"110\" rx=\"10\" fill=\"#fff\" stroke=\"#cbd5e1\"></rect><text x=\"315\" y=\"46\" font-size=\"8.5\" font-weight=\"800\" fill=\"#334155\" text-anchor=\"middle\" font-family=\"Nunito\"></text><rect x=\"252\" y=\"110\" width=\"126\" height=\"10\" fill=\"#cbd5e1\"></rect><path d=\"\" fill=\"rgba(96,165,250,.8)\"></path><text x=\"315\" y=\"134\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\" font-family=\"Nunito\"></text></g>"
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Yöntem",
+   "aciklama": "Büretten 1 mL sıvı damlatıp damlaları say. Damla sayısı arttıkça damla küçüktür; yüzey gerilimi küçüktür.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.16
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Sıvı cinsi",
+   "aciklama": "Su, etil alkol ve gliserin için 1 mL’deki damla sayısını ölç (20 °C).",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">20</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h3",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h4",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"468\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h5",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"445.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h6",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h7",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"408.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h8",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h9",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h10",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"370.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">51</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h11",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h12",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"456.6\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h13",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h14",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"400.8\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h15",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h16",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"366.6\" r=\"2.4\" fill=\"rgba(225,235,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h3",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h4",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h5",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h6",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h7",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h8",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h9",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h10",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      1
+     ],
+     "sure": 8.67,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(240,240,225,.92)"
+     ],
+     "sure": 8.67,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.676,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.352,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.028,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.704,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.38,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.056,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.732,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.408,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.084,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.76,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.436,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.112,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.788,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.464,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.87
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.14,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.0
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.816,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.492,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.168,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.844,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.52
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 2.65
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.746,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.365,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.984,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.602,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.221,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.93
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.84,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.459,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.078,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.696,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.72
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.315,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.934,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.553,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.172,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.791,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.409,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.93
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.028,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.647,
+      "rgba(225,235,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.34
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.35,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 6.4
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.75
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.777,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.82
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.33,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.95
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.883,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.08
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.436,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.21
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.989,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.542,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.095,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.648,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.201,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.754,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 7.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.308,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.861,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.28
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.414,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.41
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.967,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.54
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.743,
+      "rgba(240,240,225,.92)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 8.61
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 8.67
+    }
+   ]
+  },
+  {
+   "baslik": "Sıcaklık",
+   "aciklama": "Suyu 50 °C ve 80 °C’a ısıtıp ölçümü tekrarla.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">29</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h17",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h18",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"468\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h19",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"445.8\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h20",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h21",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"408.6\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h22",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h23",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h24",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"370.8\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h25",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"366.6\" r=\"2.4\" fill=\"rgba(240,240,225,.92)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h11",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h12",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h13",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h14",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h15",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h16",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">21</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h26",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h27",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"468\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h28",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"445.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h29",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h30",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"408.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h31",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h32",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h33",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"370.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h17",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h18",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h19",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h20",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h21",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h22",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h23",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h24",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h25",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      50
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      1
+     ],
+     "sure": 6.11,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(196,226,255,.85)"
+     ],
+     "sure": 6.11,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.691,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.14
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.383,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.27
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.074,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.4
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.766,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.457,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.149,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.84,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.531,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.05
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.223,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.914,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.606,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.297,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.989,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.72
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.68,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.371,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.063,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.754,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.446,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.137,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.829,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.65
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 2.78
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      80
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.718,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.437,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.155,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.47
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.873,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.6
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.591,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.31,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.028,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.746,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.12
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.464,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.183,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.901,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.619,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.64
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.337,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.78
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.056,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.774,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.492,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.21,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.32
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.929,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.45
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.647,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.58
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.365,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.72
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.083,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.85
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.802,
+      "rgba(196,226,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.98
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.11
+    }
+   ]
+  },
+  {
+   "baslik": "Çözünen madde",
+   "aciklama": "Suya deterjan ve tuz ekleyerek ölçümü tekrarla.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">23</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h34",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h35",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"468\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h36",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"445.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h37",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h38",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"408.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h39",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h40",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h41",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"370.8\" r=\"2.4\" fill=\"rgba(196,226,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h26",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h27",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h28",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h29",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h30",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h31",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h32",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h33",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">48</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h42",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h43",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"456.6\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h44",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h45",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"400.8\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h46",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h47",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"366.6\" r=\"2.4\" fill=\"rgba(200,230,250,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h34",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h35",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h36",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h37",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h38",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h39",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h40",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h41",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "set",
+     "arg": [
+      1
+     ],
+     "sure": 6.19,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      8,
+      "rgba(205,228,255,.85)"
+     ],
+     "sure": 6.19,
+     "ilk": [
+      0,
+      "rgba(200,230,250,.85)"
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.73,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.325,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.34
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.92,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.515,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.74
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.11,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 0.93
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.705,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.3,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.895,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.49,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.085,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 1.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.68,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.275,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.87,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.465,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.06,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 2.93
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.655,
+      "rgba(200,230,250,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.13
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 3.19
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k4",
+     "ad": "set",
+     "arg": [
+      20
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      519,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.53
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.676,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.352,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      518.028,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 3.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.704,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.06
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.38,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.19
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      517.056,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.33
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.732,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.46
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.408,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.59
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      516.084,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.73
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.76,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.86
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.436,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 4.99
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      515.112,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.13
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.788,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.26
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.464,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.39
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      514.14,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.52
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.816,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.66
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.492,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.79
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      513.168,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 5.92
+    },
+    {
+     "tip": "sahne",
+     "ad": "drop",
+     "arg": [
+      200,
+      354,
+      512.844,
+      "rgba(205,228,255,.85)"
+     ],
+     "tekrar": 1,
+     "aralik": 400,
+     "birlikte": true,
+     "gecikme": 6.06
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k2",
+     "ad": "open",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.19
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Etkileşimi güçlü sıvının yüzey gerilimi büyüktür. Sıcaklık arttıkça yüzey gerilimi azalır. Deterjan (yüzey aktif madde) yüzey gerilimini çok azaltır; tuz biraz artırır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "h1",
+     "ad": "__html",
+     "arg": [
+      "<g opacity=\"1\"><rect x=\"20\" y=\"30\" width=\"110\" height=\"52\" rx=\"8\" fill=\"#0b1f14\"></rect><text x=\"75\" y=\"66\" font-size=\"26\" fill=\"#4ade80\" text-anchor=\"middle\" font-family=\"monospace\">20</text><text x=\"75\" y=\"94\" font-size=\"8\" fill=\"#334155\" font-family=\"Nunito\" font-weight=\"700\" text-anchor=\"middle\">damla sayacı</text></g>"
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "olustur",
+     "id": "h48",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"492.6\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h49",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"468\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h50",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"445.8\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h51",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"426\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h52",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"408.6\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h53",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"393.6\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h54",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"381\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "olustur",
+     "id": "h55",
+     "ad": "__svg",
+     "arg": [
+      "ust",
+      "<circle cx=\"200\" cy=\"370.8\" r=\"2.4\" fill=\"rgba(205,228,255,.85)\"></circle>"
+     ],
+     "gorunur": 1
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h42",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h43",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h44",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h45",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h46",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h47",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h48",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h49",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h50",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h51",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h52",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h53",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h54",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "h55",
+     "ad": "__html",
+     "arg": [
+      ""
+     ],
+     "sure": 0
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik, özel çizimlerin adım içindeki hareketi (her adımın başındaki hâli çevrildi).",
+ "sorular": [
+  {
+   "q": "1 mL’de en az damla veren sıvının yüzey gerilimi için ne söylenebilir?",
+   "o": [
+    "En küçüktür",
+    "Damlaları büyüktür, yüzey gerilimi büyüktür",
+    "Sıfırdır",
+    "Yoğunluğu sıfırdır"
+   ],
+   "a": 1,
+   "e": "Büyük damla oluşturabilen sıvının yüzey gerilimi büyüktür."
+  },
+  {
+   "q": "Su yağlı kâğıtta neden boncuklanır?",
+   "o": [
+    "Kohezyon > adezyon",
+    "Adezyon > kohezyon",
+    "Su yağda çözünür",
+    "Kâğıt ıslaktır"
+   ],
+   "a": 0,
+   "e": "Su molekülleri birbirini, yağlı yüzeyden daha güçlü çeker."
+  },
+  {
+   "q": "Deterjan suyun yüzey gerilimini nasıl etkiler?",
+   "o": [
+    "Artırır",
+    "Azaltır",
+    "Değiştirmez",
+    "Sıfırlar"
+   ],
+   "a": 1,
+   "e": "Yüzey aktif moleküller yüzeye dizilip su molekülleri arasındaki çekimi azaltır."
+  }
+ ]
+}

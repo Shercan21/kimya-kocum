@@ -1,0 +1,409 @@
+{
+ "ad": "hiz_hal",
+ "baslik": "Fiziksel Hâl ve Tepkime Hızı",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.13",
+ "amac": "",
+ "sonuc": "Su buharındaki Mg, kaynar sudakinden çok daha hızlı tepkime verdi: tepkenlerin fiziksel hâli tepkime hızını etkiler.",
+ "W": 400,
+ "malzemeler": [
+  "Magnezyum şeritleri",
+  "2 adet 250 mL beherglas",
+  "Isıtıcı",
+  "Cam çubuk",
+  "Maşa",
+  "Kronometre",
+  "Termometre",
+  "Saf su",
+  "Fenolftalein"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🔥 Kaynar su ve buhar yakar",
+  "🧤 Isıya dayanıklı eldiven",
+  "👁 Parlak ışığa uzun süre bakma"
+ ],
+ "aletler": [
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     130,
+     330,
+     "kaynar su (sıvı)",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     280,
+     330,
+     "su buharı (gaz)",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     130,
+     520,
+     96,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     280,
+     520,
+     96,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     130,
+     556,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "on",
+     "arg": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "heater",
+    "args": [
+     280,
+     556,
+     110
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "on",
+     "arg": [
+      1
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez ve değişkenler",
+   "aciklama": "Hipotez: “Mg, su buharıyla kaynar sudan daha hızlı tepkime verir.” Bağımsız: suyun fiziksel hâli · Bağımlı: tepkime süresi · Kontrol: Mg kütlesi, sıcaklık.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.54
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Suyu kaynat",
+   "aciklama": "Birinci beherde suyu kaynat; ikinci beherdeki suyu buharlaşacak kadar ısıt, Mg şeridi buharın içinde tutulacak.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(205,228,255,.85)"
+     ],
+     "sure": 0.71,
+     "ilk": [
+      0,
+      "rgba(205,228,255,.85)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(255,255,255,.08)"
+     ],
+     "sure": 0.72,
+     "ilk": [
+      0,
+      "rgba(255,255,255,.08)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.71
+    }
+   ]
+  },
+  {
+   "baslik": "Buhar ortamı",
+   "aciklama": "İkinci beherin içi su buharıyla doldu.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "cloudy",
+     "arg": [
+      0.55,
+      "rgba(255,255,255,1)"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "bekle",
+     "arg": [
+      1.04
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Mg şeritlerini yerleştir",
+   "aciklama": "Maşayla birinci Mg şeridini kaynar suya daldır, ikincisini su buharının içine tut; kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.31
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gözle",
+   "aciklama": "Kaynar suda Mg yavaşça kabarcık verdi. Su buharındaki Mg parlak beyaz ışıkla hızla tepkimeye girdi ve tükendi.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k8",
+     "ad": "pieces",
+     "arg": [
+      "@k1",
+      2,
+      "#e5e7eb",
+      "folyo"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "olustur",
+     "id": "k9",
+     "ad": "pieces",
+     "arg": [
+      "@k3",
+      2,
+      "#e5e7eb",
+      "folyo"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      300
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.147
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.06,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Gaz hâlindeki tanecikler daha hareketlidir; çarpışma ve etkin çarpışma sayısı artar. Aynı sıcaklıkta gaz fazındaki tepkime sıvı fazdakinden hızlıdır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Aynı sıcaklıkta hangisi daha hızlıdır?",
+   "o": [
+    "Mg + kaynar su",
+    "Mg + su buharı",
+    "İkisi eşit",
+    "Hiçbiri olmaz"
+   ],
+   "a": 1,
+   "e": "Gaz fazındaki tanecikler daha hareketlidir."
+  },
+  {
+   "q": "Etan (gaz) ve heptan (sıvı) aynı koşullarda yanarsa hangisi daha hızlı yanar?",
+   "o": [
+    "Heptan",
+    "Etan",
+    "Eşit",
+    "Hiçbiri yanmaz"
+   ],
+   "a": 1,
+   "e": "Gaz hâlindeki etan oksijenle daha kolay karışır ve çarpışır."
+  }
+ ]
+}

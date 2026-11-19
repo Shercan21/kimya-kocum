@@ -1,0 +1,456 @@
+{
+ "ad": "hiz_yuzey",
+ "baslik": "Temas Yüzeyi ve Tepkime Hızı",
+ "alt": "11. sınıf · 1.2.3 Tepkime Hızına Etki Eden Faktörler · Etkinlik 1.17",
+ "amac": "",
+ "sonuc": "Toz Mg en hızlı, bütün şerit en yavaş tepkime verdi: temas yüzeyi arttıkça tepkime hızı artar.",
+ "W": 400,
+ "malzemeler": [
+  "0,5 M HCl",
+  "Magnezyum şerit",
+  "3 adet 250 mL beherglas",
+  "Dereceli silindir",
+  "Manyetik karıştırıcı",
+  "Kronometre",
+  "Hassas terazi",
+  "Makas",
+  "Maşa",
+  "Saf su"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "☣ HCl aşındırıcıdır",
+  "✂ Makası dikkatli kullan"
+ ],
+ "aletler": [
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k1",
+     90,
+     330,
+     "bütün şerit",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     200,
+     330,
+     "küçük parçalar",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k5",
+     310,
+     330,
+     "toz",
+     9.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     90,
+     520,
+     96,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     200,
+     520,
+     96,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "beaker",
+    "args": [
+     310,
+     520,
+     96,
+     110,
+     250,
+     ""
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "stopwatch",
+    "args": [
+     200,
+     70
+    ],
+    "gorunur": 1
+   },
+   "bas": [
+    {
+     "ad": "set",
+     "arg": [
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Hipotez ve değişkenler",
+   "aciklama": "Hipotez: “Temas yüzeyi arttıkça Mg ile HCl arasındaki tepkime hızlanır.” Bağımsız: yüzey · Bağımlı: süre · Kontrol: kütle, derişim, hacim, karıştırma.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.52
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Beherlere HCl koy",
+   "aciklama": "Üç behere 100’er mL 0,5 M HCl koy; manyetik karıştırıcıyı aynı hızda çalıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.75,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.73,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 0.75
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "set",
+     "arg": [
+      150,
+      "rgba(196,226,255,.82)"
+     ],
+     "sure": 0.76,
+     "ilk": [
+      0,
+      "rgba(196,226,255,.82)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.48
+    }
+   ]
+  },
+  {
+   "baslik": "Mg’yi hazırla",
+   "aciklama": "Terazide 0,1’er g Mg tart: birini bütün bırak, birini makasla küçük parçalara kes, birini toz hâline getir.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.06
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Mg’leri ekle",
+   "aciklama": "Üç örneği beherlere aynı anda ekle, kronometreyi başlat.",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      0.35
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Gaz çıkışını izle",
+   "aciklama": "Toz Mg birkaç saniyede tükendi; parçalar daha uzun, bütün şerit en uzun sürede tükendi.",
+   "islemler": [
+    {
+     "tip": "olustur",
+     "id": "k8",
+     "ad": "pieces",
+     "arg": [
+      "@k1",
+      2,
+      "#e5e7eb",
+      "folyo"
+     ],
+     "gorunur": 1,
+     "birlikte": false
+    },
+    {
+     "tip": "olustur",
+     "id": "k9",
+     "ad": "pieces",
+     "arg": [
+      "@k3",
+      6,
+      "#e5e7eb",
+      "parca"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "olustur",
+     "id": "k10",
+     "ad": "pieces",
+     "arg": [
+      "@k5",
+      36,
+      "#e5e7eb",
+      "toz"
+     ],
+     "gorunur": 1,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k7",
+     "ad": "set",
+     "arg": [
+      60
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0.213
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k8",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0.32
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0.88
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k10",
+     "ad": "shrink",
+     "arg": [
+      1.05
+     ],
+     "sure": 9.05,
+     "ilk": [
+      0
+     ],
+     "birlikte": true
+    }
+   ]
+  },
+  {
+   "baslik": "Sonuç",
+   "aciklama": "Katı küçük parçalara ayrıldıkça yüzeyi artar; asitle temas eden tanecik ve çarpışma sayısı artar, tepkime hızlanır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k1",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k5",
+     "ad": "bubbles",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true
+    }
+   ]
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Toz hâlindeki Mg’nin daha hızlı tepkimesinin nedeni nedir?",
+   "o": [
+    "Kütlesi fazladır",
+    "Yüzey alanı büyüktür",
+    "Sıcaklığı yüksektir",
+    "Ea’sı yüksektir"
+   ],
+   "a": 1,
+   "e": "Daha geniş yüzey, daha çok çarpışma demektir."
+  },
+  {
+   "q": "Odunu tutuşturmak için neden çıra kullanılır?",
+   "o": [
+    "Yüzeyi büyük olduğu için hızlı yanar",
+    "Ağır olduğu için",
+    "Islak olduğu için",
+    "Renkli olduğu için"
+   ],
+   "a": 0,
+   "e": "İnce parçaların hava ile temas yüzeyi büyüktür."
+  }
+ ]
+}

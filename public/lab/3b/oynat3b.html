@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sanal Lab 3B</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Kaynak: #yerel (Deney Atölyesi önizleme) · #gomulu (Kimya Koçum sitesi, postMessage) · #<ad> (deneyler/<ad>.json)
+const kok = /\/lab\/3b\//.test(location.pathname) ? '../' : 'lab2b/';
+for (const f of ['labkit.js', 'aletler.js', 'deneyoynatici.js']) await new Promise((ok, h) => { const s = document.createElement('script'); s.src = kok + f; s.onload = ok; s.onerror = h; document.head.append(s); });
+const { Lab3B } = await import('./sayfa3b.js');
+const { deneyKur, sahneAyari } = await import('./oynatici3b.js');
+const hs = location.hash.slice(1).split('&')[0];
+let D;
+if (hs === 'yerel') { try { D = JSON.parse(localStorage.getItem('kimya-deney-3b') || 'null'); } catch { } if (!D) { document.body.innerHTML = '<p style="font:16px Nunito,system-ui;padding:24px">Önizlenecek deney bulunamadı. Deney Atölyesi’nde “🧊 3B önizle”ye bas.</p>'; throw 0; } }
+else if (hs === 'gomulu') { D = await new Promise(ok => { addEventListener('message', e => { if (e.origin === location.origin && e.source === parent && e.data && e.data.tip === 'kimya-lab-deney' && e.data.deney) ok(e.data.deney); }); parent.postMessage({ tip: 'kimya-lab-hazir' }, location.origin); }); }
+else { const ad = (hs || 'notrallesme').replace(/[^a-z0-9_]/gi, ''); D = await (await fetch('deneyler/' + ad + '.json')).json(); }
+Lab3B({ ad: D.ad || 'deney', baslik: D.baslik || 'Deney', alt: D.alt || '', malzemeler: D.malzemeler || [], guvenlik: D.guvenlik || [],
+  adimlar: (D.adimlar || []).map(a => [a.baslik || 'Adım', a.aciklama || '']), sonuc: D.sonuc, sahne: sahneAyari(D),
+  async sifirla() { LK.T.abort = true; LK.T.paused = false; await new Promise(r => setTimeout(r, 80)); },
+  kur(K) { return deneyKur(K, D).M; },
+  calistir(K, M, P) { return DO.oynat(M, D, { adim: i => P.adim(i), sonra: () => LK.sleep(450) }); },
+  kendin: { hedefler(M, i) { const L = (D.adimlar[i] || {}).islemler || []; const id = I => String(I.hedef || '').split('.')[0]; const gr = I => { const o = M[id(I)]; return o && o.g && o.g.grup; };
+      let h = L.filter(I => I.tip === 'yontem' && I.ad !== '__op' && I.ad !== '__html').map(gr).filter(g => g && g.visible); if (!h.length) h = L.filter(I => I.tip === 'yontem').map(gr).filter(g => g && g.visible); return [...new Set(h)]; },
+    adim(M, i) { return DO.adim(M, D.adimlar[i]); } } });
+if (hs !== 'gomulu' && hs !== 'yerel') addEventListener('hashchange', () => location.reload());
+</script></body></html>

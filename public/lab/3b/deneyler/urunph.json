@@ -1,0 +1,1178 @@
+{
+ "ad": "urunph",
+ "baslik": "Asidik ve Bazik Ürünlerin Seçimi",
+ "alt": "11. sınıf · 2.2.7 Asidik ve Bazik Ürünlerin Seçiminde Dikkat Edilecek Hususlar · Mide, ağız, diş ve cilt sağlığı için ürün seçimi",
+ "amac": "",
+ "sonuc": "Ürün seçiminde ölçüt: ürünün pH’ı ile kullanılacağı bölgenin pH’ı ve ürünün amacı. Diş için asidi nötralleştiren bazik macun, yüz cildi için pH ≈ 5,5 temizleyici uygundur.",
+ "W": 400,
+ "malzemeler": [
+  "2 farklı diş macunu",
+  "Gargara",
+  "Antiasit tablet",
+  "Kalıp sabun",
+  "Cilt temizleyici",
+  "Tükürük örneği",
+  "Deney tüpleri",
+  "pH kâğıdı / pH metre",
+  "Saf su",
+  "Baget",
+  "Etiket"
+ ],
+ "guvenlik": [
+  "⚠ Koruyucu gözlük",
+  "🧤 Eldiven",
+  "👅 Ürünlerin tadına bakma",
+  "👁 Göz temasından kaçın"
+ ],
+ "aletler": [
+  {
+   "id": "k4",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     46,
+     357,
+     "Diş mac.",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k5",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k3",
+     46,
+     366,
+     "A",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k7",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     96,
+     357,
+     "Diş mac.",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k8",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k6",
+     96,
+     366,
+     "B",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k10",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k9",
+     146,
+     361,
+     "Gargara",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k12",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k11",
+     196,
+     361,
+     "Antiasit",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k14",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k13",
+     246,
+     357,
+     "Kalıp",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k15",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k13",
+     246,
+     366,
+     "sabun",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k17",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k16",
+     296,
+     357,
+     "Cilt",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k18",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k16",
+     296,
+     366,
+     "temiz.",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k20",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k19",
+     346,
+     357,
+     "Tükürük",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k21",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "txt",
+    "args": [
+     "@k19",
+     346,
+     366,
+     "sabah",
+     7.5,
+     null
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k1",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "rack",
+    "args": [
+     18,
+     374,
+     440
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k2",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phScale",
+    "args": [
+     20,
+     40,
+     360
+    ],
+    "gorunur": 1
+   },
+   "bas": []
+  },
+  {
+   "id": "k3",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     46,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k6",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     96,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k9",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     146,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k11",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     196,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k13",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     246,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k16",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     296,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k19",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "tube",
+    "args": [
+     346,
+     500,
+     130,
+     20,
+     ""
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  },
+  {
+   "id": "k22",
+   "tur": "kit",
+   "x": 0,
+   "y": 0,
+   "o": {
+    "f": "phStrip",
+    "args": [
+     200,
+     250
+    ],
+    "gorunur": 0
+   },
+   "bas": []
+  }
+ ],
+ "adimlar": [
+  {
+   "baslik": "Araştırma sorusu",
+   "aciklama": "Araştırma sorumuz: “En bazik diş macunu gece boyunca dişleri daha iyi korur mu?” ve “Cilt için hangi temizleyici uygundur?”",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      1.35
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Ürünleri hazırla",
+   "aciklama": "Her ürün için ayrı etiketli tüp kullan. Katı ürünleri (diş macunları, antiasit, sabun) 3–4 damla saf suyla karıştır.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.2,
+     "ilk": [
+      0
+     ],
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.2
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.21,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.46
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.68
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.27,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 0.94
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.26,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.46
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.69,
+     "ilk": [
+      0,
+      "rgba(240,248,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.72
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k3",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(240,248,255,.95)"
+     ],
+     "sure": 0.35,
+     "ilk": [
+      0,
+      "rgba(240,248,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 1.72
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.65,
+     "ilk": [
+      0,
+      "rgba(220,240,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.41
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k6",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(220,240,255,.95)"
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0,
+      "rgba(220,240,255,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 2.41
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k9",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(120,200,190,.8)"
+     ],
+     "sure": 0.47,
+     "ilk": [
+      0,
+      "rgba(120,200,190,.8)"
+     ],
+     "birlikte": true,
+     "gecikme": 3.06
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.67,
+     "ilk": [
+      0,
+      "rgba(245,245,245,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 3.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k11",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(245,245,245,.95)"
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0,
+      "rgba(245,245,245,.95)"
+     ],
+     "birlikte": true,
+     "gecikme": 3.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "set",
+     "arg": [
+      2.4,
+      "rgba(230,240,252,.85)"
+     ],
+     "sure": 0.66,
+     "ilk": [
+      0,
+      "rgba(250,226,180,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k13",
+     "ad": "ppt",
+     "arg": [
+      0.9,
+      "rgba(250,226,180,.85)"
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0,
+      "rgba(250,226,180,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k16",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(250,220,235,.85)"
+     ],
+     "sure": 0.47,
+     "ilk": [
+      0,
+      "rgba(250,220,235,.85)"
+     ],
+     "birlikte": true,
+     "gecikme": 4.87
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k19",
+     "ad": "set",
+     "arg": [
+      3,
+      "rgba(235,240,245,.7)"
+     ],
+     "sure": 0.47,
+     "ilk": [
+      0,
+      "rgba(235,240,245,.7)"
+     ],
+     "birlikte": true,
+     "gecikme": 5.34
+    }
+   ]
+  },
+  {
+   "baslik": "pH’ları ölç",
+   "aciklama": "pH kâğıdını sırayla her tüpe daldır, renk skalasıyla karşılaştır ve pH değerini kaydet.",
+   "islemler": [
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": false
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0,
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      46,
+      347.6
+     ],
+     "sure": 1.53,
+     "ilk": [
+      46,
+      250
+     ],
+     "birlikte": true
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(60,160,90)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 1.0
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.34,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 1.93
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 2.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      96,
+      347.6
+     ],
+     "sure": 1.54,
+     "ilk": [
+      96,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 2.26
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(44,112,162)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 3.27
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 4.21
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 4.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      146,
+      344
+     ],
+     "sure": 1.6,
+     "ilk": [
+      146,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 4.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(232,214,58)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 5.6
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.36,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 6.54
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 6.9
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      196,
+      347.6
+     ],
+     "sure": 1.57,
+     "ilk": [
+      196,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 6.9
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(41,103,176)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 7.95
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.33,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 8.86
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 9.2
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      246,
+      347.6
+     ],
+     "sure": 1.56,
+     "ilk": [
+      246,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 9.2
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(43,95,177)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 10.24
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.32,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 11.15
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 11.47
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      296,
+      344
+     ],
+     "sure": 1.56,
+     "ilk": [
+      296,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 11.47
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(234,205,55)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 12.51
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      1
+     ],
+     "sure": 0.32,
+     "ilk": [
+      0
+     ],
+     "birlikte": true,
+     "gecikme": 13.42
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "#f2e29b"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 13.74
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "to",
+     "arg": [
+      346,
+      344
+     ],
+     "sure": 1.58,
+     "ilk": [
+      346,
+      250
+     ],
+     "birlikte": true,
+     "gecikme": 13.74
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "color",
+     "arg": [
+      "rgb(208,214,62)"
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 14.79
+    },
+    {
+     "tip": "yontem",
+     "hedef": "k22",
+     "ad": "__op",
+     "arg": [
+      0
+     ],
+     "sure": 0,
+     "birlikte": true,
+     "gecikme": 15.72
+    }
+   ]
+  },
+  {
+   "baslik": "Ağız ve cilt ile karşılaştır",
+   "aciklama": "Sabah ağız içi hafif asidiktir (pH ≈ 6); gün içinde ≈ 7 olur. Sağlıklı cilt yüzeyi hafif asidiktir (pH ≈ 5,5).",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.16
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Ölçütleri belirle",
+   "aciklama": "Ölçütler: ürünün pH’ı, kullanılacağı bölgenin pH’ı ve ürünün amacı (asidi nötralleştirmek mi, korumak mı?).",
+   "islemler": [
+    {
+     "tip": "bekle",
+     "arg": [
+      2.11
+     ],
+     "sure": 0
+    }
+   ]
+  },
+  {
+   "baslik": "Seçimi yap ve gerekçelendir",
+   "aciklama": "Sabah asidik ağız için daha bazik diş macunu (B) asidi nötralleştirir; çok bazik ürünler (kalıp sabun) yüz cildinin asidik koruyucu tabakasını bozar, yüz için pH ≈ 5,5 temizleyici seçilir.",
+   "islemler": []
+  }
+ ],
+ "kaynak": "hazir_lab",
+ "not": "Hazır labdan çevrildi (orijinali yerinde duruyor). Çevrilmeyenler: Kendin dene modu, ölçüm kutuları, grafik.",
+ "sorular": [
+  {
+   "q": "Sabah ağız içi pH’ı yaklaşık kaçtır ve hangi diş macunu daha uygundur?",
+   "o": [
+    "pH ≈ 9; asidik macun",
+    "pH ≈ 6 (hafif asidik); bazik macun asidi nötralleştirir",
+    "pH ≈ 2; sabun",
+    "pH ≈ 7; hiçbir macun gerekmez"
+   ],
+   "a": 1,
+   "e": "Gece tükürük salgısı azalır, bakteriler asit üretir; sabah ağız hafif asidiktir."
+  },
+  {
+   "q": "Yüz cildi için neden pH ≈ 5,5 olan temizleyici önerilir?",
+   "o": [
+    "Cilt yüzeyi hafif asidik olduğu için",
+    "Cilt bazik olduğu için",
+    "Daha çok köpürdüğü için",
+    "Ucuz olduğu için"
+   ],
+   "a": 0,
+   "e": "Cildin asit örtüsü (pH ≈ 5,5) mikroplara karşı korur; çok bazik ürünler bu tabakayı bozar."
+  },
+  {
+   "q": "Antiasit tabletlerin çalışma ilkesi nedir?",
+   "o": [
+    "Mideyi daha asidik yapar",
+    "Mide asidini nötralleştirir",
+    "Mideyi soğutur",
+    "Asidi buharlaştırır"
+   ],
+   "a": 1,
+   "e": "Antiasitler bazik maddelerdir (ör. Mg(OH)₂, CaCO₃); HCl ile nötralleşme tepkimesi verir."
+  },
+  {
+   "q": "Bir ürünü seçerken hangisi ölçüt OLAMAZ?",
+   "o": [
+    "Ürünün pH’ı",
+    "Kullanılacağı bölgenin pH’ı",
+    "Ürünün amacı",
+    "Ambalajının rengi"
+   ],
+   "a": 3,
+   "e": "Seçim ölçütleri kimyasal özellik ve sağlıkla ilgilidir; ambalaj rengi ölçüt değildir."
+  }
+ ]
+}
