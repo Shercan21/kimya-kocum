@@ -3,7 +3,7 @@
 // /assets/ dosyaları: önce önbellek (adları içerik özetli, değişmez).
 // Yeni sürüm yayımlarken CACHE adını değiştirmek eski önbelleği temizler.
 
-const CACHE = 'kimya-kocum-domain-20261113-v14-video'
+const CACHE = 'kimya-kocum-domain-20261124-v15-logo'
 // Yollar service worker'ın bulunduğu klasöre göre çözülür; böylece uygulama
 // hem alan adının kökünde hem de /kimya-kocum/ gibi bir alt yolda çalışır.
 const BASE = new URL('./', self.location).pathname
@@ -15,6 +15,7 @@ const APP_SHELL = [
   BASE + 'icon.svg',
   BASE + 'icon-192.png',
   BASE + 'icon-512.png',
+  BASE + 'shercan-logo.png',
 ]
 
 self.addEventListener('install', event => {

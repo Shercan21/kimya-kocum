@@ -2670,3 +2670,16 @@ select.is-bad, input.is-bad { border-color: var(--coral-600) !important; }
 .dk-secenek.is-pasif { opacity: .55; }
 .dk-aciklama { font-size: 13px; color: #3b3a4a; background: #fff; border-radius: 8px; padding: 6px 8px; margin-top: 6px !important; }
 .dk-sonuc { margin: 6px 0 0; font-weight: 600; }
+
+/* SHERCAN logosu: kenar menüde Kimya Koçum adının yanında; telefonda sayfanın üstünde */
+.brand-shercan { height: 38px; width: auto; margin-left: auto; display: block; flex: none; }
+.brand .label { white-space: nowrap; }
+.mobil-marka { display: none; }
+@media (max-width: 1100px) {
+  .brand { flex-direction: column; gap: 6px; }
+  .brand-shercan { height: 34px; margin-left: 0; }
+}
+@media (max-width: 720px) {
+  .mobil-marka { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; margin: -4px 0 10px; position: relative; z-index: 2; }
+  .mobil-shercan { height: 34px; width: auto; margin-left: 4px; }
+}

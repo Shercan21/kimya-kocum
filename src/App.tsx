@@ -361,6 +361,7 @@ function App() {
         <div className="brand">
           <img className="brand-logo" src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={36} height={36} />
           <span className="label">Kimya Koçum</span>
+          <img className="brand-shercan" src={`${import.meta.env.BASE_URL}shercan-logo.png`} alt="SHERCAN" />
         </div>
 
         <nav className="side-nav">
@@ -394,6 +395,11 @@ function App() {
       </aside>
 
       <main className="main">
+        <div className="mobil-marka" aria-hidden="true">
+          <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={28} height={28} />
+          <span>Kimya Koçum</span>
+          <img className="mobil-shercan" src={`${import.meta.env.BASE_URL}shercan-logo.png`} alt="" />
+        </div>
         <Suspense fallback={<p className="muted page-loading">Yükleniyor…</p>}>
         {previewing && onizleme && (
           <div className="preview-banner" role="status">
