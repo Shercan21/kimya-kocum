@@ -69,3 +69,4 @@
 .video-tahta-panel .btn-secondary { justify-self: start; min-height: 36px; }
 @media (max-width: 560px) { .video-canli-time { display: none; } }
 .video-tahta-satir .chip { padding: 6px 12px; font-size: 13px; }
+.cozum-video { display: grid; gap: 8px; margin: 10px 0; } .cozum-video .btn-secondary { justify-self: start; }

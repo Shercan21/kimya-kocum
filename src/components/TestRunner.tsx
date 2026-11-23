@@ -4,7 +4,8 @@ import { tamGorselSoru, soruGorunumHtml } from '../data/questionDisplay'
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import { useBackStep } from '../data/backNav'
-import { icerikHtml, testDosyasi, testKazanimi, type Soru, type TestDosyasi } from '../data/content'
+import { cozumAnahtari, cozumVideosu, icerikHtml, testDosyasi, testKazanimi, type Soru, type TestDosyasi } from '../data/content'
+import VideoLesson from './VideoLesson'
 import { basari, GECME_ORANI, sonucKaydet, type TestSonucu } from '../data/results'
 import {
   hataKaydiKey,
@@ -58,6 +59,7 @@ function TestAttempt({ grade, testId, testIndex, konuKod, konuBaslik, baslik, on
   const [onay, setOnay] = useState(false)
   const hatalar = useHataDefteri()
   const [cikisSor, setCikisSor] = useState(false)
+  const [acikVideo, setAcikVideo] = useState<number | null>(null)
 
   useEffect(() => {
     if (sonuc) return
@@ -256,6 +258,20 @@ function TestAttempt({ grade, testId, testIndex, konuKod, konuBaslik, baslik, on
                       ))}
                     </div>
                   </div>
+                )
+              })()}
+              {(() => {
+                const cv = cozumVideosu(grade, cozumAnahtari(item.id, testId, test?.seviye, testIndex, order[i]))
+                if (!cv) return null
+                return acikVideo === i ? (
+                  <div className="cozum-video">
+                    <VideoLesson video={cv} />
+                    <button type="button" className="btn-secondary" onClick={() => setAcikVideo(null)}>Videoyu kapat</button>
+                  </div>
+                ) : (
+                  <button type="button" className="video-watch-button" onClick={() => setAcikVideo(i)}>
+                    <Icon name="play" size={14} /> Çözüm videosunu izle
+                  </button>
                 )
               })()}
               {item.c && (

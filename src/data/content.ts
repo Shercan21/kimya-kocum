@@ -39,6 +39,15 @@ export type Konu = {
   anlatim: boolean
   etkinlik: number
   video?: DersVideosu
+  cozumler?: CozumVideosu[]
+}
+
+// Ders Video Atölyesi › Çözüm Atölyesi'nde hazırlanan soru çözüm videosu.
+// `anahtar` sorunun kimliğidir: soru id'si ya da "<test>_<seviye>_<sıra>".
+export type CozumVideosu = {
+  anahtar: string
+  soru?: { test?: string; seviye?: string; no?: number; ozet?: string }
+  video: DersVideosu
 }
 
 export type Bolum = {
@@ -88,8 +97,18 @@ function altyazilariEsle(data: Record<string, SinifMufredat>) {
     for (const tema of sinif.temalar ?? []) {
       for (const bolum of tema.bolumler ?? []) {
         for (const konu of bolum.konular ?? []) {
-          if (!konu.video || konu.video.subtitles?.length || !konu.video.altyazi?.length) continue
-          const subtitles = konu.video.altyazi.flatMap(track => {
+          if (konu.video) konu.video = videoAltyazisiEsle(konu.video)
+          for (const c of konu.cozumler ?? []) if (c?.video) c.video = videoAltyazisiEsle(c.video)
+        }
+      }
+    }
+  }
+  return data
+}
+
+function videoAltyazisiEsle(video: DersVideosu): DersVideosu {
+          if (video.subtitles?.length || !video.altyazi?.length) return video
+          const subtitles = video.altyazi.flatMap(track => {
             const source = track.url || track.src
             if (!source) return []
             const lang = track.lang || track.dil || 'tr'
@@ -103,12 +122,21 @@ function altyazilariEsle(data: Record<string, SinifMufredat>) {
               url: /^https?:\/\//i.test(correctedSource) ? correctedSource : publishedContentUrl(correctedSource),
             }]
           })
-          if (subtitles.length) konu.video = { ...konu.video, subtitles }
-        }
-      }
-    }
+          return subtitles.length ? { ...video, subtitles } : video
+}
+
+// Testteki bir sorunun çözüm videosu anahtarı (atölyedeki ile aynı kural).
+export function cozumAnahtari(soruId: string | undefined, testId: string, seviye: string | null | undefined, testIndex: number, kaynakSira: number): string {
+  const ham = soruId || `${testId}_${seviye || testIndex}_${kaynakSira + 1}`
+  return ham.normalize('NFKD').replace(/[^\x00-\x7f]/g, '').replace(/[^A-Za-z0-9_.-]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 80)
+}
+
+export function cozumVideosu(grade: number, anahtar: string): DersVideosu | null {
+  for (const { konu } of tumKonular(grade)) {
+    const c = (konu.cozumler ?? []).find(x => x?.anahtar === anahtar && x.video?.src)
+    if (c) return c.video
   }
-  return data
+  return null
 }
 
 export async function loadPublishedCurriculum() {
