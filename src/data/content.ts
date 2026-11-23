@@ -24,6 +24,7 @@ export type DersVideosu = {
   subtitles?: VideoAltyazisi[]
   altyazi?: EskiVideoAltyazisi[]
   guncel?: string
+  canli?: import('../components/canliBoya').CanliVeri
 }
 
 export type Konu = {
