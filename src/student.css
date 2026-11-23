@@ -22,3 +22,9 @@
 .lab-gorunum{display:inline-flex;gap:4px;background:#e4e8f1;border-radius:12px;padding:4px;margin:4px 0 10px}
 .lab-gorunum button{border:0;background:none;padding:7px 12px;border-radius:9px;font-weight:800;font-size:13px;color:#5b6476;cursor:pointer}
 .lab-gorunum button.on{background:#fff;color:#1d2433;box-shadow:0 1px 4px #0002}
+
+/* Sınava hazırlık föyleri (panelden yüklenen PDF'ler) */
+.yfoyler{margin:10px 0 14px;padding:10px 12px;border:1px solid rgba(148,163,184,.45);border-radius:12px}
+.yfoyler ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.yfoyler li{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.yfoyler li a{white-space:nowrap;text-decoration:none}

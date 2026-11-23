@@ -259,14 +259,25 @@ export type YaziliSinav = {
   tarih?: string
   pdfAvailable?: boolean
 }
+export type YaziliFoy = { id: string; baslik: string; aciklama?: string; pdf: string; boyut?: number; aktif?: boolean }
 export type YaziliDosyasi = {
+  acik?: boolean
+  kapaliMesaj?: string
+  foyler?: YaziliFoy[]
   sinavlar: YaziliSinav[]
   tumu: { donem: number; yazili: number }[]
   kazanimlar: Record<string, string>
 }
 
 export function yazililar(grade: number) {
-  return load<YaziliDosyasi>(`${grade}/yazili.json`, 'json').then(d => ({ ...d, sinavlar: d.sinavlar.filter(s => s.aktif !== false) }))
+  // Panelde "Yazılıya hazırlık" kapatılınca senaryolar ve föyler gizlenir; yalnız kapalı mesajı görünür.
+  return load<YaziliDosyasi>(`${grade}/yazili.json`, 'json').then(d => d.acik === false
+    ? { ...d, sinavlar: [], foyler: [] }
+    : { ...d, sinavlar: d.sinavlar.filter(s => s.aktif !== false), foyler: (d.foyler ?? []).filter(f => f.aktif !== false && /^pdf\/[\w/-]+\.pdf$/.test(f.pdf)) })
+}
+
+export function foyAdresi(foy: YaziliFoy) {
+  return icerikYolu(foy.pdf)
 }
 
 export function yaziliPdfAdi(grade: number, sinav: YaziliSinav) {

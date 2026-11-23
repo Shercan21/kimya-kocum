@@ -2,6 +2,7 @@ import ExamPractice from './ExamPractice'
 import { useEffect, useState } from 'react'
 import Icon from './Icon'
 import {
+  foyAdresi,
   icerikHtml,
   yazililar,
   type YaziliDosyasi,
@@ -93,8 +94,30 @@ export default function WrittenExams({ grades }: Props) {
 
       {file === undefined && <p className="muted">Yükleniyor…</p>}
       {file === null && <p className="muted">Bu sınıfın yazılı sınavları henüz eklenmedi.</p>}
-      {file && !secili && (
+      {file && file.acik === false && (
+        <p className="muted">{file.kapaliMesaj || 'Yazılıya hazırlık sınav dönemlerinde açılır.'}</p>
+      )}
+      {file && file.acik !== false && !secili && !(file.foyler ?? []).length && (
         <p className="muted">Yazılı sınavları sınav zamanı yaklaşınca burada açılacak.</p>
+      )}
+
+      {file && (file.foyler ?? []).length > 0 && (
+        <div className="yfoyler">
+          <b>Sınava hazırlık föyleri</b>
+          <ul>
+            {(file.foyler ?? []).map(foy => (
+              <li key={foy.id}>
+                <span>
+                  {foy.baslik}
+                  {foy.aciklama && <small className="muted"> · {foy.aciklama}</small>}
+                </span>
+                <a className="btn-secondary" href={foyAdresi(foy)} target="_blank" rel="noopener" download={`${foy.baslik}.pdf`}>
+                  PDF indir
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {file && secili && (
