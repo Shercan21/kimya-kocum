@@ -2,7 +2,8 @@ import { tamGorselSoru, soruGorunumHtml } from '../data/questionDisplay'
 import { useEffect, useState } from 'react'
 import { useBackStep } from '../data/backNav'
 import Icon from './Icon'
-import { icerikHtml, konuBul, testDosyasi, type Soru } from '../data/content'
+import { cozumAnahtari, cozumVideosu, icerikHtml, konuBul, testDosyasi, type Soru } from '../data/content'
+import VideoLesson from './VideoLesson'
 import {
   kaydiSil,
   NEDEN_AD,
@@ -36,6 +37,18 @@ function Practice({ keys, onDone }: { keys: string[]; onDone: () => void }) {
   const [secim, setSecim] = useState<number | null>(null)
   const [skor, setSkor] = useState({ dogru: 0, yanlis: 0 })
   const kayit = hatalar.find(item => item.key === keys[index])
+  const [seviye, setSeviye] = useState<string | null>(null)
+  const [videoAcik, setVideoAcik] = useState(false)
+
+  useEffect(() => {
+    let active = true
+    setSeviye(null); setVideoAcik(false)
+    if (!kayit) return
+    testDosyasi(kayit.grade, kayit.testId).then(d => { if (active) setSeviye(d.testler[kayit.testIndex]?.seviye ?? null) }).catch(() => undefined)
+    return () => { active = false }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [keys[index]])
+  const cozumV = soru && kayit ? cozumVideosu(kayit.grade, cozumAnahtari(soru.id, kayit.testId, seviye, kayit.testIndex, kayit.soruIndex)) : null
 
   useEffect(() => {
     let active = true
@@ -140,6 +153,11 @@ function Practice({ keys, onDone }: { keys: string[]; onDone: () => void }) {
                   <Html html={soru.c} />
                 </details>
               )}
+              {cozumV && (videoAcik ? (
+                <div className="cozum-video"><VideoLesson video={cozumV} /></div>
+              ) : (
+                <button type="button" className="video-watch-button" onClick={() => setVideoAcik(true)}>▶ Çözüm videosunu izle</button>
+              ))}
               <div className="test-nav">
                 <span />
                 <button type="button" className="primary-button" onClick={sonraki}>
